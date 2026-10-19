@@ -19,15 +19,15 @@ Chats and weekly tasks download scripts from here in one step, instead of readin
 Script names are kept exactly as the project instructions refer to them.
 
 ## Getting the scripts
-Download one fixed, tagged version, so the code can't change under a chat:
+Download one fixed version, named by its commit, so the code can't change under a chat:
 
 ```
-curl -sL https://github.com/jglicht-hue/witch-coven/archive/refs/tags/<TAG>.tar.gz | tar xz
+curl -sL https://github.com/jglicht-hue/witch-coven/archive/<COMMIT>.tar.gz | tar xz
 ```
 
-The folder it makes is `witch-coven-<TAG>/`. Each project's instructions name the tag to use.
+The folder it makes is `witch-coven-<COMMIT>/`. Each project's instructions name the commit to use; `VERSIONS.md` lists them.
 
 ## Changing a script
-Fix it here, not in a project document. Each change gets a new tag, and each project moves to it when its instructions are updated.
+Fix it here, not in a project document. Each change makes a new commit; add it to `VERSIONS.md`, and each project moves to it when its instructions are updated.
 
 `CHECKS.md` records how each script was checked against the project copies.
