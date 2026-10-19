@@ -19,7 +19,16 @@ Chats and weekly tasks download scripts from here in one step, instead of readin
 Script names are kept exactly as the project instructions refer to them.
 
 ## Getting the scripts
-Download one fixed version, named by its commit, so the code can't change under a chat:
+Always fetch one fixed version, named by its commit, so the code can't change under a chat.
+
+**In project chats,** download single files (the zip download below is blocked there; `raw.githubusercontent.com` is not):
+
+```
+B=https://raw.githubusercontent.com/jglicht-hue/witch-coven/<COMMIT>
+curl -fsSL --create-dirs -o coven/<path> $B/<path>
+```
+
+**In scheduled tasks,** the whole repo can come down in one step:
 
 ```
 curl -sL https://github.com/jglicht-hue/witch-coven/archive/<COMMIT>.tar.gz | tar xz

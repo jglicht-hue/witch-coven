@@ -78,7 +78,7 @@ Read this before the first live pull in a chat (anything beyond the cached docs)
   downs per route): run `per_route.py`. The script, its failure table and its limits
   are in the project doc `claude/per_route_guide.md`.
   - Setup: the script is in the coven repo (see "Start of every chat" in the
-    instructions): `witch-coven-<commit>/matchup/per_route.py`. The repo copy was
+    instructions): `coven/matchup/per_route.py`. The repo copy was
     checked against the guide's copy check (`36e64eeb64db`) and the Tre Harris line
     (2025: 294 routes, TPRR 0.146, YPRR 1.10, first downs per route 0.061) on
     Oct 19, 2026; no need to rerun them. If the repo can't be downloaded, read the
@@ -123,7 +123,7 @@ Read this before the first live pull in a chat (anything beyond the cached docs)
     `v1_witch_dpi.py` reads the intended receiver from the play description and
     matches jersey number and team to the nflverse roster.
   - Setup: both scripts are in the coven repo:
-    `witch-coven-<commit>/shared/v1_witch_dpi.py` and `.../shared/v1_witch_redzone.py`.
+    `coven/shared/v1_witch_dpi.py` and `coven/shared/v1_witch_redzone.py`.
     The repo copies were checked against the doc's copy checks (`bfed932eaf16`,
     `e88be7e229b5`) and its settled lines (Tre Harris: 2 DPIs for 54 yards in Weeks
     1–2; Fannin Weeks 1–5 red-zone targets 0, 0, 2, 1, 0 vs team 1, 4, 4, 4, 2) on
