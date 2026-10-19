@@ -1,0 +1,422 @@
+# Volume model testing log — v3
+
+As of 2026-09-24. **What changed from v2:**
+- Decision rule set: a predictor is kept if it beats at least 95% of placebo shuffles.
+- The models are now trained and judged on pre-game top-16 kickers.
+- The models were selected one predictor at a time under that rule.
+- Final model script written (07).
+- The whole pipeline now runs identically on your machine and in the Claude workspace.
+
+This covers the volume side of the projection: how many XP attempts, and how many 0-39, 40-49 and 50+ yard FG attempts, a team gets in a game.
+
+## Where things stand
+
+The four models in `07_fit_volume_models.R`. Each one's error is checked on seasons it wasn't trained on (fit on two seasons, predict the third, rotate), on pre-game top-16 team-games (832 of 1,594):
+
+| Outcome | Predictors | Error (×1000): model / league average | Gain | Seasons better | Avg predicted / actual per game |
+|---|---|---|---|---|---|
+| XP attempts | Implied total; own red zone TD rate, own red zone trips, opponent red zone TD rate allowed; coach long-range FG rate | 904.1 / 1081.6 | +177.4 | 3/3 | 2.38 / 2.38 |
+| 0-39 FG attempts | Implied total + its square; opponent red zone TD rate allowed; dome × coach long-range FG rate | 1098.5 / 1111.7 | +13.2 | 3/3 | 0.95 / 0.95 |
+| 40-49 FG attempts | Dome × kicker 40-49 accuracy; kicker's share of FG attempts from 40-49 (full history); dome × coach long-range FG rate | 1027.0 / 1046.6 | +19.6 | 3/3 | 0.53 / 0.54 |
+| 50+ FG attempts | Dome; kicker 40+ accuracy; dome × kicker 50+ accuracy | 1040.5 / 1060.8 | +20.3 | 3/3 | 0.52 / 0.53 |
+
+"A × B" means both predictors plus their interaction (the effect of one depends on the other).
+- **Fit:** dispersion is 0.79 (XP), 0.92 (0-39), 1.02 (40-49) and 1.02 (50+). None is above 1.2, so plain Poisson is fine.
+- **Calibration:** predicted averages match actual.
+- **Typical miss:** the 0-39 model's average miss is slightly larger than the league average's (0.744 vs 0.730 attempts). Poisson models aim at the average count, and the typical miss rewards hitting the most common count, so the two can disagree. Error (deviance) is what the models are fit and judged on.
+
+**Pending your call:**
+1. **Kicker 40+ accuracy in the 50+ model fails your rule** once the models are trained and judged on the pre-game top 16. Adding it on top of dome + dome × 50+ accuracy makes held-out error worse by 3.5, and 73% of shuffles did at least as well. You adopted it on 2026-09-24 under the earlier all-kickers view, where it passed easily. It's still in 07 until you decide.
+2. **Three additions passed your rule only narrowly, and two have no clear explanation.** Their placebo shares were 0.028–0.038. With 500 shuffles each, those shares are themselves uncertain by about ±0.008, and about 1 in 20 useless predictors lands under 0.05. They're in 07 per the rule:
+   - Dome × coach long-range FG rate, in both the 0-39 and 40-49 models (0.032 each). No obvious reason why a coach's long-range habit would matter differently indoors.
+   - Kicker's share of FG attempts from 40-49, full history, in the 40-49 model (0.038). It helped nowhere in earlier views.
+   - Coach long-range FG rate in the XP model (0.028) has a sensible direction: coaches who kick from long range score fewer touchdowns, so fewer XPs.
+
+What the models predict, at a median offense (from `data/volume_model_profiles.csv`). Kicker profiles use matching percentiles of each accuracy measure:
+
+| Kicker | Venue | XP | 0-39 | 40-49 | 50+ | Total FG |
+|---|---|---|---|---|---|---|
+| Weak (10th pct) | Outdoors | 2.32 | 1.03 | 0.55 | 0.44 | 2.02 |
+| Weak (10th pct) | Dome | 2.32 | 0.91 | 0.41 | 0.48 | 1.80 |
+| Average (50th) | Outdoors | 2.32 | 1.03 | 0.48 | 0.46 | 1.98 |
+| Average (50th) | Dome | 2.32 | 0.91 | 0.63 | 0.66 | 2.20 |
+| Strong (75th) | Outdoors | 2.32 | 1.03 | 0.46 | 0.48 | 1.98 |
+| Strong (75th) | Dome | 2.32 | 0.91 | 0.73 | 0.74 | 2.38 |
+| Elite (95th) | Outdoors | 2.32 | 1.03 | 0.45 | 0.49 | 1.97 |
+| Elite (95th) | Dome | 2.32 | 0.91 | 0.83 | 0.85 | 2.59 |
+
+The pattern: outdoors, a kicker's accuracy barely changes how many long attempts he gets. Indoors, coaches send out a trusted kicker from 40+ much more often. An elite dome kicker is predicted to get about 1.7 attempts from 40+ per game, vs about 0.9 outdoors. That comparison rests on the training data's dome games with top kickers (294 pre-game top-16 dome team-games in total), so treat the elite-dome figures as the least certain in the table.
+
+## How the models were chosen
+
+**Decision rule (set 2026-09-24).** A predictor is kept if it beats at least 95% of placebo shuffles, judged and trained on pre-game top-16 team-games.
+- **Placebo test:** the predictor's values are shuffled among team-games within each season (same values, no real link to the outcome), and the model is refit. Repeated 300-500 times, this shows how big a "gain" a meaningless predictor produces. The share of shuffles that did at least as well as the real predictor is the placebo share; below 0.05 passes.
+- **Why not the formula-based noise estimate (z) from v1/v2:** it measured from zero and included uncertainty about effect size, so it was too strict (v2 explains this).
+
+**Pre-game top 16 (added 2026-09-24).**
+- **How it's picked:** each week, kickers are ranked by fantasy points per game over their earlier games (12-game half-life, shrunk toward the league average), and the top 16 are the pool you'd roster. It uses only what's known before kickoff.
+- **Why not the season-end top 16 used in v2:** that was picked using the season's own results, which peeks at the outcome. Kickers partly make it *by* getting lots of attempts, which biases any comparison built on it.
+- **How much the two differ:** 567 of the 832 pre-game top-16 team-games are also season-end top-16 team-games.
+
+**Selection, one predictor at a time (07c).**
+1. **Check the adopted models.** Test each term of the models adopted on 2026-09-23/24 by dropping it (report only).
+2. **Add predictors.** Starting from the adopted models, try every candidate and add the one with the lowest placebo share among those that pass (ties: larger gain). Retest the rest against the updated model, and stop when nothing passes. The full record is in Appendix A.
+
+Checks of the adopted models under the new rule:
+
+| Model | Term | Gain from the term | Seasons better | Placebo share | Passes |
+|---|---|---|---|---|---|
+| XP | Implied total | +168.6 | 3/3 | 0.000 | Yes |
+| 0-39 | Implied total squared | +3.5 | 2/3 | 0.038 | Yes |
+| 40-49 | Dome × kicker 40-49 accuracy | +12.8 | 2/3 | 0.000 | Yes |
+| 50+ | Kicker 40+ accuracy | -3.5 | 1/3 | 0.730 | **No** |
+| 50+ | Dome × kicker 50+ accuracy | +5.0 | 3/3 | 0.040 | Yes |
+
+(Main effects that are part of an interaction or squared term in the same model aren't tested on their own.)
+
+What was added:
+- **XP:** all three red zone measures together (0.014), then the coach long-range FG rate (0.028).
+- **0-39:** opponent red zone TD rate allowed (0.010; stingier red zone defenses force more short FGs), then dome × coach long-range FG rate (0.032).
+- **40-49:** kicker's full-history share of 40-49 attempts (0.038), then dome × coach long-range FG rate (0.032).
+- **50+:** nothing. The coach long-range FG rate came closest (0.058).
+
+**Multiple testing.** The selection ran a placebo test on 53 candidate additions. At a 0.05 bar, about 2-3 would pass by luck even if none were real. Nine tests passed; six of those candidates were added, and the other three overlapped with what was added. So most additions are probably real, but a couple of the narrow ones may not be (see "Pending your call").
+
+## The pipeline (replicable anywhere)
+
+All scripts read nflverse data through `00_nflverse_data.R`.
+- **What it does:** downloads the same release files `nflreadr` reads into `data/raw/` once, logs each download in `data/raw/download_log.csv`, and reuses them. `nflreadr` is no longer needed.
+- **Tested 2026-09-24:** a clean run from an empty folder in the Claude workspace reproduced your volume and accuracy tables value for value. The whole pipeline runs in about 20 seconds after the download.
+- **Row order:** 70 rows in 2025 weeks 14-18 (flexed games) come out in a different order than your nflreadr run, because the schedules file lists them differently. Values are identical, and nothing depends on row order.
+
+| Script | What it does |
+|---|---|
+| `run_all.R` | Runs everything below in order (experiments optional) |
+| `00_install_packages.R` | One-time install: dplyr, tidyr, readr, slider |
+| `00_nflverse_data.R` | Shared data loader |
+| `01`–`05` | Outcomes, team covariates (now incl. coach long-range FG rate, moved here from 07b), venue, odds, kicker accuracy |
+| `06_join_training_data.R` | Volume table (regular season) and accuracy table |
+| `06b_build_volume_features.R` | Per-range outcomes, kicker assignment, kicker accuracy/volume/share features, fantasy points, pre-game top 16 → `data/volume_model_table.csv`. Moved out of 07a so experiments and the final models share one copy |
+| `07_fit_volume_models.R` | The four models → `models/`, plus validation, coefficients and profiles |
+| `07a_volume_model_experiments.R` | Every comparison and placebo check so far (experiment only) |
+| `07c_select_volume_predictors.R` | The selection behind 07's formulas (experiment only) |
+
+## How to read the numbers
+
+- **Error:** mean Poisson deviance per held-out team-game, ×1000. Lower = better. Guessing the league average gives about 1,000–1,130, depending on the outcome.
+- **Gain:** the comparison model's error minus this model's error, on the same team-games. Positive = better.
+- **Seasons better:** each model is tested three times: trained on 2024–25 and scored on 2023, trained on 2023 and 2025 and scored on 2024, and trained on 2023–24 and scored on 2025. This counts how many of the three it beat its comparison model in. 3/3 means it won every time it saw new data. It's a consistency check only: with three tests, a model with no real edge can go 3/3 by chance.
+- **Placebo share:** described under "How the models were chosen". Below 0.05 passes.
+
+## Column keys
+
+**`volume_selection_steps.csv` (07c):**
+- **outcome, step, current_model:** the model being added to at this step.
+- **candidate, added_terms:** what was tried.
+- **gain, seasons_better:** pre-game top-16 view.
+- **placebo_p, placebo_95th:** the placebo share, and the 95th percentile of shuffled gains. Blank when the gain wasn't positive.
+- **passes, chosen:** whether it passed, and whether it was the one added.
+
+**`volume_selection_checks.csv` (07c):** each term of the adopted models, tested by dropping it: gain from the term, seasons better, placebo share, passes.
+
+**`volume_model_validation.csv` (07):** per outcome:
+- **error_final / error_league_average / gain / seasons_better:** held-out, pre-game top 16.
+- **mean_predicted / mean_actual:** calibration.
+- **mae_final / mae_league_average:** average absolute miss in attempts.
+
+**`volume_model_coefficients.csv` (07):** estimate, standard error and in-sample p-value per term.
+- **rate_ratio:** the multiplier on expected attempts per +1 standard deviation (0 → 1 for dome).
+- **When it's blank:** for predictors that also appear inside an interaction or squared term, because the coefficient alone would be misleading. Use `volume_model_profiles.csv` for those.
+
+**`volume_experiment_results.csv` (07a):** one row per model.
+- **What's compared:** `model` / `formula` against `reference` / `reference_formula`.
+- **Views:** each of error, gain, gain_se, gain_z and seasons_better appears once per view:
+  - **`_all`:** trained and scored on all team-games.
+  - **`_top16pre`:** trained on all, scored on pre-game top-16 team-games.
+  - **`_top16prefit`:** trained and scored on pre-game top-16 team-games. This is the view the decision rule uses.
+  - **`_top16` / `_top16fit`:** the season-end top 16. Kept only to reproduce v2; not used for decisions.
+- **gain_se / gain_z:** the formula noise estimate. It's conservative; use placebo shares instead.
+
+**`volume_experiment_placebo.csv` and `volume_experiment_audit.csv` (07a):**
+- **Placebo checks of key comparisons:** the placebo file has the real gain, shuffled average, shuffled 95th percentile and placebo share for each of the four unbiased views.
+- **Every predictor added to the adopted models once, with placebo shares:** that's the audit file. 07c replaces it for decisions.
+
+## Not tested yet
+
+1. **Team's own trailing FG attempts per game** (team counts; only team shares by range were tested).
+2. **Point spread**, separately from implied total.
+3. **Offensive efficiency beyond red zone:** EPA per play, drives per game, pace.
+4. **Weather** (deferred 2026-09-22; a forecast source would be needed for live weeks).
+5. **Other venue/game details:** grass vs turf, retractable roof open vs closed, primetime, rest days, week of season.
+6. **Different model forms:** a multinomial split of total attempts into ranges, or kicker/team random effects.
+
+## Caveats
+
+- **Borderline additions.** See "Pending your call".
+- **Pre-game top 16 history** starts at 2023 week 2 and excludes playoffs, because the history comes from the volume table itself. 56 team-games have a kicker with no earlier game in the table and are never counted as pre-game top 16.
+- **Kickers outside the top 16.** The models are trained only on pre-game top-16 team-games. Using them for a kicker outside that group (e.g. a waiver candidate ranked 20th) is a mild stretch beyond the training data.
+- **Only 3 held-out seasons**, and kicker history starts in 2023: a veteran's first games in the window look like a new kicker's.
+
+## Appendix A: every step of the selection (07c)
+
+Candidates whose gain wasn't positive at a step weren't placebo-tested and aren't listed. The full list is in `volume_selection_steps.csv`.
+
+| Outcome | Step | Candidate | Gain | Seasons better | Placebo share | Result |
+|---|---|---|---|---|---|---|
+| XP | 1 | all_3_red_zone | +5.5 | 3/3 | 0.014 | **added** |
+| XP | 1 | coach_long_fg | +4.0 | 3/3 | 0.016 | passes, not the strongest |
+| XP | 1 | redzone_trips | +3.4 | 2/3 | 0.026 | passes, not the strongest |
+| XP | 1 | opp_redzone_td_allowed | +2.1 | 3/3 | 0.056 | fails |
+| XP | 1 | coach_fg_or_go | +1.4 | 2/3 | 0.084 | fails |
+| XP | 2 | coach_long_fg | +3.4 | 3/3 | 0.028 | **added** |
+| XP | 2 | coach_fg_or_go | +0.4 | 2/3 | 0.170 | fails |
+| 0-39 | 1 | opp_redzone_td_allowed | +6.5 | 3/3 | 0.010 | **added** |
+| 0-39 | 1 | dome_x_coach_long | +2.6 | 2/3 | 0.060 | fails |
+| 0-39 | 1 | coach_fg_or_go | +1.8 | 2/3 | 0.074 | fails |
+| 0-39 | 1 | krate_4049 | +1.4 | 2/3 | 0.082 | fails |
+| 0-39 | 1 | krate_40plus | +1.9 | 1/3 | 0.082 | fails |
+| 0-39 | 1 | implied_x_krate_40plus | +1.6 | 1/3 | 0.094 | fails |
+| 0-39 | 1 | kvol_total_hl12 | +1.8 | 3/3 | 0.096 | fails |
+| 0-39 | 1 | coach_long_fg | +1.3 | 3/3 | 0.104 | fails |
+| 0-39 | 1 | all_3_red_zone | +1.5 | 2/3 | 0.126 | fails |
+| 0-39 | 1 | kvol_own_all | +0.9 | 3/3 | 0.130 | fails |
+| 0-39 | 1 | kvol_own_hl12 | +1.0 | 3/3 | 0.138 | fails |
+| 0-39 | 1 | krate_039 | +0.6 | 2/3 | 0.202 | fails |
+| 0-39 | 2 | dome_x_coach_long | +4.0 | 2/3 | 0.032 | **added** |
+| 0-39 | 2 | krate_40plus | +2.0 | 1/3 | 0.054 | fails |
+| 0-39 | 2 | kvol_total_hl12 | +1.8 | 3/3 | 0.074 | fails |
+| 0-39 | 2 | coach_long_fg | +1.8 | 3/3 | 0.086 | fails |
+| 0-39 | 2 | krate_4049 | +1.1 | 2/3 | 0.094 | fails |
+| 0-39 | 2 | coach_fg_or_go | +1.6 | 2/3 | 0.122 | fails |
+| 0-39 | 2 | implied_x_krate_40plus | +1.5 | 1/3 | 0.132 | fails |
+| 0-39 | 2 | kvol_own_hl12 | +1.0 | 3/3 | 0.134 | fails |
+| 0-39 | 2 | kvol_own_all | +0.8 | 2/3 | 0.154 | fails |
+| 0-39 | 2 | krate_039 | +0.5 | 2/3 | 0.190 | fails |
+| 0-39 | 3 | kvol_own_hl12 | +1.2 | 3/3 | 0.122 | fails |
+| 0-39 | 3 | kvol_total_hl12 | +1.3 | 3/3 | 0.138 | fails |
+| 0-39 | 3 | krate_039 | +0.8 | 2/3 | 0.158 | fails |
+| 0-39 | 3 | krate_40plus | +0.4 | 1/3 | 0.174 | fails |
+| 0-39 | 3 | krate_4049 | +0.6 | 2/3 | 0.180 | fails |
+| 0-39 | 3 | kvol_own_all | +0.8 | 2/3 | 0.184 | fails |
+| 40-49 | 1 | kshare_own_all | +2.9 | 2/3 | 0.038 | **added** |
+| 40-49 | 1 | kvol_own_all | +2.7 | 2/3 | 0.064 | fails |
+| 40-49 | 1 | dome_x_coach_long | +0.3 | 2/3 | 0.170 | fails |
+| 40-49 | 1 | krate_039 | +0.3 | 2/3 | 0.184 | fails |
+| 40-49 | 1 | kvol_own_hl12 | +0.0 | 2/3 | 0.236 | fails |
+| 40-49 | 1 | opp_redzone_td_allowed | +0.0 | 2/3 | 0.294 | fails |
+| 40-49 | 2 | dome_x_coach_long | +4.2 | 2/3 | 0.032 | **added** |
+| 40-49 | 2 | coach_long_fg | +3.8 | 2/3 | 0.036 | passes, not the strongest |
+| 40-49 | 2 | krate_039 | +1.7 | 2/3 | 0.082 | fails |
+| 40-49 | 2 | coach_fg_or_go | +0.9 | 2/3 | 0.134 | fails |
+| 40-49 | 2 | dome_x_krate_40plus | +0.5 | 2/3 | 0.138 | fails |
+| 40-49 | 2 | redzone_td_rate | +0.7 | 2/3 | 0.160 | fails |
+| 40-49 | 2 | kvol_total_hl12 | +0.4 | 3/3 | 0.182 | fails |
+| 40-49 | 2 | opp_redzone_td_allowed | +0.1 | 1/3 | 0.252 | fails |
+| 40-49 | 3 | dome_x_krate_40plus | +1.0 | 2/3 | 0.122 | fails |
+| 50+ | 1 | coach_long_fg | +2.9 | 2/3 | 0.058 | fails |
+| 50+ | 1 | implied_quadratic | +1.3 | 2/3 | 0.106 | fails |
+| 50+ | 1 | team_share_own_trail8 | +0.3 | 2/3 | 0.196 | fails |
+
+## Appendix B: every model tested in the experiments (07a)
+
+Gain vs the "compared with" model, ×1000 (positive = better), with seasons better in brackets. Three views: all kickers, pre-game top 16 scored with models trained on all kickers, and pre-game top 16 with models trained on them (the view the decision rule uses). The season-end top-16 views from v2 are left out because they peek at results; they're still in `volume_experiment_results.csv`.
+
+
+### Total FG attempts (single model, replaced by the range models)
+
+| Model | Compared with | All kickers (trained on all) | Pre-game top 16 (trained on all) | Pre-game top 16 (trained on them) |
+|---|---|---|---|---|
+| implied | league average | +2.3 (3/3) | +0.5 (2/3) | -0.5 (2/3) |
+| implied_quadratic | league average | +12.8 (3/3) | +1.6 (2/3) | -0.3 (2/3) |
+| coach_fg_or_go | league average | +2.3 (2/3) | +2.5 (2/3) | +3.0 (3/3) |
+| dome | league average | +0.8 (2/3) | +1.9 (2/3) | -1.0 (1/3) |
+| altitude | league average | -8.2 (0/3) | -7.9 (0/3) | -8.5 (1/3) |
+| redzone_td_rate | league average | -0.8 (2/3) | -3.3 (1/3) | -5.3 (1/3) |
+| redzone_trips | league average | -1.9 (0/3) | -1.6 (1/3) | -2.0 (0/3) |
+| opp_redzone_td_allowed | league average | -0.3 (0/3) | -0.8 (2/3) | +1.9 (3/3) |
+| coach_long_fg | league average | +9.2 (3/3) | +10.3 (2/3) | +9.1 (3/3) |
+| original agreed set (9 predictors) | league average | -9.0 (1/3) | -11.3 (0/3) | -18.0 (1/3) |
+| implied quadratic + coach + dome | league average | +14.7 (3/3) | +5.9 (2/3) | +3.8 (2/3) |
+| + implied x coach interaction | implied quadratic + coach + dome | -1.0 (0/3) | -0.1 (1/3) | -1.6 (1/3) |
+
+### XP attempts
+
+| Model | Compared with | All kickers (trained on all) | Pre-game top 16 (trained on all) | Pre-game top 16 (trained on them) |
+|---|---|---|---|---|
+| implied | league average | +155.0 (3/3) | +171.3 (3/3) | +168.6 (3/3) |
+| implied_quadratic | league average | +154.2 (3/3) | +170.5 (3/3) | +168.0 (3/3) |
+| redzone_td_rate | league average | +6.7 (2/3) | +21.3 (3/3) | +29.7 (3/3) |
+| redzone_trips | league average | +60.8 (3/3) | +73.2 (3/3) | +67.6 (3/3) |
+| opp_redzone_td_allowed | league average | +8.4 (3/3) | +13.8 (3/3) | +14.8 (3/3) |
+| implied + implied_quadratic | implied only | -0.8 (1/3) | -0.8 (1/3) | -0.5 (2/3) |
+| implied + redzone_td_rate | implied only | -2.3 (0/3) | -3.3 (0/3) | -0.6 (1/3) |
+| implied + redzone_trips | implied only | +1.2 (2/3) | +2.7 (2/3) | +3.4 (2/3) |
+| implied + opp_redzone_td_allowed | implied only | +1.1 (2/3) | +2.1 (3/3) | +2.1 (3/3) |
+| implied + dome | implied only | -0.1 (2/3) | -0.7 (2/3) | -2.3 (0/3) |
+| implied + all 3 red zone | implied only | +1.2 (2/3) | +2.8 (2/3) | +5.5 (3/3) |
+
+### 0-39 FG attempts
+
+| Model | Compared with | All kickers (trained on all) | Pre-game top 16 (trained on all) | Pre-game top 16 (trained on them) |
+|---|---|---|---|---|
+| alone: implied | league average | +1.0 (2/3) | -3.1 (1/3) | -0.8 (1/3) |
+| alone: implied_quadratic | league average | +10.7 (2/3) | +5.4 (3/3) | +2.7 (2/3) |
+| alone: coach_fg_or_go | league average | +1.3 (3/3) | +1.6 (2/3) | +2.1 (2/3) |
+| alone: dome | league average | -0.7 (2/3) | -1.3 (2/3) | -4.8 (2/3) |
+| alone: altitude | league average | -6.0 (1/3) | -4.2 (0/3) | -5.6 (0/3) |
+| alone: redzone_td_rate | league average | -0.6 (2/3) | -6.1 (1/3) | -2.0 (0/3) |
+| alone: redzone_trips | league average | -0.7 (1/3) | -0.8 (1/3) | -2.0 (1/3) |
+| alone: opp_redzone_td_allowed | league average | +0.1 (2/3) | +3.1 (3/3) | +7.2 (3/3) |
+| alone: coach_long_fg | league average | +1.5 (3/3) | +1.5 (3/3) | +2.2 (3/3) |
+| alone: krate_039 | league average | -1.1 (2/3) | +0.9 (2/3) | +0.3 (2/3) |
+| alone: krate_4049 | league average | -0.8 (0/3) | -1.5 (1/3) | -0.2 (2/3) |
+| alone: krate_50 | league average | -0.5 (0/3) | -1.9 (0/3) | -1.2 (2/3) |
+| alone: krate_40plus | league average | +0.3 (2/3) | -1.9 (0/3) | +0.4 (2/3) |
+| alone: kvol_own_hl12 | league average | +0.3 (2/3) | +0.7 (3/3) | +1.4 (3/3) |
+| alone: kvol_own_hl24 | league average | +0.1 (2/3) | +0.5 (2/3) | +1.3 (3/3) |
+| alone: kvol_own_hl48 | league average | -0.1 (1/3) | +0.3 (2/3) | +1.2 (3/3) |
+| alone: kvol_own_all | league average | -0.4 (1/3) | +0.1 (2/3) | +1.1 (3/3) |
+| alone: kvol_total_hl12 | league average | +0.1 (2/3) | +1.0 (2/3) | +2.3 (3/3) |
+| alone: kshare_own_hl12 | league average | +0.1 (2/3) | +0.2 (2/3) | -1.0 (1/3) |
+| alone: kshare_own_hl24 | league average | +0.2 (2/3) | +0.1 (2/3) | -1.0 (1/3) |
+| alone: kshare_own_hl48 | league average | +0.2 (2/3) | +0.1 (2/3) | -0.8 (1/3) |
+| alone: kshare_own_all | league average | +0.2 (2/3) | +0.0 (2/3) | -0.6 (1/3) |
+| alone: team_share_own_trail8 | league average | -0.5 (0/3) | +0.1 (2/3) | -1.7 (0/3) |
+| PROPOSED: implied quadratic | league average | +10.7 (2/3) | +5.4 (3/3) | +2.7 (2/3) |
+| proposed + coach_fg_or_go | implied quadratic | +0.2 (2/3) | +0.5 (2/3) | +1.8 (2/3) |
+| proposed + dome | implied quadratic | -0.5 (2/3) | -1.1 (2/3) | -4.6 (2/3) |
+| proposed + altitude | implied quadratic | -4.3 (2/3) | -3.5 (1/3) | -4.8 (0/3) |
+| proposed + redzone_td_rate | implied quadratic | -0.9 (2/3) | -4.5 (2/3) | -1.1 (1/3) |
+| proposed + redzone_trips | implied quadratic | -0.4 (2/3) | -1.5 (2/3) | -3.8 (1/3) |
+| proposed + opp_redzone_td_allowed | implied quadratic | +0.2 (2/3) | +3.0 (3/3) | +6.5 (3/3) |
+| proposed + coach_long_fg | implied quadratic | +0.3 (1/3) | +0.4 (1/3) | +1.3 (3/3) |
+| proposed + krate_039 | implied quadratic | -1.6 (1/3) | +0.8 (1/3) | +0.6 (2/3) |
+| proposed + krate_4049 | implied quadratic | -0.5 (0/3) | -0.9 (1/3) | +1.4 (2/3) |
+| proposed + krate_50 | implied quadratic | -0.6 (0/3) | -2.1 (0/3) | -1.3 (2/3) |
+| proposed + krate_40plus | implied quadratic | +0.3 (2/3) | -1.5 (0/3) | +1.9 (1/3) |
+| proposed + kvol_own_hl12 | implied quadratic | -0.4 (0/3) | +0.2 (1/3) | +1.0 (3/3) |
+| proposed + kvol_own_hl24 | implied quadratic | -0.6 (0/3) | +0.0 (1/3) | +1.0 (3/3) |
+| proposed + kvol_own_hl48 | implied quadratic | -0.8 (0/3) | -0.1 (1/3) | +0.9 (3/3) |
+| proposed + kvol_own_all | implied quadratic | -1.0 (0/3) | -0.2 (1/3) | +0.9 (3/3) |
+| proposed + kvol_total_hl12 | implied quadratic | -0.3 (0/3) | -0.2 (2/3) | +1.8 (3/3) |
+| proposed + kshare_own_hl12 | implied quadratic | -0.1 (2/3) | +0.1 (2/3) | -1.6 (1/3) |
+| proposed + kshare_own_hl24 | implied quadratic | -0.1 (2/3) | +0.1 (2/3) | -1.6 (1/3) |
+| proposed + kshare_own_hl48 | implied quadratic | -0.1 (2/3) | +0.1 (2/3) | -1.4 (1/3) |
+| proposed + kshare_own_all | implied quadratic | -0.1 (2/3) | +0.0 (2/3) | -1.1 (1/3) |
+| proposed + team_share_own_trail8 | implied quadratic | -0.2 (0/3) | +0.1 (2/3) | -2.4 (0/3) |
+| dome x krate_039 interaction | dome + krate_039 | -0.2 (2/3) | +0.0 (1/3) | -1.0 (2/3) |
+| dome x krate_4049 interaction | dome + krate_4049 | -5.1 (0/3) | -6.7 (0/3) | -6.7 (0/3) |
+| dome x krate_50 interaction | dome + krate_50 | -0.6 (0/3) | +0.0 (2/3) | -1.0 (1/3) |
+| dome x krate_40plus interaction | dome + krate_40plus | -4.2 (0/3) | -4.3 (0/3) | -1.2 (0/3) |
+| implied x krate_039 interaction | implied quadratic + krate_039 | -2.9 (1/3) | -1.4 (0/3) | -2.5 (0/3) |
+| dome x kicker own-range volume interaction | dome + kicker own-range volume | -0.7 (2/3) | -1.2 (1/3) | -2.7 (1/3) |
+| kicker share x krate_50 interaction | dome + krate_50 + kicker share | +0.0 (2/3) | +1.8 (3/3) | +1.9 (3/3) |
+| dome x coach long FG rate interaction | dome + coach long FG rate | +0.3 (2/3) | +3.5 (3/3) | +5.2 (3/3) |
+| kicker 40+ accuracy x coach long FG rate interaction | dome + kicker 40+ accuracy + coach long FG rate | +1.3 (2/3) | +2.6 (3/3) | +1.7 (2/3) |
+
+### 40-49 FG attempts
+
+| Model | Compared with | All kickers (trained on all) | Pre-game top 16 (trained on all) | Pre-game top 16 (trained on them) |
+|---|---|---|---|---|
+| alone: implied | league average | -3.3 (0/3) | -4.4 (0/3) | -6.4 (1/3) |
+| alone: implied_quadratic | league average | -7.3 (1/3) | -11.9 (0/3) | -8.2 (0/3) |
+| alone: coach_fg_or_go | league average | -0.6 (1/3) | -0.5 (1/3) | +0.2 (2/3) |
+| alone: dome | league average | -2.3 (2/3) | -0.2 (2/3) | +0.6 (2/3) |
+| alone: altitude | league average | -1.3 (0/3) | +0.9 (1/3) | -0.4 (2/3) |
+| alone: redzone_td_rate | league average | -0.1 (2/3) | +0.6 (2/3) | +0.4 (2/3) |
+| alone: redzone_trips | league average | -3.0 (1/3) | -5.6 (1/3) | -13.0 (0/3) |
+| alone: opp_redzone_td_allowed | league average | +2.8 (3/3) | -1.6 (1/3) | -0.3 (0/3) |
+| alone: coach_long_fg | league average | -0.1 (2/3) | -2.0 (1/3) | -0.9 (2/3) |
+| alone: krate_039 | league average | -1.2 (0/3) | -1.8 (0/3) | +2.3 (2/3) |
+| alone: krate_4049 | league average | -2.2 (0/3) | -0.9 (1/3) | -1.0 (1/3) |
+| alone: krate_50 | league average | -0.9 (1/3) | -4.1 (1/3) | -6.0 (0/3) |
+| alone: krate_40plus | league average | +0.5 (2/3) | -2.1 (1/3) | -5.6 (0/3) |
+| alone: kvol_own_hl12 | league average | -2.2 (0/3) | -3.1 (1/3) | -0.7 (2/3) |
+| alone: kvol_own_hl24 | league average | -2.1 (0/3) | -2.9 (1/3) | -0.4 (2/3) |
+| alone: kvol_own_hl48 | league average | -2.1 (0/3) | -2.8 (1/3) | -0.4 (2/3) |
+| alone: kvol_own_all | league average | -1.9 (0/3) | -2.6 (1/3) | -0.4 (2/3) |
+| alone: kvol_total_hl12 | league average | -0.1 (2/3) | +0.4 (2/3) | +0.5 (2/3) |
+| alone: kshare_own_hl12 | league average | -2.2 (0/3) | -4.4 (1/3) | -2.2 (1/3) |
+| alone: kshare_own_hl24 | league average | -1.9 (0/3) | -3.5 (1/3) | -1.4 (2/3) |
+| alone: kshare_own_hl48 | league average | -1.8 (0/3) | -3.1 (1/3) | -1.0 (2/3) |
+| alone: kshare_own_all | league average | -1.6 (0/3) | -2.6 (1/3) | -0.8 (2/3) |
+| alone: team_share_own_trail8 | league average | -4.8 (1/3) | -6.4 (0/3) | -1.3 (2/3) |
+| dome x krate_039 interaction | dome + krate_039 | -2.3 (0/3) | -3.0 (0/3) | -3.5 (0/3) |
+| dome x krate_4049 interaction | dome + krate_4049 | +1.8 (2/3) | +6.7 (2/3) | +12.8 (2/3) |
+| dome x krate_50 interaction | dome + krate_50 | +1.0 (2/3) | +2.4 (3/3) | +3.1 (3/3) |
+| dome x krate_40plus interaction | dome + krate_40plus | -0.3 (1/3) | -0.3 (1/3) | -2.7 (0/3) |
+| implied x krate_4049 interaction | implied quadratic + krate_4049 | -0.3 (2/3) | -0.9 (2/3) | -17.5 (1/3) |
+| dome x kicker own-range volume interaction | dome + kicker own-range volume | -1.0 (0/3) | -1.1 (1/3) | -0.7 (2/3) |
+| kicker share x krate_50 interaction | dome + krate_50 + kicker share | +0.9 (2/3) | +1.0 (2/3) | -0.2 (1/3) |
+| dome x coach long FG rate interaction | dome + coach long FG rate | +0.5 (2/3) | +1.0 (2/3) | +0.9 (2/3) |
+| kicker 40+ accuracy x coach long FG rate interaction | dome + kicker 40+ accuracy + coach long FG rate | -2.6 (1/3) | -3.3 (0/3) | -20.2 (0/3) |
+| CANDIDATE: dome + kicker 40-49 accuracy | league average | -5.0 (2/3) | -1.3 (2/3) | -0.2 (2/3) |
+| CANDIDATE: dome x kicker 40-49 accuracy | league average | -3.2 (1/3) | +5.4 (2/3) | +12.6 (2/3) |
+
+### 50+ FG attempts
+
+| Model | Compared with | All kickers (trained on all) | Pre-game top 16 (trained on all) | Pre-game top 16 (trained on them) |
+|---|---|---|---|---|
+| alone: implied | league average | -0.9 (1/3) | +2.0 (2/3) | +0.9 (2/3) |
+| alone: implied_quadratic | league average | +0.7 (1/3) | +3.4 (3/3) | +4.3 (3/3) |
+| alone: coach_fg_or_go | league average | -0.8 (2/3) | -2.2 (2/3) | -1.5 (2/3) |
+| alone: dome | league average | +6.8 (2/3) | +12.1 (2/3) | +14.2 (2/3) |
+| alone: altitude | league average | -2.1 (2/3) | -3.0 (2/3) | -12.6 (2/3) |
+| alone: redzone_td_rate | league average | -0.1 (1/3) | -0.5 (2/3) | -11.0 (1/3) |
+| alone: redzone_trips | league average | -0.0 (2/3) | -0.0 (1/3) | -4.6 (0/3) |
+| alone: opp_redzone_td_allowed | league average | -1.5 (1/3) | -1.3 (0/3) | -0.6 (1/3) |
+| alone: coach_long_fg | league average | +8.6 (3/3) | +12.5 (2/3) | +7.8 (2/3) |
+| alone: krate_039 | league average | -4.2 (0/3) | -5.4 (0/3) | -4.3 (1/3) |
+| alone: krate_4049 | league average | +5.2 (2/3) | +0.2 (1/3) | -0.0 (1/3) |
+| alone: krate_50 | league average | +7.4 (2/3) | +3.6 (1/3) | -1.4 (2/3) |
+| alone: krate_40plus | league average | +13.5 (2/3) | +5.1 (1/3) | -0.5 (2/3) |
+| alone: kvol_own_hl12 | league average | -0.1 (2/3) | +0.5 (2/3) | -4.3 (2/3) |
+| alone: kvol_own_hl24 | league average | -1.2 (2/3) | -0.8 (2/3) | -7.1 (2/3) |
+| alone: kvol_own_hl48 | league average | -2.0 (2/3) | -1.7 (2/3) | -8.9 (2/3) |
+| alone: kvol_own_all | league average | -2.8 (2/3) | -2.9 (2/3) | -11.0 (2/3) |
+| alone: kvol_total_hl12 | league average | -1.2 (2/3) | -4.0 (2/3) | -15.8 (0/3) |
+| alone: kshare_own_hl12 | league average | -2.1 (2/3) | -0.7 (2/3) | -0.9 (2/3) |
+| alone: kshare_own_hl24 | league average | -3.3 (2/3) | -2.1 (2/3) | -3.2 (2/3) |
+| alone: kshare_own_hl48 | league average | -4.0 (2/3) | -3.0 (2/3) | -4.7 (2/3) |
+| alone: kshare_own_all | league average | -4.5 (2/3) | -3.8 (2/3) | -6.2 (2/3) |
+| alone: team_share_own_trail8 | league average | -2.9 (1/3) | -2.4 (1/3) | -0.7 (1/3) |
+| PROPOSED: dome + kicker 50+ accuracy | league average | +14.0 (3/3) | +16.0 (2/3) | +13.6 (2/3) |
+| proposed + implied | dome + kicker 50+ accuracy | -1.2 (1/3) | +0.5 (2/3) | -0.3 (1/3) |
+| proposed + implied_quadratic | dome + kicker 50+ accuracy | -0.5 (1/3) | +0.8 (2/3) | +1.5 (2/3) |
+| proposed + coach_fg_or_go | dome + kicker 50+ accuracy | -1.1 (2/3) | -0.8 (1/3) | -0.4 (1/3) |
+| proposed + altitude | dome + kicker 50+ accuracy | -2.2 (1/3) | -3.2 (1/3) | -12.4 (2/3) |
+| proposed + redzone_td_rate | dome + kicker 50+ accuracy | -0.1 (0/3) | -0.3 (1/3) | -8.7 (0/3) |
+| proposed + redzone_trips | dome + kicker 50+ accuracy | -0.3 (0/3) | +0.1 (2/3) | -2.0 (1/3) |
+| proposed + opp_redzone_td_allowed | dome + kicker 50+ accuracy | -1.8 (0/3) | -1.7 (0/3) | -1.5 (0/3) |
+| proposed + coach_long_fg | dome + kicker 50+ accuracy | +3.6 (3/3) | +6.2 (2/3) | +4.1 (2/3) |
+| proposed + krate_039 | dome + kicker 50+ accuracy | -5.5 (0/3) | -6.6 (0/3) | -7.1 (1/3) |
+| proposed + krate_4049 | dome + kicker 50+ accuracy | +5.8 (3/3) | +1.6 (2/3) | +0.9 (3/3) |
+| proposed + krate_40plus | dome + kicker 50+ accuracy | +7.0 (2/3) | +2.4 (2/3) | +0.7 (2/3) |
+| proposed + kvol_own_hl12 | dome + kicker 50+ accuracy | -3.0 (1/3) | -3.5 (1/3) | -6.7 (1/3) |
+| proposed + kvol_own_hl24 | dome + kicker 50+ accuracy | -3.7 (1/3) | -4.5 (1/3) | -9.0 (0/3) |
+| proposed + kvol_own_hl48 | dome + kicker 50+ accuracy | -4.2 (1/3) | -5.2 (1/3) | -10.2 (0/3) |
+| proposed + kvol_own_all | dome + kicker 50+ accuracy | -4.6 (1/3) | -5.8 (1/3) | -11.6 (0/3) |
+| proposed + kvol_total_hl12 | dome + kicker 50+ accuracy | -1.3 (2/3) | -3.5 (2/3) | -12.1 (0/3) |
+| proposed + kshare_own_hl12 | dome + kicker 50+ accuracy | -3.3 (1/3) | -2.5 (1/3) | -0.9 (2/3) |
+| proposed + kshare_own_hl24 | dome + kicker 50+ accuracy | -4.1 (1/3) | -3.5 (1/3) | -2.6 (2/3) |
+| proposed + kshare_own_hl48 | dome + kicker 50+ accuracy | -4.5 (1/3) | -4.0 (1/3) | -3.6 (2/3) |
+| proposed + kshare_own_all | dome + kicker 50+ accuracy | -4.8 (1/3) | -4.5 (1/3) | -4.6 (2/3) |
+| proposed + team_share_own_trail8 | dome + kicker 50+ accuracy | -2.6 (0/3) | -1.9 (0/3) | +0.5 (2/3) |
+| dome x krate_039 interaction | dome + krate_039 | -0.0 (0/3) | -0.4 (0/3) | -1.0 (0/3) |
+| dome x krate_4049 interaction | dome + krate_4049 | -0.8 (1/3) | -0.9 (1/3) | -0.1 (1/3) |
+| dome x krate_50 interaction | dome + krate_50 | +3.5 (3/3) | +6.2 (3/3) | +6.4 (3/3) |
+| dome x krate_40plus interaction | dome + krate_40plus | -0.3 (2/3) | +0.5 (2/3) | +2.0 (2/3) |
+| implied x krate_50 interaction | implied quadratic + krate_50 | -0.1 (1/3) | -0.2 (1/3) | -1.7 (1/3) |
+| dome x kicker own-range volume interaction | dome + kicker own-range volume | -0.7 (2/3) | +0.7 (3/3) | -1.0 (0/3) |
+| kicker share x krate_50 interaction | dome + krate_50 + kicker share | -3.5 (1/3) | -4.2 (0/3) | -2.8 (1/3) |
+| dome x coach long FG rate interaction | dome + coach long FG rate | -0.3 (1/3) | -0.3 (2/3) | -2.8 (1/3) |
+| kicker 40+ accuracy x coach long FG rate interaction | dome + kicker 40+ accuracy + coach long FG rate | -1.4 (1/3) | -2.0 (1/3) | -1.8 (0/3) |
+| SWAP: dome + kicker 40+ accuracy (instead of 50+) | dome + kicker 50+ accuracy | +7.0 (2/3) | +2.4 (2/3) | +1.7 (2/3) |
+| proposed + krate_4049 (both long accuracies separately) | dome + kicker 50+ accuracy | +5.8 (3/3) | +1.6 (2/3) | +0.9 (3/3) |
+| dome + kicker 40+ accuracy + coach long FG rate | dome + kicker 40+ accuracy | +3.2 (3/3) | +5.7 (2/3) | +4.3 (2/3) |
+| CANDIDATE: dome + kicker 40+ accuracy | league average | +21.0 (3/3) | +18.4 (2/3) | +15.2 (3/3) |
+| CANDIDATE: dome x kicker 50+ accuracy | league average | +17.5 (3/3) | +22.2 (2/3) | +19.9 (3/3) |
+| CANDIDATE: dome x kicker 40+ accuracy | league average | +20.7 (3/3) | +19.0 (2/3) | +17.3 (3/3) |
+| CANDIDATE: dome x kicker 50+ accuracy + kicker 40-49 accuracy | league average | +22.8 (3/3) | +23.1 (2/3) | +20.4 (3/3) |
+| CANDIDATE: dome + kicker 40+ accuracy + dome x kicker 50+ accuracy | league average | +23.3 (3/3) | +22.5 (2/3) | +20.3 (3/3) |
+| dome + kicker 40+ accuracy, then add dome x kicker 50+ accuracy | dome + kicker 40+ accuracy | +2.3 (3/3) | +4.1 (2/3) | +5.0 (3/3) |

@@ -1,0 +1,20 @@
+"rank_new","kicker","team","opp","venue","league_app_projection","previous_model_this_morning","new_model","change","ci_90","rank_previous","roof_closed","roof_open"
+1,"J.Bates","DET","at ARI","roof unknown (87% closed)",9.1,9.13,9.58,0.46,"8.7-10.4",2,9.66,9.08
+2,"H.Mevis","LA","vs BUF","dome",9.4,9.92,9.56,-0.36,"8.5-10.4",1,NA,NA
+3,"C.Little","JAX","vs PHI","outdoors",9.7,8.71,8.92,0.21,"8.2-9.6",3,NA,NA
+4,"C.Boswell","PIT","vs IND","outdoors",8.5,8.36,8.67,0.31,"8.0-9.3",5,NA,NA
+5,"C.Santos","CHI","at GB","outdoors",8.5,8.67,8.57,-0.09,"7.9-9.2",4,NA,NA
+6,"T.Bass","BUF","at LA","dome",7.9,8.32,8.54,0.22,"7.7-9.3",6,NA,NA
+7,"W.Lutz","DEN","at LAC","dome",7.4,7.02,8.29,1.27,"7.5-9.0",16,NA,NA
+8,"J.Sanders","NYJ","vs CLE","outdoors",8.2,7.89,8.18,0.29,"7.5-8.8",9,NA,NA
+9,"C.Ryland","ARI","vs DET","roof unknown (87% closed)",9,7.82,8.11,0.3,"7.3-8.8",11,8.19,7.58
+10,"D.Stevens","WAS","vs NYG","outdoors",8.4,7.5,8.05,0.55,"6.9-9.0",13,NA,NA
+11,"D.Carlson","NO","vs MIN","dome",8,8.17,7.95,-0.22,"7.2-8.6",7,NA,NA
+12,"D.Zvada","NYG","at WAS","outdoors",8.1,7.46,7.94,0.48,"6.7-8.9",14,NA,NA
+13,"A.Szmyt","CLE","at NYJ","outdoors",7.9,7.61,7.93,0.32,"7.0-8.7",12,NA,NA
+14,"A.Borregales","NE","vs LV","outdoors",7.6,7.84,7.7,-0.14,"6.8-8.5",10,NA,NA
+15,"T.Smack","GB","vs CHI","outdoors",8.4,8.06,7.5,-0.56,"6.5-8.4",8,NA,NA
+16,"M.Gay","LV","at NE","outdoors",8,7.35,7.34,-0.01,"6.7-7.9",15,NA,NA
+17,"J.Elliott","PHI","at JAX","outdoors",7.4,6.91,6.69,-0.22,"6.0-7.3",17,NA,NA
+18,"R.Patterson","MIA","vs CIN","outdoors",7.3,6.9,6.6,-0.29,"5.8-7.3",18,NA,NA
+19,"J.Slye","TEN","vs HOU","outdoors",7.4,6.07,6.35,0.28,"5.6-7.0",19,NA,NA
