@@ -12,7 +12,7 @@ Chats and weekly tasks download scripts from here in one step, instead of readin
 | `shared/benchmarks_v2/` | `build.py`, `season.py`, `bands.py`, `carry.py`, `perroute.py`, from Redraft benchmarks v2.1 | Redraft, Dynasty (RB columns) |
 | `dynasty/` | `v1_harmon_pdf_to_csv.py` (Harmon PDF to CSV) | Dynasty |
 | `matchup/` | `per_route.py`; `pipeline/build.py` (weekly team docs) | Matchup and its weekly task |
-| `kicker/` | the R pipeline (`run_all.R` and the scripts it runs), `07n_fit_new_model.R` (run by hand once a season), `weather_adjust.py`, and `data/` with the new model's two weight files | Kicker Wizerd and its weekly task |
+| `kicker/` | the R pipeline (`run_all.R` and the scripts it runs), `09c_next_week_only.R` (Wednesday look-ahead), `summary.R`, `07n_fit_new_model.R` (run by hand once a season), `weather_adjust.py`, and `data/` with the new model's two weight files | Kicker Wizerd and its weekly task |
 | `dst/` | `v1.4_ChooserBoy_weekly_pull.R` | DST Warlock's weekly task |
 | `instructions/` | reference copies of each project's instructions | this project |
 

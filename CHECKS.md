@@ -44,3 +44,9 @@ The copy check is the first 12 characters of the SHA-256 of the file's text with
 It used nflverse play-by-play for 2011–2025, written to a separate folder.
 - Step 1's own check against production: 0 mismatches in attempts, kickers and domes.
 - **Step 7 reproduced the stored weight files exactly:** all 129 weights in `new_model_weights.csv` (the 24 self-test rows come from step 8, which only stores them) and every value in `new_model_kick_table.csv`, with a difference of 0.
+
+### 09c next-week script (added Oct 20)
+`kicker/09c_next_week_only.R` (the Wednesday look-ahead task's script; also retyped in the Kicker zip):
+- It ran cleanly with the repo's 00, 08, 09 and 09n: self-test passed. On Oct 20 there were no Week 8 lines yet, so it correctly wrote nothing.
+- Its three hand-copied XP/FG dependence values match `models/points_gamma.csv` from the Oct 19 pipeline run exactly.
+- Forced to project Week 7 (test copy only), it wrote all 28 kicker-games. These matched the Oct 19 pipeline's Week 7 look-ahead within 0.18 points (mean 0.04); the largest gap follows an overnight line move (ATL implied total 23.0 → 23.75).
