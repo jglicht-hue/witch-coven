@@ -19,22 +19,14 @@ Chats and weekly tasks download scripts from here in one step, instead of readin
 Script names are kept exactly as the project instructions refer to them.
 
 ## Getting the scripts
-Always fetch one fixed version, named by its commit, so the code can't change under a chat.
-
-**In project chats,** download single files (the zip download below is blocked there; `raw.githubusercontent.com` is not):
+Always fetch one fixed version, named by its commit, so the code can't change under a chat or task. Download single files from `raw.githubusercontent.com`. The repo's zip download (`github.com/.../archive/...`) redirects to `codeload.github.com`, which is blocked in both project chats and scheduled tasks.
 
 ```
 B=https://raw.githubusercontent.com/jglicht-hue/witch-coven/<COMMIT>
 curl -fsSL --create-dirs -o coven/<path> $B/<path>
 ```
 
-**In scheduled tasks,** the whole repo can come down in one step:
-
-```
-curl -sL https://github.com/jglicht-hue/witch-coven/archive/<COMMIT>.tar.gz | tar xz
-```
-
-The folder it makes is `witch-coven-<COMMIT>/`. Each project's instructions name the commit to use; `VERSIONS.md` lists them.
+Each project's instructions and each weekly task name the commit and the files they need; `VERSIONS.md` lists the commits.
 
 ## Changing a script
 Fix it here, not in a project document. Each change makes a new commit; add it to `VERSIONS.md`, and each project moves to it when its instructions are updated.
