@@ -9,5 +9,5 @@ When a new version is approved and pasted, its copy is added here with the versi
 | Redraft Witch | `v2.10_Redraft_Witch.md` | 2026-10-15 |
 | Dynasty Witch | `v3.9_Dynasty_Witch.md` | 2026-10-15 |
 | Matchup Witch | `v2.7_Matchup_Witch.md` (playbooks in `playbooks/matchup/`, commit `00e53ad`) | 2026-10-20 |
-| DST Warlock | `v2_DST_Warlock.md` | 2026-10-19 |
+| DST Warlock | `v2.1_DST_Warlock.md` | 2026-10-20 |
 | Kicker Wizerd | `v2.1_Kicker_Wizerd.md` | 2026-10-19 |
