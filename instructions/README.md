@@ -6,7 +6,7 @@ When a new version is approved and pasted, its copy is added here with the versi
 
 | Project | Current file | Saved |
 |---|---|---|
-| Redraft Witch | `v2.10_Redraft_Witch.md` | 2026-10-15 |
+| Redraft Witch | `v2.13_Redraft_Witch.md` (scripts and playbooks from a clone at commit `201469b`, after the owner's go) | 2026-10-22 |
 | Dynasty Witch | `v3.9_Dynasty_Witch.md` | 2026-10-15 |
 | Matchup Witch | `v2.7_Matchup_Witch.md` (playbooks in `playbooks/matchup/`, commit `00e53ad`) | 2026-10-20 |
 | DST Warlock | `v2.1_DST_Warlock.md` | 2026-10-20 |
