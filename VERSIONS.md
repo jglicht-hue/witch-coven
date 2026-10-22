@@ -4,6 +4,7 @@ Projects pin a commit from this list. Newest first. A pinned commit never change
 
 | Date | Commit | What changed |
 |---|---|---|
+| 2026-10-21 | `dd78d20` | Adds `playbooks/dynasty/` for the Dynasty Witch v3.10 draft. No script changed; scripts stay at `e286060`. |
 | 2026-10-20 | `25f01df` | Adds `playbooks/redraft/` (data sources, brew, trade check, usage tables, profiles) for Redraft Witch v2.11. No script changed; scripts stay at `e286060`. |
 | 2026-10-20 | `e286060` | Adds `kicker/09c_next_week_only.R` for the Wednesday look-ahead task. No other script changed. |
 | 2026-10-19 | `00e53ad` | Matchup data-sources playbook: script paths for per-file downloads (`coven/...`). |
