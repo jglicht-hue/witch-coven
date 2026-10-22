@@ -15,7 +15,7 @@ Read before the first live pull. Part of the Redraft Witch instructions (v2.11).
 - `shared/research/yprr.py`, `analyze.py`, `fd.py`: the league-wide WR route table, so every per-route figure gets a league rank. Run it once per session whenever a receiver add, drop or trade is in question (about a minute). Run it as the project's `claude/v1.1_Redraft_Witch_benchmarks.md`, section 7, describes (the scripts expect a `research/` folder next to `witch_cache`).
 - `shared/benchmarks_v2/*.py`: the code behind benchmarks v2 (bands, RB columns). Rerun only when rebuilding the benchmarks.
 
-Copy checks for every script are in the repo's `CHECKS.md`. If a download fails, use the project's grimoire (`claude/v*_Redraft_Witch_data_instructions.md`) and the script documents with their checksums.
+Copy checks for every script are in the repo's `CHECKS.md`. If the clone or a run is blocked even after the owner's go, stop (instructions, step 1). Never rebuild or retype a script from a project document to get around a block. The grimoire and script documents are reference only.
 
 ## When each script runs
 - **Midnight Brew:** every add candidate and the whole bench.
@@ -45,4 +45,4 @@ Order of sources and fallbacks for routes (PFF recap tables, then the published-
 - If the owner makes the league public, the API is readable: `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/2026/segments/0/leagues/964752?view=mRoster&view=mTeam&view=mSettings`. Try it only if the owner says the league was made public.
 
 ## Project files this project still keeps
-Flag list, Player Notes, ETR file, benchmarks, the grimoire (fallback), the Roster Tracker. Script-only documents become redundant once chats use the repo.
+Flag list, Player Notes, ETR file, benchmarks, the grimoire (sources and route fallbacks; its scripts are reference only), the Roster Tracker. Script-only documents become redundant once chats use the repo.

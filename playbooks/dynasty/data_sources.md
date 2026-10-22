@@ -13,7 +13,7 @@ Read before the first live pull. Part of the Dynasty Witch instructions (v3.10).
   - These were written for the redraft project: they stop at 2026 Weeks 1 to 3 and print a redraft player list. In the working copy only, extend the 2026 week range to the latest completed week and swap in the players in question, and say that you did. The repo files stay unchanged.
   - First downs per route run comes from `fd.py`, not from the usage script: `receiving_first_downs` in the nflverse weekly player stats file, over the same published route count.
 - `shared/benchmarks_v2/build.py`, `season.py`: **the RB columns** (weighted opportunity per game, red-zone carry share). If the usage script doesn't print them, compute them in the working copy only, with `YEARS` set to 2026 and only completed weeks used, and say that you did. The download block covers 2018 to 2025; for 2026, download only the 2026 files. Weighted opportunity uses v2's weights (PFF, 2019).
-- If a script can't be downloaded, say so and fall back to the project copy: the grimoire's script for usage, the highest-numbered `v*_Redraft_Witch_offense_context.md` for the offense script, section 7 of `claude/v1.1_Redraft_Witch_benchmarks.md` for the route-table and diagnosis scripts, and v2's code for the RB columns. Save each to disk exactly as written and check it against `CHECKS.md` (usage `1c175118291b`, offense `9ccc5cf7afa8`).
+- If the clone or a run is blocked even after the owner's go, stop (instructions, step 1). Never rebuild or retype a script from a project document to get around a block. The project copies of the scripts are reference only.
 
 ## When the usage script is required
 One run per player, and only for players in the current question:
@@ -35,7 +35,7 @@ Both copied into this project unchanged from the redraft project. Quote their ro
   - **Route minimum for placing a per-route figure in a band:** see Standing Preferences in the instructions (180 / 250). It replaces the per-position minimums printed in the bands (WR 250, TE 200, RB 100).
   - **What an early figure settles to:** section 3 gives a line for each share stat through Week 3, 6 and 9. Use the "all" line for every player. Use the Week 6 lines now and the Week 9 lines once Week 9 is complete. For per-route stats the only line is section 3.1, for WRs through Week 3. After Week 3, say that a per-route regression is untested rather than stretch that line.
   - **Players who change teams:** section 5 gives the season-to-season correlations for players who changed teams (guardrail 29).
-- **`claude/v1.1_Redraft_Witch_benchmarks.md`:** its section 7 was the home of the route-table and diagnosis scripts, now in the repo. Use the document only for the fallback above.
+- **`claude/v1.1_Redraft_Witch_benchmarks.md`:** its section 7 was the home of the route-table and diagnosis scripts, now in the repo. It is reference only.
 - **Guardrail numbers in the two files are the redraft project's.** Read their "guardrail 18" as guardrail 23 here and their "guardrail 21" as guardrail 26. v2's "guardrail 25" (on Heath's rookie first-downs rule) is read as rule 5 here.
 
 ## The research brief (project document)

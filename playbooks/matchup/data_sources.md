@@ -81,9 +81,9 @@ Read this before the first live pull in a chat (anything beyond the cached docs)
     instructions): `coven/matchup/per_route.py`. The repo copy was
     checked against the guide's copy check (`36e64eeb64db`) and the Tre Harris line
     (2025: 294 routes, TPRR 0.146, YPRR 1.10, first downs per route 0.061) on
-    Oct 19, 2026; no need to rerun them. If the repo can't be downloaded, read the
-    guide, save its section 4 script as `per_route.py` exactly as written, run the
-    guide's copy check, and say so.
+    Oct 19, 2026; no need to rerun them. If the clone or a run is blocked even after
+    my go, stop (instructions, step 1); never rebuild or retype the guide's script to
+    get around a block.
   - Run: `python3 per_route.py "Player Name"`, with `--season 2025` for last season
     and `--team {nflverse code}` only if the name is ambiguous. It needs code
     execution, pandas and GitHub access.
@@ -127,8 +127,8 @@ Read this before the first live pull in a chat (anything beyond the cached docs)
     The repo copies were checked against the doc's copy checks (`bfed932eaf16`,
     `e88be7e229b5`) and its settled lines (Tre Harris: 2 DPIs for 54 yards in Weeks
     1–2; Fannin Weeks 1–5 red-zone targets 0, 0, 2, 1, 0 vs team 1, 4, 4, 4, 2) on
-    Oct 19, 2026; no need to rerun them. If the repo can't be downloaded, save each
-    script from the doc exactly as written, run the doc's copy checks, and say so.
+    Oct 19, 2026; no need to rerun them. If the clone or a run is blocked even after
+    my go, stop (instructions, step 1); never rebuild or retype the doc's scripts.
   - Run: `python3 v1_witch_dpi.py "Name" "Name"` and
     `python3 v1_witch_redzone.py "Name" "Name"`, with names spelled as in nflverse
     weekly stats (e.g. "Harold Fannin Jr.", "Ollie Gordon II"). Both read the CSV
