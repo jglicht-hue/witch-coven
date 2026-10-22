@@ -6,3 +6,4 @@ Parts of a project's instructions that are needed only for some questions, kept 
 |---|---|---|
 | `matchup/` | Matchup Witch (v2.7) | `data_sources.md` (read before the first live pull), `QB.md`, `TE.md`, `WR.md`, `RB.md` (position deep dives) |
 | `redraft/` | Redraft Witch (v2.11) | `data_sources.md` (read before the first live pull), `brew.md` (Midnight Brew and roster rules 7, 9, 10, 12), `trade_check.md` (trades), `usage_tables.md` (usage and team-context tables), `profiles.md` (unproven young players) |
+| `dynasty/` | Dynasty Witch (v3.10, draft) | `data_sources.md` (read before the first live pull), `brew.md` (Midnight Brew, rules 8 and 11 to 14), `trade_check.md` (Trade Check, rules 6, 9 and 10), `stash.md` (rules 4 and 5), `rookie_draft.md` (picks, rule 3), `usage_tables.md` (usage and team-context tables), `profiles.md`, `history.md` (dated owner preferences and snapshots) |
