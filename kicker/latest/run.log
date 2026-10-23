@@ -1,0 +1,330 @@
+
+=== 01_pull_kicker_game_outcomes.R ===
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Loading play-by-play for seasons: 2023, 2024, 2025
+Downloading https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2023.rds
+Downloading https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2024.rds
+Downloading https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2025.rds
+Downloading https://github.com/nflverse/nflverse-data/releases/download/schedules/games.rds
+Wrote data/team_game_fg_xp_counts.csv (1710 rows)
+Wrote data/kicker_accuracy.csv (2427 rows)
+=== 01_pull_kicker_game_outcomes.R done in 10s ===
+
+=== 02_pull_team_covariates.R ===
+Loading play-by-play and schedules for seasons: 2023, 2024, 2025
+League-average FG-or-go rate in range: 0.6
+League-average FG rate on 4th down at the opponent's 33-42: 0.404 (1460 plays)
+Wrote data/team_game_covariates.csv (1632 rows)
+=== 02_pull_team_covariates.R done in 7s ===
+
+=== 03_pull_venue_covariates.R ===
+Loading schedules for seasons: 2023, 2024, 2025
+Roof values seen: closed, dome, open, outdoors
+Games flagged high-altitude, by stadium:
+                      stadium games
+1: Empower Field at Mile High    26
+Wrote data/team_game_venue.csv (1632 rows)
+=== 03_pull_venue_covariates.R done in 0s ===
+
+=== 04_pull_odds_covariates.R ===
+Loading schedules for seasons: 2023, 2024, 2025
+spread_line vs. actual (home_score - away_score) correlation: 0.477 (n = 816 completed games with a line)
+Inferred convention: spread_line = home team's expected margin (positive = home favored). Flipping sign to match odds-api's own-spread convention (favorite negative).
+Sample rows (first 5 completed games), for a manual gut-check against known lines:
+   season week home_team away_team spread_line total_line
+1:   2023    1        KC       DET         4.0       53.0
+2:   2023    1       ATL       CAR         3.5       40.5
+3:   2023    1       BAL       HOU         9.5       43.5
+4:   2023    1       CLE       CIN        -1.0       46.5
+5:   2023    1       IND       JAX        -4.0       45.5
+   home_implied_team_total away_implied_team_total
+1:                   28.50                   24.50
+2:                   22.00                   18.50
+3:                   26.50                   17.00
+4:                   22.75                   23.75
+5:                   20.75                   24.75
+Wrote data/team_game_odds.csv (1632 rows)
+=== 04_pull_odds_covariates.R done in 0s ===
+
+=== 05_pull_kicker_accuracy.R ===
+League-average FG rate by distance range: 0-39=0.956, 40-49=0.801, 50+=0.693
+League XP rate (shrinkage target, w = 100): 0.9576
+Slump flagged in 90 of 1513 kicker-games (5.9%)
+4 of those flags were based on fewer than 3 pooled games (early-season, thinner evidence) - see slump_pool_games per row
+XP attempts attributed to a primary kicker: 3332 of 3864 total team XP attempts (86.2% coverage - the gap is team-games with zero FG attempts, where no kicker could be identified)
+Wrote data/kicker_game_accuracy.csv (1513 rows)
+=== 05_pull_kicker_accuracy.R done in 1s ===
+
+=== 06_join_training_data.R ===
+Loading schedules for seasons: 2023, 2024, 2025 to derive the regular-season game_id list
+Table 1: 1710 total team-game rows -> 1632 after restricting to the regular season (78 playoff rows dropped)
+Dropping 38 window-start team-game rows (empty trailing window) - by season/week: 2023 wk1: 32, 2023 wk2: 5, 2023 wk3: 1
+Wrote data/team_game_training_table.csv (1594 rows)
+0 of 2427 rows had xp_accuracy_rate imputed (expected - each kicker's first tracked game(s), before any XP history exists)
+Wrote data/kicker_training_table.csv (2427 rows)
+=== 06_join_training_data.R done in 0s ===
+
+=== 06b_build_volume_features.R ===
+Wrote data/volume_model_table.csv (1594 team-games; pre-game top-16: 832; season-end top-16: 789)
+=== 06b_build_volume_features.R done in 1s ===
+
+=== 07_fit_volume_models.R ===
+Training rows (pre-game top-16 team-games): 832 of 1594
+
+Held-out check on pre-game top-16 team-games (error x1000, lower = better):
+      outcome error_final error_league_average    gain seasons_better
+1 xp_attempts     904.150             1081.581 177.431              3
+2     att_039    1098.466             1111.709  13.243              3
+3    att_4049    1027.290             1046.640  19.350              3
+4      att_50    1037.344             1060.840  23.496              3
+  mean_predicted mean_actual
+1          2.383       2.385
+2          0.946       0.951
+3          0.534       0.536
+4          0.524       0.529
+XP/FG dependence gamma (0-39, 40-49, 50+): -0.0821, -0.1019, -0.1568
+Dispersion (XP attempts): 0.793
+Dispersion (0-39 FG attempts): 0.918
+Dispersion (40-49 FG attempts): 1.021
+Dispersion (50+ FG attempts): 1.025
+
+Predicted attempts per game at a median offense:
+        kicker    venue xp_attempts att_039 att_4049 att_50 fg_total
+1    weak_10th outdoors       2.321   1.033    0.493  0.410    1.936
+2    weak_10th     dome       2.321   0.910    0.412  0.474    1.795
+3 average_50th outdoors       2.321   1.033    0.493  0.465    1.991
+4 average_50th     dome       2.321   0.910    0.633  0.655    2.197
+5  strong_75th outdoors       2.321   1.033    0.493  0.491    2.017
+6  strong_75th     dome       2.321   0.910    0.729  0.741    2.380
+7   elite_95th outdoors       2.321   1.033    0.493  0.520    2.046
+8   elite_95th     dome       2.321   0.910    0.830  0.858    2.598
+
+Wrote models/volume_*_model.rds, data/volume_model_validation.csv, data/volume_model_coefficients.csv, data/volume_model_profiles.csv
+=== 07_fit_volume_models.R done in 1s ===
+
+=== 08a_backtest_points_distribution.R ===
+XP rate rebuilt from 05's method: 1406 of 1406 team-games match 05's xp_accuracy_rate exactly
+
+Backtest on 832 pre-game top-16 team-games (leave-one-season-out):
+                                                             rule
+1 1a projection beats kicker's trailing points per game (seasons)
+2                    1b projection beats league average (seasons)
+3                              2 bias within 0.3 points (overall)
+4             3 middle-80% range honest within 5 points (overall)
+5                 4 distribution beats league histogram (seasons)
+                      result passes
+1                     3 of 3   TRUE
+2                     3 of 3   TRUE
+3                     +0.178   TRUE
+4 hit 86.8% vs claimed 83.7%   TRUE
+5                     3 of 3   TRUE
+  season team_games mse_model mse_kicker_ppg mse_league_avg mean_projected
+1   2023        256    22.109         23.994         22.748          8.139
+2   2024        288    21.195         22.147         22.490          8.425
+3   2025        288    22.933         23.702         24.484          8.799
+4    all        832    22.078         23.253         23.260          8.466
+  mean_actual   bias outcome_range_hit_rate outcome_range_claimed
+1       7.930  0.209                  0.859                 0.839
+2       8.497 -0.071                  0.868                 0.839
+3       8.399  0.400                  0.875                 0.834
+4       8.288  0.178                  0.868                 0.837
+  log_score_model log_score_histogram spread_ratio mean_ci_width
+1          -2.934              -2.969        0.878         2.417
+2          -2.918              -2.977        0.840         2.222
+3          -2.949              -3.025        0.873         2.218
+4          -2.933              -2.991        0.863         2.280
+  mean_outcome_range_width mean_sd_points
+1                   12.770          5.012
+2                   12.719          5.010
+3                   12.878          5.106
+4                   12.790          5.044
+  projection_fifth team_games mean_projected mean_actual outcome_range_hit_rate
+1                1        167          7.035       6.820                  0.832
+2                2        167          7.902       7.934                  0.880
+3                3        166          8.397       8.277                  0.892
+4                4        166          8.943       8.518                  0.867
+5                5        166         10.067       9.904                  0.867
+Wrote data/points_backtest_games.csv, data/points_backtest_summary.csv, data/points_backtest_rules.csv, data/points_backtest_calibration.csv
+=== 08a_backtest_points_distribution.R done in 15s ===
+
+=== 09b_weekly_projections.R ===
+New model self-test passed (24 values)
+Downloading https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.rds
+Projecting 2026 week 7 (play-by-play through week 7; lines downloaded 2026-10-23 13:42:14 UTC)
+Wrote data/weekly_projections_2026_wk07.csv (28 kicker-games, 2 already played) and data/weekly_distributions_2026_wk07.csv
+Wrote data/weekly_roof_scenarios_latest.csv (6 roof-unknown kicker-games)
+Wrote data/weekly_projections_previous_model_2026_wk07.csv. New model vs previous: mean absolute difference 0.55, largest 2.68 (S.Shrader)
+   team opponent kicker_player_name top16pre played projected_points ci_low
+1   HOU      NYG        K.Fairbairn     TRUE  FALSE             10.5    9.7
+2   MIN      IND         W.Reichard     TRUE  FALSE             10.4    9.6
+3   DET       GB            J.Bates     TRUE  FALSE              9.5    8.6
+4   PIT       NO          C.Boswell     TRUE  FALSE              9.4    8.7
+5   DAL      PHI           B.Aubrey     TRUE  FALSE              9.0    8.3
+6    LA       LV            E.Evans    FALSE  FALSE              8.9    7.4
+7   IND      MIN          S.Shrader     TRUE  FALSE              8.9    7.9
+8    SF      ATL          E.Pineiro    FALSE  FALSE              8.8    8.0
+9   ATL       SF             N.Folk    FALSE  FALSE              8.8    8.1
+10  SEA       KC            J.Myers     TRUE  FALSE              8.6    7.9
+11  CHI       NE           C.Santos    FALSE   TRUE              8.6    7.9
+12  NYJ      MIA          J.Sanders     TRUE  FALSE              8.6    7.9
+13   TB      CAR       C.McLaughlin     TRUE  FALSE              8.4    7.7
+14  DEN      ARI             W.Lutz    FALSE  FALSE              8.4    7.6
+15  CIN      BAL        E.McPherson     TRUE  FALSE              8.4    7.7
+16  BAL      CIN             T.Loop     TRUE  FALSE              8.3    7.3
+17  CLE      TEN            A.Szmyt    FALSE  FALSE              8.1    7.2
+18   GB      DET            T.Smack    FALSE  FALSE              8.1    7.0
+19  CAR       TB       R.Fitzgerald    FALSE  FALSE              8.1    7.2
+20   NO      PIT          D.Carlson    FALSE  FALSE              7.9    7.2
+21   LV       LA              M.Gay     TRUE  FALSE              7.9    7.2
+22  ARI      DEN           C.Ryland     TRUE  FALSE              7.4    6.6
+23   KC      SEA           H.Butker     TRUE  FALSE              7.3    6.6
+24   NE      CHI       A.Borregales     TRUE   TRUE              7.3    6.4
+25  TEN      CLE             J.Slye    FALSE  FALSE              7.1    6.4
+26  PHI      DAL          J.Elliott    FALSE  FALSE              7.1    6.4
+27  NYG      HOU            D.Zvada     TRUE  FALSE              6.9    5.9
+28  MIA      NYJ        R.Patterson    FALSE  FALSE              6.7    5.9
+   ci_high outcome_low outcome_high previous_model roof_unknown
+1     11.3           4           18            9.7         TRUE
+2     11.3           4           18           12.2        FALSE
+3     10.3           3           16            9.8        FALSE
+4     10.1           3           17            9.2        FALSE
+5      9.6           3           16            8.3        FALSE
+6     10.0           3           16            8.1        FALSE
+7      9.7           2           16           11.5        FALSE
+8      9.5           3           16            8.8         TRUE
+9      9.4           3           16            9.2         TRUE
+10     9.2           2           16            8.8        FALSE
+11     9.2           3           15            9.1        FALSE
+12     9.2           2           15            8.0        FALSE
+13     9.0           2           15            8.0        FALSE
+14     9.1           2           15            7.3         TRUE
+15     9.0           2           15            8.6        FALSE
+16     9.1           2           15            8.3        FALSE
+17     8.9           2           15            7.6        FALSE
+18     9.0           2           15            7.3        FALSE
+19     8.9           2           15            8.6        FALSE
+20     8.7           2           15            7.9        FALSE
+21     8.6           2           14            8.0        FALSE
+22     8.1           2           14            7.1         TRUE
+23     8.0           2           14            7.0        FALSE
+24     8.1           2           13            7.7        FALSE
+25     7.8           1           14            6.8        FALSE
+26     7.7           2           13            7.1        FALSE
+27     7.9           1           13            6.1         TRUE
+28     7.5           1           13            6.5        FALSE
+   roof_closed_share actual_points
+1             0.8718            NA
+2                 NA            NA
+3                 NA            NA
+4                 NA            NA
+5                 NA            NA
+6                 NA            NA
+7                 NA            NA
+8             0.4298            NA
+9             0.4298            NA
+10                NA            NA
+11                NA            14
+12                NA            NA
+13                NA            NA
+14            0.8653            NA
+15                NA            NA
+16                NA            NA
+17                NA            NA
+18                NA            NA
+19                NA            NA
+20                NA            NA
+21                NA            NA
+22            0.8653            NA
+23                NA            NA
+24                NA             7
+25                NA            NA
+26                NA            NA
+27            0.8718            NA
+28                NA            NA
+Appended 56 rows to data/projection_history.csv (28 new model, 28 previous model)
+Wrote next-week projection data/weekly_projections_next_2026_wk08.csv (week 8, 28 kicker-games; 14 of 14 games have a betting line)
+=== 09b_weekly_projections.R done in 23s ===
+
+=== 15_accuracy_report.R ===
+Accuracy report: 25 active kickers with >= 20 attempts, 7 truly good; window 2023-2026 regular season through week 7
+   rank       kicker team fg_made fg_att make_pct expected_pct edge_pts
+1     1    S.Shrader  IND      36     37     97.3         85.6     11.7
+2     2       N.Folk  ATL      87     93     93.5         85.7      7.9
+3     3   W.Reichard  MIN      72     80     90.0         82.5      7.5
+4     4 C.McLaughlin   TB     105    115     91.3         85.0      6.3
+5     5  K.Fairbairn  HOU     120    132     90.9         85.0      5.9
+6     6    C.Boswell  PIT     110    124     88.7         83.4      5.3
+7     7     B.Aubrey  DAL     121    139     87.1         81.8      5.2
+8     8    J.Sanders  NYJ      73     82     89.0         84.6      4.4
+9     9      A.Szmyt  CLE      36     40     90.0         85.9      4.1
+10   10      J.Bates  DET      61     71     85.9         83.6      2.3
+   edge_low80 truly_good
+1         4.7       TRUE
+2         3.4       TRUE
+3         2.3       TRUE
+4         2.3       TRUE
+5         2.2       TRUE
+6         1.3       TRUE
+7         1.3       TRUE
+8        -0.4      FALSE
+9        -2.6      FALSE
+10       -2.9      FALSE
+=== 15_accuracy_report.R done in 6s ===
+
+=== 13_scorecard.R ===
+Scorecard: 248 kicker-games graded or checked (11 wrong starter)
+       source season week graded wrong_starter mse_model mse_ppg mse_league
+1        live   2026    3      2             0    26.024  21.617     26.876
+2        live   2026    4     32             0    18.641  19.310     21.748
+3        live   2026    5     30             0    28.422  25.219     31.251
+4        live   2026    6     27             1    30.423  30.784     28.475
+5        live   2026    7      2             0    14.777  20.196     17.929
+6        live   2026  all     93             1    25.292  24.616     26.795
+7  prev_model   2026    5     30             0    29.064  25.219     31.251
+8  prev_model   2026    6     27             1    31.084  30.784     28.475
+9  prev_model   2026    7      2             0    12.252  20.196     17.929
+10 prev_model   2026  all     59             1    29.419  27.595     29.529
+11    rebuilt   2026    1     23             9    22.495  22.235     18.574
+12    rebuilt   2026    2     32             0    19.718  17.843     16.575
+13    rebuilt   2026    3     30             0    22.862  22.240     22.143
+14    rebuilt   2026  all     85             9    21.579  20.583     19.081
+     bias range_hit range_claimed rank_corr top12_minus_rest
+1   2.067     0.500         0.825        NA              NaN
+2  -0.699     0.906         0.835     0.292            0.367
+3  -0.246     0.833         0.838     0.390            5.500
+4  -1.574     0.704         0.843    -0.127           -2.400
+5  -2.573     1.000         0.819        NA              NaN
+6  -0.788     0.817         0.838     0.195            1.091
+7  -0.399     0.800         0.835     0.215            3.000
+8  -1.692     0.704         0.846    -0.163           -2.400
+9  -2.075     1.000         0.848        NA              NaN
+10 -1.048     0.763         0.841     0.073            0.544
+11  0.670     0.783         0.836    -0.015           -1.303
+12  0.471     0.875         0.835    -0.210           -1.633
+13 -0.707     0.800         0.835    -0.140           -0.861
+14  0.109     0.824         0.835    -0.121           -1.276
+Accurate dome kickers (40-49 accuracy 0.822+, roof closed or dome): 
+      source season kicker_games actual_att_4049_per_game
+1       live   2026            6                    0.667
+2 prev_model   2026            6                    0.667
+  expected_att_4049_per_game actual_points_per_game projected_points_per_game
+1                      0.536                   8.33                      9.18
+2                      0.687                   8.33                      9.27
+=== 13_scorecard.R done in 1s ===
+
+All done.
+Warning message:
+There was 1 warning in `mutate()`.
+i In argument: `window = paste0(...)`.
+Caused by warning in `fg$season == season`:
+! longer object length is not a multiple of shorter object length 

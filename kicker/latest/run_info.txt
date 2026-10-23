@@ -1,0 +1,6 @@
+run_date=2026-10-23
+status=OK
+season=2026
+week=7
+files=weekly_projections_latest.csv,weekly_distributions_latest.csv,weekly_projections_previous_model.csv,scorecard_summary.csv,scorecard_games.csv,scorecard_dome_accurate.csv,accuracy_report_latest.csv,weekly_roof_scenarios_latest.csv,weekly_projections_next.csv,weekly_distributions_next.csv
+note=
