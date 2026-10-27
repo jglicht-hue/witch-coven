@@ -1,4 +1,6 @@
-run_date=none
-status=NONE
-files=
-note=no run yet
+run_date=2026-10-27
+status=OK
+season=2026
+last_game=2026-10-26
+files=ARI_Cardinals_current.md,ATL_Falcons_current.md,BAL_Ravens_current.md,BUF_Bills_current.md,CAR_Panthers_current.md,CHI_Bears_current.md,CIN_Bengals_current.md,CLE_Browns_current.md,DAL_Cowboys_current.md,DEN_Broncos_current.md,DET_Lions_current.md,GB_Packers_current.md,HOU_Texans_current.md,IND_Colts_current.md,JAX_Jaguars_current.md,KC_Chiefs_current.md,LAC_Chargers_current.md,LA_Rams_current.md,LEAGUE_current.md,LV_Raiders_current.md,MIA_Dolphins_current.md,MIN_Vikings_current.md,NE_Patriots_current.md,NO_Saints_current.md,NYG_Giants_current.md,NYJ_Jets_current.md,PHI_Eagles_current.md,PIT_Steelers_current.md,SEA_Seahawks_current.md,SF_49ers_current.md,TB_Buccaneers_current.md,TEN_Titans_current.md,WAS_Commanders_current.md
+note=published manually from a chat; scheduled run could not push
