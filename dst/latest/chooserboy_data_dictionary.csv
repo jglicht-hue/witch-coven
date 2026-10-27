@@ -1,0 +1,62 @@
+file,column,meaning
+all,season / week,NFL season and regular-season week. Only regular-season games are included.
+all,_pg,Suffix = per game.
+all,_oe,Suffix = over expected: actual minus what you'd expect given who they played (positive = more than expected). DST side: expectation = the opponent offense's OTHER games this season blended with its last season (counted as OFF_BASELINE_PRIOR_GAMES games). Offense/QB side: expectation = the defense's OTHER games this season blended with its last season (counted as DEF_BASELINE_PRIOR_GAMES games).
+all,_adj,"Suffix = adjusted for the defenses faced, using the same blended defense yardstick as the offense-side _oe columns."
+meta,last_week_in_data,"Latest week with play-by-play. If behind the current NFL week, the data is stale - use web search for stats."
+meta,next_unplayed_week,The week the matchup board treats as 'this week' (weeks_out = 0).
+meta,pressure_data_games,Current-season games that have PFR pressure data. Low vs games_in_data = pressure numbers incomplete.
+matchup_board,dst_team / opponent,"One row per team per upcoming game, from the DST's point of view."
+matchup_board,weeks_out,0 = this week's game; 1-3 = forward-look.
+matchup_board,base_score,START HERE. 1-10 score from the backtested formula (35% matchup / 25% unit quality / 40% Vegas). Same scale as the points table in the instructions. Blank when Vegas lines aren't posted - then use prov_score.
+matchup_board,prov_score,"Provisional 1-10 score for games with NO Vegas line yet (usually 2+ weeks out): matchup (B) and unit quality (A) only, in the same 35:25 proportion. Own cutoffs and points table (weaker than base_score). Blank whenever base_score exists."
+matchup_board,prov_composite,The raw number behind prov_score (0 = average).
+matchup_board,base_composite,The raw blended number behind base_score (0 = average matchup; roughly -1.5 to +1.5). Useful for breaking ties between equal base_scores.
+matchup_board,base_matchup_B,"(B) input to base_score: opponent's core points allowed (sacks + 2 x takeaways) per game vs league average, blended with last season (6 games' weight)."
+matchup_board,base_matchup_B_adj,"REFERENCE ONLY (not in base_score): same as base_matchup_B but measured against what the defenses this offense faced normally get (their other games + last season), instead of league average. Backtest 2021-2025: no measurable gain over the raw B once Vegas is in the score."
+matchup_board,base_unit_A,"(A) input to base_score: DST's core points over expected per game (vs. what each opponent normally allows: its other games + last season), blended with the DST's last season (6 games' weight)."
+matchup_board,dst_spread,(C) Vegas spread for the DST's team (negative = favored). Part of base_score. Blank until lines are posted.
+matchup_board,opp_implied_total,(C) Opponent's Vegas implied points (from spread + total). Core input - 40% of base_score with the spread. Points allowed still don't score; a low total flags an offense likely to take sacks and turn it over.
+matchup_board,roof,dome / closed / open / outdoors. Dome or closed = ignore weather.
+matchup_board,opp_qb_listed,QB listed by nflverse for the game (often blank for future games) - confirm with web search.
+matchup_board,opp_last_game_qb,QB with the most dropbacks in the opponent's most recent game.
+matchup_board,dst_games_baseline_qb_mismatch,"v1.4, reference only: how many of this DST's games this season have baseline_qb_mismatch = TRUE in the game log. Above 0 = check those games before trusting the unit-quality (A) read."
+matchup_board,dst_* columns,Current-season DST quality (A). See dst_season columns of the same name.
+matchup_board,opp_* columns,Current-season offense generosity (B). See offense_season columns of the same name.
+matchup_board,*_prior_*,Same metric from last season - backup signal when the current-season sample is thin.
+dst_season,sacks_pg / takeaways_pg,"Raw sacks and takeaways (INTs + fumble recoveries, incl. special teams) per game."
+dst_season,exp_sacks_pg / exp_takeaways_pg,Average of what this DST's opponents normally allow (their other games this season + last season) = strength of schedule. Higher = easier schedule.
+dst_season,sacks_oe_pg / takeaways_oe_pg,(A) core metric: per-game production above what its opponents normally allow. Tracked separately.
+dst_season,core_fpts_oe_pg,sacks_oe and takeaways_oe converted to league fantasy points (TDs excluded). Best single unit-quality number.
+dst_season,games_league_avg_baseline,"Games where the opponent had no other games and no last season in the data, so league average was the baseline (normally 0 in the current season)."
+dst_season,games_baseline_qb_mismatch,"v1.4, reference only: games whose yardstick came mostly from a different QB than the one the DST faced (baseline_qb_mismatch in the game log)."
+dst_season,pressure_rate,Pressures generated / opponent dropbacks (PFR pressures). Compare to lg_pressure_rate.
+dst_season,sacks_per_pressure,Sack conversion. Well above lg_sacks_per_pressure = sack total may not hold up; well below = likely due for more sacks.
+dst_season,def_td / st_td,"Defensive return TDs / special-teams return TDs. Ceiling note only, not part of the baseline."
+dst_season,fantasy_ppg / fantasy_ppg_ex_td,"Actual league-scoring fantasy points per game, with and without TDs."
+dst_season,rank_*,League rank within season (1 = best).
+offense_season,team,The OFFENSE being described (i.e. a potential opponent for your DST).
+offense_season,sacks_allowed_pg / giveaways_pg,What opposing DSTs have gotten against this team per game. Giveaways include special-teams fumbles.
+offense_season,sack_rate_allowed,Sacks allowed / dropbacks.
+offense_season,sacks_allowed_index / giveaways_index,"Per-game rate vs. league average (1.00 = average, 1.30 = 30% more generous)."
+offense_season,sacks_allowed_oe_pg / giveaways_oe_pg,(B) adjusted: allowed vs. what the DSTs they faced normally get elsewhere (their other games this season + last season). Positive = generous even after accounting for who they played.
+offense_season,dst_fpts_allowed_ex_td_pg,Fantasy points (ex TD) opposing DSTs averaged against this offense.
+offense_season,rank_generosity_ex_td,1 = most generous offense for DSTs.
+offense_season,last_game_qb,"QB with the most dropbacks in the team's latest game. If a different QB starts this week, lean on qb_profiles."
+dst_game_log,baseline_type,opp_other_games+last_season = opponent's other games this season blended with its last season (current season); opp_other_games = other games only (last season's rows); league_avg = no other games.
+dst_game_log,exp_sacks / exp_takeaways,What the opponent normally allows (see baseline_type). The game's sacks_oe / takeaways_oe = actual minus these.
+dst_game_log,opp_qb / opp_qb_id,v1.4: the QB with the most dropbacks against this DST in this game.
+dst_game_log,opp_qb_game_share,v1.4: share of the offense's dropbacks in this game thrown by opp_qb (below ~0.8 = QB change or injury mid-game).
+dst_game_log,opp_prior_main_qb,v1.4: the offense's top-dropback QB last season (blank if last season isn't loaded).
+dst_game_log,opp_qb_prior_share,v1.4: share of the offense's LAST-season dropbacks thrown by opp_qb (0 = he didn't play for them). Blank if last season isn't loaded.
+dst_game_log,opp_qb_other_games_share,v1.4: share of the offense's dropbacks in its OTHER games this season thrown by opp_qb. Blank if no other games.
+dst_game_log,opp_qb_baseline_share,"v1.4: how much of this game's yardstick (exp_sacks / exp_takeaways) came from opp_qb, weighted the way the yardstick is (other games 1 each, last season OFF_BASELINE_PRIOR_GAMES)."
+dst_game_log,baseline_qb_mismatch,"v1.4, reference only: TRUE when opp_qb_baseline_share is below QB_MISMATCH_SHARE (0.5) - the game's yardstick mostly describes a different QB, so its sacks_oe / takeaways_oe may be off. Not used in any score."
+dst_game_log,opp_sacks_allowed_oe / opp_giveaways_oe,Offense-side mirror: game result vs. what THIS DST normally gets (its other games this season + last season). opp_exp_* = that expectation.
+dst_game_log,pressures,PFR pressures generated in the game (blank if not available).
+dst_game_log,fpts / fpts_ex_td,"League-scoring fantasy points for the game, with and without TDs."
+qb_profiles,qb / passer_id,"One row per QB per season (min 10 dropbacks), includes backups. team = last team he threw for that season."
+qb_profiles,sack_rate / int_rate / turnover_rate,Per dropback. turnover_rate = (INTs + fumbles lost by the QB) / dropbacks. Compare to lg_* columns.
+qb_profiles,sack_rate_blend / turnover_rate_blend,"BEST EARLY-SEASON READ of a QB: this season's raw rate blended with his last season (sacks: 200 dropbacks' weight, turnovers: 400). blend_prior says whether his own last season or league average was used. Backtest: cut next-week prediction error ~29-39% in Weeks 2-3 vs. the raw rate. Blank for the oldest season in the file."
+qb_profiles,sack_rate_adj / int_rate_adj / turnover_rate_adj,Same rates adjusted for the defenses faced: league rate + (actual - what those defenses normally force on the same dropbacks) / dropbacks. Backtest: early-season adjusted rates did not predict later-season rates better than raw ones; early-season turnover rates (raw or adjusted) barely predict later turnovers at all.
+qb_profiles,pick_sixes,INTs returned for TDs.
