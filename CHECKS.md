@@ -50,3 +50,8 @@ It used nflverse play-by-play for 2011–2025, written to a separate folder.
 - It ran cleanly with the repo's 00, 08, 09 and 09n: self-test passed. On Oct 20 there were no Week 8 lines yet, so it correctly wrote nothing.
 - Its three hand-copied XP/FG dependence values match `models/points_gamma.csv` from the Oct 19 pipeline run exactly.
 - Forced to project Week 7 (test copy only), it wrote all 28 kicker-games. These matched the Oct 19 pipeline's Week 7 look-ahead within 0.18 points (mean 0.04); the largest gap follows an overnight line move (ATL implied total 23.0 → 23.75).
+
+## Added later
+| Script | Added | Run check |
+|---|---|---|
+| `dynasty/v1_tank_sim.py` | Oct 29, 2026, written in a Dynasty chat (no project copy) | With every random element switched off (weekly ratios 1, no absences, sigma 0) it returns 105.0 max points a week for roster 6 over Weeks 8–14, matching a hand-built best-lineup projection from the same FantasyPros numbers. A backtest of each roster's current players over 2026 Weeks 1–7 (nflverse PPR, +1 per interception for this league) gave 107.1 (roster 6) and 112.3 (roster 5); the projection-based sim runs about 21% above both, so use `--scale` to calibrate both rosters alike before quoting absolute numbers. |
