@@ -10,10 +10,10 @@ Read for any question about a rookie pick (its value, a trade involving one) and
 
 ## Draft order
 - **Rookie draft:** 4 rookie rounds, **linear** (the same order in every rookie round, not a snake).
-- Order, as the owner understands it: the six teams that miss the playoffs pick 1 to 6 in reverse order of regular-season finish, and the six playoff teams pick 7 to 12, with the champion last.
-- **What "finish" means isn't confirmed** (see the flag list). In the 2026 draft the six non-playoff teams picked in order of fewest points scored, and that differed from worst record at one pair of teams. The grimoire has the table (Part 3, section F).
+- Order (owner, Oct 21; flag A1 closed): the six teams that miss the playoffs pick 1 to 6 in order of lowest maximum points (Sleeper's Max PF, the best possible lineup each week). The six playoff teams pick 7 to 12, with the champion last. The playoff field is set by record.
+- So our own pick moves with roster strength (Max PF), not with the lineup we start; the lineup matters only for staying out of the playoffs.
 - Because the order repeats, a team that misses the playoffs picks in the first half of every rookie round.
-- Until the draft-order rule is confirmed, track both our record and our points against the other teams likely to miss the playoffs.
+- Track our Max PF against the other teams likely to miss the playoffs.
 
 ## Valuing a pick
 - By tier (rule 2) and by the record of the team it came from. Re-check that team's standing each time.
