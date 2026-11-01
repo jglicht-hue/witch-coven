@@ -24,6 +24,7 @@ Read for any question about a rookie pick (its value, a trade involving one) and
 ## 3. In the rookie draft
 - **Rookie round 1:** a receiver for safety or an RB for upside.
 - **Rookie rounds 2 and 3:** compare the candidates on the clock by NFL round and position, using the ladder in section 2 of the brief. Then adjust for landing spot and profile.
+- **For an RB, profile means receiving first** (owner, Oct 31; brief v2.15, section 8): final-season college catches per game, with team target share and receiving-yard share beside it. Catches per game is the only trait that adds signal once the NFL pick is known, and the edge is biggest in NFL rounds 3 and 4.
 - **The ladder's rows are tiers** (owner, Oct 3). A gap of 15 to 20 picks, or one side of an NFL round boundary, isn't a reason on its own.
 - **The caveat goes with every use of the ladder:** its rates cover every player from that NFL round, including ones nobody takes in a rookie draft. A player the market has singled out probably has better odds than his row says. The rate is the starting point.
 - Leone's tables are by rookie-draft slot; the ladder is by NFL round. Never carry a rate across (guardrail 18).

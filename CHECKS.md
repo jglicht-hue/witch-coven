@@ -20,6 +20,7 @@ The copy check is the first 12 characters of the SHA-256 of the file's text with
 | `shared/research/*.py` | Redraft benchmarks v1.1, section 7 | Dynasty's copy of the doc is identical. |
 | `shared/benchmarks_v2/*.py` | Redraft benchmarks v2.1 | Identical to the code in Dynasty's `v2_Redraft_Witch_benchmarks.md`. |
 | `dynasty/v1_harmon_pdf_to_csv.py` | Dynasty grimoire v1.3 | Not run (needs a Harmon PDF). |
+| `dynasty/rb_prospect_study/` (8 scripts) | Dynasty research brief v2.15, section 8 | Run in the Oct 31 study chat; not re-run since. Verification targets are in that chat's handoff (section 5 table, 133/51/5 linking, odds ratios 1.97 and 2.38, R² about 0.174 and 0.22). |
 
 ## DST
 `dst/v1.4_ChooserBoy_weekly_pull.R` ran start to finish and wrote all 7 files. Its game log was compared row by row with the project's Oct 13 file (702 rows):
