@@ -48,15 +48,23 @@ PPG = fantasy points per game going into the week. 90% CI = confidence interval 
 | 10 | R.Fitzgerald | CAR | 37/42 | 88.1 | 85.3 | 2.8 | -3.9 |  |
 Expected % = what a league-average kicker makes from his distances. Edge = make % minus expected %. A low 80% bound means a small sample. Truly good = edge of 5+ points on 20+ attempts.
 
-**Scorecard** (live = the projection that was live: previous model through week 4, new model from week 5; prev_model = previous model graded alone from week 5; rebuilt = weeks 1–3 rebuilt afterwards)
-| Period | Source | Graded | Wrong starter | Sq. error: model | vs own PPG | vs league avg | Bias | 80% range hit | Rank corr. |
+**Scorecard: new model vs previous model, same games** (weeks 1–4 rebuilt with both models using the final betting lines; weeks 5+ the projections actually made each week)
+| Period | Model | Graded | Wrong starter | Sq. error: model | vs own PPG | vs league avg | Bias | 80% range hit | Rank corr. |
+|---|---|---|---|---|---|---|---|---|---|
+| week 8 | new | 28 | 0 | 20.5 | 22.1 | 19.9 | 0.733 | 82.1% (claimed 83.6%) | 0.066 |
+| week 8 | previous | 28 | 0 | 21.8 | 22.1 | 19.9 | 0.772 | 82.1% (claimed 84.3%) | 0.038 |
+| season to date | new | 230 | 12 | 22.0 | 22.1 | 22.2 | -0.083 | 83.0% (claimed 83.8%) | 0.088 |
+| season to date | previous | 230 | 12 | 22.7 | 22.1 | 22.2 | -0.106 | 81.7% (claimed 83.8%) | 0.061 |
+Season to date, paired by game (230 games): squared error new minus previous = -0.727 (standard error 0.372, z = -2.0; negative = new is better). The new model had the lower squared error in 6 of 8 weeks.
+
+**Scorecard as it ran** (live = the projection that was live: previous model through week 4, new model from week 5; prev_model = previous model graded alone from week 5)
+| Period | Model | Graded | Wrong starter | Sq. error: model | vs own PPG | vs league avg | Bias | 80% range hit | Rank corr. |
 |---|---|---|---|---|---|---|---|---|---|
 | week 8 | live | 28 | 0 | 20.5 | 22.1 | 19.9 | 0.733 | 82.1% (claimed 83.6%) | 0.066 |
 | week 8 | prev_model | 28 | 0 | 21.8 | 22.1 | 19.9 | 0.772 | 82.1% (claimed 84.3%) | 0.038 |
 | season to date | live | 145 | 3 | 22.7 | 23.0 | 24.0 | -0.149 | 83.4% (claimed 83.8%) | 0.197 |
 | season to date | prev_model | 111 | 3 | 24.9 | 24.1 | 24.6 | -0.089 | 79.3% (claimed 84.0%) | 0.089 |
-| season to date | rebuilt | 85 | 9 | 21.6 | 20.6 | 19.1 | 0.109 | 82.4% (claimed 83.5%) | -0.121 |
 
-**Accurate kickers in domes, 40–49 yd attempts per game:** live: actual 0.800 vs expected 0.541 (15 kicker-games); prev_model: actual 0.800 vs expected 0.757 (15 kicker-games).
+**Accurate kickers in domes, 40–49 yd attempts per game:** live: actual 0.800 vs expected 0.541 (15 kicker-games); prev_model: actual 0.800 vs expected 0.757 (15 kicker-games); rebuilt_new: actual 0.522 vs expected 0.537 (23 kicker-games); rebuilt_prev: actual 0.522 vs expected 0.714 (23 kicker-games).
 
 *The starting kicker is assumed to be whoever last kicked for each team, so injuries or signings since then are not reflected. Weather is not in this file; the Kicker Wizerd chat applies it from forecasts.*
