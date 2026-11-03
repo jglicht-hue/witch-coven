@@ -30,6 +30,7 @@
 #                                (added 2026-09-29; runs after 09b, which defines the active kickers)
 #   13_scorecard                 grades past weeks' projections against actual scores (added 2026-09-28)
 #   (13a_backfill_history is run by hand once; it rebuilt 2026 weeks 1-3)
+#   (13a_backfill_new_model.R is run by hand once; it rebuilt 2026 weeks 1-4 with both models, for the scorecard comparison)
 #
 # Experiments (not needed for the models; about 20 minutes together) - set
 # RUN_EXPERIMENTS to TRUE to rerun them:

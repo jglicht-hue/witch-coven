@@ -32,6 +32,7 @@ nxt  <- rd("data/weekly_projections_next.csv")
 acc  <- rd("data/accuracy_report_latest.csv")
 sc   <- rd("data/scorecard_summary.csv")
 dome <- rd("data/scorecard_dome_accurate.csv")
+pv   <- rd("data/scorecard_new_vs_previous.csv")
 if (is.null(p)) stop("data/weekly_projections_latest.csv not found - run run_all.R first.")
 
 out <- character()
@@ -103,11 +104,26 @@ if (tuesday) {
     wk <- suppressWarnings(max(as.integer(sc$week[sc$source == "live" & sc$week != "all"]), na.rm = TRUE))
     rows <- bind_rows(filter(sc, week == as.character(wk), source %in% c("live", "prev_model")) |> mutate(Period = paste("week", wk)),
                       filter(sc, week == "all") |> mutate(Period = "season to date"))
-    add("**Scorecard** (live = the projection that was live: previous model through week 4, new model from week 5; prev_model = previous model graded alone from week 5; rebuilt = weeks 1–3 rebuilt afterwards)",
-        tbl(transmute(rows, Period, Source = source, Graded = graded, `Wrong starter` = wrong_starter,
+    scol <- function(r) tbl(transmute(r, Period, Model = Model, Graded = graded, `Wrong starter` = wrong_starter,
                       `Sq. error: model` = f1(mse_model), `vs own PPG` = f1(mse_ppg), `vs league avg` = f1(mse_league),
                       Bias = f3(bias), `80% range hit` = paste0(pct(range_hit), " (claimed ", pct(range_claimed), ")"),
-                      `Rank corr.` = f3(rank_corr))), "")
+                      `Rank corr.` = f3(rank_corr)))
+    # Focal comparison (since 2026-11-03): new model vs previous model on identical games, whole season
+    foc <- filter(sc, source %in% c("new_model_season", "previous_model_season"))
+    if (nrow(foc)) {
+      fr <- bind_rows(filter(foc, week == as.character(wk)) |> mutate(Period = paste("week", wk)),
+                      filter(foc, week == "all") |> mutate(Period = "season to date")) |>
+        mutate(Model = ifelse(source == "new_model_season", "new", "previous")) |> arrange(match(Period, c(paste("week", wk), "season to date")), Model)
+      pa <- if (!is.null(pv)) filter(pv, week == "all") else NULL
+      add("**Scorecard: new model vs previous model, same games** (weeks 1–4 rebuilt with both models using the final betting lines; weeks 5+ the projections actually made each week)",
+          scol(fr),
+          if (!is.null(pa) && nrow(pa)) sprintf("Season to date, paired by game (%d games): squared error new minus previous = %s (standard error %s, z = %s; negative = new is better). The new model had the lower squared error in %d of %d weeks.",
+                pa$games, f3(pa$mean_diff), f3(pa$se_diff), f1(pa$z), pa$weeks_new_better, nrow(filter(pv, week != "all"))) else "", "")
+    }
+    rows <- bind_rows(filter(sc, week == as.character(wk), source %in% c("live", "prev_model")) |> mutate(Period = paste("week", wk)),
+                      filter(sc, week == "all", source %in% c("live", "prev_model")) |> mutate(Period = "season to date")) |> mutate(Model = source)
+    add("**Scorecard as it ran** (live = the projection that was live: previous model through week 4, new model from week 5; prev_model = previous model graded alone from week 5)",
+        scol(rows), "")
     if (!is.null(dome) && nrow(dome))
       add(paste0("**Accurate kickers in domes, 40–49 yd attempts per game:** ",
                  paste(sprintf("%s: actual %s vs expected %s (%d kicker-games)", dome$source, f3(dome$actual_att_4049_per_game),

@@ -12,6 +12,10 @@
 #     the game is left out of the accuracy numbers and counted as a "wrong
 #     starter" instead. If the team attempted no kicks at all, the projected
 #     kicker is graded with 0 points.
+#   - Since 2026-11-03: weeks 1-4 were also rebuilt with BOTH models (13a_backfill_new_model.R,
+#     sources "rebuilt_new" / "rebuilt_prev"). The focal comparison is new_model_season vs
+#     previous_model_season (rebuilt weeks 1-4 + the live projections from week 5), on identical
+#     games, with the paired difference in data/scorecard_new_vs_previous.csv.
 #   - Since 2026-10-06 (week 5) the live projection comes from the new model
 #     (09n_new_model.R). The previous model is still run every week; its rows
 #     (source = "prev_model") are graded the same way, on their own, so the
@@ -65,12 +69,12 @@ team_kicked <- kicked |> distinct(game_id, posteam) |> mutate(team_had_kicks = T
 # The graded projection per team-game: latest run before the game; live preferred over rebuilt.
 # The previous model's rows (source = "prev_model") are graded separately: its latest run before the game.
 graded_proj <- bind_rows(
-  hist |> filter(game_id %in% done, !played_at_run, source != "prev_model") |>
+  hist |> filter(game_id %in% done, !played_at_run, !source %in% c("prev_model", "rebuilt_new", "rebuilt_prev")) |>
     mutate(src_rank = ifelse(source == "live", 1, 2)) |>
     group_by(game_id, team) |> filter(src_rank == min(src_rank)) |>
     slice_max(run_date, n = 1, with_ties = FALSE) |> ungroup() |> select(-src_rank),
-  hist |> filter(game_id %in% done, !played_at_run, source == "prev_model") |>
-    group_by(game_id, team) |> slice_max(run_date, n = 1, with_ties = FALSE) |> ungroup())
+  hist |> filter(game_id %in% done, !played_at_run, source %in% c("prev_model", "rebuilt_new", "rebuilt_prev")) |>
+    group_by(game_id, team, source) |> slice_max(run_date, n = 1, with_ties = FALSE) |> ungroup())
 
 games <- graded_proj |>
   left_join(kicked |> select(game_id, team = posteam, kicker_player_id, actual), by = c("game_id", "team", "kicker_player_id")) |>
@@ -92,9 +96,35 @@ grade <- function(d) {
          rank_corr = if (nrow(g) > 2) cor(g$projected_points, g$actual, method = "spearman") else NA_real_,
          top12_minus_rest = mean(top$actual[top$r <= 12]) - mean(top$actual[top$r > 12]))
 }
+# --- The focal comparison: new model vs previous model, whole season, identical games (added 2026-11-03) ---
+# new_model_season      = weeks 1-4 rebuilt with the new model (13a_backfill_new_model.R) + the live new model from week 5
+# previous_model_season = weeks 1-4 rebuilt with the previous model                      + the previous model from week 5
+# Weeks 1-4 use the schedule's final betting lines for both models (a live run saw earlier lines);
+# from week 5 both are the projections actually made each week. NEW_MODEL_FIRST_LIVE_WEEK = 5.
+NEW_MODEL_FIRST_LIVE_WEEK <- 5
+cmp <- bind_rows(
+  games |> filter(source == "rebuilt_new" | (source == "live" & week >= NEW_MODEL_FIRST_LIVE_WEEK)) |> mutate(source = "new_model_season"),
+  games |> filter(source == "rebuilt_prev" | (source == "prev_model" & week >= NEW_MODEL_FIRST_LIVE_WEEK)) |> mutate(source = "previous_model_season"))
+# paired difference: the same kicker-games graded under both models (squared error, new minus previous; negative = new is better)
+pair <- inner_join(
+  cmp |> filter(source == "new_model_season", !wrong_starter) |> select(game_id, team, kicker_player_id, week, actual, new = projected_points, new_hit = in_range),
+  cmp |> filter(source == "previous_model_season", !wrong_starter) |> select(game_id, team, kicker_player_id, prev = projected_points, prev_hit = in_range),
+  by = c("game_id", "team", "kicker_player_id")) |> mutate(d = (actual - new)^2 - (actual - prev)^2)
+pair_stats <- function(x) tibble(games = nrow(x), mse_new = mean((x$actual - x$new)^2), mse_previous = mean((x$actual - x$prev)^2),
+  mean_diff = mean(x$d), se_diff = sd(x$d) / sqrt(nrow(x)), z = mean(x$d) / (sd(x$d) / sqrt(nrow(x))),
+  rank_corr_new = suppressWarnings(cor(x$new, x$actual, method = "spearman")), rank_corr_previous = suppressWarnings(cor(x$prev, x$actual, method = "spearman")),
+  weeks_new_better = NA_integer_)
+pair_tbl <- bind_rows(pair |> group_by(week) |> group_modify(~ pair_stats(.x)) |> ungroup() |> mutate(week = as.character(week)),
+                      pair_stats(pair) |> mutate(week = "all", weeks_new_better = sum((pair |> group_by(week) |> summarise(m = mean(d)) |> pull(m)) < 0))) |>
+  mutate(across(where(is.double), ~ round(.x, 3)))
+write_csv(pair_tbl, "data/scorecard_new_vs_previous.csv")
+message("New vs previous model, same games, whole season (squared error; negative difference = new better):")
+print(as.data.frame(pair_tbl))
+games_all <- bind_rows(games, cmp)
+
 summary_tbl <- bind_rows(
-  games |> group_by(source, season, week) |> group_modify(~ grade(.x)) |> ungroup() |> mutate(week = as.character(week)),
-  games |> group_by(source, season) |> group_modify(~ grade(.x)) |> ungroup() |> mutate(week = "all")) |>
+  games_all |> group_by(source, season, week) |> group_modify(~ grade(.x)) |> ungroup() |> mutate(week = as.character(week)),
+  games_all |> group_by(source, season) |> group_modify(~ grade(.x)) |> ungroup() |> mutate(week = "all")) |>
   arrange(source, season, week) |> mutate(across(where(is.double), ~ round(.x, 3)))
 write_csv(summary_tbl, "data/scorecard_summary.csv")
 message("Scorecard: ", nrow(games), " kicker-games graded or checked (", sum(games$wrong_starter), " wrong starter)")
