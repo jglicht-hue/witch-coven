@@ -1,7 +1,7 @@
 # NO New Orleans Saints — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-10-27 17:19 UTC. Regular season only.
-- 2026: weeks 1–7, 107 games, last game 2026-10-26; NGS participation NO (route, man/zone, coverage, pressure unavailable)
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-03 14:53 UTC. Regular season only.
+- 2026: weeks 1–8, 121 games, last game 2026-11-02; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
 ## 2026 DEFENSE — NO New Orleans Saints (7 games)
 
@@ -9,18 +9,17 @@ Flags, 2026 (leads to test, not verdicts; rank 1 = best D, among teams with enou
 
 Weak (bottom ~15%):
 - run D, success rate: 48% (lg 41%; 32/32)
-- PPR/g allowed, RB: 30.2 (lg 22.0; 32/32)
-- run D, stuff rate: 13% (lg 18%; 32/32)
-- rush EPA, runs, left guard: 0.469 (lg -0.069; 32/32; n=17)
 - rush EPA, runs, right guard: 0.303 (lg -0.129; 32/32; n=21)
-- rush EPA, runs, right tackle: 0.222 (lg -0.097; 31/32; n=19)
-- run D, EPA/rush: 0.036 (lg -0.077; 31/32)
-- run D, YPC: 4.80 (lg 4.07; 30/32)
+- rush EPA, runs, left guard: 0.469 (lg -0.076; 32/32; n=17)
+- PPR/g allowed, RB: 30.2 (lg 22.2; 32/32)
+- run D, EPA/rush: 0.036 (lg -0.075; 31/32)
+- run D, stuff rate: 13% (lg 18%; 31/32)
+- rush EPA, runs, right tackle: 0.222 (lg -0.064; 31/32; n=19)
+- run D, YPC: 4.80 (lg 4.10; 30/32)
 - PPR/tgt, RB: 1.77 (lg 1.51; 29/32; n=37)
-- rush EPA, 7 box: 0.030 (lg -0.091; 28/32; n=85)
-- rush EPA, runs, left end: 0.314 (lg 0.016; 28/32; n=12)
-- rush EPA, 8+ box: 0.455 (lg -0.061; 23/24; n=13)
-- pass EPA/att, deep left: 1.45 (lg +0.32; 23/23; n=13)
+- rush EPA, 7 box: 0.030 (lg -0.077; 28/32; n=85)
+- rush EPA, 8+ box: 0.455 (lg -0.061; 24/25; n=13)
+- pass EPA/att, deep left: 1.45 (lg +0.35; 23/23; n=13)
 
 Strong (top ~15%):
 - pass EPA/att, int middle: +0.03 (lg +0.59; 3/32; n=14)
@@ -29,27 +28,27 @@ Fantasy points allowed (PPR, nflverse scoring incl. rushing, fumbles, 2-pt). Ran
 
 | pos | PPR total | PPR/game | rank |
 |---|---|---|---|
-| QB | 120.3 | 17.2 | 19 |
+| QB | 120.3 | 17.2 | 16 |
 | RB | 211.7 | 30.2 | 32 |
-| WR | 209.4 | 29.9 | 10 |
+| WR | 209.4 | 29.9 | 13 |
 | TE | 118.9 | 17.0 | 27 |
 
 Unit stats (rank 1 = best defense):
 
 | stat | value | rank |
 |---|---|---|
-| EPA/dropback | 0.101 | 22 |
-| YPA | 7.67 | 25 |
+| EPA/dropback | 0.101 | 23 |
+| YPA | 7.67 | 26 |
 | Comp % | 67% | 27 |
-| 20+ yd completions/game | 3.43 | 27 |
-| Sack rate | 7% | 9 |
+| 20+ yd completions/game | 3.43 | 26 |
+| Sack rate | 7% | 11 |
 | Pressure rate (NGS) | – | – |
 | Blitz rate (FTN: 1+ blitzer) | 34% | – |
 | Man coverage rate (NGS) | – | – |
 | EPA/rush (designed runs) | 0.036 | 31 |
 | YPC | 4.80 | 30 |
 | Rush success rate | 48% | 32 |
-| Stuff rate (≤0 yds) | 13% | 32 |
+| Stuff rate (≤0 yds) | 13% | 31 |
 | 10+ yd runs/game | 2.71 | 23 |
 | 20+ yd runs/game | 0.71 | – |
 
@@ -57,14 +56,14 @@ Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offe
 
 | stat | allowed | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
-| Run YPC | 4.80 | 4.23 | +0.58 | 4.65 | 28/32 | 7 | 0 |
-| Run success rate | 48.3% | 38.7% | +9.6 | 50.3% | 32/32 | 7 | 0 |
-| EPA/rush | 0.036 | -0.091 | +0.128 | 0.051 | 32/32 | 7 | 0 |
-| EPA/dropback | 0.101 | 0.063 | +0.039 | 0.102 | 19/32 | 7 | 0 |
-| YPA | 7.67 | 7.20 | +0.46 | 7.51 | 23/32 | 7 | 0 |
-| Sack rate | 6.9% | 7.2% | -0.3 | 5.6% | 18/32 | 7 | 0 |
+| Run YPC | 4.80 | 4.34 | +0.46 | 4.56 | 28/32 | 7 | 0 |
+| Run success rate | 48.3% | 40.2% | +8.1 | 48.7% | 32/32 | 7 | 0 |
+| EPA/rush | 0.036 | -0.071 | +0.107 | 0.032 | 30/32 | 7 | 0 |
+| EPA/dropback | 0.101 | 0.047 | +0.054 | 0.108 | 22/32 | 7 | 0 |
+| YPA | 7.67 | 7.18 | +0.49 | 7.55 | 22/32 | 7 | 0 |
+| Sack rate | 6.9% | 7.1% | -0.2 | 6.0% | 19/32 | 7 | 0 |
 
-QB rushing allowed (runs + scrambles): 19 car, 134 yds, 0 TD; 19.1 yds/g (rank 20/32; lg 17.4); scramble rate 6% (lg 5%)
+QB rushing allowed (runs + scrambles): 19 car, 134 yds, 0 TD; 19.1 yds/g (rank 22/32; lg 16.7); scramble rate 6% (lg 5%)
 
 Passing allowed by throw (rank by EPA/att among teams with ≥8 att; share = opp. QBs' share of att here, usual = their share in other games):
 
@@ -72,10 +71,10 @@ Passing allowed by throw (rank by EPA/att among teams with ≥8 att; share = opp
 |---|---|---|---|---|---|---|---|---|---|
 | short left | 67 | 78% | 6.04 | 4 | 0 | 0.08 | 19/32 | 30% | 24% |
 | short middle | 29 | 83% | 6.52 | 0 | 0 | 0.15 | 23/32 | 13% | 15% |
-| short right | 56 | 71% | 5.82 | 2 | 1 | 0.06 | 19/32 | 25% | 25% |
-| int left | 13 | 46% | 8.38 | 1 | 1 | -0.06 | 7/31 | 6% | 8% |
+| short right | 56 | 71% | 5.82 | 2 | 1 | 0.06 | 20/32 | 25% | 25% |
+| int left | 13 | 46% | 8.38 | 1 | 1 | -0.06 | 8/32 | 6% | 9% |
 | int middle | 14 | 43% | 7.86 | 0 | 1 | 0.03 | 3/32 | 6% | 7% |
-| int right | 23 | 48% | 8.17 | 1 | 0 | 0.35 | 14/31 | 10% | 6% |
+| int right | 23 | 48% | 8.17 | 1 | 0 | 0.35 | 15/31 | 10% | 7% |
 | deep left | 13 | 62% | 20.62 | 1 | 1 | 1.45 | 23/23 | 6% | 6% |
 | deep middle | 5 | 80% | 25.20 | 2 | 0 | 1.95 | – | 2% | 3% |
 | deep right | 4 | 25% | 6.75 | 0 | 0 | -0.26 | – | 2% | 5% |
@@ -155,13 +154,13 @@ Game by game, 2026: allowed (expected vs that offense; * = its rating rests on u
 
 | wk | opp | rush | YPC | success | EPA/rush | db | EPA/db | YPA |
 |---|---|---|---|---|---|---|---|---|
-| 1 | DET | 32 | 5.09 (4.18) | 50% (46%) | -0.01 (-0.08) | 41 | 0.01 (0.33) | 5.28 (9.10) |
-| 2 | BAL | 18 | 4.11 (4.30) | 78% (35%) | 0.15 (-0.10) | 37 | 0.10 (0.23) | 7.83 (8.51) |
-| 3 | LV | 24 | 4.58 (3.09) | 29% (32%) | -0.10 (-0.26) | 39 | 0.23 (0.08) | 7.09 (7.36) |
-| 4 | ATL | 33 | 6.27 (4.94) | 61% (43%) | 0.37 (-0.04) | 21 | 0.51 (-0.15) | 11.15 (6.86) |
-| 5 | MIN | 26 | 3.92 (3.76) | 38% (30%) | -0.37 (-0.18) | 38 | 0.08 (-0.08) | 7.90 (5.79) |
-| 6 | NYG | 18 | 3.17 (4.08) | 33% (37%) | 0.00 (-0.09) | 51 | -0.07 (0.03) | 8.78 (6.25) |
-| 7 | PIT | 27 | 5.26 (4.92) | 48% (44%) | 0.15 (0.07) | 34 | 0.10 (-0.11) | 7.07 (6.27) |
+| 1 | DET | 32 | 5.09 (4.81) | 50% (49%) | -0.01 (-0.03) | 41 | 0.01 (0.30) | 5.28 (8.97) |
+| 2 | BAL | 18 | 4.11 (4.07) | 78% (36%) | 0.15 (-0.13) | 37 | 0.10 (0.07) | 7.83 (7.72) |
+| 3 | LV | 24 | 4.58 (3.14) | 29% (33%) | -0.10 (-0.22) | 39 | 0.23 (0.14) | 7.09 (7.63) |
+| 4 | ATL | 33 | 6.27 (4.88) | 61% (43%) | 0.37 (-0.05) | 21 | 0.51 (-0.20) | 11.15 (6.79) |
+| 5 | MIN | 26 | 3.92 (3.81) | 38% (32%) | -0.37 (-0.19) | 38 | 0.08 (-0.08) | 7.90 (6.01) |
+| 6 | NYG | 18 | 3.17 (4.16) | 33% (38%) | 0.00 (-0.08) | 51 | -0.07 (0.05) | 8.78 (6.31) |
+| 7 | PIT | 27 | 5.26 (5.02) | 48% (46%) | 0.15 (0.14) | 34 | 0.10 (-0.10) | 7.07 (6.47) |
 
 ## 2026 OFFENSE — NO New Orleans Saints
 
@@ -192,19 +191,19 @@ Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defe
 
 | stat | gained | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
-| Run YPC | 3.17 | 4.30 | -1.13 | 2.94 | 31/32 | 7 | 0 |
-| Run success rate | 32.9% | 39.4% | -6.4 | 34.2% | 29/32 | 7 | 0 |
-| EPA/rush | -0.153 | -0.089 | -0.064 | -0.141 | 22/32 | 7 | 0 |
-| EPA/dropback | 0.027 | 0.083 | -0.056 | 0.007 | 20/32 | 7 | 0 |
-| YPA | 6.30 | 6.98 | -0.67 | 6.37 | 25/32 | 7 | 0 |
-| Sack rate | 5.1% | 6.7% | -1.6 | 4.3% | 10/32 | 7 | 0 |
+| Run YPC | 3.17 | 4.40 | -1.23 | 2.88 | 31/32 | 7 | 0 |
+| Run success rate | 32.9% | 40.4% | -7.4 | 33.2% | 30/32 | 7 | 0 |
+| EPA/rush | -0.153 | -0.080 | -0.073 | -0.148 | 23/32 | 7 | 0 |
+| EPA/dropback | 0.027 | 0.066 | -0.040 | 0.014 | 18/32 | 7 | 0 |
+| YPA | 6.30 | 7.02 | -0.72 | 6.34 | 26/32 | 7 | 0 |
+| Sack rate | 5.1% | 6.8% | -1.7 | 4.4% | 8/32 | 7 | 0 |
 
 QB throw map (share of att, EPA/att in parentheses; ≥40 att):
 
 | QB | att | short left | short middle | short right | int left | int middle | int right | deep left | deep middle | deep right |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Tyler Shough | 272 | 28% (0.21) | 8% (-0.23) | 35% (-0.00) | 8% (0.14) | 3% (0.99) | 7% (0.43) | 5% (-0.26) | 3% (1.03) | 3% (0.55) |
-| league | 7106 | 26% (0.05) | 12% (0.06) | 30% (0.02) | 7% (0.30) | 7% (0.59) | 8% (0.35) | 4% (0.32) | 2% (0.76) | 5% (0.37) |
+| league | 7970 | 26% (0.04) | 13% (0.05) | 29% (0.01) | 7% (0.31) | 6% (0.59) | 7% (0.38) | 4% (0.35) | 2% (0.76) | 5% (0.33) |
 
 Player usage, season totals (RZ opps = carries + targets inside the 10 / 5):
 
@@ -374,10 +373,10 @@ Game by game, 2026: gained (expected vs that defense; * = its rating rests on un
 
 | wk | opp | rush | YPC | success | EPA/rush | db | EPA/db | YPA |
 |---|---|---|---|---|---|---|---|---|
-| 1 | DET | 23 | 3.78 (4.12) | 30% (37%) | -0.08 (-0.06) | 63 | -0.01 (0.27) | 7.32 (7.03) |
-| 2 | BAL | 25 | 2.24 (3.88) | 40% (38%) | -0.02 (-0.11) | 39 | 0.26 (0.09) | 7.41 (7.61) |
-| 3 | LV | 27 | 4.15 (4.93) | 52% (40%) | 0.01 (-0.10) | 45 | -0.11 (0.17) | 6.07 (7.61) |
-| 4 | ATL | 18 | 2.61 (3.98) | 28% (42%) | -0.29 (-0.09) | 51 | 0.00 (-0.06) | 5.96 (6.14) |
-| 5 | MIN | 17 | 3.24 (4.13) | 29% (33%) | -0.19 (-0.19) | 26 | -0.46 (-0.14) | 3.84 (6.87) |
-| 6 | NYG | 35 | 4.06 (4.81) | 31% (45%) | -0.17 (-0.03) | 32 | 0.11 (0.08) | 4.80 (6.84) |
-| 7 | PIT | 16 | 0.75 (3.57) | 6% (37%) | -0.53 (-0.11) | 41 | 0.29 (0.03) | 7.32 (6.85) |
+| 1 | DET | 23 | 3.78 (4.09) | 30% (38%) | -0.08 (-0.07) | 63 | -0.01 (0.23) | 7.32 (7.11) |
+| 2 | BAL | 25 | 2.24 (3.79) | 40% (39%) | -0.02 (-0.09) | 39 | 0.26 (0.05) | 7.41 (7.41) |
+| 3 | LV | 27 | 4.15 (5.27) | 52% (42%) | 0.01 (-0.05) | 45 | -0.11 (0.19) | 6.07 (7.70) |
+| 4 | ATL | 18 | 2.61 (4.41) | 28% (42%) | -0.29 (-0.12) | 51 | 0.00 (-0.07) | 5.96 (6.27) |
+| 5 | MIN | 17 | 3.24 (4.57) | 29% (34%) | -0.19 (-0.13) | 26 | -0.46 (-0.17) | 3.84 (6.83) |
+| 6 | NYG | 35 | 4.06 (4.69) | 31% (45%) | -0.17 (-0.04) | 32 | 0.11 (0.06) | 4.80 (6.75) |
+| 7 | PIT | 16 | 0.75 (3.53) | 6% (36%) | -0.53 (-0.12) | 41 | 0.29 (0.01) | 7.32 (7.09) |

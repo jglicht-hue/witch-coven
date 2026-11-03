@@ -1,37 +1,39 @@
 # HOU Houston Texans — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-10-27 17:19 UTC. Regular season only.
-- 2026: weeks 1–7, 107 games, last game 2026-10-26; NGS participation NO (route, man/zone, coverage, pressure unavailable)
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-03 14:53 UTC. Regular season only.
+- 2026: weeks 1–8, 121 games, last game 2026-11-02; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
 ## 2026 DEFENSE — HOU Houston Texans (7 games)
 
 Flags, 2026 (leads to test, not verdicts; rank 1 = best D, among teams with enough plays; see README):
 
 Weak (bottom ~15%):
-- run D, stuff rate: 14% (lg 18%; 31/32)
-- rush EPA, runs, middle: 0.162 (lg -0.100; 31/32; n=59)
-- rush EPA, runs, left guard: 0.156 (lg -0.069; 30/32; n=28)
-- pass D, 20+ yd completions/game: 4.14 (lg 2.87; 30/32)
-- pass EPA/att, int left: +0.80 (lg +0.30; 28/31; n=13)
-- PPR/g allowed, WR: 37.3 (lg 31.8; 28/32)
-- pass EPA/att, deep right: 1.37 (lg +0.37; 24/24; n=11)
-- rush EPA, 8+ box: 0.341 (lg -0.061; 22/24; n=26)
+- pass D, 20+ yd completions/game: 4.14 (lg 2.88; 31/32)
+- rush EPA, runs, middle: 0.162 (lg -0.092; 31/32; n=59)
+- run D, stuff rate: 14% (lg 18%; 30/32)
+- rush EPA, runs, left guard: 0.156 (lg -0.076; 30/32; n=28)
+- PPR/g allowed, WR: 37.3 (lg 31.6; 29/32)
+- pass EPA/att, short middle: +0.33 (lg +0.05; 28/32; n=27)
+- pass EPA/att, int left: +0.80 (lg +0.31; 28/32; n=13)
+- pass EPA/att, deep right: 1.37 (lg +0.33; 25/26; n=11)
+- rush EPA, 8+ box: 0.341 (lg -0.061; 22/25; n=26)
 
 Strong (top ~15%):
-- rush EPA, runs, left tackle: -0.530 (lg -0.030; 2/32; n=12)
-- QB rush yds/g allowed, all QBs: 7.9 (lg 17.4; 3/32; n=18)
+- rush EPA, runs, left tackle: -0.530 (lg -0.032; 1/32; n=12)
+- QB rush yds/g allowed, all QBs: 7.9 (lg 16.7; 3/32; n=18)
+- rush EPA, runs, left end: -0.492 (lg -0.005; 4/32; n=11)
 - PPR/g allowed, TE: 10.1 (lg 13.9; 4/32)
-- pass D, sack rate: 8% (lg 6%; 4/32)
-- PPR/tgt, RB screen: 1.16 (lg 1.59; 4/29; n=9)
-- rush EPA, runs, left end: -0.492 (lg 0.016; 4/32; n=11)
+- rush EPA, runs, right tackle: -0.292 (lg -0.064; 4/32; n=22)
+- pass D, sack rate: 8% (lg 6%; 5/32)
+- PPR/tgt, RB screen: 1.16 (lg 1.62; 5/30; n=9)
 
 Fantasy points allowed (PPR, nflverse scoring incl. rushing, fumbles, 2-pt). Rank 1 = fewest allowed.
 
 | pos | PPR total | PPR/game | rank |
 |---|---|---|---|
-| QB | 126.8 | 18.1 | 22 |
-| RB | 157.1 | 22.4 | 21 |
-| WR | 260.9 | 37.3 | 28 |
+| QB | 126.8 | 18.1 | 21 |
+| RB | 157.1 | 22.4 | 20 |
+| WR | 260.9 | 37.3 | 29 |
 | TE | 70.4 | 10.1 | 4 |
 
 Unit stats (rank 1 = best defense):
@@ -39,46 +41,46 @@ Unit stats (rank 1 = best defense):
 | stat | value | rank |
 |---|---|---|
 | EPA/dropback | 0.070 | 20 |
-| YPA | 7.48 | 21 |
-| Comp % | 66% | 25 |
-| 20+ yd completions/game | 4.14 | 30 |
-| Sack rate | 8% | 4 |
+| YPA | 7.48 | 22 |
+| Comp % | 66% | 24 |
+| 20+ yd completions/game | 4.14 | 31 |
+| Sack rate | 8% | 5 |
 | Pressure rate (NGS) | – | – |
 | Blitz rate (FTN: 1+ blitzer) | 26% | – |
 | Man coverage rate (NGS) | – | – |
-| EPA/rush (designed runs) | -0.031 | 27 |
-| YPC | 3.82 | 11 |
-| Rush success rate | 43% | 22 |
-| Stuff rate (≤0 yds) | 14% | 31 |
-| 10+ yd runs/game | 2.00 | 10 |
+| EPA/rush (designed runs) | -0.031 | 25 |
+| YPC | 3.82 | 12 |
+| Rush success rate | 43% | 21 |
+| Stuff rate (≤0 yds) | 14% | 30 |
+| 10+ yd runs/game | 2.00 | 11 |
 | 20+ yd runs/game | 0.29 | – |
 
 Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | allowed | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
-| Run YPC | 3.82 | 4.16 | -0.34 | 3.73 | 9/32 | 7 | 0 |
-| Run success rate | 42.6% | 44.0% | -1.4 | 39.3% | 13/32 | 7 | 0 |
-| EPA/rush | -0.031 | -0.009 | -0.022 | -0.099 | 14/32 | 7 | 0 |
-| EPA/dropback | 0.070 | 0.111 | -0.041 | 0.022 | 12/32 | 7 | 0 |
-| YPA | 7.48 | 6.92 | +0.56 | 7.60 | 24/32 | 7 | 0 |
-| Sack rate | 7.7% | 4.8% | +2.9 | 8.9% | 2/32 | 7 | 0 |
+| Run YPC | 3.82 | 4.15 | -0.32 | 3.78 | 13/32 | 7 | 0 |
+| Run success rate | 42.6% | 43.2% | -0.6 | 40.1% | 15/32 | 7 | 0 |
+| EPA/rush | -0.031 | -0.029 | -0.003 | -0.078 | 18/32 | 7 | 0 |
+| EPA/dropback | 0.070 | 0.103 | -0.033 | 0.020 | 11/32 | 7 | 0 |
+| YPA | 7.48 | 7.00 | +0.48 | 7.54 | 21/32 | 7 | 0 |
+| Sack rate | 7.7% | 5.1% | +2.5 | 8.7% | 2/32 | 7 | 0 |
 
-QB rushing allowed (runs + scrambles): 18 car, 55 yds, 3 TD; 7.9 yds/g (rank 3/32; lg 17.4); scramble rate 3% (lg 5%)
+QB rushing allowed (runs + scrambles): 18 car, 55 yds, 3 TD; 7.9 yds/g (rank 3/32; lg 16.7); scramble rate 3% (lg 5%)
 
 Passing allowed by throw (rank by EPA/att among teams with ≥8 att; share = opp. QBs' share of att here, usual = their share in other games):
 
 | cell | att | comp | YPA | TD | INT | EPA | rank | share | usual |
 |---|---|---|---|---|---|---|---|---|---|
-| short left | 58 | 79% | 4.78 | 1 | 1 | -0.04 | 11/32 | 24% | 25% |
-| short middle | 27 | 85% | 7.89 | 0 | 0 | 0.33 | 27/32 | 11% | 12% |
-| short right | 70 | 70% | 4.20 | 4 | 0 | -0.07 | 9/32 | 29% | 28% |
-| int left | 13 | 62% | 12.62 | 0 | 0 | 0.80 | 28/31 | 5% | 8% |
-| int middle | 27 | 56% | 9.30 | 1 | 1 | 0.39 | 13/32 | 11% | 6% |
-| int right | 21 | 48% | 10.90 | 1 | 0 | 0.66 | 26/31 | 9% | 10% |
-| deep left | 13 | 31% | 8.15 | 0 | 1 | 0.05 | 9/23 | 5% | 5% |
+| short left | 58 | 79% | 4.78 | 1 | 1 | -0.04 | 10/32 | 24% | 26% |
+| short middle | 27 | 85% | 7.89 | 0 | 0 | 0.33 | 28/32 | 11% | 12% |
+| short right | 70 | 70% | 4.20 | 4 | 0 | -0.07 | 9/32 | 29% | 27% |
+| int left | 13 | 62% | 12.62 | 0 | 0 | 0.80 | 28/32 | 5% | 8% |
+| int middle | 27 | 56% | 9.30 | 1 | 1 | 0.39 | 9/32 | 11% | 6% |
+| int right | 21 | 48% | 10.90 | 1 | 0 | 0.66 | 23/31 | 9% | 10% |
+| deep left | 13 | 31% | 8.15 | 0 | 1 | 0.05 | 8/23 | 5% | 5% |
 | deep middle | 5 | 40% | 17.40 | 1 | 0 | 1.42 | – | 2% | 3% |
-| deep right | 11 | 55% | 19.82 | 2 | 0 | 1.37 | 24/24 | 4% | 4% |
+| deep right | 11 | 55% | 19.82 | 2 | 0 | 1.37 | 25/26 | 4% | 4% |
 
 Targets allowed by receiver position:
 
@@ -155,20 +157,20 @@ Game by game, 2026: allowed (expected vs that offense; * = its rating rests on u
 
 | wk | opp | rush | YPC | success | EPA/rush | db | EPA/db | YPA |
 |---|---|---|---|---|---|---|---|---|
-| 1 | BUF | 19 | 3.47 (4.95) | 32% (57%) | -0.26 (0.11) | 33 | 0.51 (0.30) | 11.13 (8.00) |
-| 2 | CIN | 22 | 3.91 (3.97) | 36% (47%) | -0.22 (0.00) | 36 | -0.02 (0.29) | 6.68 (7.37) |
-| 3 | IND | 30 | 2.93 (4.80) | 37% (50%) | -0.09 (0.16) | 41 | -0.13 (-0.17) | 6.53 (5.52) |
-| 4 | DAL | 23 | 2.96 (4.36) | 48% (43%) | 0.08 (0.01) | 50 | 0.17 (0.19) | 7.44 (6.78) |
-| 5 | TEN | 17 | 3.24 (3.79) | 41% (38%) | -0.30 (-0.13) | 41 | -0.43 (-0.13) | 4.72 (5.93) |
-| 6 | JAX | 24 | 3.96 (4.06) | 50% (46%) | 0.01 (0.00) | 43 | 0.27 (0.32) | 7.46 (8.42) |
-| 7 | NYG | 34 | 5.53 (3.40) | 50% (32%) | 0.30 (-0.19) | 30 | 0.18 (-0.03) | 9.33 (6.34) |
+| 1 | BUF | 19 | 3.47 (4.78) | 32% (56%) | -0.26 (0.09) | 33 | 0.51 (0.26) | 11.13 (8.02) |
+| 2 | CIN | 22 | 3.91 (3.95) | 36% (45%) | -0.22 (-0.07) | 36 | -0.02 (0.32) | 6.68 (7.72) |
+| 3 | IND | 30 | 2.93 (4.84) | 37% (49%) | -0.09 (0.11) | 41 | -0.13 (-0.23) | 6.53 (5.28) |
+| 4 | DAL | 23 | 2.96 (3.92) | 48% (40%) | 0.08 (-0.04) | 50 | 0.17 (0.17) | 7.44 (6.71) |
+| 5 | TEN | 17 | 3.24 (4.02) | 41% (39%) | -0.30 (-0.10) | 41 | -0.43 (-0.07) | 4.72 (6.00) |
+| 6 | JAX | 24 | 3.96 (4.22) | 50% (44%) | 0.01 (0.00) | 43 | 0.27 (0.29) | 7.46 (8.81) |
+| 7 | NYG | 34 | 5.53 (3.48) | 50% (34%) | 0.30 (-0.17) | 30 | 0.18 (-0.01) | 9.33 (6.40) |
 
 ## 2026 OFFENSE — HOU Houston Texans
 
 Usage concentrations (share well above league avg at his position):
-- Xavier Hutchinson (WR, 40 tgt): short middle 22% (avg 9%)
+- Xavier Hutchinson (WR, 40 tgt): short middle 22% (avg 10%)
 - Jared Wayne (WR, 12 tgt): int middle 33% (avg 9%); deep right 25% (avg 7%)
-- Jaylin Noel (WR, 23 tgt): short middle 22% (avg 9%)
+- Jaylin Noel (WR, 23 tgt): short middle 22% (avg 10%)
 - David Montgomery (RB, 52 car): vs 8+ box 25% (avg 8%)
 - Woody Marks (RB, 77 car): vs 8+ box 18% (avg 8%)
 
@@ -191,19 +193,19 @@ Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defe
 
 | stat | gained | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
-| Run YPC | 3.36 | 4.20 | -0.84 | 3.23 | 30/32 | 7 | 1 |
-| Run success rate | 34.6% | 42.4% | -7.8 | 32.8% | 30/32 | 7 | 1 |
-| EPA/rush | -0.151 | -0.041 | -0.110 | -0.187 | 27/32 | 7 | 1 |
-| EPA/dropback | 0.130 | 0.140 | -0.010 | 0.053 | 17/32 | 7 | 0 |
-| YPA | 7.62 | 7.67 | -0.05 | 6.99 | 17/32 | 7 | 0 |
-| Sack rate | 5.6% | 5.5% | +0.1 | 6.1% | 16/32 | 7 | 0 |
+| Run YPC | 3.36 | 4.33 | -0.97 | 3.13 | 30/32 | 7 | 0 |
+| Run success rate | 34.6% | 42.0% | -7.4 | 33.2% | 29/32 | 7 | 0 |
+| EPA/rush | -0.151 | -0.054 | -0.097 | -0.172 | 26/32 | 7 | 0 |
+| EPA/dropback | 0.130 | 0.124 | +0.005 | 0.059 | 15/32 | 7 | 0 |
+| YPA | 7.62 | 7.66 | -0.04 | 7.02 | 19/32 | 7 | 0 |
+| Sack rate | 5.6% | 5.8% | -0.2 | 5.9% | 18/32 | 7 | 0 |
 
 QB throw map (share of att, EPA/att in parentheses; ≥40 att):
 
 | QB | att | short left | short middle | short right | int left | int middle | int right | deep left | deep middle | deep right |
 |---|---|---|---|---|---|---|---|---|---|---|
 | C.J. Stroud | 243 | 19% (-0.05) | 15% (0.20) | 28% (0.15) | 5% (-0.10) | 10% (0.61) | 9% (0.48) | 4% (0.36) | 3% (0.92) | 8% (0.46) |
-| league | 7106 | 26% (0.05) | 12% (0.06) | 30% (0.02) | 7% (0.30) | 7% (0.59) | 8% (0.35) | 4% (0.32) | 2% (0.76) | 5% (0.37) |
+| league | 7970 | 26% (0.04) | 13% (0.05) | 29% (0.01) | 7% (0.31) | 6% (0.59) | 7% (0.38) | 4% (0.35) | 2% (0.76) | 5% (0.33) |
 
 Player usage, season totals (RZ opps = carries + targets inside the 10 / 5):
 
@@ -357,10 +359,10 @@ Game by game, 2026: gained (expected vs that defense; * = its rating rests on un
 
 | wk | opp | rush | YPC | success | EPA/rush | db | EPA/db | YPA |
 |---|---|---|---|---|---|---|---|---|
-| 1 | BUF | 31 | 3.52 (3.53) | 42% (45%) | 0.03 (-0.01) | 42 | 0.10 (0.26) | 7.21 (6.99) |
-| 2 | CIN | 15 | 2.07 (4.20) | 7% (36%) | -0.80 (-0.07) | 61 | -0.11 (0.06) | 6.54 (8.02) |
-| 3 | IND | 20 | 3.10 (4.48) | 35% (46%) | -0.17 (0.01) | 31 | -0.04 (0.14) | 6.19 (7.94) |
-| 4 | DAL | 17 | 2.94 (5.09) | 24% (48%) | -0.23 (0.03) | 33 | 0.48 (0.30) | 11.97 (7.40) |
-| 5 | TEN | 25 | 3.24 (4.42) | 36% (43%) | -0.10 (-0.00) | 36 | 0.29 (0.19) | 7.68 (8.10) |
-| 6 | JAX | 24 | 4.54 (3.13*) | 42% (35%*) | 0.01 (-0.19*) | 35 | 0.37 (-0.06) | 9.18 (8.07) |
-| 7 | NYG | 24 | 3.42 (5.02) | 42% (42%) | -0.12 (-0.04) | 31 | -0.02 (0.12) | 5.28 (6.98) |
+| 1 | BUF | 31 | 3.52 (3.60) | 42% (45%) | 0.03 (-0.05) | 42 | 0.10 (0.13) | 7.21 (6.39) |
+| 2 | CIN | 15 | 2.07 (4.42) | 7% (37%) | -0.80 (-0.03) | 61 | -0.11 (0.14) | 6.54 (8.30) |
+| 3 | IND | 20 | 3.10 (4.67) | 35% (43%) | -0.17 (0.02) | 31 | -0.04 (0.12) | 6.19 (8.25) |
+| 4 | DAL | 17 | 2.94 (5.47) | 24% (45%) | -0.23 (0.04) | 33 | 0.48 (0.26) | 11.97 (7.65) |
+| 5 | TEN | 25 | 3.24 (4.40) | 36% (42%) | -0.10 (-0.04) | 36 | 0.29 (0.21) | 7.68 (8.30) |
+| 6 | JAX | 24 | 4.54 (3.47) | 42% (37%) | 0.01 (-0.22) | 35 | 0.37 (-0.12) | 9.18 (7.61) |
+| 7 | NYG | 24 | 3.42 (4.91) | 42% (43%) | -0.12 (-0.05) | 31 | -0.02 (0.10) | 5.28 (6.89) |
