@@ -28,6 +28,13 @@ The copy check is the first 12 characters of the SHA-256 of the file's text with
 - **Every 2025 row matches exactly,** including expected sacks, expected takeaways and points over expected.
 - **2026 rows match** except where nflverse has updated its data since Oct 13: pressure counts for 28 Week 5 team-games (missing on Oct 13, posted since) and one stat correction (Jets fumble recoveries in Week 5, 1 → 2).
 
+### v1.6 (added Nov 4)
+`dst/v1.6_ChooserBoy_weekly_pull.R` and v1.4 were run back to back on the same Nov 4 data:
+- **Meta, DST season, game log and QB profiles: identical.** Offense season: every v1.4 column identical.
+- **Matchup board: all 116 v1.4 rows identical in every v1.4 column**, including `base_score` and `prov_score`. v1.6 adds Weeks 13-18 (302 rows) and six `opp_*` adjusted columns.
+- **New adjusted, blended matchup equals `base_matchup_B_adj`** on every board row (difference 0).
+- **The `score_formula` rows in the data dictionary reproduce every board score:** 58 of 58 `base_score` and 244 of 244 `prov_score`.
+
 ## Kicker
 **These files were retyped by the Kicker project chat, not copied byte for byte** (its manifest says so), so they were checked by running them:
 - `run_all.R` ran start to finish ("All done.") and printed "New model self-test passed (24 values)".

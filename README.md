@@ -13,7 +13,7 @@ Chats and weekly tasks download scripts from here in one step, instead of readin
 | `dynasty/` | `v1_harmon_pdf_to_csv.py` (Harmon PDF to CSV); `rb_prospect_study/` (the RB prospect study behind brief section 8, with its own README); `rb_board/` (the RB prospect board built from it, with its own README) | Dynasty |
 | `matchup/` | `per_route.py`; `pipeline/build.py` (weekly team docs) | Matchup and its weekly task |
 | `kicker/` | the R pipeline (`run_all.R` and the scripts it runs), `09c_next_week_only.R` (Wednesday look-ahead), `summary.R`, `07n_fit_new_model.R` (run by hand once a season), `weather_adjust.py`, and `data/` with the new model's two weight files | Kicker Wizerd and its weekly task |
-| `dst/` | `v1.4_ChooserBoy_weekly_pull.R` | DST Warlock's weekly task |
+| `dst/` | `v1.6_ChooserBoy_weekly_pull.R` (v1.4 kept for older pins); `backtests/` | DST Warlock's weekly task |
 | `instructions/` | reference copies of each project's instructions | this project |
 
 Script names are kept exactly as the project instructions refer to them.
