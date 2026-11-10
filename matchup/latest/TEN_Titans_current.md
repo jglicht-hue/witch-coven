@@ -1,81 +1,83 @@
 # TEN Tennessee Titans — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-03 14:53 UTC. Regular season only.
-- 2026: weeks 1–8, 121 games, last game 2026-11-02; NGS participation NO (route, man/zone, coverage, pressure unavailable)
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-10 14:53 UTC. Regular season only.
+- 2026: weeks 1–9, 136 games, last game 2026-11-09; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
 ## 2026 DEFENSE — TEN Tennessee Titans (8 games)
 
 Flags, 2026 (leads to test, not verdicts; rank 1 = best D, among teams with enough plays; see README):
 
 Weak (bottom ~15%):
-- PPR/g allowed, WR: 40.7 (lg 31.6; 32/32)
+- PPR/g allowed, WR: 40.7 (lg 31.7; 32/32)
+- pass EPA/att, short left: +0.34 (lg +0.02; 32/32; n=74)
 - pass D, completion %: 71% (lg 64%; 31/32)
-- pass EPA/att, short left: +0.34 (lg +0.04; 31/32; n=74)
-- PPR/tgt, WR: 1.94 (lg 1.70; 30/32; n=165)
-- pass D, YPA: 8.02 (lg 7.06; 29/32)
-- pass D, 20+ yd completions/game: 3.75 (lg 2.88; 29/32)
-- pass D, EPA/dropback: 0.171 (lg 0.054; 28/32)
-- rush EPA, 8+ box: 0.561 (lg -0.061; 25/25; n=10)
+- pass D, 20+ yd completions/game: 3.75 (lg 2.87; 30/32)
+- pass D, YPA: 8.02 (lg 7.09; 29/32)
+- pass D, EPA/dropback: 0.171 (lg 0.046; 29/32)
+- pass EPA/att, short middle: +0.32 (lg +0.06; 28/32; n=37)
+- PPR/tgt, WR: 1.94 (lg 1.71; 28/32; n=165)
+- rush EPA, runs, right guard: -0.002 (lg -0.123; 28/32; n=27)
+- rush EPA, 8+ box: 0.561 (lg -0.078; 25/25; n=10)
 
 Strong (top ~15%):
-- rush EPA, runs, middle: -0.311 (lg -0.092; 2/32; n=52)
-- rush EPA, runs, right tackle: -0.335 (lg -0.064; 3/32; n=26)
-- rush EPA, ≤6 box: -0.183 (lg -0.079; 5/32; n=110)
+- rush EPA, runs, middle: -0.311 (lg -0.098; 1/32; n=52)
+- rush EPA, runs, right tackle: -0.335 (lg -0.054; 3/32; n=26)
+- rush EPA, ≤6 box: -0.183 (lg -0.082; 4/32; n=110)
 
 Fantasy points allowed (PPR, nflverse scoring incl. rushing, fumbles, 2-pt). Rank 1 = fewest allowed.
 
 | pos | PPR total | PPR/game | rank |
 |---|---|---|---|
-| QB | 147.0 | 18.4 | 22 |
-| RB | 172.9 | 21.6 | 17 |
+| QB | 147.0 | 18.4 | 25 |
+| RB | 172.9 | 21.6 | 19 |
 | WR | 325.3 | 40.7 | 32 |
-| TE | 100.6 | 12.6 | 13 |
+| TE | 100.6 | 12.6 | 12 |
 
 Unit stats (rank 1 = best defense):
 
 | stat | value | rank |
 |---|---|---|
-| EPA/dropback | 0.171 | 28 |
+| EPA/dropback | 0.171 | 29 |
 | YPA | 8.02 | 29 |
 | Comp % | 71% | 31 |
-| 20+ yd completions/game | 3.75 | 29 |
+| 20+ yd completions/game | 3.75 | 30 |
 | Sack rate | 7% | 14 |
 | Pressure rate (NGS) | – | – |
 | Blitz rate (FTN: 1+ blitzer) | 24% | – |
 | Man coverage rate (NGS) | – | – |
-| EPA/rush (designed runs) | -0.072 | 19 |
-| YPC | 4.09 | 17 |
-| Rush success rate | 40% | 13 |
+| EPA/rush (designed runs) | -0.072 | 18 |
+| YPC | 4.09 | 19 |
+| Rush success rate | 40% | 15 |
 | Stuff rate (≤0 yds) | 18% | 15 |
-| 10+ yd runs/game | 2.62 | 22 |
+| 10+ yd runs/game | 2.62 | 23 |
 | 20+ yd runs/game | 0.25 | – |
 
 Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | allowed | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
-| Run YPC | 4.09 | 3.87 | +0.21 | 4.32 | 20/32 | 8 | 0 |
-| Run success rate | 40.4% | 38.7% | +1.6 | 42.3% | 20/32 | 8 | 0 |
-| EPA/rush | -0.072 | -0.108 | +0.036 | -0.039 | 23/32 | 8 | 0 |
-| EPA/dropback | 0.171 | 0.010 | +0.161 | 0.214 | 30/32 | 8 | 0 |
-| YPA | 8.02 | 6.74 | +1.29 | 8.35 | 32/32 | 8 | 0 |
-| Sack rate | 6.6% | 7.5% | -1.0 | 5.2% | 23/32 | 8 | 0 |
+| Run YPC | 4.09 | 3.78 | +0.31 | 4.39 | 25/32 | 8 | 0 |
+| Run success rate | 40.4% | 37.9% | +2.5 | 42.9% | 22/32 | 8 | 0 |
+| EPA/rush | -0.072 | -0.126 | +0.054 | -0.024 | 26/32 | 8 | 0 |
+| EPA/dropback | 0.171 | 0.018 | +0.152 | 0.198 | 30/32 | 8 | 0 |
+| YPA | 8.02 | 6.90 | +1.12 | 8.21 | 32/32 | 8 | 0 |
+| Sack rate | 6.6% | 7.9% | -1.4 | 5.0% | 26/32 | 8 | 0 |
 
-QB rushing allowed (runs + scrambles): 26 car, 145 yds, 3 TD; 18.1 yds/g (rank 20/32; lg 16.7); scramble rate 4% (lg 5%)
+QB rushing allowed (runs + scrambles): 26 car, 145 yds, 3 TD; 18.1 yds/g (rank 21/32; lg 16.6); scramble rate 4% (lg 5%)
 
 Passing allowed by throw (rank by EPA/att among teams with ≥8 att; share = opp. QBs' share of att here, usual = their share in other games):
 
 | cell | att | comp | YPA | TD | INT | EPA | rank | share | usual |
 |---|---|---|---|---|---|---|---|---|---|
-| short left | 74 | 84% | 7.38 | 3 | 1 | 0.34 | 31/32 | 27% | 26% |
-| short middle | 37 | 68% | 6.84 | 3 | 0 | 0.32 | 27/32 | 14% | 14% |
+| short left | 74 | 84% | 7.38 | 3 | 1 | 0.34 | 32/32 | 27% | 26% |
+| short middle | 37 | 68% | 6.84 | 3 | 0 | 0.32 | 28/32 | 14% | 13% |
 | short right | 70 | 83% | 5.81 | 0 | 1 | -0.03 | 12/32 | 26% | 29% |
-| int left | 18 | 67% | 11.56 | 1 | 1 | 0.64 | 26/32 | 7% | 6% |
+| int left | 18 | 67% | 11.56 | 1 | 1 | 0.64 | 26/32 | 7% | 5% |
 | int middle | 10 | 70% | 12.30 | 0 | 0 | 1.06 | 27/32 | 4% | 7% |
-| int right | 26 | 58% | 9.69 | 2 | 2 | 0.31 | 13/31 | 10% | 8% |
-| deep left | 10 | 40% | 11.30 | 0 | 1 | 0.36 | 14/23 | 4% | 5% |
+| int right | 26 | 58% | 9.69 | 2 | 2 | 0.31 | 15/32 | 10% | 8% |
+| deep left | 10 | 40% | 11.30 | 0 | 1 | 0.36 | 16/29 | 4% | 4% |
 | deep middle | 5 | 40% | 11.40 | 1 | 0 | 0.66 | – | 2% | 2% |
-| deep right | 21 | 38% | 10.62 | 1 | 2 | 0.39 | 15/26 | 8% | 5% |
+| deep right | 21 | 38% | 10.62 | 1 | 2 | 0.39 | 17/28 | 8% | 5% |
 
 Targets allowed by receiver position:
 
@@ -156,26 +158,26 @@ Game by game, 2026: allowed (expected vs that offense; * = its rating rests on u
 
 | wk | opp | rush | YPC | success | EPA/rush | db | EPA/db | YPA |
 |---|---|---|---|---|---|---|---|---|
-| 1 | NYJ | 34 | 4.26 (4.04) | 50% (38%) | 0.03 (-0.13) | 26 | 0.35 (0.07) | 8.96 (7.72) |
-| 2 | PHI | 30 | 2.60 (3.75) | 33% (36%) | -0.16 (-0.13) | 42 | 0.18 (-0.21) | 7.14 (5.28) |
-| 3 | NYG | 31 | 4.00 (3.97) | 42% (36%) | -0.06 (-0.08) | 26 | -0.18 (0.05) | 5.36 (6.97) |
-| 4 | BAL | 26 | 3.38 (4.10) | 27% (42%) | -0.12 (-0.11) | 33 | 0.39 (0.04) | 9.83 (7.45) |
-| 5 | HOU | 25 | 3.24 (3.22) | 36% (34%) | -0.10 (-0.17) | 36 | 0.29 (0.08) | 7.68 (7.35) |
-| 6 | IND | 27 | 5.00 (4.50) | 41% (48%) | -0.12 (0.10) | 50 | -0.09 (-0.21) | 6.56 (5.37) |
-| 7 | CLE | 28 | 6.29 (3.38) | 54% (35%) | 0.24 (-0.26) | 38 | 0.07 (0.01) | 8.56 (7.13) |
-| 8 | CIN | 17 | 3.76 (4.02) | 35% (44%) | -0.47 (-0.05) | 54 | 0.34 (0.27) | 9.43 (7.26) |
+| 1 | NYJ | 34 | 4.26 (4.14) | 50% (39%) | 0.03 (-0.16) | 26 | 0.35 (0.03) | 8.96 (7.35) |
+| 2 | PHI | 30 | 2.60 (3.45) | 33% (34%) | -0.16 (-0.16) | 42 | 0.18 (-0.20) | 7.14 (5.59) |
+| 3 | NYG | 31 | 4.00 (3.63) | 42% (33%) | -0.06 (-0.13) | 26 | -0.18 (0.06) | 5.36 (7.09) |
+| 4 | BAL | 26 | 3.38 (4.31) | 27% (40%) | -0.12 (-0.10) | 33 | 0.39 (-0.02) | 9.83 (7.01) |
+| 5 | HOU | 25 | 3.24 (3.18) | 36% (34%) | -0.10 (-0.17) | 36 | 0.29 (0.18) | 7.68 (8.00) |
+| 6 | IND | 27 | 5.00 (4.34) | 41% (48%) | -0.12 (0.08) | 50 | -0.09 (-0.23) | 6.56 (5.41) |
+| 7 | CLE | 28 | 6.29 (3.15) | 54% (33%) | 0.24 (-0.31) | 38 | 0.07 (0.01) | 8.56 (7.38) |
+| 8 | CIN | 17 | 3.76 (4.12) | 35% (44%) | -0.47 (-0.02) | 54 | 0.34 (0.32) | 9.43 (7.67) |
 
 ## 2026 OFFENSE — TEN Tennessee Titans
 
 Usage concentrations (share well above league avg at his position):
-- Calvin Ridley (WR, 13 tgt): int right 23% (avg 9%)
-- Tony Pollard (RB, 21 tgt): short middle 29% (avg 18%)
+- Calvin Ridley (WR, 13 tgt): int right 23% (avg 10%)
+- Tony Pollard (RB, 21 tgt): short middle 29% (avg 17%)
 - Daniel Bellinger (TE, 15 tgt): short left 53% (avg 25%)
 - Wan'Dale Robinson (WR, 50 tgt): short right 50% (avg 23%)
 - Tyjae Spears (RB, 17 tgt): short right 76% (avg 40%)
 - Elic Ayomanor (WR, 26 tgt): int left 23% (avg 10%)
 - Gunnar Helm (TE, 26 tgt): short left 42% (avg 25%)
-- Chimere Dike (WR, 13 tgt): short left 38% (avg 22%); deep middle 15% (avg 3%)
+- Chimere Dike (WR, 13 tgt): short left 38% (avg 22%); deep middle 15% (avg 4%)
 - Tyjae Spears (RB, 18 car): runs left tackle 33% (avg 13%); vs ≤6 box 72% (avg 45%)
 
 Team passing context:
@@ -197,19 +199,19 @@ Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defe
 
 | stat | gained | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
-| Run YPC | 4.15 | 4.24 | -0.09 | 4.01 | 17/32 | 8 | 0 |
-| Run success rate | 40.1% | 41.8% | -1.7 | 39.0% | 18/32 | 8 | 0 |
-| EPA/rush | -0.076 | -0.048 | -0.028 | -0.103 | 19/32 | 8 | 0 |
-| EPA/dropback | -0.096 | 0.074 | -0.170 | -0.116 | 27/32 | 8 | 0 |
-| YPA | 5.93 | 7.20 | -1.27 | 5.79 | 29/32 | 8 | 0 |
-| Sack rate | 4.6% | 6.6% | -1.9 | 4.3% | 6/32 | 8 | 0 |
+| Run YPC | 4.15 | 4.21 | -0.06 | 4.03 | 19/32 | 8 | 0 |
+| Run success rate | 40.1% | 41.7% | -1.6 | 38.8% | 18/32 | 8 | 0 |
+| EPA/rush | -0.076 | -0.054 | -0.022 | -0.101 | 18/32 | 8 | 0 |
+| EPA/dropback | -0.096 | 0.078 | -0.173 | -0.127 | 28/32 | 8 | 0 |
+| YPA | 5.93 | 7.17 | -1.24 | 5.84 | 30/32 | 8 | 0 |
+| Sack rate | 4.6% | 7.1% | -2.5 | 3.9% | 6/32 | 8 | 0 |
 
 QB throw map (share of att, EPA/att in parentheses; ≥40 att):
 
 | QB | att | short left | short middle | short right | int left | int middle | int right | deep left | deep middle | deep right |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Cam Ward | 248 | 27% (-0.17) | 8% (-0.22) | 33% (-0.04) | 8% (0.81) | 7% (-0.11) | 8% (0.54) | 3% (-0.69) | 2% (0.74) | 4% (-1.56) |
-| league | 7970 | 26% (0.04) | 13% (0.05) | 29% (0.01) | 7% (0.31) | 6% (0.59) | 7% (0.38) | 4% (0.35) | 2% (0.76) | 5% (0.33) |
+| league | 8916 | 26% (0.02) | 12% (0.06) | 29% (0.01) | 7% (0.32) | 6% (0.60) | 8% (0.32) | 4% (0.33) | 2% (0.66) | 5% (0.40) |
 
 Player usage, season totals (RZ opps = carries + targets inside the 10 / 5):
 
@@ -360,11 +362,11 @@ Game by game, 2026: gained (expected vs that defense; * = its rating rests on un
 
 | wk | opp | rush | YPC | success | EPA/rush | db | EPA/db | YPA |
 |---|---|---|---|---|---|---|---|---|
-| 1 | NYJ | 10 | 4.70 (4.10) | 40% (45%) | -0.10 (-0.10) | 39 | -0.12 (0.14) | 4.38 (6.88) |
-| 2 | PHI | 27 | 4.33 (4.21) | 44% (45%) | 0.09 (0.04) | 24 | 0.05 (0.09) | 9.15 (6.75) |
-| 3 | NYG | 21 | 3.86 (4.96) | 33% (45%) | -0.09 (-0.05) | 36 | -0.18 (0.10) | 5.03 (6.67) |
-| 4 | BAL | 22 | 2.64 (3.85) | 32% (42%) | -0.18 (-0.05) | 37 | -0.11 (0.09) | 6.94 (7.43) |
-| 5 | HOU | 17 | 3.24 (3.95) | 41% (41%) | -0.30 (-0.04) | 41 | -0.43 (0.08) | 4.72 (7.70) |
-| 6 | IND | 21 | 3.81 (4.69) | 43% (43%) | -0.14 (0.02) | 23 | -0.15 (0.10) | 4.64 (8.16) |
-| 7 | CLE | 29 | 4.69 (4.19) | 45% (42%) | -0.14 (-0.07) | 33 | 0.01 (0.02) | 5.84 (6.60) |
-| 8 | CIN | 25 | 5.60 (3.95) | 40% (33%) | 0.13 (-0.15) | 47 | 0.17 (-0.01) | 7.41 (7.48) |
+| 1 | NYJ | 10 | 4.70 (4.12) | 40% (46%) | -0.10 (-0.09) | 39 | -0.12 (0.15) | 4.38 (6.88) |
+| 2 | PHI | 27 | 4.33 (3.94) | 44% (42%) | 0.09 (-0.01) | 24 | 0.05 (0.10) | 9.15 (6.77) |
+| 3 | NYG | 21 | 3.86 (4.64) | 33% (43%) | -0.09 (-0.07) | 36 | -0.18 (0.05) | 5.03 (6.52) |
+| 4 | BAL | 22 | 2.64 (3.59) | 32% (41%) | -0.18 (-0.09) | 37 | -0.11 (0.08) | 6.94 (7.44) |
+| 5 | HOU | 17 | 3.24 (4.12) | 41% (43%) | -0.30 (-0.06) | 41 | -0.43 (0.10) | 4.72 (7.60) |
+| 6 | IND | 21 | 3.81 (4.90) | 43% (44%) | -0.14 (0.02) | 23 | -0.15 (0.11) | 4.64 (8.45) |
+| 7 | CLE | 29 | 4.69 (4.34) | 45% (43%) | -0.14 (-0.05) | 33 | 0.01 (0.02) | 5.84 (6.91) |
+| 8 | CIN | 25 | 5.60 (4.05) | 40% (34%) | 0.13 (-0.11) | 47 | 0.17 (0.03) | 7.41 (7.11) |
