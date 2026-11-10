@@ -7,13 +7,13 @@ meta,last_week_in_data,"Latest week with play-by-play. If behind the current NFL
 meta,next_unplayed_week,The week the matchup board treats as 'this week' (weeks_out = 0).
 meta,pressure_data_games,Current-season games that have PFR pressure data. Low vs games_in_data = pressure numbers incomplete.
 matchup_board,dst_team / opponent,"One row per team per upcoming game, from the DST's point of view."
-matchup_board,weeks_out,0 = this week's game; 1-3 = forward-look.
+matchup_board,weeks_out,"0 = this week's game; 1-3 = forward-look; 4+ = rest of the regular season (v1.5, for stash questions; prov_score there is a schedule read - its cutoffs were calibrated at 2-3 weeks' lead)."
 matchup_board,base_score,START HERE. 1-10 score from the backtested formula (35% matchup / 25% unit quality / 40% Vegas). Same scale as the points table in the instructions. Blank when Vegas lines aren't posted - then use prov_score.
 matchup_board,prov_score,"Provisional 1-10 score for games with NO Vegas line yet (usually 2+ weeks out): matchup (B) and unit quality (A) only, in the same 35:25 proportion. Own cutoffs and points table (weaker than base_score). Blank whenever base_score exists."
 matchup_board,prov_composite,The raw number behind prov_score (0 = average).
 matchup_board,base_composite,The raw blended number behind base_score (0 = average matchup; roughly -1.5 to +1.5). Useful for breaking ties between equal base_scores.
 matchup_board,base_matchup_B,"(B) input to base_score: opponent's core points allowed (sacks + 2 x takeaways) per game vs league average, blended with last season (6 games' weight)."
-matchup_board,base_matchup_B_adj,"REFERENCE ONLY (not in base_score): same as base_matchup_B but measured against what the defenses this offense faced normally get (their other games + last season), instead of league average. Backtest 2021-2025: no measurable gain over the raw B once Vegas is in the score."
+matchup_board,base_matchup_B_adj,"Not in base_score: same as base_matchup_B but measured against what the defenses this offense faced normally get (their other games + last season), instead of league average. Same number as opp_core_fpts_allowed_adj_blend_pg - the adjusted, blended matchup chats show. Backtest 2021-2025: predicts as well as base_matchup_B, no gain once Vegas is in the score."
 matchup_board,base_unit_A,"(A) input to base_score: DST's core points over expected per game (vs. what each opponent normally allows: its other games + last season), blended with the DST's last season (6 games' weight)."
 matchup_board,dst_spread,(C) Vegas spread for the DST's team (negative = favored). Part of base_score. Blank until lines are posted.
 matchup_board,opp_implied_total,(C) Opponent's Vegas implied points (from spread + total). Core input - 40% of base_score with the spread. Points allowed still don't score; a low total flags an offense likely to take sacks and turn it over.
@@ -41,7 +41,12 @@ offense_season,sack_rate_allowed,Sacks allowed / dropbacks.
 offense_season,sacks_allowed_index / giveaways_index,"Per-game rate vs. league average (1.00 = average, 1.30 = 30% more generous)."
 offense_season,sacks_allowed_oe_pg / giveaways_oe_pg,(B) adjusted: allowed vs. what the DSTs they faced normally get elsewhere (their other games this season + last season). Positive = generous even after accounting for who they played.
 offense_season,dst_fpts_allowed_ex_td_pg,Fantasy points (ex TD) opposing DSTs averaged against this offense.
-offense_season,rank_generosity_ex_td,1 = most generous offense for DSTs.
+offense_season,rank_generosity_ex_td,1 = most generous offense for DSTs (raw).
+offense_season,core_fpts_allowed_oe_pg,"v1.5: ADJUSTED, THIS SEASON ONLY. sacks_allowed_oe_pg + 2 x giveaways_oe_pg = core fantasy points per game this offense gives up above what the DSTs it faced normally get. Use when last season came from a different QB; otherwise use the _adj_blend columns."
+offense_season,rank_generosity_adj_season,"v1.5 (renamed v1.6): rank of core_fpts_allowed_oe_pg within season (1 = most generous, adjusted, this season only)."
+offense_season,sacks_allowed_adj_blend_pg / giveaways_adj_blend_pg,"v1.6: ADJUSTED, BLENDED - sacks_allowed_oe_pg / giveaways_oe_pg blended with last season (6 games' weight, same blend as the score). Current season rows only. What chats show."
+offense_season,core_fpts_allowed_adj_blend_pg,"v1.6: ADJUSTED, BLENDED - sacks_allowed_adj_blend_pg + 2 x giveaways_adj_blend_pg. Equals base_matchup_B_adj on the board. Backtest 2021-2025: predicts DST points as well as the raw blended number the score uses."
+offense_season,rank_generosity_adj_blend,"v1.6: rank of core_fpts_allowed_adj_blend_pg (1 = most generous, adjusted, blended). Current season rows only."
 offense_season,last_game_qb,"QB with the most dropbacks in the team's latest game. If a different QB starts this week, lean on qb_profiles."
 dst_game_log,baseline_type,opp_other_games+last_season = opponent's other games this season blended with its last season (current season); opp_other_games = other games only (last season's rows); league_avg = no other games.
 dst_game_log,exp_sacks / exp_takeaways,What the opponent normally allows (see baseline_type). The game's sacks_oe / takeaways_oe = actual minus these.
@@ -60,3 +65,12 @@ qb_profiles,sack_rate / int_rate / turnover_rate,Per dropback. turnover_rate = (
 qb_profiles,sack_rate_blend / turnover_rate_blend,"BEST EARLY-SEASON READ of a QB: this season's raw rate blended with his last season (sacks: 200 dropbacks' weight, turnovers: 400). blend_prior says whether his own last season or league average was used. Backtest: cut next-week prediction error ~29-39% in Weeks 2-3 vs. the raw rate. Blank for the oldest season in the file."
 qb_profiles,sack_rate_adj / int_rate_adj / turnover_rate_adj,Same rates adjusted for the defenses faced: league rate + (actual - what those defenses normally force on the same dropbacks) / dropbacks. Backtest: early-season adjusted rates did not predict later-season rates better than raw ones; early-season turnover rates (raw or adjusted) barely predict later turnovers at all.
 qb_profiles,pick_sixes,INTs returned for TDs.
+score_formula,formula,base_composite = w_matchup*(base_matchup_B - B_mean)/B_sd + w_unit*(base_unit_A - A_mean)/A_sd + w_vegas*( -(opp_implied_total - imp_mean)/imp_sd - (dst_spread - spr_mean)/spr_sd )/2. base_score = 1 + number of cuts at or below base_composite. dst_spread: negative = DST's team favored. opp_implied_total = total/2 + dst_spread/2.
+score_formula,prov_formula,prov_composite = (w_matchup*(base_matchup_B - B_mean)/B_sd + w_unit*(base_unit_A - A_mean)/A_sd) / (w_matchup + w_unit). prov_score = 1 + number of prov_cuts at or below prov_composite.
+score_formula,w_matchup / w_unit / w_vegas,"0.35, 0.25, 0.40"
+score_formula,B_mean / B_sd,"-0.00022, 0.86016"
+score_formula,A_mean / A_sd,"-0.00549, 0.89183"
+score_formula,imp_mean / imp_sd,"22.25123, 3.92319"
+score_formula,spr_mean / spr_sd,"0.00000, 6.45428"
+score_formula,cuts,"-0.92024, -0.61841, -0.41056, -0.19747, -0.02055, 0.16587, 0.35804, 0.62013, 0.95315"
+score_formula,prov_cuts,"-0.96042, -0.65218, -0.42250, -0.23098, -0.03263, 0.17004, 0.38947, 0.64708, 1.00328"

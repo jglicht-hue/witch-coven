@@ -1,5 +1,5 @@
-run_date=2026-11-03
+run_date=2026-11-10
 status=OK
-week=8
+week=9
 files=chooserboy_data_dictionary.csv,chooserboy_dst_game_log.csv,chooserboy_dst_season.csv,chooserboy_matchup_board.csv,chooserboy_meta.csv,chooserboy_offense_season.csv,chooserboy_qb_profiles.csv
 note=
