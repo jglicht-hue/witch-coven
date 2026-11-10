@@ -155,95 +155,91 @@ Backtest on 832 pre-game top-16 team-games (leave-one-season-out):
 4                4        166          8.943       8.518                  0.867
 5                5        166         10.067       9.904                  0.867
 Wrote data/points_backtest_games.csv, data/points_backtest_summary.csv, data/points_backtest_rules.csv, data/points_backtest_calibration.csv
-=== 08a_backtest_points_distribution.R done in 15s ===
+=== 08a_backtest_points_distribution.R done in 14s ===
 
 === 09b_weekly_projections.R ===
 New model self-test passed (24 values)
 Downloading https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.rds
-Projecting 2026 week 9 (play-by-play through week 9; lines downloaded 2026-11-06 14:41:58 UTC)
-Wrote data/weekly_projections_2026_wk09.csv (30 kicker-games, 2 already played) and data/weekly_distributions_2026_wk09.csv
-Wrote data/weekly_roof_scenarios_latest.csv (4 roof-unknown kicker-games)
-Wrote data/weekly_projections_previous_model_2026_wk09.csv. New model vs previous: mean absolute difference 0.44, largest 2.05 (K.Fairbairn)
+Projecting 2026 week 10 (play-by-play through week 9; lines downloaded 2026-11-10 14:41:46 UTC)
+Wrote data/weekly_projections_2026_wk10.csv (28 kicker-games, 0 already played) and data/weekly_distributions_2026_wk10.csv
+Wrote data/weekly_roof_scenarios_latest.csv (8 roof-unknown kicker-games)
+Wrote data/weekly_projections_previous_model_2026_wk10.csv. New model vs previous: mean absolute difference 0.43, largest 1.02 (A.Borregales)
    team opponent kicker_player_name top16pre played projected_points ci_low
-1   HOU      LAC        K.Fairbairn     TRUE  FALSE             10.1    9.3
-2   DAL      IND           B.Aubrey     TRUE  FALSE             10.0    9.2
-3   CIN      ATL        E.McPherson    FALSE  FALSE              9.6    8.8
-4    SF       LV          E.Pineiro    FALSE  FALSE              9.4    8.5
-5   MIN      BUF         W.Reichard     TRUE  FALSE              9.2    8.4
-6   JAX      BAL           C.Little     TRUE   TRUE              9.1    8.3
-7   IND      DAL          S.Shrader     TRUE  FALSE              9.1    8.1
-8   BUF      MIN             T.Bass     TRUE  FALSE              9.0    8.2
-9   ATL      CIN             N.Folk    FALSE  FALSE              9.0    8.2
-10  SEA      ARI            J.Myers     TRUE  FALSE              9.0    8.2
-11  DET      MIA            J.Bates     TRUE  FALSE              8.9    8.1
-12  CHI       TB           C.Santos    FALSE  FALSE              8.8    8.0
-13   KC      NYJ           H.Butker    FALSE  FALSE              8.7    8.0
-14  CLE       NO            A.Szmyt    FALSE  FALSE              8.5    7.6
-15   NO      CLE          D.Carlson    FALSE  FALSE              8.4    7.7
-16   TB      CHI       C.McLaughlin     TRUE  FALSE              8.3    7.6
-17  LAC      HOU           C.Dicker     TRUE  FALSE              8.0    7.3
-18  DEN      CAR             W.Lutz    FALSE  FALSE              8.0    7.2
-19  WAS       LA          D.Stevens     TRUE  FALSE              7.7    6.7
-20   LA      WAS          B.McManus    FALSE  FALSE              7.7    7.0
-21  CAR      DEN       R.Fitzgerald    FALSE  FALSE              7.5    6.7
-22  MIA      DET         Z.Gonzalez     TRUE  FALSE              7.5    6.7
-23   NE       GB       A.Borregales    FALSE  FALSE              7.5    6.6
-24  NYG      PHI            D.Zvada     TRUE  FALSE              7.4    6.3
-25  NYJ       KC          J.Sanders     TRUE  FALSE              7.2    6.5
-26   LV       SF              M.Gay     TRUE  FALSE              6.9    6.3
-27  PHI      NYG          J.Elliott    FALSE  FALSE              6.6    6.0
-28   GB       NE            T.Smack    FALSE  FALSE              6.5    5.4
-29  BAL      JAX             T.Loop    FALSE   TRUE              6.4    5.6
-30  ARI      SEA           C.Ryland     TRUE  FALSE              6.1    5.4
+1    SF      DAL          E.Pineiro    FALSE  FALSE              9.7    8.9
+2   JAX      TEN           C.Little     TRUE  FALSE              9.6    8.9
+3   IND      MIA          S.Shrader     TRUE  FALSE              9.5    8.7
+4   SEA       LV            J.Myers     TRUE  FALSE              9.5    8.7
+5   BUF      NYJ             T.Bass     TRUE  FALSE              9.2    8.4
+6   DET       NE            J.Bates     TRUE  FALSE              9.2    8.4
+7   HOU      CLE        K.Fairbairn     TRUE  FALSE              9.2    8.4
+8   DAL       SF           B.Aubrey     TRUE  FALSE              9.1    8.4
+9   CIN      PIT        E.McPherson    FALSE  FALSE              9.0    8.3
+10   NO      CAR            C.Smyth     TRUE  FALSE              8.5    7.5
+11  ATL       KC             N.Folk    FALSE  FALSE              8.3    7.6
+12  CAR       NO       R.Fitzgerald    FALSE  FALSE              8.3    7.4
+13   KC      ATL           H.Butker    FALSE  FALSE              8.3    7.6
+14  PIT      CIN          C.Boswell     TRUE  FALSE              8.2    7.6
+15  MIN       GB         W.Reichard     TRUE  FALSE              8.2    7.4
+16   LA      ARI          B.McManus    FALSE  FALSE              8.1    7.4
+17  MIA      IND         Z.Gonzalez     TRUE  FALSE              8.0    7.1
+18   NE      DET       A.Borregales    FALSE  FALSE              7.9    7.0
+19  NYG      WAS            D.Zvada     TRUE  FALSE              7.8    6.8
+20   LV      SEA              M.Gay     TRUE  FALSE              7.7    7.1
+21  NYJ      BUF          J.Sanders     TRUE  FALSE              7.6    6.9
+22  BAL      LAC            J.Moody    FALSE  FALSE              7.6    6.7
+23  WAS      NYG          D.Stevens     TRUE  FALSE              7.5    6.6
+24  CLE      HOU            A.Szmyt    FALSE  FALSE              7.5    6.6
+25   GB      MIN            T.Smack    FALSE  FALSE              7.5    6.3
+26  LAC      BAL           C.Dicker     TRUE  FALSE              7.3    6.6
+27  TEN      JAX             J.Slye    FALSE  FALSE              6.7    6.0
+28  ARI       LA           C.Ryland    FALSE  FALSE              6.5    5.7
    ci_high outcome_low outcome_high previous_model roof_unknown
-1     10.9           3           18           12.2        FALSE
-2     10.7           4           17            9.5         TRUE
-3     10.2           3           17            9.3         TRUE
-4     10.1           3           16            8.8        FALSE
-5      9.9           3           17           10.8        FALSE
-6      9.7           3           16            8.5        FALSE
-7      9.9           3           16            8.9         TRUE
-8      9.8           3           16            9.2        FALSE
-9      9.6           3           16            9.1         TRUE
-10     9.7           3           16            8.5        FALSE
-11     9.7           3           16            8.8        FALSE
-12     9.4           3           15            9.0        FALSE
-13     9.4           3           15            8.2        FALSE
-14     9.3           2           16            8.4        FALSE
-15     9.1           2           15            8.1        FALSE
-16     8.9           2           15            8.3        FALSE
-17     8.7           2           15            8.0        FALSE
-18     8.6           2           14            7.5        FALSE
-19     8.6           2           14            7.9        FALSE
-20     8.4           2           14            8.0        FALSE
-21     8.3           2           14            8.2        FALSE
-22     8.2           2           14            8.1        FALSE
-23     8.4           2           14            7.6        FALSE
-24     8.4           2           14            6.8        FALSE
-25     7.8           1           14            7.9        FALSE
-26     7.5           1           13            7.6        FALSE
-27     7.3           1           13            6.3        FALSE
-28     7.6           1           13            7.0        FALSE
-29     7.3           1           13            6.3        FALSE
-30     6.8           1           12            5.9        FALSE
+1     10.5           4           17            9.1         TRUE
+2     10.3           3           17            9.2        FALSE
+3     10.4           3           17            9.1         TRUE
+4     10.2           3           17           10.1        FALSE
+5     10.0           3           16            9.4        FALSE
+6     10.0           3           16            9.3        FALSE
+7      9.7           3           16            8.7        FALSE
+8      9.8           3           16            9.4         TRUE
+9      9.7           3           16            9.3        FALSE
+10     9.5           3           15            7.8        FALSE
+11     9.0           2           15            8.5         TRUE
+12     9.1           2           15            7.9        FALSE
+13     8.9           2           15            7.7         TRUE
+14     8.8           2           15            8.3        FALSE
+15     8.8           2           15            7.5        FALSE
+16     8.8           2           15            7.2         TRUE
+17     8.8           2           15            7.7         TRUE
+18     8.7           2           14            6.9        FALSE
+19     8.8           2           14            7.1        FALSE
+20     8.4           2           14            7.7        FALSE
+21     8.2           2           14            7.8        FALSE
+22     8.4           2           14            7.1        FALSE
+23     8.4           2           14            6.9        FALSE
+24     8.2           2           14            7.2        FALSE
+25     8.5           2           14            8.2        FALSE
+26     7.9           1           14            7.1        FALSE
+27     7.4           1           13            7.0        FALSE
+28     7.2           1           13            6.3         TRUE
    roof_closed_share actual_points
-1                 NA            NA
-2             0.9109            NA
-3             0.8267            NA
+1             0.9685            NA
+2                 NA            NA
+3             0.9109            NA
 4                 NA            NA
 5                 NA            NA
-6                 NA            17
-7             0.9109            NA
-8                 NA            NA
-9             0.8267            NA
+6                 NA            NA
+7                 NA            NA
+8             0.9685            NA
+9                 NA            NA
 10                NA            NA
-11                NA            NA
+11            0.7362            NA
 12                NA            NA
-13                NA            NA
+13            0.7362            NA
 14                NA            NA
 15                NA            NA
-16                NA            NA
-17                NA            NA
+16            0.7928            NA
+17            0.9109            NA
 18                NA            NA
 19                NA            NA
 20                NA            NA
@@ -254,38 +250,36 @@ Wrote data/weekly_projections_previous_model_2026_wk09.csv. New model vs previou
 25                NA            NA
 26                NA            NA
 27                NA            NA
-28                NA            NA
-29                NA             6
-30                NA            NA
-Appended 60 rows to data/projection_history.csv (30 new model, 30 previous model)
-Wrote next-week projection data/weekly_projections_next_2026_wk10.csv (week 10, 28 kicker-games; 13 of 14 games have a betting line)
-=== 09b_weekly_projections.R done in 23s ===
+28            0.7928            NA
+Appended 56 rows to data/projection_history.csv (28 new model, 28 previous model)
+No next-week projection: no betting lines yet for week 11
+=== 09b_weekly_projections.R done in 17s ===
 
 === 15_accuracy_report.R ===
-Accuracy report: 27 active kickers with >= 20 attempts, 8 truly good; window 2023-2026 regular season through week 9
-   rank       kicker team fg_made fg_att make_pct expected_pct edge_pts
-1     1    S.Shrader  IND      37     40     92.5         84.7      7.8
-2     2       N.Folk  ATL      90     97     92.8         85.5      7.3
-3     3     C.Little  JAX      71     79     89.9         82.7      7.2
-4     4 C.McLaughlin   TB     110    120     91.7         84.9      6.8
-5     5  K.Fairbairn  HOU     122    134     91.0         84.4      6.6
-6     6   W.Reichard  MIN      75     85     88.2         81.8      6.4
-7     7     C.Dicker  LAC     120    130     92.3         85.9      6.4
-8     8     B.Aubrey  DAL     127    146     87.0         81.7      5.3
-9     9    J.Sanders  NYJ      78     88     88.6         85.0      3.7
-10   10 R.Fitzgerald  CAR      37     42     88.1         85.3      2.8
+Accuracy report: 26 active kickers with >= 20 attempts, 7 truly good; window 2023-2026 regular season through week 9
+   rank      kicker team fg_made fg_att make_pct expected_pct edge_pts
+1     1   S.Shrader  IND      40     43     93.0         83.8      9.2
+2     2    C.Little  JAX      71     79     89.9         82.8      7.1
+3     3 K.Fairbairn  HOU     125    137     91.2         84.5      6.8
+4     4  W.Reichard  MIN      77     87     88.5         81.8      6.7
+5     5    C.Dicker  LAC     123    133     92.5         85.9      6.6
+6     6      N.Folk  ATL      91     99     91.9         85.8      6.2
+7     7   C.Boswell  PIT     115    130     88.5         83.4      5.1
+8     8    B.Aubrey  DAL     129    149     86.6         81.8      4.7
+9     9   J.Sanders  NYJ      82     93     88.2         84.7      3.5
+10   10     A.Szmyt  CLE      43     48     89.6         86.1      3.4
    edge_low80 truly_good
-1         1.0       TRUE
-2         2.9       TRUE
-3         2.1       TRUE
-4         2.9       TRUE
-5         2.8       TRUE
-6         1.4       TRUE
-7         2.7       TRUE
-8         1.5       TRUE
-9        -0.9      FALSE
-10       -3.9      FALSE
-=== 15_accuracy_report.R done in 5s ===
+1         2.4       TRUE
+2         2.1       TRUE
+3         3.0       TRUE
+4         1.7       TRUE
+5         2.9       TRUE
+6         1.9       TRUE
+7         1.1       TRUE
+8         1.0      FALSE
+9        -1.0      FALSE
+10       -2.7      FALSE
+=== 15_accuracy_report.R done in 6s ===
 
 === 13_scorecard.R ===
 New vs previous model, same games, whole season (squared error; negative difference = new better):
@@ -298,8 +292,8 @@ New vs previous model, same games, whole season (squared error; negative differe
 6     6    27  30.423       31.084    -0.661   0.677 -0.976        -0.127
 7     7    26  15.386       17.083    -1.697   1.725 -0.984         0.505
 8     8    28  20.531       21.772    -1.241   1.458 -0.851         0.066
-9     9     1  59.311       68.330    -9.019      NA     NA            NA
-10  all   231  22.164       22.927    -0.763   0.372 -2.048         0.096
+9     9    28  22.988       22.355     0.633   1.194  0.530         0.289
+10  all   258  22.110       22.689    -0.579   0.356 -1.625         0.116
    rank_corr_previous weeks_new_better
 1              -0.005               NA
 2              -0.249               NA
@@ -309,9 +303,9 @@ New vs previous model, same games, whole season (squared error; negative differe
 6              -0.163               NA
 7               0.301               NA
 8               0.038               NA
-9                  NA               NA
-10              0.066                7
-Scorecard: 616 kicker-games graded or checked (35 wrong starter)
+9               0.254               NA
+10              0.090                6
+Scorecard: 672 kicker-games graded or checked (37 wrong starter)
                   source season week graded wrong_starter mse_model mse_ppg
 1                   live   2026    3      2             0    26.024  21.617
 2                   live   2026    4     32             0    18.641  19.310
@@ -319,8 +313,8 @@ Scorecard: 616 kicker-games graded or checked (35 wrong starter)
 4                   live   2026    6     27             1    30.423  30.784
 5                   live   2026    7     26             2    15.386  17.905
 6                   live   2026    8     28             0    20.531  22.051
-7                   live   2026    9      1             1    59.311  66.519
-8                   live   2026  all    146             4    22.992  23.277
+7                   live   2026    9     28             2    22.988  21.272
+8                   live   2026  all    173             5    22.781  22.702
 9       new_model_season   2026    1     23             9    20.602  22.236
 10      new_model_season   2026    2     32             0    18.428  17.842
 11      new_model_season   2026    3     32             0    23.241  22.197
@@ -329,14 +323,14 @@ Scorecard: 616 kicker-games graded or checked (35 wrong starter)
 14      new_model_season   2026    6     27             1    30.423  30.784
 15      new_model_season   2026    7     26             2    15.386  17.905
 16      new_model_season   2026    8     28             0    20.531  22.051
-17      new_model_season   2026    9      1             1    59.311  66.519
-18      new_model_season   2026  all    231            13    22.164  22.284
+17      new_model_season   2026    9     28             2    22.988  21.272
+18      new_model_season   2026  all    258            14    22.110  22.003
 19            prev_model   2026    5     30             0    29.064  25.219
 20            prev_model   2026    6     27             1    31.084  30.784
 21            prev_model   2026    7     26             2    17.083  17.905
 22            prev_model   2026    8     28             0    21.772  22.051
-23            prev_model   2026    9      1             1    68.330  66.519
-24            prev_model   2026  all    112             4    25.297  24.439
+23            prev_model   2026    9     28             2    22.355  21.272
+24            prev_model   2026  all    139             5    24.395  23.499
 25 previous_model_season   2026    1     23             9    22.366  22.236
 26 previous_model_season   2026    2     32             0    19.719  17.842
 27 previous_model_season   2026    3     32             0    22.744  22.197
@@ -345,8 +339,8 @@ Scorecard: 616 kicker-games graded or checked (35 wrong starter)
 30 previous_model_season   2026    6     27             1    31.084  30.784
 31 previous_model_season   2026    7     26             2    17.083  17.905
 32 previous_model_season   2026    8     28             0    21.772  22.051
-33 previous_model_season   2026    9      1             1    68.330  66.519
-34 previous_model_season   2026  all    231            13    22.927  22.284
+33 previous_model_season   2026    9     28             2    22.355  21.272
+34 previous_model_season   2026  all    258            14    22.689  22.003
 35               rebuilt   2026    1     23             9    22.495  22.235
 36               rebuilt   2026    2     32             0    19.718  17.843
 37               rebuilt   2026    3     30             0    22.862  22.240
@@ -368,8 +362,8 @@ Scorecard: 616 kicker-games graded or checked (35 wrong starter)
 4      28.475 -1.574     0.704         0.843    -0.127           -2.400
 5      17.778  0.998     0.923         0.838     0.505            3.464
 6      19.911  0.733     0.821         0.836     0.066            2.750
-7      79.352 -7.701     0.000         0.835        NA              NaN
-8      24.350 -0.201     0.829         0.838     0.207            1.893
+7      25.356 -1.659     0.857         0.839     0.289            2.458
+8      24.195 -0.394     0.838         0.838     0.214            1.885
 9      18.575  0.495     0.783         0.832    -0.057            0.091
 10     16.574  0.310     0.906         0.839    -0.203           -1.100
 11     22.425 -0.419     0.750         0.837    -0.042            0.567
@@ -378,14 +372,14 @@ Scorecard: 616 kicker-games graded or checked (35 wrong starter)
 14     28.475 -1.574     0.704         0.843    -0.127           -2.400
 15     17.778  0.998     0.923         0.838     0.505            3.464
 16     19.911  0.733     0.821         0.836     0.066            2.750
-17     79.352 -7.701     0.000         0.835        NA              NaN
-18     22.405 -0.116     0.827         0.838     0.096            1.407
+17     25.356 -1.659     0.857         0.839     0.289            2.458
+18     22.505 -0.254     0.833         0.838     0.116            1.456
 19     31.251 -0.399     0.800         0.835     0.215            3.000
 20     28.475 -1.692     0.704         0.846    -0.163           -2.400
 21     17.778  1.008     0.846         0.837     0.301            0.833
 22     19.911  0.772     0.821         0.843     0.038            0.417
-23     79.352 -8.266     0.000         0.818        NA              NaN
-24     25.048 -0.162     0.786         0.840     0.099            0.667
+23     25.356 -1.549     0.893         0.839     0.254            2.458
+24     24.720 -0.383     0.813         0.840     0.135            0.885
 25     18.575  0.600     0.783         0.837    -0.005            0.091
 26     16.574  0.257     0.875         0.837    -0.249           -1.100
 27     22.425 -0.451     0.781         0.834    -0.037            0.433
@@ -394,8 +388,8 @@ Scorecard: 616 kicker-games graded or checked (35 wrong starter)
 30     28.475 -1.692     0.704         0.846    -0.163           -2.400
 31     17.778  1.008     0.846         0.837     0.301            0.833
 32     19.911  0.772     0.821         0.843     0.038            0.417
-33     79.352 -8.266     0.000         0.818        NA              NaN
-34     22.405 -0.142     0.814         0.838     0.066            0.660
+33     25.356 -1.549     0.893         0.839     0.254            2.458
+34     22.505 -0.263     0.826         0.838     0.090            0.787
 35     18.574  0.670     0.783         0.836    -0.015           -1.303
 36     16.575  0.471     0.875         0.835    -0.210           -1.633
 37     22.143 -0.707     0.800         0.835    -0.140           -0.861
@@ -412,22 +406,20 @@ Scorecard: 616 kicker-games graded or checked (35 wrong starter)
 48     19.918 -0.123     0.840         0.835     0.025            0.658
 Accurate dome kickers (40-49 accuracy 0.822+, roof closed or dome): 
         source season kicker_games actual_att_4049_per_game
-1         live   2026           15                    0.800
-2   prev_model   2026           15                    0.800
+1         live   2026           20                    0.800
+2   prev_model   2026           20                    0.800
 3  rebuilt_new   2026           23                    0.522
 4 rebuilt_prev   2026           23                    0.522
   expected_att_4049_per_game actual_points_per_game projected_points_per_game
-1                      0.541                   8.13                      9.30
-2                      0.757                   8.13                      9.77
+1                      0.540                   8.90                      9.27
+2                      0.760                   8.90                      9.80
 3                      0.537                   8.43                      8.97
 4                      0.714                   8.43                      9.17
 === 13_scorecard.R done in 2s ===
 
 All done.
-Warning messages:
-1: In project_week_new(pbp, sched, season, next_week, nm, points_gamma,  :
-  No betting line yet for: 2026_10_SEA_LV, 2026_10_SEA_LV - league-average implied total used
-2: There was 1 warning in `mutate()`.
+Warning message:
+There was 1 warning in `mutate()`.
 i In argument: `window = paste0(...)`.
 Caused by warning in `fg$season == season`:
 ! longer object length is not a multiple of shorter object length 

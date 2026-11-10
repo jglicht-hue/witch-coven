@@ -1,5 +1,5 @@
 source,season,kicker_games,actual_att_4049_per_game,expected_att_4049_per_game,actual_points_per_game,projected_points_per_game
-live,2026,15,0.8,0.541,8.13,9.3
-prev_model,2026,15,0.8,0.757,8.13,9.77
+live,2026,20,0.8,0.54,8.9,9.27
+prev_model,2026,20,0.8,0.76,8.9,9.8
 rebuilt_new,2026,23,0.522,0.537,8.43,8.97
 rebuilt_prev,2026,23,0.522,0.714,8.43,9.17
