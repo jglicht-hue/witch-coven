@@ -18,14 +18,14 @@ Downloading https://github.com/nflverse/nflverse-data/releases/download/pbp/play
 Downloading https://github.com/nflverse/nflverse-data/releases/download/schedules/games.rds
 Wrote data/team_game_fg_xp_counts.csv (1710 rows)
 Wrote data/kicker_accuracy.csv (2427 rows)
-=== 01_pull_kicker_game_outcomes.R done in 14s ===
+=== 01_pull_kicker_game_outcomes.R done in 8s ===
 
 === 02_pull_team_covariates.R ===
 Loading play-by-play and schedules for seasons: 2023, 2024, 2025
 League-average FG-or-go rate in range: 0.6
 League-average FG rate on 4th down at the opponent's 33-42: 0.404 (1460 plays)
 Wrote data/team_game_covariates.csv (1632 rows)
-=== 02_pull_team_covariates.R done in 7s ===
+=== 02_pull_team_covariates.R done in 5s ===
 
 === 03_pull_venue_covariates.R ===
 Loading schedules for seasons: 2023, 2024, 2025
@@ -63,7 +63,7 @@ Slump flagged in 90 of 1513 kicker-games (5.9%)
 4 of those flags were based on fewer than 3 pooled games (early-season, thinner evidence) - see slump_pool_games per row
 XP attempts attributed to a primary kicker: 3332 of 3864 total team XP attempts (86.2% coverage - the gap is team-games with zero FG attempts, where no kicker could be identified)
 Wrote data/kicker_game_accuracy.csv (1513 rows)
-=== 05_pull_kicker_accuracy.R done in 1s ===
+=== 05_pull_kicker_accuracy.R done in 0s ===
 
 === 06_join_training_data.R ===
 Loading schedules for seasons: 2023, 2024, 2025 to derive the regular-season game_id list
@@ -76,7 +76,7 @@ Wrote data/kicker_training_table.csv (2427 rows)
 
 === 06b_build_volume_features.R ===
 Wrote data/volume_model_table.csv (1594 team-games; pre-game top-16: 832; season-end top-16: 789)
-=== 06b_build_volume_features.R done in 1s ===
+=== 06b_build_volume_features.R done in 0s ===
 
 === 07_fit_volume_models.R ===
 Training rows (pre-game top-16 team-games): 832 of 1594
@@ -155,82 +155,82 @@ Backtest on 832 pre-game top-16 team-games (leave-one-season-out):
 4                4        166          8.943       8.518                  0.867
 5                5        166         10.067       9.904                  0.867
 Wrote data/points_backtest_games.csv, data/points_backtest_summary.csv, data/points_backtest_rules.csv, data/points_backtest_calibration.csv
-=== 08a_backtest_points_distribution.R done in 14s ===
+=== 08a_backtest_points_distribution.R done in 11s ===
 
 === 09b_weekly_projections.R ===
 New model self-test passed (24 values)
 Downloading https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.rds
-Projecting 2026 week 10 (play-by-play through week 9; lines downloaded 2026-11-10 14:41:46 UTC)
-Wrote data/weekly_projections_2026_wk10.csv (28 kicker-games, 0 already played) and data/weekly_distributions_2026_wk10.csv
+Projecting 2026 week 10 (play-by-play through week 10; lines downloaded 2026-11-13 14:40:47 UTC)
+Wrote data/weekly_projections_2026_wk10.csv (28 kicker-games, 2 already played) and data/weekly_distributions_2026_wk10.csv
 Wrote data/weekly_roof_scenarios_latest.csv (8 roof-unknown kicker-games)
-Wrote data/weekly_projections_previous_model_2026_wk10.csv. New model vs previous: mean absolute difference 0.43, largest 1.02 (A.Borregales)
+Wrote data/weekly_projections_previous_model_2026_wk10.csv. New model vs previous: mean absolute difference 0.44, largest 1.06 (A.Borregales)
    team opponent kicker_player_name top16pre played projected_points ci_low
-1    SF      DAL          E.Pineiro    FALSE  FALSE              9.7    8.9
+1   SEA       LV            J.Myers     TRUE  FALSE              9.6    8.8
 2   JAX      TEN           C.Little     TRUE  FALSE              9.6    8.9
-3   IND      MIA          S.Shrader     TRUE  FALSE              9.5    8.7
-4   SEA       LV            J.Myers     TRUE  FALSE              9.5    8.7
+3    SF      DAL          E.Pineiro    FALSE  FALSE              9.6    8.8
+4   IND      MIA          S.Shrader     TRUE  FALSE              9.5    8.6
 5   BUF      NYJ             T.Bass     TRUE  FALSE              9.2    8.4
-6   DET       NE            J.Bates     TRUE  FALSE              9.2    8.4
-7   HOU      CLE        K.Fairbairn     TRUE  FALSE              9.2    8.4
-8   DAL       SF           B.Aubrey     TRUE  FALSE              9.1    8.4
-9   CIN      PIT        E.McPherson    FALSE  FALSE              9.0    8.3
-10   NO      CAR            C.Smyth     TRUE  FALSE              8.5    7.5
-11  ATL       KC             N.Folk    FALSE  FALSE              8.3    7.6
-12  CAR       NO       R.Fitzgerald    FALSE  FALSE              8.3    7.4
+6   HOU      CLE        K.Fairbairn     TRUE  FALSE              9.2    8.5
+7   DAL       SF           B.Aubrey     TRUE  FALSE              9.2    8.5
+8   DET       NE            J.Bates     TRUE  FALSE              9.1    8.3
+9   CIN      PIT        E.McPherson    FALSE  FALSE              9.1    8.4
+10   NO      CAR            C.Smyth     TRUE  FALSE              8.6    7.6
+11  ATL       KC             N.Folk    FALSE  FALSE              8.5    7.8
+12  MIN       GB         W.Reichard     TRUE  FALSE              8.4    7.6
 13   KC      ATL           H.Butker    FALSE  FALSE              8.3    7.6
-14  PIT      CIN          C.Boswell     TRUE  FALSE              8.2    7.6
-15  MIN       GB         W.Reichard     TRUE  FALSE              8.2    7.4
-16   LA      ARI          B.McManus    FALSE  FALSE              8.1    7.4
-17  MIA      IND         Z.Gonzalez     TRUE  FALSE              8.0    7.1
-18   NE      DET       A.Borregales    FALSE  FALSE              7.9    7.0
-19  NYG      WAS            D.Zvada     TRUE  FALSE              7.8    6.8
-20   LV      SEA              M.Gay     TRUE  FALSE              7.7    7.1
-21  NYJ      BUF          J.Sanders     TRUE  FALSE              7.6    6.9
-22  BAL      LAC            J.Moody    FALSE  FALSE              7.6    6.7
-23  WAS      NYG          D.Stevens     TRUE  FALSE              7.5    6.6
-24  CLE      HOU            A.Szmyt    FALSE  FALSE              7.5    6.6
-25   GB      MIN            T.Smack    FALSE  FALSE              7.5    6.3
-26  LAC      BAL           C.Dicker     TRUE  FALSE              7.3    6.6
+14  PIT      CIN          C.Boswell     TRUE  FALSE              8.3    7.6
+15  CAR       NO       R.Fitzgerald    FALSE  FALSE              8.2    7.3
+16   LA      ARI          B.McManus    FALSE  FALSE              8.1    7.3
+17   NE      DET       A.Borregales    FALSE  FALSE              7.8    6.9
+18  MIA      IND         Z.Gonzalez     TRUE  FALSE              7.7    6.8
+19  NYG      WAS            D.Zvada     TRUE   TRUE              7.7    6.7
+20  WAS      NYG          D.Stevens     TRUE   TRUE              7.6    6.7
+21  CLE      HOU            A.Szmyt    FALSE  FALSE              7.6    6.7
+22  NYJ      BUF          J.Sanders     TRUE  FALSE              7.6    6.8
+23  BAL      LAC            J.Moody    FALSE  FALSE              7.5    6.6
+24  LAC      BAL           C.Dicker     TRUE  FALSE              7.4    6.7
+25   GB      MIN            T.Smack    FALSE  FALSE              7.3    6.1
+26   LV      SEA              M.Gay     TRUE  FALSE              7.1    6.4
 27  TEN      JAX             J.Slye    FALSE  FALSE              6.7    6.0
-28  ARI       LA           C.Ryland    FALSE  FALSE              6.5    5.7
+28  ARI       LA           C.Ryland    FALSE  FALSE              6.4    5.7
    ci_high outcome_low outcome_high previous_model roof_unknown
-1     10.5           4           17            9.1         TRUE
+1     10.4           3           17           10.1        FALSE
 2     10.3           3           17            9.2        FALSE
-3     10.4           3           17            9.1         TRUE
-4     10.2           3           17           10.1        FALSE
+3     10.3           3           17            9.1         TRUE
+4     10.4           3           17            9.0         TRUE
 5     10.0           3           16            9.4        FALSE
-6     10.0           3           16            9.3        FALSE
-7      9.7           3           16            8.7        FALSE
-8      9.8           3           16            9.4         TRUE
+6      9.8           3           16            8.8        FALSE
+7      9.9           3           16            9.5         TRUE
+8      9.9           3           16            9.2        FALSE
 9      9.7           3           16            9.3        FALSE
-10     9.5           3           15            7.8        FALSE
-11     9.0           2           15            8.5         TRUE
-12     9.1           2           15            7.9        FALSE
-13     8.9           2           15            7.7         TRUE
-14     8.8           2           15            8.3        FALSE
-15     8.8           2           15            7.5        FALSE
-16     8.8           2           15            7.2         TRUE
-17     8.8           2           15            7.7         TRUE
-18     8.7           2           14            6.9        FALSE
-19     8.8           2           14            7.1        FALSE
-20     8.4           2           14            7.7        FALSE
-21     8.2           2           14            7.8        FALSE
-22     8.4           2           14            7.1        FALSE
-23     8.4           2           14            6.9        FALSE
-24     8.2           2           14            7.2        FALSE
-25     8.5           2           14            8.2        FALSE
-26     7.9           1           14            7.1        FALSE
-27     7.4           1           13            7.0        FALSE
-28     7.2           1           13            6.3         TRUE
+10     9.6           3           15            7.9        FALSE
+11     9.1           2           15            8.7         TRUE
+12     9.0           2           15            7.7        FALSE
+13     9.0           3           15            7.8         TRUE
+14     8.9           2           15            8.4        FALSE
+15     9.0           2           15            7.8        FALSE
+16     8.8           2           14            7.2         TRUE
+17     8.5           2           14            6.7        FALSE
+18     8.5           2           15            7.3         TRUE
+19     8.6           2           14            6.9        FALSE
+20     8.5           2           14            6.9        FALSE
+21     8.3           2           14            7.4        FALSE
+22     8.2           2           14            7.8        FALSE
+23     8.3           2           14            7.0        FALSE
+24     8.0           1           14            7.2        FALSE
+25     8.4           2           14            8.0        FALSE
+26     7.8           1           14            7.0        FALSE
+27     7.3           1           13            7.0        FALSE
+28     7.2           1           13            6.1         TRUE
    roof_closed_share actual_points
-1             0.9685            NA
+1                 NA            NA
 2                 NA            NA
-3             0.9109            NA
-4                 NA            NA
+3             0.9685            NA
+4             0.9109            NA
 5                 NA            NA
 6                 NA            NA
-7                 NA            NA
-8             0.9685            NA
+7             0.9685            NA
+8                 NA            NA
 9                 NA            NA
 10                NA            NA
 11            0.7362            NA
@@ -239,10 +239,10 @@ Wrote data/weekly_projections_previous_model_2026_wk10.csv. New model vs previou
 14                NA            NA
 15                NA            NA
 16            0.7928            NA
-17            0.9109            NA
-18                NA            NA
-19                NA            NA
-20                NA            NA
+17                NA            NA
+18            0.9109            NA
+19                NA             2
+20                NA             7
 21                NA            NA
 22                NA            NA
 23                NA            NA
@@ -252,22 +252,22 @@ Wrote data/weekly_projections_previous_model_2026_wk10.csv. New model vs previou
 27                NA            NA
 28            0.7928            NA
 Appended 56 rows to data/projection_history.csv (28 new model, 28 previous model)
-No next-week projection: no betting lines yet for week 11
-=== 09b_weekly_projections.R done in 17s ===
+Wrote next-week projection data/weekly_projections_next_2026_wk11.csv (week 11, 26 kicker-games; 13 of 13 games have a betting line)
+=== 09b_weekly_projections.R done in 19s ===
 
 === 15_accuracy_report.R ===
-Accuracy report: 26 active kickers with >= 20 attempts, 7 truly good; window 2023-2026 regular season through week 9
+Accuracy report: 27 active kickers with >= 20 attempts, 7 truly good; window 2023-2026 regular season through week 10
    rank      kicker team fg_made fg_att make_pct expected_pct edge_pts
 1     1   S.Shrader  IND      40     43     93.0         83.8      9.2
 2     2    C.Little  JAX      71     79     89.9         82.8      7.1
 3     3 K.Fairbairn  HOU     125    137     91.2         84.5      6.8
 4     4  W.Reichard  MIN      77     87     88.5         81.8      6.7
 5     5    C.Dicker  LAC     123    133     92.5         85.9      6.6
-6     6      N.Folk  ATL      91     99     91.9         85.8      6.2
+6     6      N.Folk  ATL      91     99     91.9         85.7      6.2
 7     7   C.Boswell  PIT     115    130     88.5         83.4      5.1
-8     8    B.Aubrey  DAL     129    149     86.6         81.8      4.7
+8     8    B.Aubrey  DAL     129    149     86.6         81.8      4.8
 9     9   J.Sanders  NYJ      82     93     88.2         84.7      3.5
-10   10     A.Szmyt  CLE      43     48     89.6         86.1      3.4
+10   10     A.Szmyt  CLE      43     48     89.6         86.1      3.5
    edge_low80 truly_good
 1         2.4       TRUE
 2         2.1       TRUE
@@ -275,11 +275,11 @@ Accuracy report: 26 active kickers with >= 20 attempts, 7 truly good; window 202
 4         1.7       TRUE
 5         2.9       TRUE
 6         1.9       TRUE
-7         1.1       TRUE
+7         1.2       TRUE
 8         1.0      FALSE
 9        -1.0      FALSE
-10       -2.7      FALSE
-=== 15_accuracy_report.R done in 6s ===
+10       -2.6      FALSE
+=== 15_accuracy_report.R done in 4s ===
 
 === 13_scorecard.R ===
 New vs previous model, same games, whole season (squared error; negative difference = new better):
@@ -293,7 +293,8 @@ New vs previous model, same games, whole season (squared error; negative differe
 7     7    26  15.386       17.083    -1.697   1.725 -0.984         0.505
 8     8    28  20.531       21.772    -1.241   1.458 -0.851         0.066
 9     9    28  22.988       22.355     0.633   1.194  0.530         0.289
-10  all   258  22.110       22.689    -0.579   0.356 -1.625         0.116
+10   10     2  17.218       12.938     4.280   3.985  1.074        -1.000
+11  all   260  22.072       22.614    -0.542   0.355 -1.525         0.120
    rank_corr_previous weeks_new_better
 1              -0.005               NA
 2              -0.249               NA
@@ -304,106 +305,115 @@ New vs previous model, same games, whole season (squared error; negative differe
 7               0.301               NA
 8               0.038               NA
 9               0.254               NA
-10              0.090                6
-Scorecard: 672 kicker-games graded or checked (37 wrong starter)
+10             -1.000               NA
+11              0.098                6
+Scorecard: 676 kicker-games graded or checked (37 wrong starter)
                   source season week graded wrong_starter mse_model mse_ppg
-1                   live   2026    3      2             0    26.024  21.617
-2                   live   2026    4     32             0    18.641  19.310
-3                   live   2026    5     30             0    28.422  25.219
-4                   live   2026    6     27             1    30.423  30.784
-5                   live   2026    7     26             2    15.386  17.905
-6                   live   2026    8     28             0    20.531  22.051
-7                   live   2026    9     28             2    22.988  21.272
-8                   live   2026  all    173             5    22.781  22.702
-9       new_model_season   2026    1     23             9    20.602  22.236
-10      new_model_season   2026    2     32             0    18.428  17.842
-11      new_model_season   2026    3     32             0    23.241  22.197
-12      new_model_season   2026    4     32             0    18.889  19.303
-13      new_model_season   2026    5     30             0    28.422  25.219
-14      new_model_season   2026    6     27             1    30.423  30.784
-15      new_model_season   2026    7     26             2    15.386  17.905
-16      new_model_season   2026    8     28             0    20.531  22.051
-17      new_model_season   2026    9     28             2    22.988  21.272
-18      new_model_season   2026  all    258            14    22.110  22.003
-19            prev_model   2026    5     30             0    29.064  25.219
-20            prev_model   2026    6     27             1    31.084  30.784
-21            prev_model   2026    7     26             2    17.083  17.905
-22            prev_model   2026    8     28             0    21.772  22.051
-23            prev_model   2026    9     28             2    22.355  21.272
-24            prev_model   2026  all    139             5    24.395  23.499
-25 previous_model_season   2026    1     23             9    22.366  22.236
-26 previous_model_season   2026    2     32             0    19.719  17.842
-27 previous_model_season   2026    3     32             0    22.744  22.197
-28 previous_model_season   2026    4     32             0    18.424  19.303
-29 previous_model_season   2026    5     30             0    29.064  25.219
-30 previous_model_season   2026    6     27             1    31.084  30.784
-31 previous_model_season   2026    7     26             2    17.083  17.905
-32 previous_model_season   2026    8     28             0    21.772  22.051
-33 previous_model_season   2026    9     28             2    22.355  21.272
-34 previous_model_season   2026  all    258            14    22.689  22.003
-35               rebuilt   2026    1     23             9    22.495  22.235
-36               rebuilt   2026    2     32             0    19.718  17.843
-37               rebuilt   2026    3     30             0    22.862  22.240
-38               rebuilt   2026  all     85             9    21.579  20.583
-39           rebuilt_new   2026    1     23             9    20.602  22.236
-40           rebuilt_new   2026    2     32             0    18.428  17.842
-41           rebuilt_new   2026    3     32             0    23.241  22.197
-42           rebuilt_new   2026    4     32             0    18.889  19.303
-43           rebuilt_new   2026  all    119             9    20.266  20.256
-44          rebuilt_prev   2026    1     23             9    22.366  22.236
-45          rebuilt_prev   2026    2     32             0    19.719  17.842
-46          rebuilt_prev   2026    3     32             0    22.744  22.197
-47          rebuilt_prev   2026    4     32             0    18.424  19.303
-48          rebuilt_prev   2026  all    119             9    20.696  20.256
+1                   live   2026   10      2             0    17.218  27.185
+2                   live   2026    3      2             0    26.024  21.617
+3                   live   2026    4     32             0    18.641  19.310
+4                   live   2026    5     30             0    28.422  25.219
+5                   live   2026    6     27             1    30.423  30.784
+6                   live   2026    7     26             2    15.386  17.905
+7                   live   2026    8     28             0    20.531  22.051
+8                   live   2026    9     28             2    22.988  21.272
+9                   live   2026  all    175             5    22.718  22.753
+10      new_model_season   2026    1     23             9    20.602  22.236
+11      new_model_season   2026   10      2             0    17.218  27.185
+12      new_model_season   2026    2     32             0    18.428  17.842
+13      new_model_season   2026    3     32             0    23.241  22.197
+14      new_model_season   2026    4     32             0    18.889  19.303
+15      new_model_season   2026    5     30             0    28.422  25.219
+16      new_model_season   2026    6     27             1    30.423  30.784
+17      new_model_season   2026    7     26             2    15.386  17.905
+18      new_model_season   2026    8     28             0    20.531  22.051
+19      new_model_season   2026    9     28             2    22.988  21.272
+20      new_model_season   2026  all    260            14    22.072  22.043
+21            prev_model   2026   10      2             0    12.938  27.185
+22            prev_model   2026    5     30             0    29.064  25.219
+23            prev_model   2026    6     27             1    31.084  30.784
+24            prev_model   2026    7     26             2    17.083  17.905
+25            prev_model   2026    8     28             0    21.772  22.051
+26            prev_model   2026    9     28             2    22.355  21.272
+27            prev_model   2026  all    141             5    24.233  23.551
+28 previous_model_season   2026    1     23             9    22.366  22.236
+29 previous_model_season   2026   10      2             0    12.938  27.185
+30 previous_model_season   2026    2     32             0    19.719  17.842
+31 previous_model_season   2026    3     32             0    22.744  22.197
+32 previous_model_season   2026    4     32             0    18.424  19.303
+33 previous_model_season   2026    5     30             0    29.064  25.219
+34 previous_model_season   2026    6     27             1    31.084  30.784
+35 previous_model_season   2026    7     26             2    17.083  17.905
+36 previous_model_season   2026    8     28             0    21.772  22.051
+37 previous_model_season   2026    9     28             2    22.355  21.272
+38 previous_model_season   2026  all    260            14    22.614  22.043
+39               rebuilt   2026    1     23             9    22.495  22.235
+40               rebuilt   2026    2     32             0    19.718  17.843
+41               rebuilt   2026    3     30             0    22.862  22.240
+42               rebuilt   2026  all     85             9    21.579  20.583
+43           rebuilt_new   2026    1     23             9    20.602  22.236
+44           rebuilt_new   2026    2     32             0    18.428  17.842
+45           rebuilt_new   2026    3     32             0    23.241  22.197
+46           rebuilt_new   2026    4     32             0    18.889  19.303
+47           rebuilt_new   2026  all    119             9    20.266  20.256
+48          rebuilt_prev   2026    1     23             9    22.366  22.236
+49          rebuilt_prev   2026    2     32             0    19.719  17.842
+50          rebuilt_prev   2026    3     32             0    22.744  22.197
+51          rebuilt_prev   2026    4     32             0    18.424  19.303
+52          rebuilt_prev   2026  all    119             9    20.696  20.256
    mse_league   bias range_hit range_claimed rank_corr top12_minus_rest
-1      26.876  2.067     0.500         0.825        NA              NaN
-2      21.748 -0.699     0.906         0.835     0.292            0.367
-3      31.251 -0.246     0.833         0.838     0.390            5.500
-4      28.475 -1.574     0.704         0.843    -0.127           -2.400
-5      17.778  0.998     0.923         0.838     0.505            3.464
-6      19.911  0.733     0.821         0.836     0.066            2.750
-7      25.356 -1.659     0.857         0.839     0.289            2.458
-8      24.195 -0.394     0.838         0.838     0.214            1.885
-9      18.575  0.495     0.783         0.832    -0.057            0.091
-10     16.574  0.310     0.906         0.839    -0.203           -1.100
-11     22.425 -0.419     0.750         0.837    -0.042            0.567
-12     21.719 -0.740     0.906         0.837     0.278            1.967
-13     31.251 -0.246     0.833         0.838     0.390            5.500
-14     28.475 -1.574     0.704         0.843    -0.127           -2.400
-15     17.778  0.998     0.923         0.838     0.505            3.464
-16     19.911  0.733     0.821         0.836     0.066            2.750
-17     25.356 -1.659     0.857         0.839     0.289            2.458
-18     22.505 -0.254     0.833         0.838     0.116            1.456
-19     31.251 -0.399     0.800         0.835     0.215            3.000
-20     28.475 -1.692     0.704         0.846    -0.163           -2.400
-21     17.778  1.008     0.846         0.837     0.301            0.833
-22     19.911  0.772     0.821         0.843     0.038            0.417
-23     25.356 -1.549     0.893         0.839     0.254            2.458
-24     24.720 -0.383     0.813         0.840     0.135            0.885
-25     18.575  0.600     0.783         0.837    -0.005            0.091
-26     16.574  0.257     0.875         0.837    -0.249           -1.100
-27     22.425 -0.451     0.781         0.834    -0.037            0.433
-28     21.719 -0.694     0.906         0.834     0.327            3.300
-29     31.251 -0.399     0.800         0.835     0.215            3.000
-30     28.475 -1.692     0.704         0.846    -0.163           -2.400
-31     17.778  1.008     0.846         0.837     0.301            0.833
-32     19.911  0.772     0.821         0.843     0.038            0.417
-33     25.356 -1.549     0.893         0.839     0.254            2.458
-34     22.505 -0.263     0.826         0.838     0.090            0.787
-35     18.574  0.670     0.783         0.836    -0.015           -1.303
-36     16.575  0.471     0.875         0.835    -0.210           -1.633
-37     22.143 -0.707     0.800         0.835    -0.140           -0.861
-38     19.081  0.109     0.824         0.835    -0.121           -1.276
-39     18.575  0.495     0.783         0.832    -0.057            0.091
-40     16.574  0.310     0.906         0.839    -0.203           -1.100
-41     22.425 -0.419     0.750         0.837    -0.042            0.567
-42     21.719 -0.740     0.906         0.837     0.278            1.967
-43     19.918 -0.132     0.840         0.837     0.012            0.344
-44     18.575  0.600     0.783         0.837    -0.005            0.091
-45     16.574  0.257     0.875         0.837    -0.249           -1.100
-46     22.425 -0.451     0.781         0.834    -0.037            0.433
-47     21.719 -0.694     0.906         0.834     0.327            3.300
-48     19.918 -0.123     0.840         0.835     0.025            0.658
+1      19.355  3.195     1.000         0.825        NA              NaN
+2      26.876  2.067     0.500         0.825        NA              NaN
+3      21.748 -0.699     0.906         0.835     0.292            0.367
+4      31.251 -0.246     0.833         0.838     0.390            5.500
+5      28.475 -1.574     0.704         0.843    -0.127           -2.400
+6      17.778  0.998     0.923         0.838     0.505            3.464
+7      19.911  0.733     0.821         0.836     0.066            2.750
+8      25.356 -1.659     0.857         0.839     0.289            2.458
+9      24.140 -0.353     0.840         0.838     0.217            1.748
+10     18.575  0.495     0.783         0.832    -0.057            0.091
+11     19.355  3.195     1.000         0.825        NA              NaN
+12     16.574  0.310     0.906         0.839    -0.203           -1.100
+13     22.425 -0.419     0.750         0.837    -0.042            0.567
+14     21.719 -0.740     0.906         0.837     0.278            1.967
+15     31.251 -0.246     0.833         0.838     0.390            5.500
+16     28.475 -1.574     0.704         0.843    -0.127           -2.400
+17     17.778  0.998     0.923         0.838     0.505            3.464
+18     19.911  0.733     0.821         0.836     0.066            2.750
+19     25.356 -1.659     0.857         0.839     0.289            2.458
+20     22.481 -0.228     0.835         0.838     0.120            1.368
+21     19.355  2.508     1.000         0.840        NA              NaN
+22     31.251 -0.399     0.800         0.835     0.215            3.000
+23     28.475 -1.692     0.704         0.846    -0.163           -2.400
+24     17.778  1.008     0.846         0.837     0.301            0.833
+25     19.911  0.772     0.821         0.843     0.038            0.417
+26     25.356 -1.549     0.893         0.839     0.254            2.458
+27     24.644 -0.342     0.816         0.840     0.148            0.736
+28     18.575  0.600     0.783         0.837    -0.005            0.091
+29     19.355  2.508     1.000         0.840        NA              NaN
+30     16.574  0.257     0.875         0.837    -0.249           -1.100
+31     22.425 -0.451     0.781         0.834    -0.037            0.433
+32     21.719 -0.694     0.906         0.834     0.327            3.300
+33     31.251 -0.399     0.800         0.835     0.215            3.000
+34     28.475 -1.692     0.704         0.846    -0.163           -2.400
+35     17.778  1.008     0.846         0.837     0.301            0.833
+36     19.911  0.772     0.821         0.843     0.038            0.417
+37     25.356 -1.549     0.893         0.839     0.254            2.458
+38     22.481 -0.242     0.827         0.838     0.098            0.706
+39     18.574  0.670     0.783         0.836    -0.015           -1.303
+40     16.575  0.471     0.875         0.835    -0.210           -1.633
+41     22.143 -0.707     0.800         0.835    -0.140           -0.861
+42     19.081  0.109     0.824         0.835    -0.121           -1.276
+43     18.575  0.495     0.783         0.832    -0.057            0.091
+44     16.574  0.310     0.906         0.839    -0.203           -1.100
+45     22.425 -0.419     0.750         0.837    -0.042            0.567
+46     21.719 -0.740     0.906         0.837     0.278            1.967
+47     19.918 -0.132     0.840         0.837     0.012            0.344
+48     18.575  0.600     0.783         0.837    -0.005            0.091
+49     16.574  0.257     0.875         0.837    -0.249           -1.100
+50     22.425 -0.451     0.781         0.834    -0.037            0.433
+51     21.719 -0.694     0.906         0.834     0.327            3.300
+52     19.918 -0.123     0.840         0.835     0.025            0.658
 Accurate dome kickers (40-49 accuracy 0.822+, roof closed or dome): 
         source season kicker_games actual_att_4049_per_game
 1         live   2026           20                    0.800
