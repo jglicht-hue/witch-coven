@@ -14,6 +14,11 @@ v1.3: adds opponent-adjusted run and pass numbers for every defense and offense
 v1.4: runs wiped out by a penalty (play_type "no_play") no longer count as zero-yard
 carries. Changes the run tables: run D unit stats, run defense by bucket, run flags
 and the league run averages.
+v1.5: gaps between a rate and its expected or usual rate are reported as a percent
+change (actual ÷ expected − 1): pass rate over expected, the throw funnel and the
+opponent-adjusted diff for rate stats. The throw funnel lists a cell when chance would
+produce a shift that big less than 5% of the time (|z| >= 1.96), replacing the flat
+4/6 percentage-point cutoffs.
 """
 import argparse, os, datetime as dt
 import numpy as np
@@ -107,6 +112,14 @@ def f(x, nd=1):
 
 def pct(x):
     return "–" if x is None or pd.isna(x) else f"{100 * x:.0f}%"
+
+
+def rel(a, b):
+    """Percent change of a vs b, e.g. +17% (v1.5)."""
+    if a is None or b is None or pd.isna(a) or pd.isna(b) or b == 0:
+        return "–"
+    v = 100 * (a / b - 1)
+    return f"{'+' if v >= 0 else '−'}{abs(v):.1f}%"
 
 
 def table(df, cols=None):
@@ -220,8 +233,8 @@ def add_cells(df):
 
 def sample_mins(weekly):
     if weekly:  # current season: a few games
-        return dict(cell=8, run=8, tgt=10, route=6, mz=8, rbroute=5, funnel=40, other=15, rec=12, car=15, qb=40, fun_pp=0.06)
-    return dict(cell=25, run=30, tgt=40, route=15, mz=25, rbroute=10, funnel=150, other=60, rec=40, car=60, qb=150, fun_pp=0.04)
+        return dict(cell=8, run=8, tgt=10, route=6, mz=8, rbroute=5, funnel=40, other=15, rec=12, car=15, qb=40, fun_z=1.96)
+    return dict(cell=25, run=30, tgt=40, route=15, mz=25, rbroute=10, funnel=150, other=60, rec=40, car=60, qb=150, fun_z=1.96)
 
 
 def fam_rows(F, df, bcol, vcol, fam, m, fmt, low_good=True):
@@ -266,6 +279,8 @@ def funnel_frame(ac, mins):
     fun["obs_sh"] = fun.obs / fun.inc
     fun["exp_sh"] = fun.exp / fun.inc
     fun["diff"] = fun.obs_sh - fun.exp_sh
+    # v1.5: shift measured against chance (binomial SE of the usual share over the attempts vs this D)
+    fun["z"] = fun["diff"] / np.sqrt(fun.exp_sh * (1 - fun.exp_sh) / fun.inc)
     return fun
 
 
@@ -368,11 +383,10 @@ def defense_extras(D, db, att, run, t, pu, ru, pu_rank, ru_rank, fpg, fpr, fpa, 
         md = [f"Flags, {y} (leads to test, not verdicts; rank 1 = best D, among teams with enough plays; see README):"]
         md.append("Weak (bottom ~15%):\n" + ("\n".join(bl(r) for _, r in weak.iterrows()) or "- none"))
         md.append("Strong (top ~15%):\n" + ("\n".join(bl(r) for _, r in strong.iterrows()) or "- none"))
-        fu = fun[(fun.defteam == tm) & (fun.inc >= mins["funnel"]) & (fun["diff"].abs() >= mins["fun_pp"])]
+        fu = fun[(fun.defteam == tm) & (fun.inc >= mins["funnel"]) & (fun.z.abs() >= mins["fun_z"])]
         if len(fu):
-            md.append(f"Throw funnel (opp. QBs' share of att here vs their usual; {int(mins['fun_pp'] * 100)}+ pt shifts):\n" + "\n".join(
-                          f"- {r.cell}: {pct(r.obs_sh)} vs {pct(r.exp_sh)} ({'+' if r['diff'] > 0 else '−'}"
-                          f"{abs(r['diff']) * 100:.0f}; {int(r.inc)} att)"
+            md.append(f"Throw funnel (opp. QBs' share of att here vs their usual; % change; listed when chance would produce a shift this big less than 5% of the time):\n" + "\n".join(
+                          f"- {r.cell}: {pct(r.obs_sh)} vs {pct(r.exp_sh)} ({rel(r.obs_sh, r.exp_sh)}; {int(r.inc)} att)"
                           for _, r in fu.sort_values("diff", ascending=False).iterrows()))
         g_ = dgrid[dgrid.defteam == tm].set_index("cell").reindex(CELLS)
         fn = fun[fun.defteam == tm].set_index("cell").reindex(CELLS)
@@ -568,11 +582,11 @@ def opp_adjusted(db, att, run, y, weekly):
                     continue
                 r = S[key].loc[tm]
                 rows.append({"stat": label, did: adj_fmt(r.raw, fmt), "expected": adj_fmt(r.exp, fmt),
-                             "diff": adj_fmt(r["diff"], fmt, sign=True), "adjusted": adj_fmt(r.adj, fmt),
+                             "diff": rel(r.raw, r.exp) if fmt == "pct" else adj_fmt(r["diff"], fmt, sign=True), "adjusted": adj_fmt(r.adj, fmt),
                              "rank": f"{int(r['rank'])}/{int(r.N)}", "games": int(r.games), "thin": int(r.thin)})
             if rows:
                 summ = (f"Opponent-adjusted run and pass, {y} (expected = league avg + each opposing {other}'s adjusted "
-                        f"rating from its other games; diff = {did} − expected; adjusted = league avg + diff; rank 1 = "
+                        f"rating from its other games; diff = {did} − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = "
                         f"best {unit}; thin = games where that rating rests on under {ADJ_MIN} plays; method in "
                         f"README):\n\n" + table(pd.DataFrame(rows)))
             else:
@@ -806,7 +820,7 @@ def season_docs(D, league_rows):
                 ("EPA/db clean", f(q[q.press == 0].epa.mean(), 3)), ("EPA/db under pressure", f(q[q.press == 1].epa.mean(), 3)),
                 ("Blitz rate faced (FTN)", pct(q.blitz.mean())),
                 ("EPA/db vs blitz", f(q[q.blitz == 1].epa.mean(), 3)), ("EPA/db vs no blitz", f(q[q.blitz == 0].epa.mean(), 3)),
-                ("Pass rate over expected", f(pr.pass_oe.mean(), 1) + " pts")]
+                ("Pass rate over expected", rel(pr["pass"].mean(), pr.xpass.mean()) + " vs expected")]
         s.append("Team passing context:\n\n" + table(pd.DataFrame(rows, columns=["stat", "value"])))
         if tm in adj["off"]:
             s.append(adj["off"][tm][0])
