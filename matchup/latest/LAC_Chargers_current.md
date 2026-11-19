@@ -1,6 +1,6 @@
 # LAC Los Angeles Chargers — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-17 14:53 UTC. Regular season only.
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-19 17:48 UTC. Regular season only.
 - 2026: weeks 1–10, 150 games, last game 2026-11-16; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
 ## 2026 DEFENSE — LAC Los Angeles Chargers (9 games)
@@ -17,6 +17,10 @@ Strong (top ~15%):
 - pass EPA/att, int middle: -0.15 (lg +0.48; 2/32; n=26)
 - PPR/tgt, RB: 1.17 (lg 1.53; 4/32; n=55)
 - rush EPA, runs, right end: -0.182 (lg -0.001; 4/32; n=26)
+
+Throw funnel (opp. QBs' share of att here vs their usual; % change; listed when chance would produce a shift this big less than 5% of the time):
+- int middle: 9% vs 6% (+53.1%; 279 att)
+- short left: 20% vs 25% (−20.6%; 279 att)
 
 Fantasy points allowed (PPR, nflverse scoring incl. rushing, fumbles, 2-pt). Rank 1 = fewest allowed.
 
@@ -37,7 +41,7 @@ Unit stats (rank 1 = best defense):
 | 20+ yd completions/game | 3.00 | 17 |
 | Sack rate | 5% | 26 |
 | Pressure rate (NGS) | – | – |
-| Blitz rate (FTN: 1+ blitzer) | 25% | – |
+| Blitz rate (FTN: 1+ blitzer) | 24% | – |
 | Man coverage rate (NGS) | – | – |
 | EPA/rush (designed runs) | -0.042 | 19 |
 | YPC | 4.06 | 16 |
@@ -46,16 +50,16 @@ Unit stats (rank 1 = best defense):
 | 10+ yd runs/game | 2.56 | 22 |
 | 20+ yd runs/game | 0.44 | – |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | allowed | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 4.06 | 4.13 | -0.07 | 4.01 | 13/32 | 9 | 0 |
-| Run success rate | 40.3% | 40.9% | -0.6 | 40.0% | 14/32 | 9 | 0 |
+| Run success rate | 40.3% | 40.9% | −1.4% | 40.0% | 14/32 | 9 | 0 |
 | EPA/rush | -0.042 | -0.039 | -0.004 | -0.060 | 13/32 | 9 | 0 |
 | EPA/dropback | 0.049 | 0.087 | -0.038 | 0.010 | 9/32 | 9 | 0 |
 | YPA | 7.78 | 7.24 | +0.54 | 7.66 | 25/32 | 9 | 0 |
-| Sack rate | 4.9% | 5.5% | -0.6 | 5.9% | 18/32 | 9 | 0 |
+| Sack rate | 4.9% | 5.5% | −10.3% | 5.9% | 18/32 | 9 | 0 |
 
 QB rushing allowed (runs + scrambles): 23 car, 103 yds, 2 TD; 11.4 yds/g (rank 6/32; lg 16.8); scramble rate 3% (lg 5%)
 
@@ -85,9 +89,9 @@ Run defense by bucket (box count from FTN charting):
 
 | type | bucket | rushes | YPC | success | EPA/rush |
 |---|---|---|---|---|---|
-| box | 7 | 86 | 4.36 | 40% | -0.064 |
+| box | 7 | 100 | 3.90 | 40% | -0.061 |
 | box | 8+ | 20 | 3.50 | 55% | 0.154 |
-| box | ≤6 | 112 | 4.32 | 38% | -0.059 |
+| box | ≤6 | 113 | 4.29 | 38% | -0.061 |
 | direction/gap | left end | 23 | 6.30 | 65% | 0.388 |
 | direction/gap | left guard | 26 | 3.85 | 54% | 0.069 |
 | direction/gap | left tackle | 19 | 4.11 | 42% | -0.047 |
@@ -102,8 +106,8 @@ RB targets allowed by route type:
 
 | route | tgt | catch | YPT | PPR/tgt |
 |---|---|---|---|---|
-| (route n/a) | 43 | 60% | 3.42 | 0.95 |
-| screen | 12 | 92% | 5.75 | 1.99 |
+| (route n/a) | 40 | 57% | 2.88 | 0.86 |
+| screen | 15 | 93% | 6.73 | 2.01 |
 
 Week by week: top scorer at each position vs this defense (RB line = car-yds-TD rush, tgt, rec-yds-TD):
 
@@ -172,7 +176,7 @@ Usage concentrations (share well above league avg at his position):
 - Kimani Vidal (RB, 19 tgt): short middle 32% (avg 17%)
 - Ladd McConkey (WR, 24 tgt): int left 21% (avg 10%)
 - Keaton Mitchell (RB, 49 car): runs right end 35% (avg 9%); runs left end 33% (avg 10%)
-- Kimani Vidal (RB, 38 car): runs left end 21% (avg 10%); vs 7 box 72% (avg 47%)
+- Kimani Vidal (RB, 38 car): runs left end 21% (avg 10%)
 
 Team passing context:
 
@@ -185,20 +189,20 @@ Team passing context:
 | EPA/db clean | – |
 | EPA/db under pressure | – |
 | Blitz rate faced (FTN) | 24% |
-| EPA/db vs blitz | -0.055 |
-| EPA/db vs no blitz | -0.237 |
-| Pass rate over expected | -9.1 pts |
+| EPA/db vs blitz | -0.054 |
+| EPA/db vs no blitz | -0.215 |
+| Pass rate over expected | −13.3% vs expected |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | gained | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 3.86 | 3.87 | -0.00 | 4.09 | 15/32 | 9 | 0 |
-| Run success rate | 35.5% | 39.5% | -4.0 | 36.6% | 23/32 | 9 | 0 |
+| Run success rate | 35.5% | 39.5% | −10.1% | 36.6% | 23/32 | 9 | 0 |
 | EPA/rush | -0.176 | -0.061 | -0.115 | -0.171 | 30/32 | 9 | 0 |
 | EPA/dropback | -0.176 | 0.023 | -0.199 | -0.151 | 31/32 | 9 | 0 |
 | YPA | 6.71 | 6.80 | -0.10 | 7.03 | 18/32 | 9 | 0 |
-| Sack rate | 10.2% | 6.8% | +3.5 | 9.9% | 30/32 | 9 | 0 |
+| Sack rate | 10.2% | 6.8% | +51.3% | 9.9% | 30/32 | 9 | 0 |
 
 QB throw map (share of att, EPA/att in parentheses; ≥40 att):
 
@@ -254,9 +258,9 @@ RB rushing by bucket (≥8 carries):
 |---|---|---|---|---|---|---|
 | Omarion Hampton | formation | shotgun | 59 | 3.80 | 27% | -0.330 |
 | Omarion Hampton | formation | under center | 65 | 3.85 | 43% | -0.032 |
-| Omarion Hampton | box | 7 | 50 | 4.08 | 34% | -0.100 |
+| Omarion Hampton | box | 7 | 66 | 4.20 | 39% | -0.052 |
 | Omarion Hampton | box | 8+ | 12 | 2.50 | 33% | -0.258 |
-| Omarion Hampton | box | ≤6 | 40 | 3.38 | 28% | -0.379 |
+| Omarion Hampton | box | ≤6 | 46 | 3.63 | 30% | -0.326 |
 | Omarion Hampton | direction/gap | left end | 18 | 2.72 | 33% | -0.436 |
 | Omarion Hampton | direction/gap | left guard | 13 | 2.62 | 54% | 0.122 |
 | Omarion Hampton | direction/gap | left tackle | 14 | 3.14 | 36% | -0.102 |
@@ -266,9 +270,9 @@ RB rushing by bucket (≥8 carries):
 | Omarion Hampton | direction/gap | right tackle | 9 | 6.78 | 33% | 0.085 |
 | Keaton Mitchell | formation | shotgun | 28 | 4.14 | 36% | -0.270 |
 | Keaton Mitchell | formation | under center | 21 | 3.14 | 33% | -0.157 |
-| Keaton Mitchell | box | 7 | 24 | 2.79 | 29% | -0.291 |
+| Keaton Mitchell | box | 7 | 26 | 2.92 | 31% | -0.278 |
 | Keaton Mitchell | box | 8+ | 4 | 6.00 | 75% | 0.109 |
-| Keaton Mitchell | box | ≤6 | 18 | 4.83 | 33% | -0.164 |
+| Keaton Mitchell | box | ≤6 | 19 | 4.32 | 32% | -0.214 |
 | Keaton Mitchell | direction/gap | left end | 16 | 4.00 | 38% | -0.145 |
 | Keaton Mitchell | direction/gap | left guard | 2 | 6.00 | 100% | 0.119 |
 | Keaton Mitchell | direction/gap | left tackle | 4 | 3.50 | 25% | -0.092 |
@@ -280,7 +284,7 @@ RB rushing by bucket (≥8 carries):
 | Kimani Vidal | formation | under center | 23 | 4.70 | 30% | -0.038 |
 | Kimani Vidal | box | 7 | 26 | 4.85 | 35% | -0.012 |
 | Kimani Vidal | box | 8+ | 3 | 0.67 | 0% | -0.823 |
-| Kimani Vidal | box | ≤6 | 7 | 4.86 | 29% | -0.110 |
+| Kimani Vidal | box | ≤6 | 9 | 3.78 | 22% | -0.212 |
 | Kimani Vidal | direction/gap | left end | 8 | 3.75 | 38% | -0.082 |
 | Kimani Vidal | direction/gap | left guard | 5 | 2.20 | 20% | -0.226 |
 | Kimani Vidal | direction/gap | left tackle | 6 | 7.67 | 33% | 0.399 |

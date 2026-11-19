@@ -1,6 +1,6 @@
 # DAL Dallas Cowboys — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-17 14:53 UTC. Regular season only.
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-19 17:48 UTC. Regular season only.
 - 2026: weeks 1–10, 150 games, last game 2026-11-16; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
 ## 2026 DEFENSE — DAL Dallas Cowboys (10 games)
@@ -16,7 +16,7 @@ Weak (bottom ~15%):
 - PPR/g allowed, RB: 29.3 (lg 22.2; 32/32)
 - rush EPA, runs, left end: 0.369 (lg -0.010; 31/32; n=39)
 - pass D, EPA/dropback: 0.197 (lg 0.048; 31/32)
-- rush EPA, ≤6 box: 0.010 (lg -0.061; 31/32; n=123)
+- rush EPA, ≤6 box: 0.010 (lg -0.062; 31/32; n=123)
 - PPR/g allowed, QB: 20.3 (lg 16.6; 30/32)
 - QB rush yds/g allowed, all QBs: 27.2 (lg 16.8; 30/32; n=40)
 - pass EPA/att, int middle: 1.17 (lg +0.48; 30/32; n=16)
@@ -25,10 +25,10 @@ Weak (bottom ~15%):
 - run D, 10+ yd runs/game: 2.90 (lg 2.27; 28/32)
 - pass EPA/att, short left: +0.18 (lg +0.02; 28/32; n=80)
 - pass EPA/att, short right: +0.16 (lg +0.01; 28/32; n=95)
-- rush EPA, 7 box: 0.038 (lg -0.053; 28/32; n=125)
+- rush EPA, 7 box: 0.038 (lg -0.052; 28/32; n=125)
 
 Strong (top ~15%):
-- PPR/tgt, RB screen: +0.53 (lg 1.58; 1/31; n=6)
+- PPR/tgt, RB screen: +0.53 (lg 1.59; 1/31; n=6)
 - rush EPA, runs, middle: -0.196 (lg -0.074; 4/32; n=53)
 
 Fantasy points allowed (PPR, nflverse scoring incl. rushing, fumbles, 2-pt). Rank 1 = fewest allowed.
@@ -59,16 +59,16 @@ Unit stats (rank 1 = best defense):
 | 10+ yd runs/game | 2.90 | 28 |
 | 20+ yd runs/game | 1.20 | – |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | allowed | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 5.24 | 3.93 | +1.30 | 5.39 | 32/32 | 10 | 0 |
-| Run success rate | 41.8% | 40.1% | +1.7 | 42.3% | 23/32 | 10 | 0 |
+| Run success rate | 41.8% | 40.1% | +4.3% | 42.3% | 23/32 | 10 | 0 |
 | EPA/rush | 0.010 | -0.068 | +0.078 | 0.022 | 32/32 | 10 | 0 |
 | EPA/dropback | 0.197 | 0.014 | +0.184 | 0.231 | 32/32 | 10 | 0 |
 | YPA | 7.88 | 6.82 | +1.06 | 8.18 | 30/32 | 10 | 0 |
-| Sack rate | 6.0% | 6.9% | -0.9 | 5.5% | 23/32 | 10 | 0 |
+| Sack rate | 6.0% | 6.9% | −13.7% | 5.5% | 23/32 | 10 | 0 |
 
 QB rushing allowed (runs + scrambles): 40 car, 272 yds, 1 TD; 27.2 yds/g (rank 30/32; lg 16.8); scramble rate 7% (lg 5%)
 
@@ -203,18 +203,18 @@ Team passing context:
 | Blitz rate faced (FTN) | 31% |
 | EPA/db vs blitz | 0.077 |
 | EPA/db vs no blitz | 0.170 |
-| Pass rate over expected | 0.3 pts |
+| Pass rate over expected | +0.4% vs expected |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | gained | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 3.96 | 3.91 | +0.05 | 4.14 | 12/32 | 10 | 0 |
-| Run success rate | 45.8% | 42.6% | +3.1 | 43.7% | 10/32 | 10 | 0 |
+| Run success rate | 45.8% | 42.6% | +7.3% | 43.7% | 10/32 | 10 | 0 |
 | EPA/rush | 0.017 | -0.051 | +0.068 | 0.011 | 7/32 | 10 | 0 |
 | EPA/dropback | 0.142 | 0.045 | +0.097 | 0.145 | 9/32 | 10 | 0 |
 | YPA | 6.97 | 7.11 | -0.14 | 6.98 | 19/32 | 10 | 0 |
-| Sack rate | 3.5% | 6.3% | -2.8 | 3.7% | 2/32 | 10 | 0 |
+| Sack rate | 3.5% | 6.3% | −43.9% | 3.7% | 2/32 | 10 | 0 |
 
 QB throw map (share of att, EPA/att in parentheses; ≥40 att):
 

@@ -1,6 +1,6 @@
 # DET Detroit Lions — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-17 14:53 UTC. Regular season only.
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-19 17:48 UTC. Regular season only.
 - 2026: weeks 1–10, 150 games, last game 2026-11-16; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
 ## 2026 DEFENSE — DET Detroit Lions (9 games)
@@ -50,16 +50,16 @@ Unit stats (rank 1 = best defense):
 | 10+ yd runs/game | 2.00 | 13 |
 | 20+ yd runs/game | 0.56 | – |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | allowed | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 3.76 | 3.78 | -0.02 | 4.06 | 17/32 | 9 | 0 |
-| Run success rate | 36.8% | 38.2% | -1.4 | 39.1% | 9/32 | 9 | 0 |
+| Run success rate | 36.8% | 38.2% | −3.7% | 39.1% | 9/32 | 9 | 0 |
 | EPA/rush | -0.097 | -0.086 | -0.011 | -0.067 | 11/32 | 9 | 0 |
 | EPA/dropback | 0.105 | 0.046 | +0.059 | 0.107 | 25/32 | 9 | 0 |
 | YPA | 7.00 | 7.08 | -0.08 | 7.05 | 16/32 | 9 | 0 |
-| Sack rate | 8.2% | 6.9% | +1.3 | 7.7% | 5/32 | 9 | 0 |
+| Sack rate | 8.2% | 6.9% | +18.1% | 7.7% | 5/32 | 9 | 0 |
 
 QB rushing allowed (runs + scrambles): 29 car, 192 yds, 2 TD; 21.3 yds/g (rank 27/32; lg 16.8); scramble rate 4% (lg 5%)
 
@@ -188,18 +188,18 @@ Team passing context:
 | Blitz rate faced (FTN) | 35% |
 | EPA/db vs blitz | 0.258 |
 | EPA/db vs no blitz | 0.144 |
-| Pass rate over expected | -2.3 pts |
+| Pass rate over expected | −3.9% vs expected |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | gained | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 4.82 | 4.06 | +0.76 | 4.85 | 5/32 | 9 | 0 |
-| Run success rate | 48.2% | 41.2% | +7.0 | 47.6% | 4/32 | 9 | 0 |
+| Run success rate | 48.2% | 41.2% | +17.0% | 47.6% | 4/32 | 9 | 0 |
 | EPA/rush | 0.006 | -0.052 | +0.058 | 0.002 | 9/32 | 9 | 0 |
 | EPA/dropback | 0.183 | 0.064 | +0.119 | 0.166 | 6/32 | 9 | 0 |
 | YPA | 8.02 | 6.99 | +1.03 | 8.16 | 5/32 | 9 | 0 |
-| Sack rate | 6.3% | 6.6% | -0.3 | 6.1% | 15/32 | 9 | 0 |
+| Sack rate | 6.3% | 6.6% | −4.3% | 6.1% | 15/32 | 9 | 0 |
 
 QB throw map (share of att, EPA/att in parentheses; ≥40 att):
 

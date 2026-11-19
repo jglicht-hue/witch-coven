@@ -1,6 +1,6 @@
 # CHI Chicago Bears — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-17 14:53 UTC. Regular season only.
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-19 17:48 UTC. Regular season only.
 - 2026: weeks 1–10, 150 games, last game 2026-11-16; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
 ## 2026 DEFENSE — CHI Chicago Bears (9 games)
@@ -44,16 +44,16 @@ Unit stats (rank 1 = best defense):
 | 10+ yd runs/game | 1.89 | 9 |
 | 20+ yd runs/game | 0.44 | – |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | allowed | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 4.17 | 3.95 | +0.22 | 4.31 | 24/32 | 9 | 0 |
-| Run success rate | 38.8% | 38.0% | +0.8 | 41.4% | 20/32 | 9 | 0 |
+| Run success rate | 38.8% | 38.0% | +2.2% | 41.4% | 20/32 | 9 | 0 |
 | EPA/rush | -0.060 | -0.105 | +0.045 | -0.011 | 27/32 | 9 | 0 |
 | EPA/dropback | -0.002 | -0.001 | -0.002 | 0.046 | 14/32 | 9 | 0 |
 | YPA | 8.06 | 7.00 | +1.06 | 8.19 | 31/32 | 9 | 0 |
-| Sack rate | 8.6% | 7.3% | +1.2 | 7.7% | 6/32 | 9 | 0 |
+| Sack rate | 8.6% | 7.3% | +17.0% | 7.7% | 6/32 | 9 | 0 |
 
 QB rushing allowed (runs + scrambles): 20 car, 120 yds, 3 TD; 13.3 yds/g (rank 10/32; lg 16.8); scramble rate 5% (lg 5%)
 
@@ -189,18 +189,18 @@ Team passing context:
 | Blitz rate faced (FTN) | 42% |
 | EPA/db vs blitz | 0.095 |
 | EPA/db vs no blitz | 0.077 |
-| Pass rate over expected | 0.9 pts |
+| Pass rate over expected | +1.5% vs expected |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | gained | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 4.21 | 4.02 | +0.18 | 4.27 | 10/32 | 9 | 0 |
-| Run success rate | 43.0% | 39.9% | +3.1 | 43.6% | 11/32 | 9 | 0 |
+| Run success rate | 43.0% | 39.9% | +7.7% | 43.6% | 11/32 | 9 | 0 |
 | EPA/rush | -0.022 | -0.059 | +0.038 | -0.019 | 12/32 | 9 | 0 |
 | EPA/dropback | 0.085 | -0.014 | +0.099 | 0.146 | 7/32 | 9 | 0 |
 | YPA | 7.43 | 6.51 | +0.92 | 8.05 | 7/32 | 9 | 0 |
-| Sack rate | 5.6% | 6.9% | -1.3 | 5.1% | 11/32 | 9 | 0 |
+| Sack rate | 5.6% | 6.9% | −18.7% | 5.1% | 11/32 | 9 | 0 |
 
 QB throw map (share of att, EPA/att in parentheses; ≥40 att):
 
@@ -216,10 +216,10 @@ Player usage, season totals (RZ opps = carries + targets inside the 10 / 5):
 | player | pos | G | snap% avg | tgt | tgt share | air yds share | aDOT | rec-yds-TD | YAC/rec | MOF tgt% | car | car share | rush yds-TD | RZ10 opps | RZ5 opps | PPR | PPR/g |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | D'Andre Swift | RB | 9 | 64% | 29 | 10% | -1% | -0.9 | 24-162-0 | 8.5 | 7% | 155 | 51% | 576-10 | 28 | 19 | 153.8 | 17.1 |
-| Luther Burden III | WR | 9 | 60% | 65 | 22% | 22% | 7.6 | 49-644-4 | 7.2 | 32% | 8 | 3% | 29-0 | 5 | 3 | 136.3 | 15.1 |
+| Luther Burden III | WR | 9 | 60% | 66 | 23% | 22% | 7.7 | 49-644-4 | 7.2 | 32% | 8 | 3% | 29-0 | 5 | 3 | 136.3 | 15.1 |
 | Caleb Williams | QB | 6 | 98% | 0 | 0% | 0% | – | 0-0-0 | – | – | 31 | 10% | 145-2 | 3 | 1 | 110.3 | 18.4 |
 | Rome Odunze | WR | 9 | 85% | 51 | 17% | 33% | 14.6 | 32-528-1 | 3.3 | 33% | 0 | 0% | 0-0 | 4 | 2 | 88.8 | 9.9 |
-| Colston Loveland | TE | 9 | 86% | 57 | 20% | 17% | 6.9 | 37-363-2 | 4.6 | 37% | 0 | 0% | 0-0 | 4 | 2 | 83.3 | 9.3 |
+| Colston Loveland | TE | 9 | 86% | 57 | 19% | 17% | 6.9 | 37-363-2 | 4.6 | 37% | 0 | 0% | 0-0 | 4 | 2 | 83.3 | 9.3 |
 | Kalif Raymond | WR | 9 | 64% | 41 | 14% | 13% | 7.0 | 32-290-1 | 4.6 | 27% | 2 | 1% | 37-0 | 1 | 0 | 70.7 | 7.9 |
 | Kyle Monangai | RB | 4 | 40% | 5 | 2% | 0% | 0.8 | 5-39-0 | 7.0 | 40% | 60 | 20% | 324-3 | 11 | 6 | 59.3 | 14.8 |
 | Roschon Johnson | RB | 7 | 14% | 11 | 4% | 1% | 2.3 | 9-86-0 | 7.4 | 45% | 29 | 10% | 103-1 | 5 | 5 | 31.9 | 4.6 |
@@ -242,7 +242,7 @@ Target depth mix (air yards):
 | Rome Odunze | 2% | 33% | 41% | 24% |
 | Colston Loveland | 16% | 51% | 30% | 4% |
 | Kyle Monangai | 40% | 60% | 0% | 0% |
-| Luther Burden III | 20% | 43% | 29% | 8% |
+| Luther Burden III | 20% | 42% | 30% | 8% |
 | Zavion Thomas | 20% | 40% | 10% | 30% |
 | Sam Roush | 43% | 43% | 14% | 0% |
 
@@ -313,7 +313,7 @@ Week by week usage:
 | Colston Loveland | TE | 6 | ATL | 88% | 7 | 21% | 6-65-1 | 4.7 | 0 | 0% | 0-0 | 18.5 |
 | Colston Loveland | TE | 7 | NE | 84% | 12 | 40% | 7-69-1 | 9.3 | 0 | 0% | 0-0 | 19.9 |
 | Colston Loveland | TE | 8 | SEA | 93% | 9 | 26% | 7-65-0 | 5.1 | 0 | 0% | 0-0 | 11.5 |
-| Colston Loveland | TE | 9 | TB | 87% | 6 | 18% | 4-54-0 | 10.0 | 0 | 0% | 0-0 | 9.4 |
+| Colston Loveland | TE | 9 | TB | 87% | 6 | 17% | 4-54-0 | 10.0 | 0 | 0% | 0-0 | 9.4 |
 | D'Andre Swift | RB | 1 | CAR | 57% | 1 | 4% | 1-10-0 | 4.0 | 18 | 46% | 124-3 | 32.4 |
 | D'Andre Swift | RB | 2 | MIN | 68% | 5 | 17% | 5-54-0 | -3.0 | 16 | 52% | 45-0 | 12.9 |
 | D'Andre Swift | RB | 3 | PHI | 69% | 3 | 9% | 2-4-0 | -0.3 | 20 | 57% | 84-0 | 10.8 |
@@ -337,7 +337,7 @@ Week by week usage:
 | Kalif Raymond | WR | 6 | ATL | 47% | 2 | 6% | 2-18-0 | -1.5 | 0 | 0% | 0-0 | 3.8 |
 | Kalif Raymond | WR | 7 | NE | 70% | 2 | 7% | 0-0-0 | 7.5 | 0 | 0% | 0-0 | 0.0 |
 | Kalif Raymond | WR | 8 | SEA | 69% | 3 | 9% | 2-14-0 | 12.3 | 1 | 3% | 39-0 | 7.3 |
-| Kalif Raymond | WR | 9 | TB | 70% | 7 | 21% | 4-32-0 | 8.7 | 0 | 0% | 0-0 | 7.2 |
+| Kalif Raymond | WR | 9 | TB | 70% | 7 | 20% | 4-32-0 | 8.7 | 0 | 0% | 0-0 | 7.2 |
 | Kyle Monangai | RB | 1 | CAR | 43% | 2 | 8% | 2-24-0 | 4.5 | 10 | 26% | 100-1 | 20.4 |
 | Kyle Monangai | RB | 2 | MIN | 34% | 2 | 7% | 2-11-0 | 0.5 | 10 | 32% | 47-0 | 7.8 |
 | Kyle Monangai | RB | 3 | PHI | 31% | 0 | 0% | 0-0-0 | – | 10 | 29% | 31-0 | 3.1 |
@@ -350,7 +350,7 @@ Week by week usage:
 | Luther Burden III | WR | 6 | ATL | 39% | 8 | 24% | 8-95-0 | 5.8 | 0 | 0% | 0-0 | 17.5 |
 | Luther Burden III | WR | 7 | NE | 61% | 4 | 13% | 4-130-1 | 9.5 | 1 | 3% | 7-0 | 23.7 |
 | Luther Burden III | WR | 8 | SEA | 57% | 9 | 26% | 7-56-1 | 4.7 | 0 | 0% | 0-0 | 18.6 |
-| Luther Burden III | WR | 9 | TB | 56% | 9 | 26% | 7-97-1 | 6.0 | 0 | 0% | 0-0 | 20.7 |
+| Luther Burden III | WR | 9 | TB | 56% | 10 | 29% | 7-97-1 | 6.5 | 0 | 0% | 0-0 | 20.7 |
 | Rome Odunze | WR | 1 | CAR | 48% | 3 | 12% | 2-52-0 | 30.0 | 0 | 0% | 0-0 | 7.2 |
 | Rome Odunze | WR | 2 | MIN | 84% | 4 | 13% | 3-43-0 | 11.8 | 0 | 0% | 0-0 | 7.3 |
 | Rome Odunze | WR | 3 | PHI | 85% | 6 | 18% | 3-44-0 | 14.5 | 0 | 0% | 0-0 | 7.4 |
@@ -359,7 +359,7 @@ Week by week usage:
 | Rome Odunze | WR | 6 | ATL | 96% | 4 | 12% | 3-39-0 | 9.5 | 0 | 0% | 0-0 | 6.9 |
 | Rome Odunze | WR | 7 | NE | 94% | 5 | 17% | 4-69-0 | 12.6 | 0 | 0% | 0-0 | 10.9 |
 | Rome Odunze | WR | 8 | SEA | 90% | 6 | 18% | 4-87-0 | 24.2 | 0 | 0% | 0-0 | 12.7 |
-| Rome Odunze | WR | 9 | TB | 84% | 7 | 21% | 4-60-1 | 13.6 | 0 | 0% | 0-0 | 16.0 |
+| Rome Odunze | WR | 9 | TB | 84% | 7 | 20% | 4-60-1 | 13.6 | 0 | 0% | 0-0 | 16.0 |
 | Roschon Johnson | RB | 1 | CAR | 0% | 0 | 0% | 0-0-0 | – | 0 | 0% | 0-0 | 0.0 |
 | Roschon Johnson | RB | 4 | NYJ | 11% | 1 | 3% | 1-7-0 | 5.0 | 4 | 7% | 16-0 | 3.3 |
 | Roschon Johnson | RB | 5 | GB | 39% | 7 | 18% | 5-34-0 | 2.6 | 5 | 21% | 6-0 | 9.0 |

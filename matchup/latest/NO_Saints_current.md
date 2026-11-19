@@ -1,6 +1,6 @@
 # NO New Orleans Saints — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-17 14:53 UTC. Regular season only.
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-19 17:48 UTC. Regular season only.
 - 2026: weeks 1–10, 150 games, last game 2026-11-16; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
 ## 2026 DEFENSE — NO New Orleans Saints (9 games)
@@ -51,16 +51,16 @@ Unit stats (rank 1 = best defense):
 | 10+ yd runs/game | 2.56 | 22 |
 | 20+ yd runs/game | 0.56 | – |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | allowed | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 4.35 | 4.22 | +0.14 | 4.22 | 23/32 | 9 | 0 |
-| Run success rate | 44.7% | 40.3% | +4.3 | 44.9% | 31/32 | 9 | 0 |
+| Run success rate | 44.7% | 40.3% | +10.8% | 44.9% | 31/32 | 9 | 0 |
 | EPA/rush | -0.003 | -0.054 | +0.051 | -0.005 | 28/32 | 9 | 0 |
 | EPA/dropback | 0.059 | 0.030 | +0.029 | 0.076 | 20/32 | 9 | 0 |
 | YPA | 7.77 | 7.10 | +0.66 | 7.79 | 26/32 | 9 | 0 |
-| Sack rate | 7.7% | 7.8% | -0.1 | 6.4% | 16/32 | 9 | 0 |
+| Sack rate | 7.7% | 7.8% | −1.0% | 6.4% | 16/32 | 9 | 0 |
 
 QB rushing allowed (runs + scrambles): 29 car, 164 yds, 0 TD; 18.2 yds/g (rank 21/32; lg 16.8); scramble rate 7% (lg 5%)
 
@@ -194,18 +194,18 @@ Team passing context:
 | Blitz rate faced (FTN) | 31% |
 | EPA/db vs blitz | -0.099 |
 | EPA/db vs no blitz | 0.075 |
-| Pass rate over expected | 0.5 pts |
+| Pass rate over expected | +0.7% vs expected |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | gained | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 3.12 | 4.21 | -1.09 | 3.00 | 31/32 | 9 | 0 |
-| Run success rate | 31.7% | 39.8% | -8.1 | 32.4% | 30/32 | 9 | 0 |
+| Run success rate | 31.7% | 39.8% | −20.4% | 32.4% | 30/32 | 9 | 0 |
 | EPA/rush | -0.157 | -0.063 | -0.094 | -0.151 | 28/32 | 9 | 0 |
 | EPA/dropback | 0.021 | 0.067 | -0.046 | 0.002 | 21/32 | 9 | 0 |
 | YPA | 6.34 | 7.03 | -0.69 | 6.43 | 25/32 | 9 | 0 |
-| Sack rate | 6.0% | 6.5% | -0.6 | 5.9% | 14/32 | 9 | 0 |
+| Sack rate | 6.0% | 6.5% | −8.5% | 5.9% | 14/32 | 9 | 0 |
 
 QB throw map (share of att, EPA/att in parentheses; ≥40 att):
 

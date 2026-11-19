@@ -1,6 +1,6 @@
 # NE New England Patriots — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-17 14:53 UTC. Regular season only.
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-19 17:48 UTC. Regular season only.
 - 2026: weeks 1–10, 150 games, last game 2026-11-16; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
 ## 2026 DEFENSE — NE New England Patriots (10 games)
@@ -21,6 +21,9 @@ Strong (top ~15%):
 - QB rush yds/g allowed, all QBs: 9.3 (lg 16.8; 3/32; n=22)
 - PPR/tgt, TE: 1.42 (lg 1.79; 3/32; n=73)
 - rush EPA, runs, right guard: -0.262 (lg -0.090; 3/32; n=34)
+
+Throw funnel (opp. QBs' share of att here vs their usual; % change; listed when chance would produce a shift this big less than 5% of the time):
+- int middle: 4% vs 8% (−48.6%; 315 att)
 
 Fantasy points allowed (PPR, nflverse scoring incl. rushing, fumbles, 2-pt). Rank 1 = fewest allowed.
 
@@ -50,16 +53,16 @@ Unit stats (rank 1 = best defense):
 | 10+ yd runs/game | 2.50 | 20 |
 | 20+ yd runs/game | 0.30 | – |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | allowed | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 4.11 | 4.02 | +0.09 | 4.18 | 20/32 | 10 | 0 |
-| Run success rate | 39.9% | 41.2% | -1.3 | 39.3% | 12/32 | 10 | 0 |
+| Run success rate | 39.9% | 41.2% | −3.1% | 39.3% | 12/32 | 10 | 0 |
 | EPA/rush | -0.040 | -0.065 | +0.025 | -0.032 | 24/32 | 10 | 0 |
 | EPA/dropback | 0.129 | 0.103 | +0.025 | 0.073 | 18/32 | 10 | 0 |
 | YPA | 8.04 | 7.61 | +0.43 | 7.56 | 23/32 | 10 | 0 |
-| Sack rate | 7.6% | 6.2% | +1.4 | 7.8% | 4/32 | 10 | 0 |
+| Sack rate | 7.6% | 6.2% | +22.8% | 7.8% | 4/32 | 10 | 0 |
 
 QB rushing allowed (runs + scrambles): 22 car, 93 yds, 2 TD; 9.3 yds/g (rank 3/32; lg 16.8); scramble rate 3% (lg 5%)
 
@@ -199,18 +202,18 @@ Team passing context:
 | Blitz rate faced (FTN) | 30% |
 | EPA/db vs blitz | 0.005 |
 | EPA/db vs no blitz | 0.133 |
-| Pass rate over expected | -0.7 pts |
+| Pass rate over expected | −1.2% vs expected |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | gained | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 3.88 | 4.04 | -0.16 | 3.92 | 23/32 | 10 | 0 |
-| Run success rate | 37.9% | 40.9% | -3.0 | 37.6% | 21/32 | 10 | 0 |
+| Run success rate | 37.9% | 40.9% | −7.3% | 37.6% | 21/32 | 10 | 0 |
 | EPA/rush | -0.105 | -0.053 | -0.052 | -0.108 | 22/32 | 10 | 0 |
 | EPA/dropback | 0.094 | 0.037 | +0.057 | 0.105 | 11/32 | 10 | 0 |
 | YPA | 7.99 | 6.93 | +1.06 | 8.19 | 4/32 | 10 | 0 |
-| Sack rate | 6.8% | 6.6% | +0.2 | 6.6% | 20/32 | 10 | 0 |
+| Sack rate | 6.8% | 6.6% | +3.0% | 6.6% | 20/32 | 10 | 0 |
 
 QB throw map (share of att, EPA/att in parentheses; ≥40 att):
 

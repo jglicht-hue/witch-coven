@@ -1,6 +1,6 @@
 # TB Tampa Bay Buccaneers — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-17 14:53 UTC. Regular season only.
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-19 17:48 UTC. Regular season only.
 - 2026: weeks 1–10, 150 games, last game 2026-11-16; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
 ## 2026 DEFENSE — TB Tampa Bay Buccaneers (9 games)
@@ -14,7 +14,7 @@ Weak (bottom ~15%):
 Strong (top ~15%):
 - PPR/g allowed, RB: 15.7 (lg 22.2; 1/32)
 - rush EPA, runs, left end: -0.561 (lg -0.010; 1/32; n=18)
-- rush EPA, 7 box: -0.221 (lg -0.053; 1/32; n=69)
+- rush EPA, 7 box: -0.221 (lg -0.052; 1/32; n=69)
 - pass D, EPA/dropback: -0.122 (lg 0.048; 2/32)
 - run D, success rate: 36% (lg 41%; 2/32)
 - rush EPA, runs, left guard: -0.314 (lg -0.055; 2/32; n=24)
@@ -26,6 +26,9 @@ Strong (top ~15%):
 - run D, 10+ yd runs/game: 1.56 (lg 2.27; 4/32)
 - run D, stuff rate: 21% (lg 18%; 5/32)
 - rush EPA, runs, right guard: -0.247 (lg -0.090; 5/32; n=20)
+
+Throw funnel (opp. QBs' share of att here vs their usual; % change; listed when chance would produce a shift this big less than 5% of the time):
+- deep right: 2% vs 6% (−59.0%; 301 att)
 
 Fantasy points allowed (PPR, nflverse scoring incl. rushing, fumbles, 2-pt). Rank 1 = fewest allowed.
 
@@ -55,16 +58,16 @@ Unit stats (rank 1 = best defense):
 | 10+ yd runs/game | 1.56 | 4 |
 | 20+ yd runs/game | 0.44 | – |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | allowed | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 3.58 | 4.12 | -0.55 | 3.54 | 5/32 | 9 | 0 |
-| Run success rate | 35.6% | 40.9% | -5.3 | 35.2% | 3/32 | 9 | 0 |
+| Run success rate | 35.6% | 40.9% | −13.0% | 35.2% | 3/32 | 9 | 0 |
 | EPA/rush | -0.125 | -0.053 | -0.072 | -0.128 | 3/32 | 9 | 0 |
 | EPA/dropback | -0.122 | 0.073 | -0.195 | -0.147 | 2/32 | 9 | 0 |
 | YPA | 6.67 | 7.18 | -0.51 | 6.61 | 8/32 | 9 | 0 |
-| Sack rate | 5.1% | 6.4% | -1.3 | 5.2% | 27/32 | 9 | 0 |
+| Sack rate | 5.1% | 6.4% | −20.1% | 5.2% | 27/32 | 9 | 0 |
 
 QB rushing allowed (runs + scrambles): 22 car, 121 yds, 0 TD; 13.4 yds/g (rank 11/32; lg 16.8); scramble rate 4% (lg 5%)
 
@@ -87,7 +90,7 @@ Targets allowed by receiver position:
 | pos | tgt | catch | YPT | TD | PPR/tgt |
 |---|---|---|---|---|---|
 | RB | 49 | 80% | 5.35 | 0 | 1.33 |
-| WR | 170 | 60% | 7.36 | 7 | 1.58 |
+| WR | 171 | 60% | 7.32 | 7 | 1.57 |
 | TE | 73 | 67% | 7.21 | 5 | 1.80 |
 
 Run defense by bucket (box count from FTN charting):
@@ -145,7 +148,7 @@ Week by week: top scorer at each position vs this defense (RB line = car-yds-TD 
 | 6 | WR | PIT | Germie Bernard | 12 tgt, 11-87-1 | 25.7 | 46.0 |
 | 7 | WR | CAR | Tetairoa McMillan | 6 tgt, 4-40-0 | 8.0 | 13.9 |
 | 8 | WR | ATL | Jahan Dotson | 5 tgt, 2-95-0 | 11.5 | 14.7 |
-| 9 | WR | CHI | Luther Burden III | 9 tgt, 7-97-1 | 20.7 | 46.2 |
+| 9 | WR | CHI | Luther Burden III | 10 tgt, 7-97-1 | 20.7 | 46.2 |
 
 Week by week: QBs vs this defense (main QB = most attempts + sacks + carries; rush = car-yds-TD; pts = nflverse fantasy points: 4-pt pass TD, −2 INT, −2 fumble lost):
 
@@ -197,18 +200,18 @@ Team passing context:
 | Blitz rate faced (FTN) | 33% |
 | EPA/db vs blitz | -0.170 |
 | EPA/db vs no blitz | -0.146 |
-| Pass rate over expected | -9.5 pts |
+| Pass rate over expected | −15.0% vs expected |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | gained | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 4.94 | 4.28 | +0.66 | 4.75 | 6/32 | 9 | 0 |
-| Run success rate | 44.5% | 39.1% | +5.3 | 45.9% | 8/32 | 9 | 0 |
+| Run success rate | 44.5% | 39.1% | +13.7% | 45.9% | 8/32 | 9 | 0 |
 | EPA/rush | 0.000 | -0.057 | +0.057 | 0.001 | 10/32 | 9 | 0 |
 | EPA/dropback | -0.154 | 0.033 | -0.187 | -0.139 | 30/32 | 9 | 0 |
 | YPA | 5.93 | 7.20 | -1.27 | 5.86 | 29/32 | 9 | 0 |
-| Sack rate | 9.2% | 7.7% | +1.6 | 8.0% | 25/32 | 9 | 0 |
+| Sack rate | 9.2% | 7.7% | +20.2% | 8.0% | 25/32 | 9 | 0 |
 
 QB throw map (share of att, EPA/att in parentheses; ≥40 att):
 

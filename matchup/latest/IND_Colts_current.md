@@ -1,6 +1,6 @@
 # IND Indianapolis Colts — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-17 14:53 UTC. Regular season only.
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-19 17:48 UTC. Regular season only.
 - 2026: weeks 1–10, 150 games, last game 2026-11-16; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
 ## 2026 DEFENSE — IND Indianapolis Colts (10 games)
@@ -12,10 +12,10 @@ Weak (bottom ~15%):
 - run D, YPC: 4.69 (lg 4.09; 30/32)
 - pass EPA/att, short left: +0.18 (lg +0.02; 29/32; n=68)
 - rush EPA, runs, left guard: 0.082 (lg -0.055; 29/32; n=26)
-- rush EPA, 7 box: 0.059 (lg -0.053; 29/32; n=147)
+- rush EPA, 7 box: 0.059 (lg -0.052; 29/32; n=147)
 - rush EPA, runs, left end: 0.285 (lg -0.010; 29/32; n=26)
 - run D, stuff rate: 15% (lg 18%; 28/32)
-- PPR/tgt, RB screen: 2.16 (lg 1.58; 28/31; n=11)
+- PPR/tgt, RB screen: 2.16 (lg 1.59; 28/31; n=11)
 - pass EPA/att, int right: +0.55 (lg +0.29; 28/32; n=25)
 - rush EPA, runs, left tackle: 0.100 (lg -0.030; 28/32; n=38)
 - rush EPA, runs, middle: 0.022 (lg -0.074; 28/32; n=71)
@@ -24,6 +24,9 @@ Strong (top ~15%):
 - rush EPA, 8+ box: -0.275 (lg -0.049; 3/25; n=26)
 - rush EPA, runs, right guard: -0.249 (lg -0.090; 4/32; n=29)
 - pass EPA/att, short middle: -0.17 (lg +0.05; 5/32; n=38)
+
+Throw funnel (opp. QBs' share of att here vs their usual; % change; listed when chance would produce a shift this big less than 5% of the time):
+- deep right: 8% vs 4% (+95.8%; 227 att)
 
 Fantasy points allowed (PPR, nflverse scoring incl. rushing, fumbles, 2-pt). Rank 1 = fewest allowed.
 
@@ -53,16 +56,16 @@ Unit stats (rank 1 = best defense):
 | 10+ yd runs/game | 2.60 | 24 |
 | 20+ yd runs/game | 0.60 | – |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | allowed | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 4.69 | 4.05 | +0.64 | 4.73 | 30/32 | 10 | 0 |
-| Run success rate | 42.6% | 39.8% | +2.9 | 43.4% | 25/32 | 10 | 0 |
+| Run success rate | 42.6% | 39.8% | +7.2% | 43.4% | 25/32 | 10 | 0 |
 | EPA/rush | 0.007 | -0.051 | +0.058 | 0.002 | 30/32 | 10 | 0 |
 | EPA/dropback | 0.061 | 0.061 | -0.001 | 0.047 | 15/32 | 10 | 0 |
 | YPA | 8.04 | 7.10 | +0.94 | 8.07 | 29/32 | 10 | 0 |
-| Sack rate | 6.6% | 5.9% | +0.7 | 7.1% | 10/32 | 10 | 0 |
+| Sack rate | 6.6% | 5.9% | +11.2% | 7.1% | 10/32 | 10 | 0 |
 
 QB rushing allowed (runs + scrambles): 24 car, 192 yds, 2 TD; 19.2 yds/g (rank 23/32; lg 16.8); scramble rate 5% (lg 5%)
 
@@ -196,18 +199,18 @@ Team passing context:
 | Blitz rate faced (FTN) | 31% |
 | EPA/db vs blitz | -0.187 |
 | EPA/db vs no blitz | -0.197 |
-| Pass rate over expected | -4.4 pts |
+| Pass rate over expected | −6.9% vs expected |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | gained | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 4.33 | 4.01 | +0.32 | 4.41 | 9/32 | 10 | 0 |
-| Run success rate | 45.8% | 40.0% | +5.8 | 46.3% | 7/32 | 10 | 0 |
+| Run success rate | 45.8% | 40.0% | +14.4% | 46.3% | 7/32 | 10 | 0 |
 | EPA/rush | 0.018 | -0.071 | +0.089 | 0.033 | 5/32 | 10 | 0 |
 | EPA/dropback | -0.194 | 0.075 | -0.270 | -0.222 | 32/32 | 10 | 0 |
 | YPA | 5.66 | 7.50 | -1.84 | 5.28 | 32/32 | 10 | 0 |
-| Sack rate | 7.1% | 6.2% | +0.9 | 7.3% | 22/32 | 10 | 0 |
+| Sack rate | 7.1% | 6.2% | +14.1% | 7.3% | 22/32 | 10 | 0 |
 
 QB throw map (share of att, EPA/att in parentheses; ≥40 att):
 

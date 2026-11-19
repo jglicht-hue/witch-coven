@@ -1,6 +1,6 @@
 # BAL Baltimore Ravens — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-17 14:53 UTC. Regular season only.
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-19 17:48 UTC. Regular season only.
 - 2026: weeks 1–10, 150 games, last game 2026-11-16; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
 ## 2026 DEFENSE — BAL Baltimore Ravens (10 games)
@@ -36,7 +36,7 @@ Unit stats (rank 1 = best defense):
 | 20+ yd completions/game | 2.80 | 12 |
 | Sack rate | 5% | 22 |
 | Pressure rate (NGS) | – | – |
-| Blitz rate (FTN: 1+ blitzer) | 34% | – |
+| Blitz rate (FTN: 1+ blitzer) | 33% | – |
 | Man coverage rate (NGS) | – | – |
 | EPA/rush (designed runs) | -0.047 | 18 |
 | YPC | 3.57 | 6 |
@@ -45,16 +45,16 @@ Unit stats (rank 1 = best defense):
 | 10+ yd runs/game | 1.90 | 12 |
 | 20+ yd runs/game | 0.40 | – |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | allowed | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 3.57 | 4.16 | -0.59 | 3.50 | 4/32 | 10 | 0 |
-| Run success rate | 42.2% | 41.6% | +0.6 | 41.2% | 16/32 | 10 | 0 |
+| Run success rate | 42.2% | 41.6% | +1.5% | 41.2% | 16/32 | 10 | 0 |
 | EPA/rush | -0.047 | -0.042 | -0.005 | -0.062 | 12/32 | 10 | 0 |
 | EPA/dropback | 0.066 | 0.033 | +0.033 | 0.081 | 21/32 | 10 | 0 |
 | YPA | 7.49 | 7.03 | +0.46 | 7.58 | 24/32 | 10 | 0 |
-| Sack rate | 5.3% | 6.0% | -0.6 | 5.8% | 19/32 | 10 | 0 |
+| Sack rate | 5.3% | 6.0% | −10.3% | 5.8% | 19/32 | 10 | 0 |
 
 QB rushing allowed (runs + scrambles): 43 car, 204 yds, 3 TD; 20.4 yds/g (rank 25/32; lg 16.8); scramble rate 8% (lg 5%)
 
@@ -84,9 +84,9 @@ Run defense by bucket (box count from FTN charting):
 
 | type | bucket | rushes | YPC | success | EPA/rush |
 |---|---|---|---|---|---|
-| box | 7 | 82 | 2.91 | 35% | -0.081 |
+| box | 7 | 100 | 3.21 | 39% | -0.053 |
 | box | 8+ | 14 | 1.71 | 50% | -0.114 |
-| box | ≤6 | 128 | 4.09 | 45% | -0.023 |
+| box | ≤6 | 137 | 4.02 | 44% | -0.036 |
 | direction/gap | ? | 2 | 1.00 | 50% | -0.129 |
 | direction/gap | left end | 25 | 3.40 | 48% | -0.132 |
 | direction/gap | left guard | 36 | 3.39 | 39% | -0.104 |
@@ -102,8 +102,8 @@ RB targets allowed by route type:
 
 | route | tgt | catch | YPT | PPR/tgt |
 |---|---|---|---|---|
-| (route n/a) | 46 | 67% | 2.93 | 0.97 |
-| screen | 9 | 89% | 3.78 | 1.27 |
+| (route n/a) | 44 | 68% | 2.73 | 0.95 |
+| screen | 11 | 82% | 4.45 | 1.26 |
 
 Week by week: top scorer at each position vs this defense (RB line = car-yds-TD rush, tgt, rec-yds-TD):
 
@@ -178,7 +178,7 @@ Usage concentrations (share well above league avg at his position):
 - Tyler Huntley (QB, 110 att): short right 39% (lg 29%)
 - Mark Andrews (TE, 51 tgt): short middle 33% (avg 17%)
 - Zay Flowers (WR, 71 tgt): short middle 25% (avg 10%)
-- Justice Hill (RB, 36 car): runs right tackle 25% (avg 12%); vs ≤6 box 73% (avg 45%)
+- Justice Hill (RB, 36 car): runs right tackle 25% (avg 12%); vs ≤6 box 69% (avg 45%)
 
 Team passing context:
 
@@ -190,21 +190,21 @@ Team passing context:
 | Pressure rate faced (NGS) | – |
 | EPA/db clean | – |
 | EPA/db under pressure | – |
-| Blitz rate faced (FTN) | 35% |
-| EPA/db vs blitz | 0.093 |
-| EPA/db vs no blitz | 0.018 |
-| Pass rate over expected | -4.8 pts |
+| Blitz rate faced (FTN) | 33% |
+| EPA/db vs blitz | 0.086 |
+| EPA/db vs no blitz | 0.010 |
+| Pass rate over expected | −7.6% vs expected |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | gained | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 4.32 | 4.44 | -0.12 | 3.96 | 19/32 | 10 | 0 |
-| Run success rate | 40.7% | 41.5% | -0.8 | 39.7% | 18/32 | 10 | 0 |
+| Run success rate | 40.7% | 41.5% | −2.0% | 39.7% | 18/32 | 10 | 0 |
 | EPA/rush | -0.055 | -0.040 | -0.015 | -0.071 | 17/32 | 10 | 0 |
 | EPA/dropback | 0.035 | 0.062 | -0.027 | 0.021 | 19/32 | 10 | 0 |
 | YPA | 7.42 | 7.49 | -0.07 | 7.05 | 17/32 | 10 | 0 |
-| Sack rate | 7.4% | 6.2% | +1.2 | 7.6% | 24/32 | 10 | 0 |
+| Sack rate | 7.4% | 6.2% | +18.9% | 7.6% | 24/32 | 10 | 0 |
 
 QB throw map (share of att, EPA/att in parentheses; ≥40 att):
 
@@ -260,7 +260,7 @@ RB rushing by bucket (≥8 carries):
 |---|---|---|---|---|---|---|
 | Derrick Henry | formation | shotgun | 58 | 3.22 | 38% | -0.154 |
 | Derrick Henry | formation | under center | 128 | 4.02 | 41% | -0.052 |
-| Derrick Henry | box | 7 | 95 | 4.35 | 43% | 0.004 |
+| Derrick Henry | box | 7 | 105 | 4.03 | 43% | -0.006 |
 | Derrick Henry | box | 8+ | 24 | 2.00 | 33% | -0.341 |
 | Derrick Henry | box | ≤6 | 57 | 4.04 | 37% | -0.118 |
 | Derrick Henry | direction/gap | ? | 1 | 2.00 | 100% | 1.040 |
@@ -273,9 +273,9 @@ RB rushing by bucket (≥8 carries):
 | Derrick Henry | direction/gap | right tackle | 25 | 3.92 | 36% | -0.018 |
 | Justice Hill | formation | shotgun | 19 | 7.58 | 32% | 0.168 |
 | Justice Hill | formation | under center | 17 | 5.88 | 41% | 0.140 |
-| Justice Hill | box | 7 | 8 | 16.88 | 62% | 0.775 |
+| Justice Hill | box | 7 | 10 | 13.80 | 60% | 0.766 |
 | Justice Hill | box | 8+ | 1 | 6.00 | 100% | 0.636 |
-| Justice Hill | box | ≤6 | 24 | 4.12 | 25% | -0.099 |
+| Justice Hill | box | ≤6 | 25 | 4.00 | 24% | -0.109 |
 | Justice Hill | direction/gap | left end | 4 | 3.25 | 25% | -0.116 |
 | Justice Hill | direction/gap | left guard | 4 | 3.00 | 0% | -0.251 |
 | Justice Hill | direction/gap | left tackle | 3 | 9.33 | 33% | 0.311 |

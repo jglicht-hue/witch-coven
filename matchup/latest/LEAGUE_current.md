@@ -1,6 +1,6 @@
 # League averages — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-17 14:53 UTC. Regular season only.
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-19 17:48 UTC. Regular season only.
 - 2026: weeks 1–10, 150 games, last game 2026-11-16; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
 ### 2026 league averages (per team-game where noted)
@@ -13,16 +13,16 @@ League targets by receiver position:
 | pos | tgt | catch | YPT | PPR/tgt |
 |---|---|---|---|---|
 | RB | 1712 | 77% | 5.72 | 1.53 |
-| WR | 5494 | 62% | 8.06 | 1.71 |
+| WR | 5495 | 62% | 8.06 | 1.71 |
 | TE | 2255 | 71% | 7.16 | 1.79 |
 
 League run results by box count and by direction/gap:
 
 | bucket | rushes | YPC | success | EPA/rush |
 |---|---|---|---|---|
-| 7 | 3384 | 4.08 | 41% | -0.053 |
+| 7 | 3416 | 4.07 | 41% | -0.052 |
 | 8+ | 600 | 2.93 | 44% | -0.049 |
-| ≤6 | 3267 | 4.32 | 40% | -0.061 |
+| ≤6 | 3277 | 4.32 | 40% | -0.062 |
 | ? | 64 | 0.97 | 23% | -1.004 |
 | left end | 814 | 4.95 | 43% | -0.010 |
 | left guard | 929 | 3.85 | 41% | -0.055 |
@@ -36,7 +36,7 @@ League passing by throw depth and location (short = under 10 air yards (incl. be
 
 | cell | att | share | comp | YPA | TD | INT | EPA/att |
 |---|---|---|---|---|---|---|---|
-| short left | 2501 | 25% | 73% | 5.52 | 94 | 28 | 0.024 |
+| short left | 2501 | 25% | 73% | 5.52 | 94 | 28 | 0.023 |
 | short middle | 1241 | 13% | 70% | 6.01 | 61 | 25 | 0.052 |
 | short right | 2842 | 29% | 72% | 5.23 | 108 | 28 | 0.015 |
 | int left | 721 | 7% | 50% | 8.79 | 30 | 28 | 0.257 |

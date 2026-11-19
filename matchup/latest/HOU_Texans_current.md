@@ -1,6 +1,6 @@
 # HOU Houston Texans — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-17 14:53 UTC. Regular season only.
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-19 17:48 UTC. Regular season only.
 - 2026: weeks 1–10, 150 games, last game 2026-11-16; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
 ## 2026 DEFENSE — HOU Houston Texans (9 games)
@@ -21,6 +21,9 @@ Strong (top ~15%):
 - rush EPA, runs, left tackle: -0.447 (lg -0.030; 1/32; n=15)
 - pass D, sack rate: 9% (lg 6%; 2/32)
 - PPR/g allowed, TE: 10.7 (lg 13.5; 5/32)
+
+Throw funnel (opp. QBs' share of att here vs their usual; % change; listed when chance would produce a shift this big less than 5% of the time):
+- int middle: 9% vs 6% (+62.3%; 308 att)
 
 Fantasy points allowed (PPR, nflverse scoring incl. rushing, fumbles, 2-pt). Rank 1 = fewest allowed.
 
@@ -50,16 +53,16 @@ Unit stats (rank 1 = best defense):
 | 10+ yd runs/game | 1.89 | 9 |
 | 20+ yd runs/game | 0.33 | – |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | allowed | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 3.89 | 4.07 | -0.18 | 3.91 | 12/32 | 9 | 0 |
-| Run success rate | 42.7% | 41.1% | +1.6 | 42.2% | 21/32 | 9 | 0 |
+| Run success rate | 42.7% | 41.1% | +3.9% | 42.2% | 21/32 | 9 | 0 |
 | EPA/rush | -0.049 | -0.054 | +0.005 | -0.051 | 18/32 | 9 | 0 |
 | EPA/dropback | 0.038 | 0.052 | -0.014 | 0.034 | 12/32 | 9 | 0 |
 | YPA | 7.47 | 7.16 | +0.31 | 7.44 | 19/32 | 9 | 0 |
-| Sack rate | 9.2% | 6.5% | +2.7 | 9.1% | 2/32 | 9 | 0 |
+| Sack rate | 9.2% | 6.5% | +41.5% | 9.1% | 2/32 | 9 | 0 |
 
 QB rushing allowed (runs + scrambles): 26 car, 112 yds, 4 TD; 12.4 yds/g (rank 7/32; lg 16.8); scramble rate 3% (lg 5%)
 
@@ -193,18 +196,18 @@ Team passing context:
 | Blitz rate faced (FTN) | 28% |
 | EPA/db vs blitz | 0.214 |
 | EPA/db vs no blitz | 0.117 |
-| Pass rate over expected | 0.8 pts |
+| Pass rate over expected | +1.2% vs expected |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | gained | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 3.37 | 4.33 | -0.95 | 3.13 | 30/32 | 9 | 0 |
-| Run success rate | 33.3% | 41.4% | -8.0 | 32.5% | 29/32 | 9 | 0 |
+| Run success rate | 33.3% | 41.4% | −19.4% | 32.5% | 29/32 | 9 | 0 |
 | EPA/rush | -0.118 | -0.040 | -0.078 | -0.134 | 25/32 | 9 | 0 |
 | EPA/dropback | 0.144 | 0.073 | +0.071 | 0.118 | 10/32 | 9 | 0 |
 | YPA | 7.72 | 7.44 | +0.28 | 7.40 | 12/32 | 9 | 0 |
-| Sack rate | 4.8% | 6.1% | -1.3 | 5.2% | 12/32 | 9 | 0 |
+| Sack rate | 4.8% | 6.1% | −20.9% | 5.2% | 12/32 | 9 | 0 |
 
 QB throw map (share of att, EPA/att in parentheses; ≥40 att):
 

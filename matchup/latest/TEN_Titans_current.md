@@ -1,6 +1,6 @@
 # TEN Tennessee Titans — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-17 14:53 UTC. Regular season only.
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-19 17:48 UTC. Regular season only.
 - 2026: weeks 1–10, 150 games, last game 2026-11-16; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
 ## 2026 DEFENSE — TEN Tennessee Titans (9 games)
@@ -25,7 +25,11 @@ Weak (bottom ~15%):
 Strong (top ~15%):
 - rush EPA, runs, middle: -0.272 (lg -0.074; 1/32; n=59)
 - rush EPA, runs, right tackle: -0.239 (lg -0.024; 3/32; n=35)
-- rush EPA, ≤6 box: -0.124 (lg -0.061; 5/32; n=136)
+- rush EPA, ≤6 box: -0.124 (lg -0.062; 5/32; n=136)
+
+Throw funnel (opp. QBs' share of att here vs their usual; % change; listed when chance would produce a shift this big less than 5% of the time):
+- deep right: 8% vs 5% (+80.1%; 305 att)
+- int middle: 4% vs 7% (−43.2%; 305 att)
 
 Fantasy points allowed (PPR, nflverse scoring incl. rushing, fumbles, 2-pt). Rank 1 = fewest allowed.
 
@@ -55,16 +59,16 @@ Unit stats (rank 1 = best defense):
 | 10+ yd runs/game | 2.44 | 18 |
 | 20+ yd runs/game | 0.22 | – |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | allowed | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 3.94 | 3.82 | +0.12 | 4.21 | 22/32 | 9 | 0 |
-| Run success rate | 39.7% | 38.8% | +0.8 | 41.4% | 19/32 | 9 | 0 |
+| Run success rate | 39.7% | 38.8% | +2.2% | 41.4% | 19/32 | 9 | 0 |
 | EPA/rush | -0.060 | -0.082 | +0.022 | -0.034 | 22/32 | 9 | 0 |
 | EPA/dropback | 0.195 | 0.049 | +0.146 | 0.194 | 30/32 | 9 | 0 |
 | YPA | 8.28 | 7.09 | +1.19 | 8.32 | 32/32 | 9 | 0 |
-| Sack rate | 6.1% | 7.2% | -1.1 | 5.4% | 24/32 | 9 | 0 |
+| Sack rate | 6.1% | 7.2% | −14.9% | 5.4% | 24/32 | 9 | 0 |
 
 QB rushing allowed (runs + scrambles): 30 car, 172 yds, 3 TD; 19.1 yds/g (rank 22/32; lg 16.8); scramble rate 4% (lg 5%)
 
@@ -199,18 +203,18 @@ Team passing context:
 | Blitz rate faced (FTN) | 23% |
 | EPA/db vs blitz | -0.007 |
 | EPA/db vs no blitz | -0.083 |
-| Pass rate over expected | -2.6 pts |
+| Pass rate over expected | −4.0% vs expected |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | gained | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 4.19 | 4.22 | -0.02 | 4.06 | 16/32 | 9 | 0 |
-| Run success rate | 40.9% | 41.7% | -0.8 | 39.7% | 17/32 | 9 | 0 |
+| Run success rate | 40.9% | 41.7% | −2.0% | 39.7% | 17/32 | 9 | 0 |
 | EPA/rush | -0.062 | -0.040 | -0.022 | -0.079 | 18/32 | 9 | 0 |
 | EPA/dropback | -0.066 | 0.051 | -0.117 | -0.069 | 27/32 | 9 | 0 |
 | YPA | 5.93 | 7.20 | -1.27 | 5.86 | 30/32 | 9 | 0 |
-| Sack rate | 4.3% | 6.7% | -2.4 | 4.0% | 3/32 | 9 | 0 |
+| Sack rate | 4.3% | 6.7% | −35.7% | 4.0% | 3/32 | 9 | 0 |
 
 QB throw map (share of att, EPA/att in parentheses; ≥40 att):
 

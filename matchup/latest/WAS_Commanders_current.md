@@ -1,6 +1,6 @@
 # WAS Washington Commanders — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-17 14:53 UTC. Regular season only.
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-19 17:48 UTC. Regular season only.
 - 2026: weeks 1–10, 150 games, last game 2026-11-16; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
 ## 2026 DEFENSE — WAS Washington Commanders (9 games)
@@ -49,16 +49,16 @@ Unit stats (rank 1 = best defense):
 | 10+ yd runs/game | 1.33 | 3 |
 | 20+ yd runs/game | 0.11 | – |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | allowed | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 3.68 | 4.03 | -0.35 | 3.74 | 9/32 | 9 | 0 |
-| Run success rate | 45.6% | 40.9% | +4.8 | 45.3% | 32/32 | 9 | 0 |
+| Run success rate | 45.6% | 40.9% | +11.7% | 45.3% | 32/32 | 9 | 0 |
 | EPA/rush | -0.038 | -0.039 | +0.001 | -0.055 | 16/32 | 9 | 0 |
 | EPA/dropback | 0.073 | 0.006 | +0.068 | 0.116 | 28/32 | 9 | 0 |
 | YPA | 7.07 | 6.73 | +0.34 | 7.47 | 21/32 | 9 | 0 |
-| Sack rate | 4.8% | 7.5% | -2.7 | 3.8% | 32/32 | 9 | 0 |
+| Sack rate | 4.8% | 7.5% | −35.5% | 3.8% | 32/32 | 9 | 0 |
 
 QB rushing allowed (runs + scrambles): 35 car, 204 yds, 1 TD; 22.7 yds/g (rank 29/32; lg 16.8); scramble rate 6% (lg 5%)
 
@@ -190,18 +190,18 @@ Team passing context:
 | Blitz rate faced (FTN) | 33% |
 | EPA/db vs blitz | 0.056 |
 | EPA/db vs no blitz | 0.024 |
-| Pass rate over expected | 0.3 pts |
+| Pass rate over expected | +0.4% vs expected |
 
-Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
+Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | gained | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
 | Run YPC | 3.76 | 4.20 | -0.44 | 3.64 | 27/32 | 9 | 0 |
-| Run success rate | 38.9% | 41.3% | -2.3 | 38.2% | 20/32 | 9 | 0 |
+| Run success rate | 38.9% | 41.3% | −5.7% | 38.2% | 20/32 | 9 | 0 |
 | EPA/rush | -0.092 | -0.039 | -0.053 | -0.109 | 23/32 | 9 | 0 |
 | EPA/dropback | 0.034 | 0.049 | -0.015 | 0.033 | 18/32 | 9 | 0 |
 | YPA | 6.80 | 6.94 | -0.15 | 6.98 | 20/32 | 9 | 0 |
-| Sack rate | 5.9% | 6.0% | -0.1 | 6.4% | 17/32 | 9 | 0 |
+| Sack rate | 5.9% | 6.0% | −1.0% | 6.4% | 17/32 | 9 | 0 |
 
 QB throw map (share of att, EPA/att in parentheses; ≥40 att):
 
