@@ -1,7 +1,7 @@
 # NE New England Patriots — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-19 17:48 UTC. Regular season only.
-- 2026: weeks 1–10, 150 games, last game 2026-11-16; NGS participation NO (route, man/zone, coverage, pressure unavailable)
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-24 14:53 UTC. Regular season only.
+- 2026: weeks 1–11, 163 games, last game 2026-11-23; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
 ## 2026 DEFENSE — NE New England Patriots (10 games)
 
@@ -9,76 +9,78 @@ Flags, 2026 (leads to test, not verdicts; rank 1 = best D, among teams with enou
 
 Weak (bottom ~15%):
 - PPR/tgt, WR: 2.17 (lg 1.71; 32/32; n=180)
-- PPR/g allowed, WR: 39.1 (lg 31.8; 31/32)
-- pass EPA/att, int right: +0.64 (lg +0.29; 30/32; n=19)
-- rush EPA, runs, middle: 0.027 (lg -0.074; 29/32; n=63)
-- pass D, 20+ yd completions/game: 3.60 (lg 2.96; 28/32)
-- pass D, YPA: 8.04 (lg 7.13; 28/32)
+- PPR/g allowed, WR: 39.1 (lg 32.0; 31/32)
+- pass EPA/att, int right: +0.60 (lg +0.26; 30/32; n=19)
+- pass EPA/att, deep right: +0.90 (lg +0.32; 30/32; n=12)
+- pass D, YPA: 8.04 (lg 7.11; 29/32)
+- pass D, 20+ yd completions/game: 3.60 (lg 2.94; 29/32)
 - pass D, completion %: 67% (lg 64%; 28/32)
+- pass EPA/att, short middle: +0.22 (lg +0.06; 28/32; n=47)
+- rush EPA, runs, middle: 0.026 (lg -0.046; 28/32; n=63)
 
 Strong (top ~15%):
-- PPR/g allowed, TE: 10.3 (lg 13.5; 3/32)
-- QB rush yds/g allowed, all QBs: 9.3 (lg 16.8; 3/32; n=22)
+- rush EPA, runs, right guard: -0.250 (lg -0.056; 2/32; n=34)
 - PPR/tgt, TE: 1.42 (lg 1.79; 3/32; n=73)
-- rush EPA, runs, right guard: -0.262 (lg -0.090; 3/32; n=34)
+- QB rush yds/g allowed, all QBs: 9.3 (lg 16.6; 4/32; n=22)
+- PPR/g allowed, TE: 10.3 (lg 13.4; 4/32)
 
 Throw funnel (opp. QBs' share of att here vs their usual; % change; listed when chance would produce a shift this big less than 5% of the time):
-- int middle: 4% vs 8% (−48.6%; 315 att)
+- int middle: 4% vs 8% (−47.6%; 315 att)
 
 Fantasy points allowed (PPR, nflverse scoring incl. rushing, fumbles, 2-pt). Rank 1 = fewest allowed.
 
 | pos | PPR total | PPR/game | rank |
 |---|---|---|---|
-| QB | 177.2 | 17.7 | 20 |
-| RB | 220.8 | 22.1 | 17 |
+| QB | 177.2 | 17.7 | 21 |
+| RB | 220.8 | 22.1 | 18 |
 | WR | 390.6 | 39.1 | 31 |
-| TE | 102.7 | 10.3 | 3 |
+| TE | 102.7 | 10.3 | 4 |
 
 Unit stats (rank 1 = best defense):
 
 | stat | value | rank |
 |---|---|---|
-| EPA/dropback | 0.129 | 25 |
-| YPA | 8.04 | 28 |
+| EPA/dropback | 0.116 | 26 |
+| YPA | 8.04 | 29 |
 | Comp % | 67% | 28 |
-| 20+ yd completions/game | 3.60 | 28 |
-| Sack rate | 8% | 6 |
+| 20+ yd completions/game | 3.60 | 29 |
+| Sack rate | 8% | 8 |
 | Pressure rate (NGS) | – | – |
 | Blitz rate (FTN: 1+ blitzer) | 35% | – |
 | Man coverage rate (NGS) | – | – |
-| EPA/rush (designed runs) | -0.040 | 22 |
-| YPC | 4.11 | 18 |
-| Rush success rate | 40% | 14 |
+| EPA/rush (designed runs) | -0.029 | 17 |
+| YPC | 4.11 | 17 |
+| Rush success rate | 42% | 13 |
 | Stuff rate (≤0 yds) | 17% | 21 |
-| 10+ yd runs/game | 2.50 | 20 |
+| 10+ yd runs/game | 2.50 | 19 |
 | 20+ yd runs/game | 0.30 | – |
 
 Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | allowed | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
-| Run YPC | 4.11 | 4.02 | +0.09 | 4.18 | 20/32 | 10 | 0 |
-| Run success rate | 39.9% | 41.2% | −3.1% | 39.3% | 12/32 | 10 | 0 |
-| EPA/rush | -0.040 | -0.065 | +0.025 | -0.032 | 24/32 | 10 | 0 |
-| EPA/dropback | 0.129 | 0.103 | +0.025 | 0.073 | 18/32 | 10 | 0 |
-| YPA | 8.04 | 7.61 | +0.43 | 7.56 | 23/32 | 10 | 0 |
-| Sack rate | 7.6% | 6.2% | +22.8% | 7.8% | 4/32 | 10 | 0 |
+| Run YPC | 4.11 | 4.02 | +0.09 | 4.19 | 19/32 | 10 | 0 |
+| Run success rate | 41.6% | 42.4% | −1.9% | 41.9% | 16/32 | 10 | 0 |
+| EPA/rush | -0.029 | -0.043 | +0.014 | -0.019 | 19/32 | 10 | 0 |
+| EPA/dropback | 0.116 | 0.080 | +0.037 | 0.079 | 24/32 | 10 | 0 |
+| YPA | 8.04 | 7.49 | +0.55 | 7.66 | 23/32 | 10 | 0 |
+| Sack rate | 7.6% | 6.4% | +19.0% | 7.7% | 8/32 | 10 | 0 |
 
-QB rushing allowed (runs + scrambles): 22 car, 93 yds, 2 TD; 9.3 yds/g (rank 3/32; lg 16.8); scramble rate 3% (lg 5%)
+QB rushing allowed (runs + scrambles): 22 car, 93 yds, 2 TD; 9.3 yds/g (rank 4/32; lg 16.6); scramble rate 3% (lg 5%)
 
 Passing allowed by throw (rank by EPA/att among teams with ≥8 att; share = opp. QBs' share of att here, usual = their share in other games):
 
 | cell | att | comp | YPA | TD | INT | EPA | rank | share | usual |
 |---|---|---|---|---|---|---|---|---|---|
-| short left | 74 | 76% | 6.45 | 3 | 0 | 0.17 | 27/32 | 23% | 24% |
-| short middle | 47 | 77% | 7.51 | 3 | 1 | 0.21 | 27/32 | 15% | 12% |
-| short right | 98 | 71% | 5.76 | 2 | 1 | 0.07 | 25/32 | 31% | 29% |
-| int left | 29 | 45% | 8.52 | 3 | 1 | 0.28 | 15/32 | 9% | 7% |
-| int middle | 13 | 69% | 12.15 | 1 | 1 | 0.44 | 17/32 | 4% | 8% |
-| int right | 19 | 63% | 9.42 | 1 | 0 | 0.64 | 30/32 | 6% | 7% |
-| deep left | 16 | 44% | 13.88 | 2 | 2 | 0.68 | 25/31 | 5% | 5% |
-| deep middle | 9 | 44% | 16.11 | 2 | 1 | 0.51 | 7/12 | 3% | 3% |
-| deep right | 12 | 58% | 18.42 | 0 | 0 | 0.90 | 22/29 | 4% | 5% |
+| short left | 74 | 76% | 6.45 | 3 | 0 | 0.17 | 26/32 | 23% | 24% |
+| short middle | 47 | 77% | 7.51 | 3 | 1 | 0.22 | 28/32 | 15% | 13% |
+| short right | 98 | 71% | 5.76 | 2 | 1 | 0.05 | 25/32 | 31% | 28% |
+| int left | 29 | 45% | 8.52 | 3 | 1 | 0.26 | 20/32 | 9% | 7% |
+| int middle | 13 | 69% | 12.15 | 1 | 1 | 0.41 | 19/32 | 4% | 8% |
+| int right | 19 | 63% | 9.42 | 1 | 0 | 0.60 | 30/32 | 6% | 7% |
+| deep left | 16 | 44% | 13.88 | 2 | 2 | 0.62 | 25/31 | 5% | 5% |
+| deep middle | 9 | 44% | 16.11 | 2 | 1 | 0.48 | 9/16 | 3% | 3% |
+| deep right | 12 | 58% | 18.42 | 0 | 0 | 0.90 | 30/32 | 4% | 5% |
 
 Targets allowed by receiver position:
 
@@ -92,19 +94,19 @@ Run defense by bucket (box count from FTN charting):
 
 | type | bucket | rushes | YPC | success | EPA/rush |
 |---|---|---|---|---|---|
-| box | 7 | 97 | 3.85 | 42% | -0.037 |
-| box | 8+ | 31 | 4.29 | 42% | 0.152 |
-| box | ≤6 | 114 | 4.29 | 37% | -0.095 |
-| direction/gap | ? | 2 | 1.00 | 50% | 0.171 |
-| direction/gap | left end | 38 | 4.58 | 39% | -0.082 |
-| direction/gap | left guard | 26 | 3.23 | 31% | -0.096 |
-| direction/gap | left tackle | 23 | 5.00 | 48% | 0.088 |
-| direction/gap | middle | 63 | 4.32 | 48% | 0.027 |
-| direction/gap | right end | 30 | 4.93 | 40% | 0.056 |
-| direction/gap | right guard | 34 | 2.79 | 26% | -0.262 |
-| direction/gap | right tackle | 27 | 4.04 | 41% | -0.036 |
-| offense formation | shotgun | 74 | 4.27 | 35% | -0.083 |
-| offense formation | under center | 169 | 4.04 | 42% | -0.021 |
+| box | 7 | 97 | 3.85 | 44% | -0.015 |
+| box | 8+ | 31 | 4.29 | 42% | 0.155 |
+| box | ≤6 | 114 | 4.29 | 39% | -0.092 |
+| direction/gap | ? | 2 | 1.00 | 50% | 0.236 |
+| direction/gap | left end | 38 | 4.58 | 47% | -0.072 |
+| direction/gap | left guard | 26 | 3.23 | 31% | -0.066 |
+| direction/gap | left tackle | 23 | 5.00 | 43% | 0.075 |
+| direction/gap | middle | 63 | 4.32 | 49% | 0.026 |
+| direction/gap | right end | 30 | 4.93 | 43% | 0.079 |
+| direction/gap | right guard | 34 | 2.79 | 26% | -0.250 |
+| direction/gap | right tackle | 27 | 4.04 | 41% | -0.010 |
+| offense formation | shotgun | 74 | 4.27 | 39% | -0.069 |
+| offense formation | under center | 169 | 4.04 | 43% | -0.011 |
 
 RB targets allowed by route type:
 
@@ -167,21 +169,21 @@ Game by game, 2026: allowed (expected vs that offense; * = its rating rests on u
 
 | wk | opp | rush | YPC | success | EPA/rush | db | EPA/db | YPA |
 |---|---|---|---|---|---|---|---|---|
-| 1 | SEA | 20 | 4.20 (3.87) | 30% (36%) | -0.13 (-0.16) | 27 | 0.18 (0.07) | 8.33 (7.35) |
-| 2 | PIT | 21 | 3.95 (5.06) | 29% (51%) | -0.06 (0.12) | 46 | -0.38 (0.01) | 4.67 (6.52) |
-| 3 | JAX | 28 | 4.61 (3.81) | 50% (40%) | 0.20 (-0.07) | 31 | 0.22 (0.28) | 6.50 (9.01) |
-| 4 | BUF | 19 | 4.58 (4.76) | 53% (49%) | 0.14 (0.08) | 36 | 0.06 (0.25) | 7.44 (8.61) |
-| 5 | LV | 17 | 2.06 (3.22) | 29% (32%) | -0.14 (-0.19) | 40 | 0.04 (0.12) | 8.08 (7.38) |
-| 6 | NYJ | 26 | 3.77 (4.25) | 38% (43%) | -0.25 (-0.06) | 33 | 0.12 (0.02) | 8.40 (7.42) |
-| 7 | CHI | 26 | 3.77 (4.32) | 38% (44%) | -0.08 (-0.01) | 39 | 0.32 (0.11) | 9.33 (7.79) |
-| 8 | MIA | 23 | 3.22 (3.74) | 30% (34%) | -0.26 (-0.09) | 38 | 0.09 (-0.06) | 6.39 (6.94) |
-| 9 | GB | 32 | 3.69 (2.78) | 34% (36%) | -0.17 (-0.22) | 33 | 0.63 (0.11) | 12.83 (7.43) |
-| 10 | DET | 31 | 6.23 (4.64) | 58% (46%) | 0.26 (-0.03) | 34 | 0.21 (0.18) | 9.69 (8.01) |
+| 1 | SEA | 20 | 4.20 (3.87) | 35% (38%) | -0.10 (-0.14) | 27 | 0.14 (0.05) | 8.33 (7.39) |
+| 2 | PIT | 21 | 3.95 (4.92) | 33% (47%) | -0.05 (0.10) | 46 | -0.39 (-0.02) | 4.67 (6.24) |
+| 3 | JAX | 28 | 4.61 (3.87) | 57% (42%) | 0.21 (-0.03) | 31 | 0.20 (0.20) | 6.50 (8.71) |
+| 4 | BUF | 19 | 4.58 (4.63) | 53% (48%) | 0.13 (0.08) | 36 | 0.05 (0.19) | 7.44 (8.25) |
+| 5 | LV | 17 | 2.06 (3.43) | 29% (37%) | -0.12 (-0.14) | 40 | 0.03 (0.12) | 8.08 (7.47) |
+| 6 | NYJ | 26 | 3.77 (4.28) | 42% (48%) | -0.23 (-0.02) | 33 | 0.09 (0.04) | 8.40 (7.54) |
+| 7 | CHI | 26 | 3.77 (4.29) | 35% (41%) | -0.06 (-0.03) | 39 | 0.30 (0.08) | 9.33 (7.68) |
+| 8 | MIA | 23 | 3.22 (3.90) | 35% (34%) | -0.23 (-0.07) | 38 | 0.08 (-0.10) | 6.39 (6.49) |
+| 9 | GB | 32 | 3.69 (2.76) | 38% (38%) | -0.17 (-0.19) | 33 | 0.62 (0.08) | 12.83 (7.32) |
+| 10 | DET | 31 | 6.23 (4.58) | 52% (50%) | 0.25 (0.03) | 34 | 0.25 (0.21) | 9.69 (8.21) |
 
 ## 2026 OFFENSE — NE New England Patriots
 
 Usage concentrations (share well above league avg at his position):
-- Mack Hollins (WR, 32 tgt): int right 22% (avg 10%)
+- Mack Hollins (WR, 32 tgt): int right 22% (avg 9%)
 - Romeo Doubs (WR, 24 tgt): deep right 21% (avg 7%); int left 21% (avg 10%)
 - Kyle Williams (WR, 16 tgt): deep left 31% (avg 7%); deep right 25% (avg 7%)
 - Efton Chism III (WR, 26 tgt): int left 23% (avg 10%)
@@ -194,33 +196,33 @@ Team passing context:
 | stat | value |
 |---|---|
 | Dropbacks | 366 |
-| EPA/dropback | 0.094 |
+| EPA/dropback | 0.084 |
 | Sack rate | 7% |
 | Pressure rate faced (NGS) | – |
 | EPA/db clean | – |
 | EPA/db under pressure | – |
 | Blitz rate faced (FTN) | 30% |
-| EPA/db vs blitz | 0.005 |
-| EPA/db vs no blitz | 0.133 |
-| Pass rate over expected | −1.2% vs expected |
+| EPA/db vs blitz | -0.001 |
+| EPA/db vs no blitz | 0.121 |
+| Pass rate over expected | +0.6% vs expected |
 
 Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | gained | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
-| Run YPC | 3.88 | 4.04 | -0.16 | 3.92 | 23/32 | 10 | 0 |
-| Run success rate | 37.9% | 40.9% | −7.3% | 37.6% | 21/32 | 10 | 0 |
-| EPA/rush | -0.105 | -0.053 | -0.052 | -0.108 | 22/32 | 10 | 0 |
-| EPA/dropback | 0.094 | 0.037 | +0.057 | 0.105 | 11/32 | 10 | 0 |
-| YPA | 7.99 | 6.93 | +1.06 | 8.19 | 4/32 | 10 | 0 |
-| Sack rate | 6.8% | 6.6% | +3.0% | 6.6% | 20/32 | 10 | 0 |
+| Run YPC | 3.88 | 4.05 | -0.18 | 3.93 | 22/32 | 10 | 0 |
+| Run success rate | 40.0% | 44.0% | −9.1% | 38.7% | 24/32 | 10 | 0 |
+| EPA/rush | -0.083 | -0.033 | -0.050 | -0.083 | 21/32 | 10 | 0 |
+| EPA/dropback | 0.084 | 0.021 | +0.063 | 0.105 | 12/32 | 10 | 0 |
+| YPA | 7.99 | 6.79 | +1.20 | 8.31 | 3/32 | 10 | 0 |
+| Sack rate | 6.8% | 6.7% | +1.8% | 6.6% | 19/32 | 10 | 0 |
 
 QB throw map (share of att, EPA/att in parentheses; ≥40 att):
 
 | QB | att | short left | short middle | short right | int left | int middle | int right | deep left | deep middle | deep right |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Drake Maye | 275 | 26% (-0.14) | 10% (0.28) | 26% (0.21) | 10% (0.14) | 5% (0.92) | 8% (0.16) | 7% (0.05) | 0% (-1.54) | 7% (1.35) |
-| league | 9825 | 25% (0.02) | 13% (0.05) | 29% (0.01) | 7% (0.26) | 6% (0.48) | 8% (0.29) | 4% (0.31) | 2% (0.60) | 5% (0.35) |
+| Drake Maye | 275 | 26% (-0.15) | 10% (0.25) | 26% (0.19) | 10% (0.08) | 5% (0.91) | 8% (0.14) | 7% (0.06) | 0% (-1.66) | 7% (1.35) |
+| league | 10692 | 25% (0.02) | 13% (0.06) | 29% (0.01) | 7% (0.22) | 6% (0.45) | 8% (0.26) | 4% (0.31) | 2% (0.54) | 5% (0.32) |
 
 Player usage, season totals (RZ opps = carries + targets inside the 10 / 5):
 
@@ -262,42 +264,42 @@ RB rushing by bucket (≥8 carries):
 
 | RB | type | bucket | car | YPC | success | EPA/rush |
 |---|---|---|---|---|---|---|
-| Rhamondre Stevenson | formation | shotgun | 36 | 3.31 | 28% | -0.236 |
-| Rhamondre Stevenson | formation | under center | 72 | 3.94 | 43% | 0.028 |
-| Rhamondre Stevenson | box | 7 | 57 | 3.12 | 33% | -0.146 |
-| Rhamondre Stevenson | box | 8+ | 12 | 3.17 | 58% | 0.384 |
-| Rhamondre Stevenson | box | ≤6 | 39 | 4.79 | 38% | -0.071 |
-| Rhamondre Stevenson | direction/gap | left end | 16 | 3.38 | 25% | -0.170 |
-| Rhamondre Stevenson | direction/gap | left guard | 17 | 2.65 | 29% | -0.276 |
-| Rhamondre Stevenson | direction/gap | left tackle | 8 | 4.38 | 75% | 0.375 |
-| Rhamondre Stevenson | direction/gap | middle | 48 | 4.31 | 38% | -0.014 |
-| Rhamondre Stevenson | direction/gap | right end | 1 | 3.00 | 0% | -0.098 |
-| Rhamondre Stevenson | direction/gap | right guard | 10 | 3.90 | 40% | -0.153 |
-| Rhamondre Stevenson | direction/gap | right tackle | 8 | 2.50 | 50% | 0.030 |
-| Corey Kiner | formation | shotgun | 15 | 4.67 | 47% | -0.151 |
-| Corey Kiner | formation | under center | 45 | 4.42 | 36% | -0.130 |
-| Corey Kiner | box | 7 | 27 | 5.93 | 48% | -0.149 |
-| Corey Kiner | box | 8+ | 12 | 3.33 | 33% | -0.037 |
-| Corey Kiner | box | ≤6 | 21 | 3.29 | 29% | -0.173 |
-| Corey Kiner | direction/gap | left end | 2 | 1.50 | 50% | -0.048 |
-| Corey Kiner | direction/gap | left guard | 6 | 5.50 | 67% | 0.134 |
-| Corey Kiner | direction/gap | left tackle | 5 | 6.20 | 40% | -0.060 |
-| Corey Kiner | direction/gap | middle | 25 | 4.24 | 36% | -0.263 |
-| Corey Kiner | direction/gap | right end | 1 | 1.00 | 0% | -0.418 |
-| Corey Kiner | direction/gap | right guard | 9 | 1.78 | 11% | -0.284 |
-| Corey Kiner | direction/gap | right tackle | 12 | 6.58 | 50% | 0.086 |
-| TreVeyon Henderson | formation | shotgun | 12 | 8.42 | 50% | -0.015 |
-| TreVeyon Henderson | formation | under center | 40 | 2.55 | 30% | -0.249 |
-| TreVeyon Henderson | box | 7 | 26 | 2.73 | 19% | -0.271 |
-| TreVeyon Henderson | box | 8+ | 10 | 0.50 | 20% | -0.505 |
-| TreVeyon Henderson | box | ≤6 | 16 | 7.94 | 69% | 0.121 |
-| TreVeyon Henderson | direction/gap | left end | 5 | 8.20 | 80% | 0.472 |
-| TreVeyon Henderson | direction/gap | left guard | 5 | 11.00 | 60% | 0.523 |
-| TreVeyon Henderson | direction/gap | left tackle | 7 | 0.00 | 0% | -0.583 |
-| TreVeyon Henderson | direction/gap | middle | 16 | 2.06 | 31% | -0.227 |
-| TreVeyon Henderson | direction/gap | right end | 2 | 1.00 | 0% | -0.392 |
-| TreVeyon Henderson | direction/gap | right guard | 11 | 4.18 | 36% | -0.462 |
-| TreVeyon Henderson | direction/gap | right tackle | 6 | 4.33 | 33% | -0.258 |
+| Rhamondre Stevenson | formation | shotgun | 36 | 3.31 | 31% | -0.196 |
+| Rhamondre Stevenson | formation | under center | 72 | 3.94 | 47% | 0.044 |
+| Rhamondre Stevenson | box | 7 | 57 | 3.12 | 35% | -0.119 |
+| Rhamondre Stevenson | box | 8+ | 12 | 3.17 | 58% | 0.337 |
+| Rhamondre Stevenson | box | ≤6 | 39 | 4.79 | 46% | -0.029 |
+| Rhamondre Stevenson | direction/gap | left end | 16 | 3.38 | 38% | -0.143 |
+| Rhamondre Stevenson | direction/gap | left guard | 17 | 2.65 | 24% | -0.262 |
+| Rhamondre Stevenson | direction/gap | left tackle | 8 | 4.38 | 75% | 0.392 |
+| Rhamondre Stevenson | direction/gap | middle | 48 | 4.31 | 44% | 0.035 |
+| Rhamondre Stevenson | direction/gap | right end | 1 | 3.00 | 0% | -0.216 |
+| Rhamondre Stevenson | direction/gap | right guard | 10 | 3.90 | 40% | -0.189 |
+| Rhamondre Stevenson | direction/gap | right tackle | 8 | 2.50 | 50% | 0.018 |
+| Corey Kiner | formation | shotgun | 15 | 4.67 | 53% | -0.145 |
+| Corey Kiner | formation | under center | 45 | 4.42 | 38% | -0.109 |
+| Corey Kiner | box | 7 | 27 | 5.93 | 48% | -0.144 |
+| Corey Kiner | box | 8+ | 12 | 3.33 | 42% | -0.025 |
+| Corey Kiner | box | ≤6 | 21 | 3.29 | 33% | -0.138 |
+| Corey Kiner | direction/gap | left end | 2 | 1.50 | 50% | -0.032 |
+| Corey Kiner | direction/gap | left guard | 6 | 5.50 | 67% | 0.139 |
+| Corey Kiner | direction/gap | left tackle | 5 | 6.20 | 60% | 0.015 |
+| Corey Kiner | direction/gap | middle | 25 | 4.24 | 40% | -0.229 |
+| Corey Kiner | direction/gap | right end | 1 | 1.00 | 0% | -0.371 |
+| Corey Kiner | direction/gap | right guard | 9 | 1.78 | 11% | -0.273 |
+| Corey Kiner | direction/gap | right tackle | 12 | 6.58 | 50% | 0.052 |
+| TreVeyon Henderson | formation | shotgun | 12 | 8.42 | 42% | 0.016 |
+| TreVeyon Henderson | formation | under center | 40 | 2.55 | 32% | -0.231 |
+| TreVeyon Henderson | box | 7 | 26 | 2.73 | 23% | -0.233 |
+| TreVeyon Henderson | box | 8+ | 10 | 0.50 | 20% | -0.501 |
+| TreVeyon Henderson | box | ≤6 | 16 | 7.94 | 62% | 0.126 |
+| TreVeyon Henderson | direction/gap | left end | 5 | 8.20 | 80% | 0.463 |
+| TreVeyon Henderson | direction/gap | left guard | 5 | 11.00 | 60% | 0.585 |
+| TreVeyon Henderson | direction/gap | left tackle | 7 | 0.00 | 0% | -0.563 |
+| TreVeyon Henderson | direction/gap | middle | 16 | 2.06 | 31% | -0.244 |
+| TreVeyon Henderson | direction/gap | right end | 2 | 1.00 | 0% | -0.355 |
+| TreVeyon Henderson | direction/gap | right guard | 11 | 4.18 | 36% | -0.400 |
+| TreVeyon Henderson | direction/gap | right tackle | 6 | 4.33 | 33% | -0.221 |
 
 Week by week usage:
 
@@ -417,13 +419,13 @@ Game by game, 2026: gained (expected vs that defense; * = its rating rests on un
 
 | wk | opp | rush | YPC | success | EPA/rush | db | EPA/db | YPA |
 |---|---|---|---|---|---|---|---|---|
-| 1 | SEA | 25 | 2.60 (3.38) | 24% (37%) | -0.32 (-0.05) | 42 | 0.05 (-0.11) | 5.39 (5.33) |
-| 2 | PIT | 24 | 4.96 (3.10) | 38% (33%) | -0.00 (-0.14) | 27 | -0.12 (0.11) | 9.45 (7.29) |
-| 3 | JAX | 23 | 2.78 (4.19) | 30% (40%) | -0.12 (-0.13) | 37 | -0.29 (-0.02) | 7.90 (7.40) |
-| 4 | BUF | 29 | 3.10 (3.93) | 45% (43%) | -0.06 (-0.01) | 43 | 0.31 (-0.02) | 7.08 (6.50) |
-| 5 | LV | 25 | 5.72 (4.88) | 40% (42%) | -0.09 (-0.02) | 38 | 0.67 (0.09) | 11.00 (7.70) |
-| 6 | NYJ | 32 | 3.88 (4.50) | 41% (46%) | -0.17 (-0.01) | 35 | 0.23 (0.12) | 7.34 (6.88) |
-| 7 | CHI | 14 | 3.14 (4.35) | 21% (43%) | -0.26 (0.00) | 35 | 0.38 (0.01) | 10.70 (8.06) |
-| 8 | MIA | 30 | 4.30 (4.13) | 47% (41%) | 0.02 (-0.06) | 26 | 0.19 (0.12) | 9.95 (7.30) |
-| 9 | GB | 15 | 6.07 (3.64) | 53% (43%) | 0.13 (-0.07) | 47 | -0.16 (0.00) | 7.62 (6.19) |
-| 10 | DET | 18 | 2.33 (4.15) | 33% (39%) | -0.19 (-0.06) | 36 | -0.30 (0.17) | 4.61 (7.40) |
+| 1 | SEA | 25 | 2.60 (3.35) | 24% (38%) | -0.29 (-0.05) | 42 | 0.03 (-0.12) | 5.39 (5.31) |
+| 2 | PIT | 24 | 4.96 (3.36) | 50% (36%) | 0.01 (-0.10) | 27 | -0.16 (0.09) | 9.45 (7.38) |
+| 3 | JAX | 23 | 2.78 (3.97) | 35% (40%) | -0.07 (-0.14) | 37 | -0.32 (-0.04) | 7.90 (6.96) |
+| 4 | BUF | 29 | 3.10 (3.99) | 45% (45%) | -0.07 (0.01) | 43 | 0.30 (-0.07) | 7.08 (6.15) |
+| 5 | LV | 25 | 5.72 (4.86) | 36% (50%) | -0.08 (0.02) | 38 | 0.65 (0.08) | 11.00 (7.74) |
+| 6 | NYJ | 32 | 3.88 (4.59) | 47% (51%) | -0.12 (0.03) | 35 | 0.19 (0.13) | 7.34 (6.83) |
+| 7 | CHI | 14 | 3.14 (4.49) | 21% (46%) | -0.22 (0.01) | 35 | 0.36 (-0.03) | 10.70 (7.71) |
+| 8 | MIA | 30 | 4.30 (4.07) | 47% (45%) | 0.03 (-0.05) | 26 | 0.22 (0.07) | 9.95 (7.02) |
+| 9 | GB | 15 | 6.07 (3.68) | 53% (44%) | 0.14 (-0.06) | 47 | -0.14 (-0.01) | 7.62 (6.11) |
+| 10 | DET | 18 | 2.33 (4.01) | 33% (42%) | -0.16 (-0.04) | 36 | -0.27 (0.19) | 4.61 (7.41) |

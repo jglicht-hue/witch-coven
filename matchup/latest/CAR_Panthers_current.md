@@ -1,117 +1,110 @@
 # CAR Carolina Panthers — Matchup Witch data, 2026 (current)
 
-Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-19 17:48 UTC. Regular season only.
-- 2026: weeks 1–10, 150 games, last game 2026-11-16; NGS participation NO (route, man/zone, coverage, pressure unavailable)
+Source: nflverse (play-by-play, NGS participation, FTN charting, player stats, snap counts). Built 2026-11-24 14:53 UTC. Regular season only.
+- 2026: weeks 1–11, 163 games, last game 2026-11-23; NGS participation NO (route, man/zone, coverage, pressure unavailable)
 
-## 2026 DEFENSE — CAR Carolina Panthers (9 games)
+## 2026 DEFENSE — CAR Carolina Panthers (10 games)
 
 Flags, 2026 (leads to test, not verdicts; rank 1 = best D, among teams with enough plays; see README):
 
 Weak (bottom ~15%):
-- pass D, sack rate: 4% (lg 6%; 32/32)
-- pass EPA/att, deep left: 1.16 (lg +0.31; 31/31; n=10)
-- PPR/g allowed, RB: 27.3 (lg 22.2; 30/32)
-- rush EPA, ≤6 box: 0.009 (lg -0.062; 30/32; n=125)
+- PPR/g allowed, RB: 28.2 (lg 22.1; 32/32)
+- pass D, sack rate: 4% (lg 6%; 31/32)
+- pass EPA/att, deep left: 1.20 (lg +0.31; 31/31; n=10)
+- rush EPA, ≤6 box: 0.042 (lg -0.034; 31/32; n=141)
 
 Strong (top ~15%):
-- pass D, 20+ yd completions/game: 1.78 (lg 2.96; 2/32)
-- pass EPA/att, deep right: -0.34 (lg +0.35; 2/29; n=18)
-- pass D, YPA: 6.23 (lg 7.13; 3/32)
-- PPR/tgt, WR: 1.56 (lg 1.71; 5/32; n=179)
-- rush EPA, 7 box: -0.174 (lg -0.052; 5/32; n=98)
-- rush EPA, runs, left end: -0.352 (lg -0.010; 5/32; n=20)
-
-Throw funnel (opp. QBs' share of att here vs their usual; % change; listed when chance would produce a shift this big less than 5% of the time):
-- int right: 9% vs 6% (+48.7%; 298 att)
-- deep right: 6% vs 4% (+64.7%; 298 att)
+- pass D, 20+ yd completions/game: 2.00 (lg 2.94; 2/32)
+- rush EPA, 7 box: -0.147 (lg -0.034; 4/32; n=104)
+- pass D, YPA: 6.36 (lg 7.11; 5/32)
 
 Fantasy points allowed (PPR, nflverse scoring incl. rushing, fumbles, 2-pt). Rank 1 = fewest allowed.
 
 | pos | PPR total | PPR/game | rank |
 |---|---|---|---|
-| QB | 143.5 | 15.9 | 12 |
-| RB | 245.3 | 27.3 | 30 |
-| WR | 281.6 | 31.3 | 15 |
-| TE | 112.7 | 12.5 | 12 |
+| QB | 157.3 | 15.7 | 11 |
+| RB | 282.0 | 28.2 | 32 |
+| WR | 323.1 | 32.3 | 18 |
+| TE | 121.1 | 12.1 | 13 |
 
 Unit stats (rank 1 = best defense):
 
 | stat | value | rank |
 |---|---|---|
-| EPA/dropback | 0.054 | 18 |
-| YPA | 6.23 | 3 |
+| EPA/dropback | 0.045 | 17 |
+| YPA | 6.36 | 5 |
 | Comp % | 64% | 17 |
-| 20+ yd completions/game | 1.78 | 2 |
-| Sack rate | 4% | 32 |
+| 20+ yd completions/game | 2.00 | 2 |
+| Sack rate | 4% | 31 |
 | Pressure rate (NGS) | – | – |
-| Blitz rate (FTN: 1+ blitzer) | 33% | – |
+| Blitz rate (FTN: 1+ blitzer) | 31% | – |
 | Man coverage rate (NGS) | – | – |
-| EPA/rush (designed runs) | -0.065 | 11 |
-| YPC | 4.17 | 21 |
-| Rush success rate | 38% | 11 |
-| Stuff rate (≤0 yds) | 17% | 22 |
-| 10+ yd runs/game | 2.22 | 15 |
-| 20+ yd runs/game | 0.56 | – |
+| EPA/rush (designed runs) | -0.032 | 16 |
+| YPC | 4.43 | 24 |
+| Rush success rate | 40% | 9 |
+| Stuff rate (≤0 yds) | 16% | 24 |
+| 10+ yd runs/game | 2.70 | 24 |
+| 20+ yd runs/game | 0.60 | – |
 
 Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing offense's adjusted rating from its other games; diff = allowed − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best defense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | allowed | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
-| Run YPC | 4.17 | 4.06 | +0.11 | 4.20 | 21/32 | 9 | 0 |
-| Run success rate | 38.2% | 40.8% | −6.5% | 37.9% | 8/32 | 9 | 0 |
-| EPA/rush | -0.065 | -0.064 | -0.002 | -0.058 | 14/32 | 9 | 0 |
-| EPA/dropback | 0.054 | 0.031 | +0.023 | 0.071 | 17/32 | 9 | 0 |
-| YPA | 6.23 | 6.97 | -0.74 | 6.38 | 4/32 | 9 | 0 |
-| Sack rate | 4.3% | 6.8% | −36.9% | 3.9% | 31/32 | 9 | 0 |
+| Run YPC | 4.43 | 4.06 | +0.37 | 4.47 | 26/32 | 10 | 0 |
+| Run success rate | 40.4% | 41.9% | −3.5% | 41.2% | 9/32 | 10 | 0 |
+| EPA/rush | -0.032 | -0.048 | +0.016 | -0.018 | 20/32 | 10 | 0 |
+| EPA/dropback | 0.045 | 0.023 | +0.022 | 0.064 | 18/32 | 10 | 0 |
+| YPA | 6.36 | 6.99 | -0.63 | 6.47 | 7/32 | 10 | 0 |
+| Sack rate | 4.4% | 6.9% | −36.7% | 3.9% | 32/32 | 10 | 0 |
 
-QB rushing allowed (runs + scrambles): 35 car, 177 yds, 2 TD; 19.7 yds/g (rank 24/32; lg 16.8); scramble rate 6% (lg 5%)
+QB rushing allowed (runs + scrambles): 37 car, 184 yds, 2 TD; 18.4 yds/g (rank 21/32; lg 16.6); scramble rate 5% (lg 5%)
 
 Passing allowed by throw (rank by EPA/att among teams with ≥8 att; share = opp. QBs' share of att here, usual = their share in other games):
 
 | cell | att | comp | YPA | TD | INT | EPA | rank | share | usual |
 |---|---|---|---|---|---|---|---|---|---|
-| short left | 83 | 71% | 5.12 | 0 | 0 | 0.01 | 15/32 | 27% | 28% |
-| short middle | 37 | 81% | 6.43 | 2 | 0 | 0.08 | 18/32 | 12% | 12% |
-| short right | 98 | 70% | 4.35 | 4 | 2 | -0.03 | 10/32 | 31% | 32% |
-| int left | 15 | 53% | 8.33 | 1 | 0 | 0.54 | 27/32 | 5% | 7% |
-| int middle | 22 | 64% | 10.32 | 1 | 1 | 0.43 | 16/32 | 7% | 5% |
-| int right | 27 | 48% | 7.93 | 2 | 2 | 0.21 | 11/32 | 9% | 6% |
-| deep left | 10 | 50% | 15.70 | 3 | 0 | 1.16 | 31/31 | 3% | 4% |
-| deep middle | 3 | 33% | 17.67 | 0 | 0 | 0.63 | – | 1% | 2% |
-| deep right | 18 | 11% | 5.33 | 0 | 1 | -0.34 | 2/29 | 6% | 4% |
+| short left | 92 | 73% | 5.41 | 0 | 0 | 0.06 | 17/32 | 26% | 27% |
+| short middle | 42 | 79% | 6.19 | 2 | 0 | 0.05 | 15/32 | 12% | 13% |
+| short right | 111 | 70% | 4.33 | 4 | 2 | -0.07 | 6/32 | 31% | 31% |
+| int left | 18 | 50% | 7.78 | 1 | 0 | 0.43 | 24/32 | 5% | 7% |
+| int middle | 23 | 61% | 9.87 | 1 | 1 | 0.38 | 14/32 | 7% | 5% |
+| int right | 30 | 47% | 8.27 | 2 | 3 | 0.12 | 9/32 | 9% | 7% |
+| deep left | 10 | 50% | 15.70 | 3 | 0 | 1.20 | 31/31 | 3% | 4% |
+| deep middle | 5 | 40% | 15.60 | 0 | 0 | 0.32 | – | 1% | 2% |
+| deep right | 19 | 16% | 7.79 | 1 | 1 | -0.15 | 6/32 | 6% | 4% |
 
 Targets allowed by receiver position:
 
 | pos | tgt | catch | YPT | TD | PPR/tgt |
 |---|---|---|---|---|---|
-| RB | 57 | 77% | 4.49 | 2 | 1.43 |
-| WR | 179 | 64% | 7.20 | 6 | 1.56 |
-| TE | 65 | 65% | 6.26 | 5 | 1.73 |
+| RB | 67 | 78% | 4.48 | 2 | 1.40 |
+| WR | 197 | 64% | 7.55 | 7 | 1.61 |
+| TE | 73 | 64% | 6.04 | 5 | 1.66 |
 
 Run defense by bucket (box count from FTN charting):
 
 | type | bucket | rushes | YPC | success | EPA/rush |
 |---|---|---|---|---|---|
-| box | 7 | 98 | 3.82 | 32% | -0.174 |
-| box | 8+ | 5 | 1.60 | 60% | 0.209 |
-| box | ≤6 | 125 | 4.55 | 42% | 0.009 |
-| direction/gap | ? | 3 | -2.00 | 0% | -2.346 |
-| direction/gap | left end | 20 | 2.95 | 30% | -0.352 |
-| direction/gap | left guard | 37 | 4.57 | 32% | -0.017 |
-| direction/gap | left tackle | 22 | 4.27 | 36% | -0.058 |
-| direction/gap | middle | 66 | 4.11 | 47% | -0.016 |
-| direction/gap | right end | 20 | 4.25 | 50% | 0.036 |
-| direction/gap | right guard | 23 | 3.91 | 35% | 0.001 |
-| direction/gap | right tackle | 37 | 5.11 | 32% | 0.037 |
-| offense formation | shotgun | 75 | 3.65 | 40% | -0.054 |
-| offense formation | under center | 153 | 4.42 | 37% | -0.071 |
+| box | 7 | 104 | 3.82 | 33% | -0.147 |
+| box | 8+ | 5 | 1.60 | 60% | 0.249 |
+| box | ≤6 | 141 | 4.99 | 45% | 0.042 |
+| direction/gap | ? | 3 | -2.00 | 0% | -2.357 |
+| direction/gap | left end | 24 | 4.42 | 42% | -0.041 |
+| direction/gap | left guard | 38 | 4.47 | 32% | 0.016 |
+| direction/gap | left tackle | 25 | 4.60 | 44% | -0.016 |
+| direction/gap | middle | 71 | 4.44 | 48% | -0.037 |
+| direction/gap | right end | 23 | 3.74 | 48% | -0.028 |
+| direction/gap | right guard | 24 | 3.79 | 29% | -0.022 |
+| direction/gap | right tackle | 42 | 5.50 | 38% | 0.085 |
+| offense formation | shotgun | 79 | 3.73 | 41% | -0.023 |
+| offense formation | under center | 171 | 4.75 | 40% | -0.037 |
 
 RB targets allowed by route type:
 
 | route | tgt | catch | YPT | PPR/tgt |
 |---|---|---|---|---|
-| (route n/a) | 50 | 78% | 4.36 | 1.46 |
-| screen | 7 | 71% | 5.43 | 1.26 |
+| (route n/a) | 57 | 77% | 4.30 | 1.41 |
+| screen | 10 | 80% | 5.50 | 1.35 |
 
 Week by week: top scorer at each position vs this defense (RB line = car-yds-TD rush, tgt, rec-yds-TD):
 
@@ -126,6 +119,7 @@ Week by week: top scorer at each position vs this defense (RB line = car-yds-TD 
 | 8 | RB | GB | Josh Jacobs | 21-39-1 rush, 6 tgt 6-13-1 rec | 23.2 | 26.0 |
 | 9 | RB | DEN | Jonah Coleman | 17-57-1 rush, 4 tgt 4-31-0 rec | 18.8 | 22.0 |
 | 10 | RB | NO | Alvin Kamara | 2-4-1 rush, 4 tgt 3-10-1 rec | 16.4 | 24.9 |
+| 11 | RB | BAL | Derrick Henry | 13-94-1 rush, 5 tgt 4-17-0 rec | 19.1 | 36.7 |
 | 1 | TE | CHI | Cole Kmet | 3 tgt, 2-35-1 | 11.5 | 11.5 |
 | 2 | TE | ATL | Austin Hooper | 4 tgt, 2-20-0 | 4.0 | 6.5 |
 | 3 | TE | CLE | Harold Fannin Jr. | 9 tgt, 7-51-2 | 24.1 | 24.1 |
@@ -135,6 +129,7 @@ Week by week: top scorer at each position vs this defense (RB line = car-yds-TD 
 | 8 | TE | GB | Tucker Kraft | 6 tgt, 6-53-1 | 17.3 | 17.3 |
 | 9 | TE | DEN | Evan Engram | 5 tgt, 4-33-0 | 7.3 | 10.8 |
 | 10 | TE | NO | Juwan Johnson | 3 tgt, 2-28-0 | 4.8 | 4.8 |
+| 11 | TE | BAL | Mark Andrews | 3 tgt, 2-14-0 | 3.4 | 8.4 |
 | 1 | WR | CHI | Kalif Raymond | 9 tgt, 8-84-0 | 16.4 | 40.2 |
 | 2 | WR | ATL | Drake London | 5 tgt, 4-51-0 (+1--2 rush) | 8.9 | 18.3 |
 | 3 | WR | CLE | Denzel Boston | 4 tgt, 2-41-0 | 8.1 | 11.0 |
@@ -144,6 +139,7 @@ Week by week: top scorer at each position vs this defense (RB line = car-yds-TD 
 | 8 | WR | GB | Matthew Golden | 13 tgt, 7-79-1 | 20.9 | 44.1 |
 | 9 | WR | DEN | Pat Bryant | 5 tgt, 4-56-1 | 15.6 | 41.9 |
 | 10 | WR | NO | Jordyn Tyson | 13 tgt, 11-80-0 | 19.0 | 28.4 |
+| 11 | WR | BAL | Zay Flowers | 11 tgt, 8-97-0 (+1--13 rush) | 16.4 | 41.5 |
 
 Week by week: QBs vs this defense (main QB = most attempts + sacks + carries; rush = car-yds-TD; pts = nflverse fantasy points: 4-pt pass TD, −2 INT, −2 fumble lost):
 
@@ -158,79 +154,81 @@ Week by week: QBs vs this defense (main QB = most attempts + sacks + carries; ru
 | 8 | GB | Jordan Love | 30/41 | 288 | 3 | 1 | 0 | 0-0-0 | 0 | 21.5 | – | 21.5 |
 | 9 | DEN | Bo Nix | 25/37 | 237 | 2 | 1 | 1 | 5-2-0 | 0 | 15.7 | – | 15.7 |
 | 10 | NO | Tyler Shough | 25/35 | 187 | 1 | 1 | 3 | 6-25-0 | 1 | 10.0 | – | 10.0 |
+| 11 | BAL | Jacoby Brissett | 24/37 | 276 | 1 | 1 | 2 | 2-7-0 | 0 | 13.7 | – | 13.7 |
 
 Game by game, 2026: allowed (expected vs that offense; * = its rating rests on under 100 plays):
 
 | wk | opp | rush | YPC | success | EPA/rush | db | EPA/db | YPA |
 |---|---|---|---|---|---|---|---|---|
-| 1 | CHI | 32 | 7.25 (3.80) | 44% (43%) | 0.24 (-0.06) | 38 | 0.47 (0.08) | 9.28 (7.61) |
-| 2 | ATL | 28 | 4.32 (5.15) | 36% (46%) | -0.13 (0.04) | 39 | -0.56 (-0.05) | 4.53 (7.16) |
-| 3 | CLE | 23 | 3.87 (3.68) | 30% (38%) | -0.24 (-0.14) | 39 | 0.13 (-0.02) | 4.50 (7.56) |
-| 4 | DET | 15 | 3.07 (5.00) | 33% (49%) | -0.03 (0.01) | 53 | 0.18 (0.17) | 7.92 (7.89) |
-| 6 | PHI | 13 | 2.69 (3.36) | 38% (32%) | -0.11 (-0.13) | 48 | -0.13 (-0.12) | 4.78 (5.62) |
-| 7 | TB | 47 | 5.55 (4.59) | 55% (43%) | 0.14 (-0.04) | 11 | 0.42 (-0.16) | 5.82 (5.82) |
-| 8 | GB | 26 | 2.54 (3.00) | 38% (35%) | -0.11 (-0.23) | 41 | 0.17 (0.15) | 7.02 (7.79) |
-| 9 | DEN | 26 | 3.19 (4.09) | 31% (42%) | -0.13 (0.02) | 39 | 0.17 (0.06) | 6.24 (6.16) |
-| 10 | NO | 18 | 1.00 (3.15) | 11% (34%) | -0.66 (-0.11) | 43 | -0.07 (0.02) | 5.34 (6.35) |
+| 1 | CHI | 32 | 7.25 (3.86) | 47% (40%) | 0.27 (-0.07) | 38 | 0.45 (0.05) | 9.28 (7.52) |
+| 2 | ATL | 28 | 4.32 (5.13) | 29% (47%) | -0.13 (0.06) | 39 | -0.55 (-0.04) | 4.53 (7.17) |
+| 3 | CLE | 23 | 3.87 (3.66) | 35% (39%) | -0.24 (-0.12) | 39 | 0.11 (-0.03) | 4.50 (7.55) |
+| 4 | DET | 15 | 3.07 (4.92) | 40% (51%) | -0.03 (0.06) | 53 | 0.18 (0.21) | 7.92 (8.16) |
+| 6 | PHI | 13 | 2.69 (3.54) | 38% (36%) | -0.09 (-0.09) | 48 | -0.13 (-0.13) | 4.78 (5.74) |
+| 7 | TB | 47 | 5.55 (4.57) | 55% (42%) | 0.15 (-0.03) | 11 | 0.41 (-0.14) | 5.82 (5.81) |
+| 8 | GB | 26 | 2.54 (3.02) | 38% (37%) | -0.06 (-0.21) | 41 | 0.15 (0.12) | 7.02 (7.70) |
+| 9 | DEN | 26 | 3.19 (3.99) | 31% (45%) | -0.10 (0.03) | 39 | 0.16 (0.04) | 6.24 (6.10) |
+| 10 | NO | 18 | 1.00 (3.27) | 22% (38%) | -0.58 (-0.09) | 43 | -0.08 (0.01) | 5.34 (6.12) |
+| 11 | BAL | 22 | 7.14 (4.06) | 50% (44%) | 0.08 (-0.05) | 39 | 0.02 (-0.00) | 7.46 (7.10) |
 
 ## 2026 OFFENSE — CAR Carolina Panthers
 
 Usage concentrations (share well above league avg at his position):
-- Tommy Tremble (TE, 35 tgt): short left 40% (avg 24%)
-- Mitchell Evans (TE, 15 tgt): short left 47% (avg 24%)
+- Tommy Tremble (TE, 36 tgt): short left 39% (avg 24%)
+- Mitchell Evans (TE, 20 tgt): short left 40% (avg 24%)
 - AJ Dillon (RB, 17 car): runs left tackle 24% (avg 13%)
 
 Team passing context:
 
 | stat | value |
 |---|---|
-| Dropbacks | 382 |
-| EPA/dropback | 0.054 |
+| Dropbacks | 415 |
+| EPA/dropback | 0.052 |
 | Sack rate | 8% |
 | Pressure rate faced (NGS) | – |
 | EPA/db clean | – |
 | EPA/db under pressure | – |
-| Blitz rate faced (FTN) | 28% |
-| EPA/db vs blitz | -0.151 |
-| EPA/db vs no blitz | 0.134 |
+| Blitz rate faced (FTN) | 29% |
+| EPA/db vs blitz | -0.150 |
+| EPA/db vs no blitz | 0.133 |
 | Pass rate over expected | +3.8% vs expected |
 
 Opponent-adjusted run and pass, 2026 (expected = league avg + each opposing defense's adjusted rating from its other games; diff = gained − expected, or for rates the % change vs expected; adjusted = league avg + diff; rank 1 = best offense; thin = games where that rating rests on under 100 plays; method in README):
 
 | stat | gained | expected | diff | adjusted | rank | games | thin |
 |---|---|---|---|---|---|---|---|
-| Run YPC | 3.98 | 4.10 | -0.12 | 3.97 | 18/32 | 9 | 0 |
-| Run success rate | 39.1% | 41.1% | −4.8% | 38.6% | 19/32 | 9 | 0 |
-| EPA/rush | -0.018 | -0.042 | +0.025 | -0.032 | 14/32 | 9 | 0 |
-| EPA/dropback | 0.054 | 0.015 | +0.039 | 0.087 | 13/32 | 9 | 0 |
-| YPA | 7.13 | 6.92 | +0.21 | 7.34 | 13/32 | 9 | 0 |
-| Sack rate | 7.6% | 6.7% | +13.7% | 7.3% | 23/32 | 9 | 0 |
+| Run YPC | 4.05 | 4.04 | +0.01 | 4.11 | 16/32 | 10 | 0 |
+| Run success rate | 41.1% | 43.2% | −5.0% | 40.5% | 21/32 | 10 | 0 |
+| EPA/rush | 0.004 | -0.026 | +0.029 | -0.005 | 12/32 | 10 | 0 |
+| EPA/dropback | 0.052 | 0.016 | +0.036 | 0.078 | 14/32 | 10 | 0 |
+| YPA | 7.23 | 6.95 | +0.28 | 7.38 | 12/32 | 10 | 0 |
+| Sack rate | 7.7% | 6.8% | +13.8% | 7.4% | 22/32 | 10 | 0 |
 
 QB throw map (share of att, EPA/att in parentheses; ≥40 att):
 
 | QB | att | short left | short middle | short right | int left | int middle | int right | deep left | deep middle | deep right |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Bryce Young | 336 | 29% (-0.16) | 14% (0.23) | 25% (0.01) | 7% (0.30) | 7% (0.95) | 7% (0.17) | 4% (0.49) | 3% (0.79) | 4% (0.69) |
-| league | 9825 | 25% (0.02) | 13% (0.05) | 29% (0.01) | 7% (0.26) | 6% (0.48) | 8% (0.29) | 4% (0.31) | 2% (0.60) | 5% (0.35) |
+| Bryce Young | 366 | 28% (-0.15) | 14% (0.28) | 25% (-0.02) | 7% (0.24) | 8% (0.81) | 7% (0.20) | 4% (0.62) | 3% (0.83) | 4% (0.70) |
+| league | 10692 | 25% (0.02) | 13% (0.06) | 29% (0.01) | 7% (0.22) | 6% (0.45) | 8% (0.26) | 4% (0.31) | 2% (0.54) | 5% (0.32) |
 
 Player usage, season totals (RZ opps = carries + targets inside the 10 / 5):
 
 | player | pos | G | snap% avg | tgt | tgt share | air yds share | aDOT | rec-yds-TD | YAC/rec | MOF tgt% | car | car share | rush yds-TD | RZ10 opps | RZ5 opps | PPR | PPR/g |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Chuba Hubbard | RB | 9 | 80% | 36 | 12% | -1% | -1.0 | 31-247-2 | 9.4 | 25% | 161 | 73% | 711-7 | 20 | 13 | 180.8 | 20.1 |
-| Bryce Young | QB | 9 | 96% | 0 | 0% | 0% | – | 0-0-0 | – | – | 12 | 5% | 48-1 | 0 | 0 | 154.7 | 17.2 |
-| Tetairoa McMillan | WR | 9 | 82% | 78 | 25% | 33% | 11.2 | 49-660-3 | 3.3 | 27% | 0 | 0% | 0-0 | 7 | 5 | 131.0 | 14.6 |
-| Jalen Coker | WR | 8 | 73% | 53 | 17% | 20% | 10.1 | 31-393-3 | 4.5 | 23% | 2 | 1% | 0-0 | 6 | 3 | 88.3 | 11.0 |
-| Darren Waller | TE | 9 | 50% | 39 | 12% | 16% | 10.4 | 25-323-4 | 4.4 | 23% | 0 | 0% | 0-0 | 1 | 0 | 81.3 | 9.0 |
-| Tommy Tremble | TE | 9 | 58% | 35 | 11% | 5% | 3.5 | 25-227-3 | 5.8 | 11% | 0 | 0% | 0-0 | 3 | 1 | 65.7 | 7.3 |
-| John Metchie III | WR | 8 | 36% | 23 | 7% | 7% | 8.0 | 15-158-1 | 2.8 | 29% | 0 | 0% | 0-0 | 2 | 1 | 36.8 | 4.6 |
-| Mitchell Evans | TE | 9 | 47% | 15 | 5% | 3% | 5.3 | 12-147-0 | 7.3 | 13% | 1 | 0% | 1-0 | 1 | 1 | 26.8 | 3.0 |
-| Brycen Tremayne | WR | 9 | 39% | 12 | 4% | 7% | 14.7 | 7-126-0 | 4.0 | 25% | 0 | 0% | 0-0 | 1 | 1 | 19.6 | 2.2 |
+| Chuba Hubbard | RB | 10 | 81% | 36 | 11% | -1% | -1.0 | 31-247-2 | 9.4 | 25% | 188 | 73% | 831-9 | 24 | 17 | 206.8 | 20.7 |
+| Bryce Young | QB | 10 | 96% | 0 | 0% | 0% | – | 0-0-0 | – | – | 14 | 5% | 46-1 | 0 | 0 | 170.6 | 17.1 |
+| Tetairoa McMillan | WR | 10 | 82% | 87 | 25% | 34% | 11.0 | 55-731-4 | 3.3 | 27% | 0 | 0% | 0-0 | 9 | 6 | 150.1 | 15.0 |
+| Jalen Coker | WR | 9 | 74% | 60 | 18% | 20% | 9.7 | 35-440-3 | 4.4 | 23% | 2 | 1% | 0-0 | 7 | 4 | 97.0 | 10.8 |
+| Darren Waller | TE | 10 | 50% | 42 | 12% | 15% | 10.4 | 28-365-4 | 4.3 | 26% | 0 | 0% | 0-0 | 1 | 0 | 88.5 | 8.9 |
+| Tommy Tremble | TE | 10 | 61% | 36 | 11% | 5% | 3.8 | 26-245-3 | 5.8 | 14% | 0 | 0% | 0-0 | 3 | 1 | 68.5 | 6.8 |
+| Mitchell Evans | TE | 10 | 46% | 20 | 6% | 4% | 5.5 | 17-191-1 | 6.0 | 20% | 1 | 0% | 1-0 | 1 | 1 | 42.2 | 4.2 |
+| John Metchie III | WR | 9 | 36% | 26 | 8% | 7% | 7.5 | 16-177-1 | 3.9 | 26% | 0 | 0% | 0-0 | 2 | 1 | 39.7 | 4.4 |
+| Brycen Tremayne | WR | 10 | 38% | 13 | 4% | 6% | 13.9 | 8-132-0 | 3.6 | 23% | 0 | 0% | 0-0 | 1 | 1 | 21.2 | 2.1 |
+| Trevor Etienne | RB | 6 | 14% | 5 | 1% | 0% | 0.6 | 5-33-0 | 6.0 | 60% | 19 | 7% | 45-0 | 1 | 0 | 12.8 | 2.1 |
 | Jonathon Brooks | RB | 2 | 24% | 3 | 1% | 1% | 8.0 | 2-43-0 | 13.5 | 0% | 9 | 4% | 30-0 | 1 | 0 | 9.3 | 4.7 |
-| Xavier Legette | WR | 2 | 35% | 6 | 2% | 4% | 16.2 | 2-64-0 | 5.0 | 17% | 0 | 0% | 0-0 | 0 | 0 | 8.4 | 4.2 |
-| Anthony Tyus III | RB | 6 | 2% | 0 | 0% | 0% | – | 0-0-0 | – | – | 3 | 1% | 23-1 | 0 | 0 | 8.3 | 1.4 |
-| Trevor Etienne | RB | 5 | 14% | 4 | 1% | 0% | 1.5 | 4-26-0 | 5.0 | 75% | 13 | 6% | 16-0 | 0 | 0 | 8.2 | 1.6 |
-| AJ Dillon | RB | 4 | 12% | 2 | 1% | -0% | -1.0 | 2-3-0 | 2.5 | 0% | 17 | 8% | 43-0 | 0 | 0 | 6.6 | 1.7 |
+| Xavier Legette | WR | 2 | 26% | 6 | 2% | 3% | 16.2 | 2-64-0 | 5.0 | 17% | 0 | 0% | 0-0 | 0 | 0 | 8.4 | 4.2 |
+| Anthony Tyus III | RB | 7 | 2% | 0 | 0% | 0% | – | 0-0-0 | – | – | 3 | 1% | 23-1 | 0 | 0 | 8.3 | 1.2 |
+| AJ Dillon | RB | 4 | 12% | 2 | 1% | -0% | -1.0 | 2-3-0 | 2.5 | 0% | 17 | 7% | 43-0 | 0 | 0 | 6.6 | 1.7 |
 | Kenny Pickett | QB | 3 | 13% | 0 | 0% | 0% | – | 0-0-0 | – | – | 3 | 1% | 35-0 | 0 | 0 | 5.4 | 1.8 |
 | David Moore | WR | 6 | 6% | 4 | 1% | 3% | 18.0 | 1-27-0 | 28.0 | 50% | 0 | 0% | 0-0 | 0 | 0 | 3.7 | 0.6 |
 | Jimmy Horn Jr. | WR | 1 | 21% | 1 | 0% | 0% | 3.0 | 0-0-0 | – | 0% | 0 | 0% | 0-0 | 0 | 0 | 0.0 | 0.0 |
@@ -240,66 +238,67 @@ Target depth mix (air yards):
 
 | player | behind LOS | 0-9 | 10-19 | 20+ |
 |---|---|---|---|---|
-| Darren Waller | 8% | 51% | 28% | 13% |
+| Darren Waller | 7% | 52% | 26% | 14% |
 | Chuba Hubbard | 64% | 33% | 3% | 0% |
-| Tommy Tremble | 31% | 54% | 14% | 0% |
-| John Metchie III | 9% | 57% | 30% | 4% |
-| Brycen Tremayne | 0% | 42% | 25% | 33% |
+| Tommy Tremble | 31% | 53% | 17% | 0% |
+| John Metchie III | 12% | 58% | 27% | 4% |
+| Brycen Tremayne | 0% | 46% | 23% | 31% |
 | Xavier Legette | 0% | 50% | 33% | 17% |
-| Jalen Coker | 19% | 42% | 23% | 17% |
-| Tetairoa McMillan | 5% | 46% | 31% | 18% |
-| Mitchell Evans | 27% | 60% | 13% | 0% |
+| Jalen Coker | 22% | 40% | 22% | 17% |
+| Tetairoa McMillan | 6% | 46% | 32% | 16% |
+| Mitchell Evans | 25% | 60% | 10% | 5% |
+| Trevor Etienne | 40% | 60% | 0% | 0% |
 
 RB rushing by bucket (≥8 carries):
 
 | RB | type | bucket | car | YPC | success | EPA/rush |
 |---|---|---|---|---|---|---|
-| Chuba Hubbard | formation | shotgun | 60 | 3.75 | 38% | -0.088 |
-| Chuba Hubbard | formation | under center | 102 | 4.76 | 48% | 0.159 |
-| Chuba Hubbard | box | 7 | 82 | 4.07 | 45% | 0.126 |
-| Chuba Hubbard | box | 8+ | 6 | 3.67 | 83% | 0.219 |
-| Chuba Hubbard | box | ≤6 | 74 | 4.80 | 41% | -0.009 |
-| Chuba Hubbard | direction/gap | ? | 1 | 0.00 | 0% | -0.960 |
-| Chuba Hubbard | direction/gap | left end | 20 | 5.85 | 70% | 0.389 |
-| Chuba Hubbard | direction/gap | left guard | 25 | 5.36 | 52% | 0.179 |
-| Chuba Hubbard | direction/gap | left tackle | 27 | 6.00 | 44% | 0.170 |
-| Chuba Hubbard | direction/gap | middle | 39 | 2.87 | 38% | -0.200 |
-| Chuba Hubbard | direction/gap | right end | 14 | 4.21 | 36% | -0.230 |
-| Chuba Hubbard | direction/gap | right guard | 23 | 3.70 | 30% | 0.035 |
-| Chuba Hubbard | direction/gap | right tackle | 13 | 3.23 | 46% | 0.406 |
-| AJ Dillon | formation | shotgun | 4 | 3.00 | 25% | -0.416 |
-| AJ Dillon | formation | under center | 13 | 2.38 | 23% | -0.486 |
-| AJ Dillon | box | 7 | 6 | 1.33 | 17% | -0.836 |
-| AJ Dillon | box | 8+ | 1 | -2.00 | 0% | -1.807 |
-| AJ Dillon | box | ≤6 | 10 | 3.70 | 30% | -0.116 |
-| AJ Dillon | direction/gap | left end | 3 | 1.67 | 0% | -0.672 |
-| AJ Dillon | direction/gap | left guard | 3 | 1.00 | 0% | -0.801 |
-| AJ Dillon | direction/gap | left tackle | 4 | 5.75 | 50% | 0.033 |
-| AJ Dillon | direction/gap | middle | 5 | 2.60 | 40% | -0.512 |
-| AJ Dillon | direction/gap | right end | 1 | -4.00 | 0% | -0.999 |
-| AJ Dillon | direction/gap | right guard | 1 | 3.00 | 0% | -0.139 |
-| Trevor Etienne | formation | shotgun | 5 | 0.80 | 20% | -0.422 |
-| Trevor Etienne | formation | under center | 8 | 1.50 | 0% | -0.398 |
-| Trevor Etienne | box | 7 | 6 | 0.33 | 0% | -0.524 |
-| Trevor Etienne | box | 8+ | 2 | 1.00 | 0% | -0.460 |
-| Trevor Etienne | box | ≤6 | 5 | 2.40 | 20% | -0.246 |
-| Trevor Etienne | direction/gap | left end | 1 | 0.00 | 0% | -0.405 |
-| Trevor Etienne | direction/gap | left guard | 1 | -1.00 | 0% | -0.690 |
-| Trevor Etienne | direction/gap | left tackle | 2 | 0.00 | 0% | -0.525 |
-| Trevor Etienne | direction/gap | middle | 3 | 2.00 | 0% | -0.395 |
-| Trevor Etienne | direction/gap | right end | 2 | 1.00 | 0% | -0.534 |
-| Trevor Etienne | direction/gap | right guard | 2 | 2.00 | 0% | -0.321 |
-| Trevor Etienne | direction/gap | right tackle | 2 | 2.50 | 50% | -0.127 |
-| Jonathon Brooks | formation | shotgun | 1 | 5.00 | 0% | -0.062 |
+| Chuba Hubbard | formation | shotgun | 72 | 4.40 | 42% | 0.006 |
+| Chuba Hubbard | formation | under center | 118 | 4.37 | 48% | 0.121 |
+| Chuba Hubbard | box | 7 | 92 | 3.82 | 46% | 0.117 |
+| Chuba Hubbard | box | 8+ | 6 | 3.67 | 67% | 0.229 |
+| Chuba Hubbard | box | ≤6 | 92 | 5.00 | 45% | 0.029 |
+| Chuba Hubbard | direction/gap | ? | 2 | 1.00 | 50% | 0.040 |
+| Chuba Hubbard | direction/gap | left end | 24 | 5.00 | 62% | 0.285 |
+| Chuba Hubbard | direction/gap | left guard | 29 | 4.69 | 48% | 0.064 |
+| Chuba Hubbard | direction/gap | left tackle | 30 | 6.10 | 47% | 0.274 |
+| Chuba Hubbard | direction/gap | middle | 51 | 3.22 | 43% | -0.129 |
+| Chuba Hubbard | direction/gap | right end | 15 | 4.27 | 33% | -0.214 |
+| Chuba Hubbard | direction/gap | right guard | 24 | 4.62 | 38% | 0.108 |
+| Chuba Hubbard | direction/gap | right tackle | 15 | 3.53 | 47% | 0.327 |
+| Trevor Etienne | formation | shotgun | 7 | 1.29 | 14% | -0.302 |
+| Trevor Etienne | formation | under center | 12 | 3.00 | 17% | -0.230 |
+| Trevor Etienne | box | 7 | 8 | 2.88 | 12% | -0.289 |
+| Trevor Etienne | box | 8+ | 2 | 1.00 | 0% | -0.344 |
+| Trevor Etienne | box | ≤6 | 9 | 2.22 | 22% | -0.208 |
+| Trevor Etienne | direction/gap | left end | 1 | 0.00 | 0% | -0.436 |
+| Trevor Etienne | direction/gap | left guard | 1 | -1.00 | 0% | -0.751 |
+| Trevor Etienne | direction/gap | left tackle | 3 | 0.67 | 0% | -0.352 |
+| Trevor Etienne | direction/gap | middle | 5 | 2.20 | 0% | -0.277 |
+| Trevor Etienne | direction/gap | right end | 3 | 1.00 | 0% | -0.388 |
+| Trevor Etienne | direction/gap | right guard | 4 | 6.25 | 50% | 0.045 |
+| Trevor Etienne | direction/gap | right tackle | 2 | 2.50 | 50% | -0.132 |
+| AJ Dillon | formation | shotgun | 4 | 3.00 | 50% | -0.386 |
+| AJ Dillon | formation | under center | 13 | 2.38 | 23% | -0.466 |
+| AJ Dillon | box | 7 | 6 | 1.33 | 17% | -0.832 |
+| AJ Dillon | box | 8+ | 1 | -2.00 | 0% | -1.463 |
+| AJ Dillon | box | ≤6 | 10 | 3.70 | 40% | -0.114 |
+| AJ Dillon | direction/gap | left end | 3 | 1.67 | 33% | -0.583 |
+| AJ Dillon | direction/gap | left guard | 3 | 1.00 | 0% | -0.643 |
+| AJ Dillon | direction/gap | left tackle | 4 | 5.75 | 50% | 0.008 |
+| AJ Dillon | direction/gap | middle | 5 | 2.60 | 40% | -0.550 |
+| AJ Dillon | direction/gap | right end | 1 | -4.00 | 0% | -1.039 |
+| AJ Dillon | direction/gap | right guard | 1 | 3.00 | 0% | -0.160 |
+| Jonathon Brooks | formation | shotgun | 1 | 5.00 | 0% | -0.067 |
 | Jonathon Brooks | formation | under center | 8 | 3.12 | 25% | -0.244 |
-| Jonathon Brooks | box | 7 | 4 | 4.00 | 25% | -0.166 |
-| Jonathon Brooks | box | ≤6 | 5 | 2.80 | 20% | -0.270 |
-| Jonathon Brooks | direction/gap | left end | 3 | 4.33 | 33% | -0.173 |
-| Jonathon Brooks | direction/gap | left guard | 2 | 4.00 | 0% | -0.103 |
-| Jonathon Brooks | direction/gap | left tackle | 1 | -1.00 | 0% | -0.612 |
-| Jonathon Brooks | direction/gap | middle | 1 | 3.00 | 0% | -0.228 |
-| Jonathon Brooks | direction/gap | right guard | 1 | 6.00 | 100% | 0.018 |
-| Jonathon Brooks | direction/gap | right tackle | 1 | 1.00 | 0% | -0.463 |
+| Jonathon Brooks | box | 7 | 4 | 4.00 | 25% | -0.228 |
+| Jonathon Brooks | box | ≤6 | 5 | 2.80 | 20% | -0.222 |
+| Jonathon Brooks | direction/gap | left end | 3 | 4.33 | 33% | -0.278 |
+| Jonathon Brooks | direction/gap | left guard | 2 | 4.00 | 0% | -0.073 |
+| Jonathon Brooks | direction/gap | left tackle | 1 | -1.00 | 0% | -0.485 |
+| Jonathon Brooks | direction/gap | middle | 1 | 3.00 | 0% | -0.172 |
+| Jonathon Brooks | direction/gap | right guard | 1 | 6.00 | 100% | 0.037 |
+| Jonathon Brooks | direction/gap | right tackle | 1 | 1.00 | 0% | -0.423 |
 
 Week by week usage:
 
@@ -315,6 +314,7 @@ Week by week usage:
 | Anthony Tyus III | RB | 8 | GB | 0% | 0 | 0% | 0-0-0 | – | 0 | 0% | 0-0 | 0.0 |
 | Anthony Tyus III | RB | 9 | DEN | 0% | 0 | 0% | 0-0-0 | – | 0 | 0% | 0-0 | 0.0 |
 | Anthony Tyus III | RB | 10 | NO | 0% | 0 | 0% | 0-0-0 | – | 0 | 0% | 0-0 | 0.0 |
+| Anthony Tyus III | RB | 11 | BAL | 3% | 0 | 0% | 0-0-0 | – | 0 | 0% | 0-0 | 0.0 |
 | Bryce Young | QB | 1 | CHI | 90% | 0 | 0% | 0-0-0 | – | 2 | 9% | 10-1 | 31.4 |
 | Bryce Young | QB | 2 | ATL | 94% | 0 | 0% | 0-0-0 | – | 1 | 5% | 6-0 | 24.1 |
 | Bryce Young | QB | 3 | CLE | 100% | 0 | 0% | 0-0-0 | – | 0 | 0% | 0-0 | 13.6 |
@@ -324,6 +324,7 @@ Week by week usage:
 | Bryce Young | QB | 8 | GB | 100% | 0 | 0% | 0-0-0 | – | 0 | 0% | 0-0 | 10.4 |
 | Bryce Young | QB | 9 | DEN | 100% | 0 | 0% | 0-0-0 | – | 1 | 5% | 13-0 | 20.3 |
 | Bryce Young | QB | 10 | NO | 100% | 0 | 0% | 0-0-0 | – | 1 | 3% | 1-0 | 8.1 |
+| Bryce Young | QB | 11 | BAL | 100% | 0 | 0% | 0-0-0 | – | 2 | 6% | -2-0 | 16.0 |
 | Brycen Tremayne | WR | 1 | CHI | 18% | 0 | 0% | 0-0-0 | – | 0 | 0% | 0-0 | 0.0 |
 | Brycen Tremayne | WR | 2 | ATL | 17% | 0 | 0% | 0-0-0 | – | 0 | 0% | 0-0 | 0.0 |
 | Brycen Tremayne | WR | 3 | CLE | 81% | 6 | 14% | 4-83-0 | 18.0 | 0 | 0% | 0-0 | 12.3 |
@@ -333,6 +334,7 @@ Week by week usage:
 | Brycen Tremayne | WR | 8 | GB | 26% | 1 | 3% | 1-11-0 | 5.0 | 0 | 0% | 0-0 | 2.1 |
 | Brycen Tremayne | WR | 9 | DEN | 32% | 1 | 3% | 0-0-0 | 23.0 | 0 | 0% | 0-0 | 0.0 |
 | Brycen Tremayne | WR | 10 | NO | 17% | 0 | 0% | 0-0-0 | – | 0 | 0% | 0-0 | 0.0 |
+| Brycen Tremayne | WR | 11 | BAL | 24% | 1 | 3% | 1-6-0 | 5.0 | 0 | 0% | 0-0 | 1.6 |
 | Chuba Hubbard | RB | 1 | CHI | 71% | 3 | 9% | 3-38-1 | 0.0 | 10 | 45% | 49-1 | 23.7 |
 | Chuba Hubbard | RB | 2 | ATL | 65% | 2 | 6% | 2-11-1 | -2.0 | 12 | 55% | 53-0 | 14.4 |
 | Chuba Hubbard | RB | 3 | CLE | 84% | 4 | 10% | 4-28-0 | -3.5 | 19 | 83% | 82-0 | 15.0 |
@@ -342,6 +344,7 @@ Week by week usage:
 | Chuba Hubbard | RB | 8 | GB | 92% | 8 | 23% | 7-38-0 | 1.5 | 22 | 96% | 81-1 | 24.9 |
 | Chuba Hubbard | RB | 9 | DEN | 89% | 5 | 14% | 4-17-0 | -1.0 | 16 | 80% | 79-0 | 13.6 |
 | Chuba Hubbard | RB | 10 | NO | 84% | 5 | 17% | 5-80-0 | -3.6 | 27 | 84% | 92-2 | 34.2 |
+| Chuba Hubbard | RB | 11 | BAL | 82% | 0 | 0% | 0-0-0 | – | 27 | 77% | 120-2 | 26.0 |
 | Darren Waller | TE | 1 | CHI | 35% | 2 | 6% | 2-28-0 | 4.0 | 0 | 0% | 0-0 | 4.8 |
 | Darren Waller | TE | 2 | ATL | 44% | 3 | 9% | 3-33-2 | 8.7 | 0 | 0% | 0-0 | 18.3 |
 | Darren Waller | TE | 3 | CLE | 51% | 8 | 19% | 5-51-0 | 7.0 | 0 | 0% | 0-0 | 10.1 |
@@ -351,6 +354,7 @@ Week by week usage:
 | Darren Waller | TE | 8 | GB | 62% | 2 | 6% | 1-11-0 | 3.5 | 0 | 0% | 0-0 | 2.1 |
 | Darren Waller | TE | 9 | DEN | 53% | 10 | 27% | 8-90-1 | 10.3 | 0 | 0% | 0-0 | 23.0 |
 | Darren Waller | TE | 10 | NO | 61% | 4 | 14% | 2-24-0 | 17.0 | 0 | 0% | 0-0 | 4.4 |
+| Darren Waller | TE | 11 | BAL | 46% | 3 | 10% | 3-42-0 | 10.3 | 0 | 0% | 0-0 | 7.2 |
 | David Moore | WR | 3 | CLE | 6% | 2 | 5% | 0-0-0 | 29.5 | 0 | 0% | 0-0 | 0.0 |
 | David Moore | WR | 4 | DET | 1% | 0 | 0% | 0-0-0 | – | 0 | 0% | 0-0 | 0.0 |
 | David Moore | WR | 6 | PHI | 3% | 1 | 3% | 1-27-0 | -1.0 | 0 | 0% | 0-0 | 3.7 |
@@ -366,6 +370,7 @@ Week by week usage:
 | Jalen Coker | WR | 8 | GB | 86% | 5 | 14% | 2-36-1 | 3.2 | 0 | 0% | 0-0 | 11.6 |
 | Jalen Coker | WR | 9 | DEN | 82% | 5 | 14% | 4-29-0 | 8.0 | 1 | 5% | -3-0 | 6.6 |
 | Jalen Coker | WR | 10 | NO | 80% | 4 | 14% | 0-0-0 | 6.0 | 1 | 3% | 3-0 | 0.3 |
+| Jalen Coker | WR | 11 | BAL | 85% | 7 | 23% | 4-47-0 | 6.7 | 0 | 0% | 0-0 | 8.7 |
 | Jimmy Horn Jr. | WR | 1 | CHI | 21% | 1 | 3% | 0-0-0 | 3.0 | 0 | 0% | 0-0 | 0.0 |
 | John Metchie III | WR | 2 | ATL | 11% | 0 | 0% | 0-0-0 | – | 0 | 0% | 0-0 | 0.0 |
 | John Metchie III | WR | 3 | CLE | 56% | 5 | 12% | 2-19-1 | 7.8 | 0 | 0% | 0-0 | 9.9 |
@@ -375,6 +380,7 @@ Week by week usage:
 | John Metchie III | WR | 8 | GB | 45% | 3 | 9% | 3-14-0 | 4.7 | 0 | 0% | 0-0 | 4.4 |
 | John Metchie III | WR | 9 | DEN | 29% | 2 | 5% | 2-40-0 | 18.5 | 0 | 0% | 0-0 | 6.0 |
 | John Metchie III | WR | 10 | NO | 33% | 1 | 3% | 1-4-0 | 4.0 | 0 | 0% | 0-0 | 1.4 |
+| John Metchie III | WR | 11 | BAL | 30% | 3 | 10% | 1-19-0 | 3.7 | 0 | 0% | 0-0 | 2.9 |
 | Jonathon Brooks | RB | 1 | CHI | 19% | 2 | 6% | 1-48-0 | 15.0 | 4 | 18% | 14-0 | 7.2 |
 | Jonathon Brooks | RB | 2 | ATL | 30% | 1 | 3% | 1-(-5)-0 | -6.0 | 5 | 23% | 16-0 | 2.1 |
 | Kenny Pickett | QB | 1 | CHI | 10% | 0 | 0% | 0-0-0 | – | 1 | 5% | 24-0 | 2.4 |
@@ -389,6 +395,7 @@ Week by week usage:
 | Mitchell Evans | TE | 8 | GB | 32% | 2 | 6% | 2-22-0 | 1.5 | 0 | 0% | 0-0 | 4.2 |
 | Mitchell Evans | TE | 9 | DEN | 47% | 2 | 5% | 2-20-0 | 4.5 | 0 | 0% | 0-0 | 4.0 |
 | Mitchell Evans | TE | 10 | NO | 50% | 1 | 3% | 0-0-0 | 15.0 | 0 | 0% | 0-0 | 0.0 |
+| Mitchell Evans | TE | 11 | BAL | 42% | 5 | 17% | 5-44-1 | 6.0 | 0 | 0% | 0-0 | 15.4 |
 | Tetairoa McMillan | WR | 1 | CHI | 82% | 8 | 24% | 5-75-0 | 14.9 | 0 | 0% | 0-0 | 10.5 |
 | Tetairoa McMillan | WR | 2 | ATL | 80% | 10 | 31% | 5-101-0 | 13.2 | 0 | 0% | 0-0 | 15.1 |
 | Tetairoa McMillan | WR | 3 | CLE | 95% | 5 | 12% | 2-17-0 | 8.8 | 0 | 0% | 0-0 | 3.7 |
@@ -398,6 +405,7 @@ Week by week usage:
 | Tetairoa McMillan | WR | 8 | GB | 89% | 11 | 31% | 6-58-0 | 9.8 | 0 | 0% | 0-0 | 11.8 |
 | Tetairoa McMillan | WR | 9 | DEN | 80% | 6 | 16% | 4-56-1 | 14.8 | 0 | 0% | 0-0 | 15.6 |
 | Tetairoa McMillan | WR | 10 | NO | 80% | 7 | 24% | 3-35-0 | 12.7 | 0 | 0% | 0-0 | 6.5 |
+| Tetairoa McMillan | WR | 11 | BAL | 83% | 9 | 30% | 6-71-1 | 9.6 | 0 | 0% | 0-0 | 19.1 |
 | Tommy Tremble | TE | 1 | CHI | 56% | 5 | 15% | 3-25-0 | 4.6 | 0 | 0% | 0-0 | 5.5 |
 | Tommy Tremble | TE | 2 | ATL | 56% | 2 | 6% | 1-4-0 | 9.5 | 0 | 0% | 0-0 | 1.4 |
 | Tommy Tremble | TE | 3 | CLE | 48% | 4 | 10% | 3-41-0 | 6.2 | 0 | 0% | 0-0 | 7.1 |
@@ -407,11 +415,13 @@ Week by week usage:
 | Tommy Tremble | TE | 8 | GB | 60% | 3 | 9% | 1-19-0 | -1.3 | 0 | 0% | 0-0 | 2.9 |
 | Tommy Tremble | TE | 9 | DEN | 70% | 6 | 16% | 4-24-1 | 2.0 | 0 | 0% | 0-0 | 12.4 |
 | Tommy Tremble | TE | 10 | NO | 67% | 5 | 17% | 4-48-0 | 1.4 | 0 | 0% | 0-0 | 8.8 |
+| Tommy Tremble | TE | 11 | BAL | 83% | 1 | 3% | 1-18-0 | 14.0 | 0 | 0% | 0-0 | 2.8 |
 | Trevor Etienne | RB | 6 | PHI | 4% | 0 | 0% | 0-0-0 | – | 1 | 3% | -1-0 | -0.1 |
 | Trevor Etienne | RB | 7 | TB | 30% | 2 | 7% | 2-17-0 | 0.5 | 6 | 33% | 8-0 | 4.5 |
 | Trevor Etienne | RB | 8 | GB | 7% | 0 | 0% | 0-0-0 | – | 1 | 4% | 1-0 | 0.1 |
 | Trevor Etienne | RB | 9 | DEN | 11% | 0 | 0% | 0-0-0 | – | 2 | 10% | 7-0 | 0.7 |
 | Trevor Etienne | RB | 10 | NO | 16% | 2 | 7% | 2-9-0 | 2.5 | 3 | 9% | 1-0 | 3.0 |
+| Trevor Etienne | RB | 11 | BAL | 15% | 1 | 3% | 1-7-0 | -3.0 | 6 | 17% | 29-0 | 4.6 |
 | Xavier Legette | WR | 1 | CHI | 53% | 2 | 6% | 0-0-0 | 10.0 | 0 | 0% | 0-0 | 0.0 |
 | Xavier Legette | WR | 2 | ATL | 50% | 4 | 12% | 2-64-0 | 19.2 | 0 | 0% | 0-0 | 8.4 |
 
@@ -419,12 +429,13 @@ Game by game, 2026: gained (expected vs that defense; * = its rating rests on un
 
 | wk | opp | rush | YPC | success | EPA/rush | db | EPA/db | YPA |
 |---|---|---|---|---|---|---|---|---|
-| 1 | CHI | 19 | 4.79 (4.17) | 47% (40%) | -0.10 (0.00) | 43 | 0.29 (0.00) | 9.50 (8.04) |
-| 2 | ATL | 20 | 3.30 (4.42) | 40% (41%) | -0.16 (-0.07) | 39 | 0.28 (-0.01) | 7.97 (6.63) |
-| 3 | CLE | 24 | 4.08 (4.47) | 29% (42%) | -0.14 (-0.03) | 50 | -0.10 (0.06) | 6.19 (6.89) |
-| 4 | DET | 25 | 4.96 (3.79) | 44% (38%) | -0.00 (-0.07) | 45 | 0.38 (0.08) | 8.02 (6.93) |
-| 6 | PHI | 30 | 4.00 (4.01) | 50% (42%) | 0.14 (-0.01) | 43 | 0.08 (0.09) | 7.03 (6.97) |
-| 7 | TB | 16 | 4.00 (3.49) | 38% (35%) | 0.07 (-0.15) | 38 | -0.32 (-0.12) | 6.77 (6.59) |
-| 8 | GB | 23 | 3.57 (3.83) | 35% (45%) | -0.09 (-0.05) | 47 | -0.14 (-0.01) | 5.10 (6.43) |
-| 9 | DEN | 19 | 4.37 (4.01) | 37% (35%) | 0.00 (-0.04) | 43 | 0.16 (-0.08) | 7.08 (6.04) |
-| 10 | NO | 31 | 3.10 (4.48) | 32% (47%) | 0.05 (-0.00) | 34 | -0.18 (0.11) | 6.67 (7.93) |
+| 1 | CHI | 19 | 4.79 (4.35) | 53% (43%) | -0.08 (0.01) | 43 | 0.26 (-0.03) | 9.50 (7.70) |
+| 2 | ATL | 20 | 3.30 (4.45) | 35% (45%) | -0.17 (-0.03) | 39 | 0.29 (-0.02) | 7.97 (6.64) |
+| 3 | CLE | 24 | 4.08 (4.47) | 29% (45%) | -0.12 (-0.02) | 50 | -0.10 (0.05) | 6.19 (6.93) |
+| 4 | DET | 25 | 4.96 (3.69) | 52% (40%) | 0.02 (-0.05) | 45 | 0.36 (0.11) | 8.02 (7.00) |
+| 6 | PHI | 30 | 4.00 (3.84) | 50% (40%) | 0.16 (-0.02) | 43 | 0.08 (0.08) | 7.03 (6.81) |
+| 7 | TB | 16 | 4.00 (3.49) | 50% (41%) | 0.09 (-0.08) | 38 | -0.32 (-0.10) | 6.77 (6.80) |
+| 8 | GB | 23 | 3.57 (3.88) | 35% (46%) | -0.09 (-0.04) | 47 | -0.13 (-0.02) | 5.10 (6.36) |
+| 9 | DEN | 19 | 4.37 (4.31) | 37% (38%) | 0.03 (-0.01) | 43 | 0.14 (-0.08) | 7.08 (6.20) |
+| 10 | NO | 31 | 3.10 (4.50) | 29% (47%) | 0.05 (-0.01) | 34 | -0.14 (0.10) | 6.67 (7.93) |
+| 11 | BAL | 34 | 4.44 (3.54) | 44% (44%) | 0.06 (-0.03) | 33 | 0.06 (0.08) | 8.47 (7.54) |
