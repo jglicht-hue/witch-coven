@@ -1,2 +1,2 @@
 generated_at,season,last_week_in_data,games_in_data,next_unplayed_week,pbp_last_updated,pressure_data_games,schedule_source,unit_prior_games,scoring
-2026-11-17 14:51 UTC,2026,10,150,11,2026-11-17 09:48:51 EST,137,nflverse-data games.csv,3,sack=1; interception=2; fumble_rec=2; safety=4; touchdown=6; blocked_kick=2; blocked_xp=0; def_2pt_ret=2; block_pts_when_returned_for_td=0
+2026-11-24 08:51 CST,2026,11,163,12,2026-11-24 05:02:45 EST,151,nflverse-data games.csv,3,sack=1; interception=2; fumble_rec=2; safety=4; touchdown=6; blocked_kick=2; blocked_xp=0; def_2pt_ret=2; block_pts_when_returned_for_td=0
