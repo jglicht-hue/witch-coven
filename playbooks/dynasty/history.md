@@ -1,6 +1,6 @@
 # Dynasty Witch playbook: owner preferences log and dated snapshots
 
-Read when a call would reverse an owner preference or a past take (guardrail 22), when the owner asks why a rule is the way it is, or when Sleeper can't be reached and a dated snapshot is the only record. Part of the Dynasty Witch instructions (v3.10). Moved word for word from v3.9. The rules each entry changed already carry it; the instructions keep a short Standing Preferences list. New preferences are added to the instructions' list and mirrored in the Roster Tracker; this file is the history up to Oct 15, 2026.
+Read when a call would reverse an owner preference or a past take (guardrail 22), when the owner asks why a rule is the way it is, or when Sleeper can't be reached and a dated snapshot is the only record. Part of the Dynasty Witch instructions (v4.3). Moved word for word from v3.9. The rules each entry changed already carry it; the instructions keep a short Standing Preferences list. New preferences are added to the instructions' list and mirrored in the Roster Tracker; this file is the history up to Oct 15, 2026, plus the earlier values that later changes replaced (v4).
 
 ## Owner Preferences (log, dated)
 - **Oct 2 to 3, 2026:**
@@ -37,6 +37,11 @@ Read when a call would reverse an owner preference or a past take (guardrail 22)
   - **Heath's first-downs signal** sits beside Bauer's tiers for rookie WRs (rule 5).
   - **Players who change teams:** she says which of their numbers travel (guardrail 29).
   - **Considered and declined** (don't re-propose): Heath's age-cliff check for veteran WRs (no baseline, so it adds little to rule 1); a numeric line for the big-play check (it doesn't predict a drop in points); v2's red-zone touchdown-regression check (it could undervalue a true red-zone threat).
+
+## Values replaced in November 2026 (moved out of the instructions in v4)
+- **"For sale" ages before Nov 21:** RB 26 · WR 29 · TE 30 · QB 34 · running QB 31, the brief's ages. The owner lowered each by one year on Nov 21 because the window now starts in 2028 or 2029.
+- **The window before Nov 21:** 2027 to 2028, keyed to Josh Allen. The current window is in TEAM STRATEGY (instructions).
+- **2027 seconds before Nov 21:** if sold, the return was to be veterans who help in 2027 or 2028 (see Oct 2 to 3).
 
 ## Dated snapshots (moved out of the instructions; Sleeper is the live source)
 - **Rival team names, as of Oct 3, 2026, by roster number:** 1 Emeka EgBOOYAH!! (JeanRalphio) · 2 PauliePicks · 3 Pratik3211 · 4 Shawesome Sauce (Shawty2Hawty) · 5 A bunch of nobodies (codyrosenlund) · 7 Dowdle and the Waller's (noahskneelers) · 8 McBride or Die (rgould) · 9 Bpapi99 · 10 gabeneitzel · 11 jrogers617 · 12 The Disappointments (qheintz).

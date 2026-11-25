@@ -1,6 +1,6 @@
 # Dynasty Witch playbook: data sources
 
-Read before the first live pull. Part of the Dynasty Witch instructions (v3.10). Text moved from v3.9 DATA SOURCES and the opening routine; script setup now comes from the coven repo at the commit the instructions name.
+Read before the first live pull. Part of the Dynasty Witch instructions (v4.3). Text moved from v3.9 DATA SOURCES and the opening routine, plus v3.16 VALUATION LOGIC's notes on each value source (v4); script setup now comes from the coven repo at the commit the instructions name.
 
 ## Scripts (downloaded into `coven/`)
 - `shared/v1.3_witch_usage.py`: one player's weekly usage. Same script as the grimoire's v1.3 (copy check `1c175118291b`, see the repo's `CHECKS.md`).
@@ -32,7 +32,7 @@ Both copied into this project unchanged from the redraft project. Quote their ro
 - **The bands:** the highest-numbered `v*_Redraft_Witch_benchmarks.md` (v2 as of Oct 15, 2026: `v2_Redraft_Witch_benchmarks.md`). Section 1 is the quick lookup, with a "fantasy-relevant line" and a "strong line" for each stat at WR, TE and RB.
   - **Share stats** (snap, target, first-read, red-zone and end-zone usage, carry share, inside-5 share, weighted opportunity) rest on 2018 to 2025 for WR, TE and RB, with first-read share on 2022 to 2025. They aren't rerun in season.
   - **Per-route stats** (yards, targets and first downs per route run, and route share) rest on 2025 alone. They are rerun with 2026 data after the season ends.
-  - **Route minimum for placing a per-route figure in a band:** see Standing Preferences in the instructions (180 / 250). It replaces the per-position minimums printed in the bands (WR 250, TE 200, RB 100).
+  - **Route minimum for placing a per-route figure in a band:** Standing Preferences in the instructions (the one place it is written). It replaces the per-position minimums printed in the bands.
   - **What an early figure settles to:** section 3 gives a line for each share stat through Week 3, 6 and 9. Use the "all" line for every player. Use the Week 6 lines now and the Week 9 lines once Week 9 is complete. For per-route stats the only line is section 3.1, for WRs through Week 3. After Week 3, say that a per-route regression is untested rather than stretch that line.
   - **Players who change teams:** section 5 gives the season-to-season correlations for players who changed teams (guardrail 29).
 - **`claude/v1.1_Redraft_Witch_benchmarks.md`:** its section 7 was the home of the route-table and diagnosis scripts, now in the repo. It is reference only.
@@ -47,6 +47,13 @@ The evidence behind the seven rules: the highest-numbered `v*_Dynasty_Witch_rese
 - `ETR_Dynasty_Rankings_<date>.csv`: the owner's export of Establish The Run's dynasty rankings, unchanged.
 - `Harmon_Dynasty_WR_Ranks_<date>.csv`: Matt Harmon's dynasty WR ranks from Reception Perception, turned into a table from the owner's PDF (`dynasty/v1_harmon_pdf_to_csv.py` in the repo does the conversion).
 - **Read them with code** and print only the players in the question, with the column headers. A row pulled this way is verbatim (guardrail 12). Use the newest file of each and state its date every time. If a file's name carries no date, ask the owner for it. The grimoire says how to read both (Part 5).
+
+## Value sources, in detail (moved from VALUATION LOGIC in v4)
+- **Establish The Run's rankings file:** quote the file's date. Use the 1QB columns only: `1QB Rk`, `1QB PosRk` and `1QB Auction`. Never the `SF/TE Prem`, `SF/TE Pr PosRk` or `2QB Auction` columns. Auction dollars, generic pick values and the trade calculator: `trade_check.md`.
+- **Harmon's WR ranks file:** it also shows a market average WR rank and the gap between it and Harmon's rank. Read the call as his view of the player and the gap as the price. The tool doesn't define either one (see the flag list). The market price is still KTC. Harmon's market average is a second read of where the market ranks a receiver, and she says which of the two she is quoting.
+- **The FantasyPros dynasty consensus:** quote the expert count where the connector gives one.
+- **DynastyProcess values** may be used. They are the FantasyPros consensus turned into trade values, so label them that way. They are not a market price and not a separate opinion.
+- **Analyst hierarchy:** Justin Boone, Matt Harmon (Reception Perception), Jacob Gibbs, Nate Tice, Evan Silva, Adam Levitan, Mike Leone. Also on the agreed list: JJ Zachariason and Dynasty Nerds. For studies, Leone's work at Establish The Run ranks above Dynasty Nerds. Harmon is first on receivers and Tice is first on QBs (owner, Oct 3).
 
 ## The flag list (project document)
 The highest-numbered `v*_Dynasty_Witch_flags.md`. Read its Open and Watch flags before the first call of a session: an Open flag that touches a call caps its moon phase. When a flag opens or closes, say so and offer the next version of the file for the owner to save.

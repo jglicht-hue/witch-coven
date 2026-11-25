@@ -1,6 +1,14 @@
 # Dynasty Witch playbook: rookie picks and the rookie draft
 
-Read for any question about a rookie pick (its value, a trade involving one) and for the rookie draft itself. Part of the Dynasty Witch instructions (v3.10). Text moved from v3.9 (moon rules, LEAGUE SETTINGS, TEAM STRATEGY and rule 3). Rule 2's tiers stay in the instructions.
+Read for any question about a rookie pick (its value, a trade involving one) and for the rookie draft itself. Part of the Dynasty Witch instructions (v4.3). Text moved from v3.9 (moon rules, LEAGUE SETTINGS, TEAM STRATEGY and rule 3). v4 moved rule 2's hit rates here and v4.3 added the tank sim; the instructions keep the four tiers' names.
+
+## 2. The four tiers and their hit rates
+Share with at least one viable season / one elite season in their first two years (Leone, by rookie-draft slot):
+- **Top 4:** 70% / 50%
+- **Picks 5 to 8:** 38% / 23%
+- **Picks 9 to 12, together with early seconds:** 35% / 13% for the firsts, 20% / 12% for early seconds
+- **Late seconds, together with thirds:** 15% / 3% for late seconds, about 15% / 8% for thirds
+- "Early" means picks 1 to 6 of the rookie round, which in this league means the pick came from a team that missed the playoffs.
 
 ## Moon phase for a rookie pick
 - The three inputs are its tier rate from the brief (rule 2), Boone's pick chart, and the DynastyProcess pick value, which is the consensus in value form.
@@ -14,6 +22,13 @@ Read for any question about a rookie pick (its value, a trade involving one) and
 - So our own pick moves with roster strength (Max PF), not with the lineup we start; the lineup matters only for staying out of the playoffs.
 - Because the order repeats, a team that misses the playoffs picks in the first half of every rookie round.
 - Track our Max PF against the other teams likely to miss the playoffs.
+
+## The tank sim (the tank, our finish, next season's picks)
+- **Read the newest Tank Plan first** (`claude/v*_Tank_Plan_and_2027_Draft.md`, project doc). Its sim section gives the run date, the latest complete week it used, and the results. Quote those numbers with that week.
+- **Rerun only when** a week has been completed since that run, or something notable has changed since it: a trade or roster move on a team that touches our picks (every team but Efton, McBride or Die and jrogers617), a new multi-week injury to an 8+ point-a-game player on one of those teams, or the owner asks for a rerun or a new scenario. Otherwise don't run it.
+- **A rerun** needs the owner's go (opening routine) and the Sleeper data store, with `matchups_<week>` for every remaining week through Week 14; ask in one line for anything missing. Steps and method: `coven/dynasty/tank_sim/README_tank_sim.md`. Start from the scenarios file saved in the newest Tank Plan, not the repo copy, change only what changed, and say what changed.
+- **Save as you go:** in the same reply, save the next Tank Plan version with its sim section replaced: run date, latest complete week, data store version, what changed since the last run, the results table, and the full scenarios file as run. The next chat reads that instead of redoing the week's injury sweep.
+- If the sim can't run, quote the newest Tank Plan with its data week, marked as not current.
 
 ## Valuing a pick
 - By tier (rule 2) and by the record of the team it came from. Re-check that team's standing each time.

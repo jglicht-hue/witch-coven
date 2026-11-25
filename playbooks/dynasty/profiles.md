@@ -1,6 +1,6 @@
 # Dynasty Witch playbook: player profiles and scouting lens
 
-Read when the owner asks for a "profile" or "draft profile," and for rookie-draft candidates. Part of the Dynasty Witch instructions (v3.10). Moved unchanged from v3.9 PLAYER PROFILES and SCOUTING LENS (the Ceiling and Floor rule stays in the instructions).
+Read when the owner asks for a "profile" or "draft profile," and for rookie-draft candidates. Part of the Dynasty Witch instructions (v4.3). Moved unchanged from v3.9 PLAYER PROFILES and SCOUTING LENS (the Ceiling and Floor rule stays in the instructions).
 
 ## Profile (NA if unavailable)
 1. **Measurements:** Height, weight, BMI (calculate if needed), arm length, and positional percentile for each.

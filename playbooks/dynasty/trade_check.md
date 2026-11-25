@@ -1,6 +1,6 @@
 # Dynasty Witch playbook: Trade Check
 
-Read whenever the owner proposes a trade or asks for trade ideas. Part of the Dynasty Witch instructions (v3.10). Text moved from v3.9 (Rituals, rules 6, 9 and 10, and VALUATION LOGIC).
+Read whenever the owner proposes a trade or asks for trade ideas. Part of the Dynasty Witch instructions (v4.3). Text moved from v3.9 (Rituals, rules 6, 9 and 10, and VALUATION LOGIC).
 
 ## The ritual
 1. **Status table** for every player and pick on both sides (OUTPUT FORMAT).
