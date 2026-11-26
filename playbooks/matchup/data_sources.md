@@ -37,9 +37,11 @@ Read this before the first live pull in a chat (anything beyond the cached docs)
   Its definitions match the cached docs and the scripts (targets exclude DPIs and
   two-point tries; red zone inside the 20). Weighted opportunity takes red-zone
   carries and targets from `v1_witch_redzone.py` and all carries and targets from
-  nflverse weekly stats. The doc leaves out first-read share; this project doesn't
-  pull FTN charting, so don't compute it. Any mention of the Redraft Witch's
-  guardrails, grimoire or usage script belongs to her project; don't look for them.
+  nflverse weekly stats. First-read share (WR and TE) comes from
+  `shared/v1.3_witch_usage.py` (see "First-read share" below); its band and
+  carry-forward fits go in sections 1 and 2 once the doc has them (v1.1). Any
+  mention of the Redraft Witch's guardrails or grimoire belongs to her project;
+  don't look for them.
 - Pro-Football-Reference, full-season points allowed by position:
   pro-football-reference.com/years/{YEAR}/fantasy-points-against-{QB|RB|WR|TE}.htm
   Standard scoring; add receptions for PPR. Includes WR/TE rushing, so it runs
@@ -139,14 +141,34 @@ Read this before the first live pull in a chat (anything beyond the cached docs)
     red-zone counts; the DPI script's `rz` column counts DPIs drawn inside the 20.
   - The DPI script prints every DPI it couldn't match. If one involves the player
     or a named alternative, name it and count it by hand from the description.
-  - Red-zone samples are small: under ~20 looks, the share is a pattern, not a rate
-    (ground rules).
+  - Red-zone samples are small: under ~20 looks, say "not enough red-zone looks to
+    judge yet (X of 20)" (ground rules).
   - DPI committed by a defense is in neither script. Count it from play-by-play
     (`penalty_type` containing "Defensive Pass Interference", grouped by
     `defteam`, regular season), and check that the league total matches the DPI
     script's header count.
-  - The scripts' notes mention `v1.3_witch_usage.py`, the grimoire and a
-    "guardrail 19". Those belong to the Redraft Witch's project; don't look for them.
+  - The scripts' notes mention the grimoire and a "guardrail 19". Those belong to
+    the Redraft Witch's project; don't look for them.
+- First-read share (WR and TE): `coven/shared/v1.3_witch_usage.py`, in the same
+  clone. It reads FTN charting through nflverse (`ftn_charting_{season}.csv`); a
+  first read is `read_thrown == 1`.
+  - Run: `python3 coven/shared/v1.3_witch_usage.py "Name"` from the same working
+    folder as the other scripts, so `witch_cache` is shared. Names as in nflverse
+    weekly stats. Add `--team XXX` if the name is ambiguous.
+  - Use its `fr_tgt` and `team_fr` columns (his first-read targets and the team's,
+    week by week) and its summary line (first-read targets as a share of his
+    targets and of the team's first-read targets). Compute a window's share as
+    total over total, never an average of weekly shares.
+  - Weeks: FTN charting can lag a few days behind play-by-play. Say which weeks the
+    output covers and name any completed week it's missing.
+  - Routes: the script also prints routes from PFF recap tables. Per-route stats
+    still come from `per_route.py`; if the two disagree on a week's routes, say so.
+  - Bands (2022–2025 seasons, 8+ games; `shared/benchmarks_v2/bands.py`): WR 30%+,
+    22–30%, 15–22%, under 15%; TE 20%+, 14–20%, 8–14%, under 8%. Grade after the
+    carry-forward fit from the benchmarks doc. If the doc has no first-read fit yet,
+    place the raw share against these cut points and say "no carry-forward fit on
+    file yet."
+  - Not used for RBs.
 - QB splits and grades: PFF (pressure, blitz, play-action, time in pocket,
   turnover-worthy plays, pass-block and pass-rush grades), Next Gen Stats (time to
   throw, aggressiveness, CPOE), rbsdm.com (EPA and CPOE by QB), Fantasy Points, FTN,
