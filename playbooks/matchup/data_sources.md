@@ -142,7 +142,7 @@ Read this before the first live pull in a chat (anything beyond the cached docs)
   - The DPI script prints every DPI it couldn't match. If one involves the player
     or a named alternative, name it and count it by hand from the description.
   - Red-zone samples are small: under ~20 looks, say "not enough red-zone looks to
-    judge yet (X of 20)" (ground rules).
+    confidently judge yet (X of 20)" (ground rules).
   - DPI committed by a defense is in neither script. Count it from play-by-play
     (`penalty_type` containing "Defensive Pass Interference", grouped by
     `defteam`, regular season), and check that the league total matches the DPI
