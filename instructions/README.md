@@ -6,8 +6,8 @@ When a new version is approved and pasted, its copy is added here with the versi
 
 | Project | Current file | Saved |
 |---|---|---|
-| Redraft Witch | `v2.13_Redraft_Witch.md` (scripts and playbooks from a clone at commit `201469b`, after the owner's go) | 2026-10-22 |
-| Dynasty Witch | `v4.3_Dynasty_Witch.md` (scripts, playbooks and tank sim from a clone at commit `a764e47`, after the owner's go) | 2026-11-26 |
-| Matchup Witch | `v2.7_Matchup_Witch.md` (playbooks in `playbooks/matchup/`, commit `00e53ad`) | 2026-10-20 |
+| Redraft Witch | `v2.18_Redraft_Witch.md` (scripts and playbooks from a clone at commit `37b67ea`, after the owner's go) | 2026-11-27 |
+| Dynasty Witch | `v4.6_Dynasty_Witch.md` (scripts, playbooks and tank sim from a clone at commit `38dd42a`, after the owner's go) | 2026-11-27 |
+| Matchup Witch | `v2.14_Matchup_Witch.md` (scripts and playbooks from a clone at commit `38dd42a`, after the owner's go) | 2026-11-27 |
 | DST Warlock | `v2.1_DST_Warlock.md` | 2026-10-20 |
 | Kicker Wizerd | `v2.2_Kicker_Wizerd.md` (large data files read from the `kicker-data` branch, not the project) | 2026-10-27 |
