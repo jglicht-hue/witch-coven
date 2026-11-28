@@ -10,10 +10,8 @@ Read this for any TE in a matchup question (the player or an alternative). It is
 - Route participation vs snap share, week by week. Flag weeks where he was on the
   field but ran few routes (blocking, personnel packages, staying in to protect
   against the blitz). Report YPRR, TPRR, first downs per route and route share this
-  season vs last, with routes run, and say when a rate rests on fewer than 180
-  routes. Grade each against the TE bands in the benchmarks doc (section 3.2):
-  2025-only bands on 48 TEs, so call any band with fewer than 10 players
-  directional.
+  season vs last, with routes run, and grade each with the benchmark table.
+  Its per-route percentiles rest on 48 TEs from 2025, so call them directional.
 - His results against man vs zone coverage (catch %, yards per target, TDs), and
   how that lines up with the defense's man/zone mix and with how the defense
   performs in each.

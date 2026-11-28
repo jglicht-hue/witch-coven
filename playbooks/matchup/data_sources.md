@@ -26,22 +26,11 @@ Read this before the first live pull in a chat (anything beyond the cached docs)
   grades and win rates.
   The sources below are fallbacks for anything the docs don't cover, and for games
   after a doc's "last game" date.
-- Benchmarks: `claude/v1_Matchup_Witch_benchmarks.md`, trimmed from the Redraft
-  Witch's `v2_Redraft_Witch_benchmarks.md` (Oct 15, 2026). It holds:
-  - section 1, quick-lookup lines for WR, TE and RB usage, plus the weighted-
-    opportunity formula;
-  - section 2, carry-forward fits at Weeks 3, 6 and 9, and the WR per-route fit;
-  - section 3, the 2025 per-route bands for WR, TE and RB;
-  - section 4, the own-target red-zone regression flag (not used in this project);
-  - section 5, what travels when a player changes teams.
-  Its definitions match the cached docs and the scripts (targets exclude DPIs and
-  two-point tries; red zone inside the 20). Weighted opportunity takes red-zone
-  carries and targets from `v1_witch_redzone.py` and all carries and targets from
-  nflverse weekly stats. First-read share (WR and TE) comes from
-  `shared/v1.3_witch_usage.py` (see "First-read share" below); its band and
-  carry-forward fits go in sections 1 and 2 once the doc has them (v1.1). Any
-  mention of the Redraft Witch's guardrails or grimoire belongs to her project;
-  don't look for them.
+- Benchmarks: grading comes from the benchmark table (`v1_witch_bench.py`, see
+  "Benchmark table" below), not from the bands or carry-forward fits in
+  `claude/v1_Matchup_Witch_benchmarks.md`. Use that doc only for section 5, what
+  travels when a player changes teams. Any mention of the Redraft Witch's guardrails
+  or grimoire belongs to her project; don't look for them.
 - Pro-Football-Reference, full-season points allowed by position:
   pro-football-reference.com/years/{YEAR}/fantasy-points-against-{QB|RB|WR|TE}.htm
   Standard scoring; add receptions for PPR. Includes WR/TE rushing, so it runs
@@ -103,8 +92,7 @@ Read this before the first live pull in a chat (anything beyond the cached docs)
     lot of DPI, say that his TPRR understates how often he's thrown at.
   - Coverage: 2025 and 2026 only. Expect a Sunday game's table and stats within a day
     or two (the lag was not measured). Name any week that is missing.
-  - Benchmark bands for all three positions, and the Weeks 1–3 WR per-route fit,
-    are in the benchmarks doc (above).
+  - Per-route percentiles come from the benchmark table (below).
   - If the script fails, follow the guide's section 7. If the shell can't reach
     GitHub, fetch the PFF table by page fetch at
     `https://llmnj.github.io/html_tests/{season}_{week}_{Team_Name}.html`. If routes
@@ -149,26 +137,39 @@ Read this before the first live pull in a chat (anything beyond the cached docs)
     script's header count.
   - The scripts' notes mention the grimoire and a "guardrail 19". Those belong to
     the Redraft Witch's project; don't look for them.
-- First-read share (WR and TE): `coven/shared/v1.3_witch_usage.py`, in the same
-  clone. It reads FTN charting through nflverse (`ftn_charting_{season}.csv`); a
-  first read is `read_thrown == 1`.
-  - Run: `python3 coven/shared/v1.3_witch_usage.py "Name"` from the same working
-    folder as the other scripts, so `witch_cache` is shared. Names as in nflverse
-    weekly stats. Add `--team XXX` if the name is ambiguous.
-  - Use its `fr_tgt` and `team_fr` columns (his first-read targets and the team's,
-    week by week) and its summary line (first-read targets as a share of his
-    targets and of the team's first-read targets). Compute a window's share as
-    total over total, never an average of weekly shares.
-  - Weeks: FTN charting can lag a few days behind play-by-play. Say which weeks the
-    output covers and name any completed week it's missing.
-  - Routes: the script also prints routes from PFF recap tables. Per-route stats
-    still come from `per_route.py`; if the two disagree on a week's routes, say so.
-  - Bands (2022–2025 seasons, 8+ games; `shared/benchmarks_v2/bands.py`): WR 30%+,
-    22–30%, 15–22%, under 15%; TE 20%+, 14–20%, 8–14%, under 8%. Grade after the
-    carry-forward fit from the benchmarks doc. If the doc has no first-read fit yet,
-    place the raw share against these cut points and say "no carry-forward fit on
-    file yet."
-  - Not used for RBs.
+- Benchmark table: `coven/shared/bench/v1_witch_bench.py`, in the same clone.
+  - Run: `python3 coven/shared/bench/v1_witch_bench.py "Name"`, plus `--since N` for
+    the current-role window (N = its first week) and `--team XXX` if the name is
+    ambiguous. Run it from the same working folder as the other scripts, so
+    `witch_cache` is shared. Names as in nflverse weekly stats.
+  - It prints a markdown table (stat, value, percentile; a second pair of columns for
+    the window) and one italic fine-print line. Paste both as printed.
+  - Stats: WR and TE: snap share, route share, target share, first-read share (FTN
+    charting, `read_thrown == 1`), red-zone target share, end-zone targets per game,
+    targets, yards and first downs per route. RB: snap share, route share, carry
+    share, red-zone and inside-5 carry share, target share, weighted opportunity per
+    game (1.28 × red-zone carries + 2.39 × red-zone targets + 0.47 × other carries +
+    1.54 × other targets), and the three per-route stats.
+  - Percentile: among full seasons at his position with 8+ games, 2018–2025
+    (first-read share 2022–2025), after adjusting his figure for the games it rests
+    on. The adjustment comes from how well a player's first n games predicted the
+    rest of his season (`bench_fit.csv`), so a hot 4-game stretch isn't ranked like a
+    full season. Route share uses 2025 seasons and snap share's adjustment.
+    Per-route stats rank among 2025 seasons with WR 250+, TE 200+ or RB 100+ routes
+    (93 WRs, 48 TEs, 65 RBs), unadjusted.
+  - Reading it: a typical top-24 WR sits near the 90th percentile in target share, a
+    typical top-12 TE near the 93rd, and a typical top-24 RB near the 86th in carry
+    share.
+  - Minimums, in the cell instead of a percentile: 20 targets for the target-based
+    stats, 20 carries for carry share, 20 team red-zone looks for red-zone and
+    inside-5 shares, 20 touches for weighted opportunity, and the route minimum for
+    per-route stats.
+  - FTN charting can lag a few days behind play-by-play; the fine print names the
+    weeks it covers. Name any completed week it's missing.
+  - Its routes come from the same PFF tables as `per_route.py`. If the two disagree
+    on a week's routes, say so.
+  - The reference tables (`bench_fit.csv`, `bench_pct.csv`) are rebuilt with
+    `build_ref.py` from the benchmarks_v2 data; don't rebuild them in a chat.
 - QB splits and grades: PFF (pressure, blitz, play-action, time in pocket,
   turnover-worthy plays, pass-block and pass-rush grades), Next Gen Stats (time to
   throw, aggressiveness, CPOE), rbsdm.com (EPA and CPOE by QB), Fantasy Points, FTN,

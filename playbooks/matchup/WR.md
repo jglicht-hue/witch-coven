@@ -10,12 +10,10 @@ Read this for any WR in a matchup question (the player or an alternative). It is
   last season and flag changes.
 - Route participation vs snap share, week by week. Flag weeks where he was on the
   field but ran few routes (blocking, personnel packages). Report YPRR, TPRR and
-  first downs per route this season vs last, with routes run, and say when a rate
-  rests on fewer than 180 routes. Grade each against the WR bands in the benchmarks
-  doc (section 3.1). When YPRR and first downs per route land in different bands,
-  look at how the yards were made (a few long gains, or catches that move the
-  chains). For a Weeks 1–3 figure, also show where it usually ends up over the rest
-  of the season (the per-route fit, benchmarks doc section 2.1).
+  first downs per route this season vs last, with routes run, and grade each with
+  the benchmark table. When YPRR and first downs per route sit far apart in
+  percentile, look at how the yards were made (a few long gains, or catches that
+  move the chains).
 - Classify his role: X/outside, Z/flanker, slot, or deep threat. Say whether he
   moves around or stays in one spot, and whether the role changed this season.
 - His results against man vs zone coverage (catch %, yards per target, TDs), and

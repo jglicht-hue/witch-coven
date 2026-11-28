@@ -6,10 +6,9 @@ Read this for any RB in a matchup question (the player or an alternative). It is
 - Role: snap share, carry share, share of carries inside the 20, inside the 10 and
   inside the 5, route participation, target share, TPRR, YPRR and first downs per
   route (with routes run), weighted opportunity per game, and whether he plays 3rd
-  downs and the two-minute drill. Grade them against the RB bands in the benchmarks
-  doc. Lean on weighted opportunity, carry share and route share; quote YPRR, TPRR
-  and first downs per route but say they are a weak signal for backs (doc section
-  3.3). Flag any committee split and who else gets work. Use this season first;
+  downs and the two-minute drill. Grade them with the benchmark table. Lean on weighted opportunity, carry share
+  and route share; quote YPRR, TPRR and first downs per route but say they are a
+  weak signal for backs. Flag any committee split and who else gets work. Use this season first;
   flag changes from last season.
 - Run scheme profile: how his team runs and how he performs in each type.
   - Scheme: zone (inside/outside) vs gap/power/counter. Search for scheme

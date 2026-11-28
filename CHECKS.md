@@ -53,3 +53,9 @@ It used nflverse play-by-play for 2011–2025, written to a separate folder.
 - It ran cleanly with the repo's 00, 08, 09 and 09n: self-test passed. On Oct 20 there were no Week 8 lines yet, so it correctly wrote nothing.
 - Its three hand-copied XP/FG dependence values match `models/points_gamma.csv` from the Oct 19 pipeline run exactly.
 - Forced to project Week 7 (test copy only), it wrote all 28 kicker-games. These matched the Oct 19 pipeline's Week 7 look-ahead within 0.18 points (mean 0.04); the largest gap follows an overnight line move (ATL implied total 23.0 → 23.75).
+
+### Benchmark table (added Nov 28)
+`shared/bench/v1_witch_bench.py`, `build_ref.py`, `bench_fit.csv`, `bench_pct.csv`:
+- Data: benchmarks_v2 `build.py` and `perroute.py` rerun from fresh nflverse 2018–2025 files and 2025 PFF tables. `carry.py`'s Week 9 regulars fits came out exactly as the Matchup chat of Nov 26 used them: WR target share 0.026 + 0.85x (Williams 16.6% → 16.7%), TE target share 0.011 + 0.97x (Fannin 19.6% → 20.1%), RB snap share 0.041 + 0.87x (Gordon 61% → 57%), RB carry share −0.008 + 0.95x (53% → 50%).
+- `build_ref.py`'s fits are by games played (n = 2–11) instead of by week; its n = 9 WR target-share fit (0.027 + 0.85x) matches carry.py's Week 9 fit.
+- `v1_witch_bench.py` on Williams, Fannin and Gordon (Nov 28) reproduced the chat's season figures: Williams 16.6% target share, 67% snaps, 277 routes, 1.62 / 0.188 / 0.076 per route; Fannin 19.6%, 86%, 1.63 / 0.186 / 0.072; Gordon 61% snaps, 53% carry share, 27 of 48 red-zone carries, 10 of 15 inside the 5, 11.5 weighted opportunity per game. Williams' first-read share (16.2% season, 21.4% Weeks 8–11) matches `v1.3_witch_usage.py`.
