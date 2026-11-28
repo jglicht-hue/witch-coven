@@ -8,7 +8,8 @@ Percentile: where his figure ranks among full seasons by players at his position
 games said about the rest of his season), so a hot 4-game stretch isn't ranked as if it were a full season.
 Route share ranks among 2025 seasons with 8+ games (adjusted with snap share's fit); per-route stats among 2025 seasons with WR 250+, TE 200+ or RB 100+
 routes, unadjusted, and only once he has the route minimum (180 routes through Week 7, 250 from Week 8).
-Below a minimum the cell reads "not enough ... to confidently judge yet (X of N)".
+Below a minimum the figure and percentile still show, marked with a dagger, and a line under the table says
+"not enough ... to confidently judge yet (X of N)".
 Reads bench_fit.csv and bench_pct.csv from this folder. Downloads are cached in ./witch_cache (nflverse 6 h, PFF 7 days),
 the same cache as the other coven scripts."""
 import argparse, os, re, sys, time, urllib.request
@@ -124,7 +125,7 @@ def pctile(stat, v, n=None, regular=True):
     return f"{p}{'th' if 10 <= p % 100 <= 20 else {1: 'st', 2: 'nd', 3: 'rd'}.get(p % 10, 'th')}"
 
 
-def short(word, have, need): return f"not enough {word} to confidently judge yet ({have:.0f} of {need})"
+def flag(word, have, need): return None if have >= need else (word, have, need)
 
 
 def column(d):
@@ -133,32 +134,32 @@ def column(d):
         D = d[den].sum()
         if not D: return None
         v = d[num].sum() / D
-        return (v, pctile(stat, v, n, reg) if cnt >= need else short(word, cnt, need))
-    out["Snap share"] = (d.snap.mean(), pctile("snap", d.snap.mean(), n, reg))
+        return (v, pctile(stat, v, n, reg), flag(word, cnt, need))
+    out["Snap share"] = (d.snap.mean(), pctile("snap", d.snap.mean(), n, reg), None)
     dr = d[d.routes.notna()]
     if len(dr) and dr.tm_routes.sum():
-        out["Route share"] = (dr.routes.sum() / dr.tm_routes.sum(), pctile("rsh", dr.routes.sum() / dr.tm_routes.sum(), len(dr), reg))
+        out["Route share"] = (dr.routes.sum() / dr.tm_routes.sum(), pctile("rsh", dr.routes.sum() / dr.tm_routes.sum(), len(dr), reg), None)
     T, C = d.tgt.sum(), d.car.sum()
     if pos in ("WR", "TE"):
         out["Target share"] = share("tgt_sh", "tgt", "tm_tgt", "targets", T)
         dc = d[d.tm_fr.notna()]
         if len(dc) and dc.tm_fr.sum():
             v = dc.fr.sum() / dc.tm_fr.sum(); tc = dc.tgt.sum()
-            out["First-read share"] = (v, pctile("fr_sh", v, len(dc), reg) if tc >= 20 else short("targets", tc, 20))
+            out["First-read share"] = (v, pctile("fr_sh", v, len(dc), reg), flag("targets", tc, 20))
         out["Red-zone target share"] = share("rz_tgt_sh", "rz_tgt", "tm_rz_tgt", "red-zone looks", d.tm_rz_tgt.sum())
-        out["End-zone targets per game"] = (d.ez.sum() / n, pctile("ezpg", d.ez.sum() / n, n, reg) if T >= 20 else short("targets", T, 20))
+        out["End-zone targets per game"] = (d.ez.sum() / n, pctile("ezpg", d.ez.sum() / n, n, reg), flag("targets", T, 20))
     else:
         out["Carry share"] = share("car_sh", "car", "tm_car", "carries", C)
         out["Red-zone carry share"] = share("rz_car_sh", "rz_car", "tm_rz_car", "red-zone looks", d.tm_rz_car.sum())
         out["Inside-5 carry share"] = share("i5_sh", "i5", "tm_i5", "red-zone looks", d.tm_rz_car.sum())
         out["Target share"] = share("tgt_sh", "tgt", "tm_tgt", "targets", T)
         wo = (1.28 * d.rz_car.sum() + 2.39 * d.rz_tgt.sum() + 0.47 * (C - d.rz_car.sum()) + 1.54 * (T - d.rz_tgt.sum())) / n
-        out["Weighted opportunity per game"] = (wo, pctile("wo", wo, n, reg) if T + C >= 20 else short("touches", T + C, 20))
+        out["Weighted opportunity per game"] = (wo, pctile("wo", wo, n, reg), flag("touches", T + C, 20))
     R = dr.routes.sum() if len(dr) else 0
     if R:
         for lab, stat, v in (("Targets per route", "tprr", dr.tgt.sum() / R), ("Yards per route", "yprr", dr.yds.sum() / R),
                              ("First downs per route", "fdrr", dr.fd.sum() / R)):
-            out[lab] = (v, pctile(stat, v) if R >= route_min else short("routes", R, route_min))
+            out[lab] = (v, pctile(stat, v), flag("routes", R, route_min))
     return out, n, R
 
 
@@ -170,15 +171,23 @@ cols = [("Season", df)]
 if a.since: cols.append((f"Wks {a.since}–{int(df.wk.max())}", df[df.wk >= a.since]))
 res = [(lab, *column(d), d) for lab, d in cols]
 wk = lambda d: f"Wks {int(d.wk.min())}–{int(d.wk.max())}" if len(d) else "no games"
-print(f"**{full} ({pos})** — {res[0][2]} games, {wk(df)}" + (f"; window {res[1][2]} games" if a.since else ""))
-hdr = "| Stat | " + " | ".join(f"{lab} | Percentile" for lab, *_ in res) + " |"
-print(hdr); print("|" + "---|" * (1 + 2 * len(res)))
+print(f"**{full} ({pos})** — {res[0][2]} games" + (f"; window {res[1][2]} games" if a.since else ""))
+print("| Stat | " + " | ".join(lab if lab != "Season" else f"Season ({wk(df)})" for lab, *_ in res) + " |")
+print("|" + "---|" * (1 + len(res)))
+notes = {}
 for stat in res[0][1]:
     cells = []
     for lab, out, n, R, d in res:
         v = out.get(stat)
-        cells += ["–", "–"] if v is None else [FMT[stat].format(v[0]), v[1] or "–"]
+        if v is None: cells.append("–"); continue
+        cell = FMT[stat].format(v[0]) + (f" ({v[1]})" if v[1] else "")
+        if v[2]:
+            cell += "†"; part = f"{'season' if lab == 'Season' else lab} {v[2][1]:.0f} of {v[2][2]}"
+            notes.setdefault(v[2][0], [])
+            if part not in notes[v[2][0]]: notes[v[2][0]].append(part)
+        cells.append(cell)
     print(f"| {stat} | " + " | ".join(cells) + " |")
+if notes: print("\n" + "\n".join(f"† Not enough {w} to confidently judge yet: {', '.join(p)}." for w, p in notes.items()))
 miss = df[(df.snap.notna()) & df.routes.isna()].wk.tolist()
 fr_note = f" First-read share from FTN charting, weeks {sorted(int(w) for w in df[df.tm_fr.notna()].wk)}." if pos != "RB" else ""
 print(f"\n_Percentile among {pos} seasons with 8+ games, adjusted for games played; route share against 2025, per-route stats against 2025 "

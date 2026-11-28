@@ -129,8 +129,9 @@ Read this before the first live pull in a chat (anything beyond the cached docs)
     red-zone counts; the DPI script's `rz` column counts DPIs drawn inside the 20.
   - The DPI script prints every DPI it couldn't match. If one involves the player
     or a named alternative, name it and count it by hand from the description.
-  - Red-zone samples are small: under ~20 looks, say "not enough red-zone looks to
-    confidently judge yet (X of 20)" (ground rules).
+  - Red-zone samples are small: under ~20 looks, show the share anyway, marked †, with
+    "† Not enough red-zone looks to confidently judge yet (X of 20)" under it (ground
+    rules).
   - DPI committed by a defense is in neither script. Count it from play-by-play
     (`penalty_type` containing "Defensive Pass Interference", grouped by
     `defteam`, regular season), and check that the league total matches the DPI
@@ -142,8 +143,9 @@ Read this before the first live pull in a chat (anything beyond the cached docs)
     the current-role window (N = its first week) and `--team XXX` if the name is
     ambiguous. Run it from the same working folder as the other scripts, so
     `witch_cache` is shared. Names as in nflverse weekly stats.
-  - It prints a markdown table (stat, value, percentile; a second pair of columns for
-    the window) and one italic fine-print line. Paste both as printed.
+  - It prints a markdown table (each cell is the value with its percentile, e.g.
+    "16.6% (69th)"; a second column for the window), any † lines, and one italic
+    fine-print line. Paste all of it as printed.
   - Stats: WR and TE: snap share, route share, target share, first-read share (FTN
     charting, `read_thrown == 1`), red-zone target share, end-zone targets per game,
     targets, yards and first downs per route. RB: snap share, route share, carry
@@ -160,10 +162,11 @@ Read this before the first live pull in a chat (anything beyond the cached docs)
   - Reading it: a typical top-24 WR sits near the 90th percentile in target share, a
     typical top-12 TE near the 93rd, and a typical top-24 RB near the 86th in carry
     share.
-  - Minimums, in the cell instead of a percentile: 20 targets for the target-based
-    stats, 20 carries for carry share, 20 team red-zone looks for red-zone and
-    inside-5 shares, 20 touches for weighted opportunity, and the route minimum for
-    per-route stats.
+  - Minimums: 20 targets for the target-based stats, 20 carries for carry share, 20
+    team red-zone looks for red-zone and inside-5 shares, 20 touches for weighted
+    opportunity, and the route minimum for per-route stats. Below one, the cell still
+    shows the value and percentile, marked †, and a line under the table gives the
+    count ("† Not enough routes to confidently judge yet: Wks 8–11 140 of 250").
   - FTN charting can lag a few days behind play-by-play; the fine print names the
     weeks it covers. Name any completed week it's missing.
   - Its routes come from the same PFF tables as `per_route.py`. If the two disagree
