@@ -109,7 +109,9 @@ for w in sorted(set(s.index) | set(me.index)):
 df = pd.DataFrame(rows)
 last_wk = int(pb.week.max()); route_min = 180 if last_wk <= 7 else 250
 
-F = pd.read_csv(os.path.join(H, "bench_fit.csv")); Q = pd.read_csv(os.path.join(H, "bench_pct.csv"))
+REF = next((d for d in (H, os.path.join("coven", "shared", "bench")) if os.path.exists(os.path.join(d, "bench_fit.csv"))), None)
+if REF is None: sys.exit("bench_fit.csv and bench_pct.csv not found: run the script from coven/shared/bench/ or keep it beside them")
+F = pd.read_csv(os.path.join(REF, "bench_fit.csv")); Q = pd.read_csv(os.path.join(REF, "bench_pct.csv"))
 
 
 def pctile(stat, v, n=None, regular=True):
